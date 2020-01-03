@@ -38,7 +38,7 @@ These are some of the terms used in the following sections:
     - CUDS exposes an API that provides CRUD (Create, Read, Update and Delete) functionalities.
     - CUDS is a recursive data structure in that a CUDS object may contain other CUDS objects.
 1. `CUDS class`: represents an ontology class (a concept) and encodes its ontological information.
-1. `CUDS object`: is an instance of a CUDS class represents and ontology individual.
+1. `CUDS object`: is an instance of a CUDS class and represents an ontology individual.
 
 CUDS is the fundamental data type of OSP-core, a framework that establishes interoperability between software systems that are built on top of ontologies.
 
@@ -169,14 +169,14 @@ Said ontology must be in a YAML format as defined by [our specification](https:/
   <summary>Ontology sample</summary>
 
   ```yaml
-    VERSION: "0.0.1"
-    NAMESPACE: "CUBA"
+    version: "0.0.1"
+    namespace: "CUBA"
 
-    ONTOLOGY:
+    ontology:
       ENTITY:
         description: The root of the ontology.
         subclass_of: []
-      
+
       NOTHING:
         description: A class without any individuals.
         subclass_of:
