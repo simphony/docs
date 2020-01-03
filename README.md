@@ -169,14 +169,14 @@ Said ontology must be in a YAML format as defined by [our specification](https:/
   <summary>Ontology sample</summary>
 
   ```yaml
-    VERSION: "0.0.1"
-    NAMESPACE: "CUBA"
+    version: "0.0.1"
+    namespace: "CUBA"
 
-    ONTOLOGY:
+    ontology:
       ENTITY:
         description: The root of the ontology.
         subclass_of: []
-      
+
       NOTHING:
         description: A class without any individuals.
         subclass_of:
@@ -338,10 +338,10 @@ cd osp-core
 python3 setup.py install
 ```
 
-It can also be installed with a different ontology file:
+After installing osp-core, you can install an ontology file using **pico** (**p**ico **i**nstalls **c**uds **o**ntologies):
 
 ```shell
-python3 setup.py install -o <path/to/ontology.yml>
+pico install <path/to/ontology.yml>
 ```
 
 ### Wrapper installation
@@ -351,12 +351,10 @@ The installation of a wrapper is similar. First, the repository is cloned:
 git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
 ```
 
-If the wrapper has its own ontology, osp-core *must* be reinstalled with said ontology:
+If the wrapper has its own ontology, this ontology *must* be installed:
 
 ```shell
-cd <path-to-osp-core>
-python3 setup.py install -o <path/to/ontology.yml>
-cd <back-to-wrapper-folder>
+pico install <path/to/ontology.yml>
 ```
 
 For the wrappers that require the installation of a backend, a `install_engine.sh` script is provided.
