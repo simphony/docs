@@ -1,4 +1,7 @@
 # Getting started
+
+The tutorials and the documentation in this branch are compatible with version 3.3.x of OSP-core.
+
 __Index__
 - [Getting started](#getting-started)
   - [About](#about)
