@@ -9,7 +9,8 @@ In particular, this guide will try to expose the main concepts and components.
 
 _Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de), 
 [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and 
-[Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from the Material Informatics team, Fraunhofer IWM.
+[Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
+the Materials Data Science and Informatics team, Fraunhofer IWM.
 
 _Version:_ 2.0 pending approval
 

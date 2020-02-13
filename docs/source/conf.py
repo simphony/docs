@@ -33,6 +33,7 @@ release = '2.0.0'
 extensions = [
     'recommonmark',  # md
     'sphinx.ext.autodoc',  # API ref
+    'sphinx.ext.napoleon', # API ref Google and NumPy style
     'sphinx.ext.graphviz',  # Graphviz
     'sphinxcontrib.plantuml',  # PlantUml
     'nbsphinx',  # Jupyter
