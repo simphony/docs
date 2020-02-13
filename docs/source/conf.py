@@ -20,7 +20,7 @@ from recommonmark.transform import AutoStructify
 
 project = 'SimPhoNy docs'
 copyright = '2020, MatInformatics team at Fraunhofer IWM'
-author = 'MatInformatics team at Fraunhofer IWM'
+author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # The full version, including alpha/beta/rc tags
 release = '2.0.0'
