@@ -1,0 +1,20 @@
+image: "registry.gitlab.cc-asp.fraunhofer.de:4567/simphony/getting-started:latest"
+
+test:
+  stage: test
+  script:
+  - sphinx-build -b html docs/source public
+  only:
+  - branches
+  except:
+  - master
+
+pages:
+  stage: deploy
+  script:
+  - sphinx-build -b html docs/source public
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
