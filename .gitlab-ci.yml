@@ -1,4 +1,4 @@
-image: "registry.gitlab.cc-asp.fraunhofer.de:4567/simphony/getting-started:latest"
+image: "registry.gitlab.cc-asp.fraunhofer.de:4567/simphony/documentation:latest"
 
 test:
   stage: test
