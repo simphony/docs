@@ -1,5 +1,6 @@
 image: "registry.gitlab.cc-asp.fraunhofer.de:4567/simphony/documentation:latest"
 
+# For the non-master branches
 test:
   stage: test
   script:
