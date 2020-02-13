@@ -23,7 +23,7 @@ copyright = '2020, MatInformatics team at Fraunhofer IWM'
 author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # The full version, including alpha/beta/rc tags
-release = '2.0.0'
+release = '2.0.0-alpha'
 
 # -- General configuration ---------------------------------------------------
 
