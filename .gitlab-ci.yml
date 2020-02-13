@@ -4,6 +4,7 @@ before_script:
   - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cc-asp.fraunhofer.de/simphony/osp-core
   - cd osp-core
   - python3 setup.py install
+  - cd ..
 
 test:
   stage: test
