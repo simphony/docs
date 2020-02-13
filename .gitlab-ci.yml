@@ -1,6 +1,10 @@
 image: "registry.gitlab.cc-asp.fraunhofer.de:4567/simphony/documentation:latest"
 
-# For the non-master branches
+before_script:
+  - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@gitlab.cc-asp.fraunhofer.de/simphony/osp-core
+  - cd osp-core
+  - python3 setup.py install
+
 test:
   stage: test
   script:
