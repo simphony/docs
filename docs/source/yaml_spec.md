@@ -26,29 +26,6 @@ the representational primitives include information about their meaning
 and constraints on their logically consistent application. (Source:
 <http://tomgruber.org/writing/ontology-definition-2007.htm>)
 
-## Terminology
-
-The following terms are used in relation to the SimPhoNy ontology and
-metadata description:
-
-1. `class`: a concept. E.g., 'City', 'Experiment'.
-1. `attribute`: a property of a class that has a data type. E.g., 'name' of the type String which could be used as an attribute of 'City'.
-1. `individual`: an instance of a class. E.g., an instance of the class 'City' can be used to represent the city of Freiburg in which case it would have the attribute 'name' with the value 'Freiburg'.
-1. `relationship`: a type of a way in which one individual relates to another. E.g., 'Has-A' which could use to form the relationship 'Freiburg (City) Has-A Dreisam (River)'.
-1. `entity`:  a general term that can refer to a class, a relationship, attribute, or an individual. E.g., 'City', 'name', 'Has-A', the Freiburg individual are all entities.
-1. `ontology`: an explicit, formal specification of a shared conceptualization. See definition above.
-1. `namespace`: an ontology identifier. E.g., 'CITY_ONTOLOGY' which could be used as a namespace for the ontology that consists of the entities 'City', 'name' and 'Has-A'.
-    - Each entity is uniquely identified by its name and the namespace it is contained in. We call \<namespace name\>.\<entity name\> the `qualified entity name`.
-1. `CUDS`:  Common Universal Data Structure. A data structure that is used to uniformly represent ontology concepts in programming code.
-    - CUDS exposes an API that provides CRUD (Create, Read, Update and Delete) functionalities.
-    - CUDS is a recursive data structure in that a CUDS object may contain other CUDS objects.
-1. `CUDS class`: represents an ontology class and encodes its ontological information.
-1. `CUDS object`: is an instance of a CUDS class represents and ontology individual.
-
-CUDS is the fundamental data type of OSP-core, a framework that establishes interoperability between software systems that are built on top of ontologies.
-
-Note that the terms  'CUDS object',  'CUDS instance', 'instance', 'individual' are sometimes used interchangeably.
-
 ## Naming of the files
 
 Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a user defined name.
@@ -182,7 +159,7 @@ It can additionally have the following keys:
 
 A class expression describes a subset of individuals.
 They are similar to classes, but do not have a name in the ontology.
-Class expressions will be used in [CUDS entities format](#CUDS-entities-format) and [Relationship format](#Relationship-format).
+Class expressions will be used in [CUDS entities format](#CUDS-entities-format) and [Relationship format](#relationship-format).
 They can be either:
 
 - A **\`\`qualified entity name\`\`** of a class. In this case it corresponds to all individuals of referenced class.
