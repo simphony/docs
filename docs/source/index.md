@@ -7,10 +7,14 @@ The tutorials and the documentation in this branch are compatible with version 3
 .. toctree::
    :maxdepth: 2
 
+   about.md
    getting_started.md
+   detailed_design.md
+   wrapper_development.md
+   jupyter_notebooks.md
    conversion_owl_to_yaml.md
    working_with_emmo.md
    yaml_spec.md
    api_ref.md
-   jupyter_notebooks.md
+   links.md
 ```

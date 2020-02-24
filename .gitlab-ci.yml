@@ -10,6 +10,8 @@ test:
   stage: test
   script:
   - sphinx-build -b html docs/source public
+  - cd docs
+  - make latexpdf
   only:
   - branches
   except:
