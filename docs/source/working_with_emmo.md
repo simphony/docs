@@ -1,4 +1,4 @@
-# Working with EMMO using OSP-core.
+# Working with EMMO using OSP-core
 
 Follow these steps to use EMMO with OSP-core.
 

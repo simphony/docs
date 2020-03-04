@@ -124,7 +124,7 @@ The procedure is as follows:
 Installing new ontologies loads the pickle and adds new namespaces or modifies the existing ones.
 
 When a class is instantiated, an individual is created.
-The pickled file is read, and an instance of the [Cuds](#cuds-class) class with the ontology information is created.
+The pickled file is read, and an instance of the [Cuds](#cuds) class with the ontology information is created.
 
 Through the Cuds they realise the [Cuds API](#cuds-api) which enables the user to work with them in a generic, simple way.
 

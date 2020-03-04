@@ -10,8 +10,6 @@ _Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de),
 [Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
 the Materials Data Science and Informatics team, Fraunhofer IWM.
 
-_Version:_ 2.0 pending approval
-
 # Terminology
 These are some of the terms used in the following sections:
 1. `API`: Application Programming Interface. A set of functions that allow the interaction with an application or system.
