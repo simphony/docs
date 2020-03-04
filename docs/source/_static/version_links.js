@@ -31,14 +31,16 @@ function create_list(version_numbers) {
     menu.insertBefore(p, ul);
     version_numbers.forEach(create_list_item);
     function create_list_item(version_number) {
-        var li = document.createElement('li');
-        var a = document.createElement('a');
-        var linkText = document.createTextNode(version_number);
-        a.appendChild(linkText);
-        a.href = replaceVersionURL(version_number);
+        if (version_number) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            var linkText = document.createTextNode(version_number);
+            a.appendChild(linkText);
+            a.href = replaceVersionURL(version_number);
 
-        li.appendChild(a);
-        ul.appendChild(li);
+            li.appendChild(a);
+            ul.appendChild(li);
+        }
     }
 }
 
