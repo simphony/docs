@@ -1,5 +1,5 @@
 NAME = "simphony_docs"
-VERSION = "2.0.0"
+VERSION = "2.1.0"
 BUILD = "1"
 OSP_CORE_MIN = "3.3.0"
 OSP_CORE_MAX = "3.4.0"

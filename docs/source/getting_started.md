@@ -173,8 +173,8 @@ To simplify the understanding and development of session classes, we have create
 
 ```eval_rst
 .. uml::
-
-  @startuml
+  :caption: Simplified session inheritance scheme
+  :align: center
 
   rectangle "OSP-Core" as OSP {
     abstract class Session {
@@ -236,7 +236,6 @@ To simplify the understanding and development of session classes, we have create
       cuds_object.session.run()
     end note
     OSP.note_sim .. SimWrapperSession
-  @enduml
 ```
 
 As you can see, CoreSession is the default one used when instantiating a new object in your workspace.

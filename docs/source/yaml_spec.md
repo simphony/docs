@@ -76,7 +76,7 @@ Every declaration of an ontology entity must have the following keys:
 >
 > The subclass keyword expresses an **ontological is-a**
 > relation. MUST be a list of a fully qualified strings referring to another entity.
-> Only the entity `ENTITY` is allowed to have no superclass. See [Special entities](#special-entities).
+> Only the entity `ENTITY` is allowed to have no superclass. See [CUBA namespace](#the-cuba-namespace).
 >
 > If entity A is a subclass of B and B is subclass of C,
 > then A is also subclass of C.
@@ -84,7 +84,7 @@ Every declaration of an ontology entity must have the following keys:
 An ontology entity can be either a relationship, a cuds entity or an attribute.
 Depending on that the mapping can have further keys.
 For cuds entities these keys are described in
-[CUDS entities format](#cuds-entities-format) section.
+[CUDS entities format](#cuds-classes-format) section.
 For relationship entities, these keys are described in
 [Relationship format](#relationship-format) section.
 For attributes, these keys are described in
@@ -159,7 +159,7 @@ It can additionally have the following keys:
 
 A class expression describes a subset of individuals.
 They are similar to classes, but do not have a name in the ontology.
-Class expressions will be used in [CUDS entities format](#CUDS-entities-format) and [Relationship format](#relationship-format).
+Class expressions will be used in [CUDS entities format](#cuds-classes-format) and [Relationship format](#relationship-format).
 They can be either:
 
 - A **\`\`qualified entity name\`\`** of a class. In this case it corresponds to all individuals of referenced class.

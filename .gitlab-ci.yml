@@ -6,12 +6,15 @@ before_script:
   - python3 setup.py install
   - cd ..
 
+cache:
+  # Required to keep artifacts from old builds
+  paths:
+    - public
+
 test:
   stage: test
   script:
-  - sphinx-build -b html docs/source public
-  - cd docs
-  - make latexpdf
+  - python setup.py build_sphinx
   only:
   - branches
   except:
@@ -20,9 +23,26 @@ test:
 pages:
   stage: deploy
   script:
-  - sphinx-build -b html docs/source public
+  - VERSION=$(python -c "import packageinfo; print(packageinfo.VERSION)")
+  - python setup.py build_sphinx
+  - cd public || { mkdir public && cd public; }
+  - rm -r $VERSION || true
+  - mkdir $VERSION
+  - cp -r ../docs/build/html/* $VERSION
+  - LATEST=$(ls -dr *.*.* | head -1)  # Reversed version folders without /
+  - echo "$LATEST"
+  # Check here if $VERSION == latest
+  - >
+    if [ "$VERSION" == "$LATEST" ]; then
+      rm -r latest/* || mkdir latest
+      cp -r $VERSION/* latest
+    fi
+  # Write all versions in a file for the sidebar links
+  - ls -rd */ | sed 's#/##' > available_versions.txt
   artifacts:
+    name: "$VERSION"
     paths:
-    - public
+      - public
   only:
   - master
+
