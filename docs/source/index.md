@@ -7,7 +7,8 @@ Here you can browse though the general documentation of SimPhoNy.
  =============  ==========
  SymPhoNy docs  OSP core  
  =============  ==========
- 2.1.x          3.3.x-beta
+ 2.2.x          3.3.5-beta
+ 2.1.x          3.3.0-beta
  =============  ==========
 ```
 
