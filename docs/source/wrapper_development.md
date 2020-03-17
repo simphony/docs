@@ -182,10 +182,24 @@ When the implementation of the wrapper is done, the user should be able to insta
 (env) user@computer:~/some_wrapper$ python setup.py install
 ```
 
-Apart from a system installation, we highly recommend to provide a `Dockerfile` with the engine
+### Dockerfile with the engine
+Apart from a system installation, we highly recommend providing a `Dockerfile` with the engine
 and other minimal requirements, in case the system installation is not possible or desired.
 
-This `Dockerfile` will also be useful for the next section.
+Similar to how OSP core is the structure on top of which the wrappers are made,
+we designed a schema of Docker images where OSP core is used as a base image.
+
+Thus, OSP core has an image (currently using Ubuntu) that should be tagged `simphony/osp-core:<VERSION>`.
+The Dockerfile of a wrapper will have that image in the `FROM` statement at the top, 
+and take care of installing the engine requirements (and the wrapper itself).
+
+To fix the tagging of the images and the versioning compatibility, 
+the `Dockerfile` should be installed via the provided `docker_install.sh` script.
+It will tag the OSP core image and call the Dockerfile in the root of the wrapper accordingly.
+
+In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
+taking care to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
+`docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration
 GitLab provides Continuous Integration via the `.gitlab-ci.yml` file. 
@@ -197,7 +211,7 @@ and push the image to Gitlab Container Registry so that the CI jobs use that ima
 The `Dockerfile` for the Container Registry image will be very similar to the one used for installing the engine.
 However, here it might be useful to install other libraries like flake8 for style checks.
 
-## Important (utility) functions for wrapper development
+## Utility functions for wrapper development
 We have developed some functions that will probably come in handy when developing a wrapper. You can find them in [osp.core.utils.wrapper_development](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
 
 ## Wrapper Examples
