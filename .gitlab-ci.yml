@@ -34,7 +34,7 @@ pages:
   # Check here if $VERSION == latest
   - >
     if [ "$VERSION" == "$LATEST" ]; then
-      rm -r latest/* || mkdir latest
+      rm -rf latest/* || mkdir latest
       cp -r $VERSION/* latest
     fi
   # Write all versions in a file for the sidebar links
