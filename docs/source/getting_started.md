@@ -247,14 +247,14 @@ Like we have mentioned in previous sections, wrappers allow the user to interact
 through the cuds API with different backends.
 
 Since each backend is different, for more detailed documentation of each wrapper
-we suggest going through the different available [repositories]
-(https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
+we suggest going through the different available [repositories](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
 
 For more technical information regarding wrappers, particularly for wrapper developers, 
 we recommend visiting [wrapper development](./wrapper_development.md).
 
 ## Installation
-For the installation and usage of the framework, we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
+For the installation and usage of the framework,
+we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
 ```shell
 ~/test$ python3 -m venv SimPhoNy
@@ -287,9 +287,10 @@ The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
 git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
+cd some-wrapper
 ```
-
-If the wrapper has its own ontology, this ontology *must* be installed:
+#### Local wrapper installation
+With OSP core installed, if the wrapper has its own ontology, it *must* be installed:
 
 ```shell
 pico install <path/to/ontology.yml>
@@ -308,4 +309,11 @@ Now the wrapper can be installed:
 python3 setup.py install
 ```
 
-Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/) for an automatic installation in a container.
+#### Dockerfile wrapper installation
+Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+for an automatic installation in a container.
+Simply run the `docker_install.sh` script. No need to install osp-core either.
+
+```shell
+./docker_install.sh
+```
