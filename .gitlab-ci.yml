@@ -11,14 +11,14 @@ cache:
   paths:
     - public
 
-test:
-  stage: test
-  script:
-  - python setup.py build_sphinx
-  only:
-  - branches
-  except:
-  - master
+# test:
+#   stage: test
+#   script:
+#   - python setup.py build_sphinx
+#   only:
+#   - branches
+#   except:
+#   - master
 
 pages:
   stage: deploy
@@ -34,15 +34,17 @@ pages:
   # Check here if $VERSION == latest
   - >
     if [ "$VERSION" == "$LATEST" ]; then
-      rm -r latest/* || mkdir latest
+      rm -rf latest/* || mkdir latest
       cp -r $VERSION/* latest
     fi
   # Write all versions in a file for the sidebar links
   - ls -rd */ | sed 's#/##' > available_versions.txt
+  # Add redirect script
+  - echo '<meta http-equiv="Refresh" content="0; url=./latest" />' > index.html
   artifacts:
     name: "$VERSION"
     paths:
       - public
-  only:
-  - master
+  # only:
+  # - master
 
