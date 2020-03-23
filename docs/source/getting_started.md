@@ -169,6 +169,8 @@ other_entity = another_namespace.SomeOtherEntity()
 ### Sessions
 The sessions are the interoperability classes that connect to where the data is stored. In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
+When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
+
 To simplify the understanding and development of session classes, we have created a hierarchy:
 
 ```eval_rst
@@ -240,8 +242,6 @@ To simplify the understanding and development of session classes, we have create
 
 As you can see, CoreSession is the default one used when instantiating a new object in your workspace.
 
-When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
-
 ## Wrappers
 Like we have mentioned in previous sections, wrappers allow the user to interact 
 through the cuds API with different backends.
@@ -309,7 +309,7 @@ Now the wrapper can be installed:
 python3 setup.py install
 ```
 
-#### Dockerfile wrapper installation
+#### Wrapper Docker image
 Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 for an automatic installation in a container.
 Simply run the `docker_install.sh` script. No need to install osp-core either.

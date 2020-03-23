@@ -66,8 +66,8 @@ The closer to the user, the higher the abstraction.
 
 This allows us to group and clearly define which components should and which ones should not be modified when creating a new wrapper.
 
- - [Syntactic layer](./detailed_design.md#syntactic-layer): 
-   If none is available, one must be developed.
+ - [Semantic layer](./detailed_design.md#semantic-layer): 
+   Requires no work.
 
  - [Interoperability layer](./detailed_design.md#interoperability-layer):
    - [Session class](./detailed_design.md#session): 
@@ -89,8 +89,8 @@ This allows us to group and clearly define which components should and which one
        - `_rollback_transaction(self)`: Rollback the transaction.
        - `close(self)`: Close the connection.
 
- - [Semantic layer](./detailed_design.md#semantic-layer): 
-   Requires no work. 
+ - [Syntactic layer](./detailed_design.md#syntactic-layer): 
+   If none is available, one must be developed.
    Only needs an entity representing the wrapper, as presented in the previous section.
 
 ## Engine installation
@@ -198,7 +198,7 @@ the `Dockerfile` should be installed via the provided `docker_install.sh` script
 It will tag the OSP core image and call the Dockerfile in the root of the wrapper accordingly.
 
 In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
-taking care to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
+making sure to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
 `docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration

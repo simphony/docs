@@ -354,6 +354,7 @@ trigger an action on the backend (`run` and `commit`, respectively)
 
 ### Networking
 _Location:_ `osp.core.session.transport`
+
 You may have noticed in the [session inheritance scheme](#id2) that there is `TransportSession` implementing the `WrapperSession`.
 This session class is the way to connect to engines that are located in other machines through web sockets.
 
@@ -370,7 +371,7 @@ The behaviour is as follows:
   - The server deserialises the data and calls the method on the wrapper.
   - The results are serialised and sent back to the user´s local transport session.
 
-The chosen implementation hides most of the implementation from the users and wrapper developers.
+The chosen implementation hides most of the work from the users and wrapper developers.
 The only difference between a local wrapper and a remote one is the line where the wrapper session is instantiated, from:
 ```python
 sess = SomeWrapperSession(parameter_a, parameter_b)
