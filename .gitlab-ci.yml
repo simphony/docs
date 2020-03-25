@@ -29,6 +29,7 @@ pages:
   - rm -r $VERSION || true
   - mkdir $VERSION
   - cp -r ../docs/build/html/* $VERSION
+  - cp -r ../docs/build/latex/*.pdf $VERSION
   - LATEST=$(ls -dr *.*.* | head -1)  # Reversed version folders without /
   - echo "$LATEST"
   # Check here if $VERSION == latest
