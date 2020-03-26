@@ -29,6 +29,7 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/01-cuds-api.ipynb
    jupyter/02-ontology-interface.ipynb
    jupyter/03-multiple-wrappers.ipynb
+   jupyter/04-simlammps.ipynb
 
 .. toctree::
    :caption: Ontology
