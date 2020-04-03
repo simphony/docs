@@ -290,7 +290,7 @@ git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
 cd some-wrapper
 ```
 #### Local wrapper installation
-With OSP core installed, if the wrapper has its own ontology, it *must* be installed:
+With OSP-core installed, if the wrapper has its own ontology, it *must* be installed:
 
 ```shell
 pico install <path/to/ontology.yml>

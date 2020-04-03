@@ -1,6 +1,6 @@
 # Description of YAML format Specification
 
-This file describes the ontology format that is used by OSP core. 
+This file describes the ontology format that is used by OSP-core. 
 
 ## Info
 
@@ -290,7 +290,7 @@ Furthermore, it can contain the following information:
 >
 > For example: The inverse of HAS\_PART is IS\_PART\_OF.
 >
-> If no inverse is given, OSP core will automatically create one.
+> If no inverse is given, OSP-core will automatically create one.
 
 `domain`: Class expression
 > A class expression describing the individuals that are allowed to be a subject of the relationship.
