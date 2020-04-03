@@ -12,7 +12,7 @@ Technologies used:
 - [PlantUML](https://plantuml.com/), used for the diagrams
 
 # Acknowledgements
-SimPhoNy OSP CORE and wrappers development is supported by the following Grants:
+SimPhoNy OSP-CORE and wrappers development is supported by the following Grants:
 
 ```eval_rst
 ===========  ============  ===========================  ===============

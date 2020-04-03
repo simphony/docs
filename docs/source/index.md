@@ -5,7 +5,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
 ```eval_rst
  =============  ==========
- SymPhoNy docs  OSP core  
+ SymPhoNy docs  OSP-core  
  =============  ==========
  2.2.x          3.3.5-beta
  2.1.x          3.3.0-beta

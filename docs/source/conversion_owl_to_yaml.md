@@ -9,7 +9,7 @@ converted to YAML.
 - We use owlready2 for the conversion. Therefore, the ontology
 must be in one of the following formats: RDF/XML, OWL/XML, NTriples.
 - Make sure you ran the reasoner and exported the inferred axioms.
-- OSP core must be installed
+- OSP-core must be installed
 
 ## Conversion
 
@@ -42,7 +42,7 @@ The document doc/working_with_emmo.md explains how you can get the EMMO.
    ```
 
 2. You have to specify the owl input file and the namespace,
-   with which the entities in the owl file should be accessible in OSP core:
+   with which the entities in the owl file should be accessible in OSP-core:
 
    ```sh
    $ owl2yml -n MY_NAMESPACE path/to/owlfile.owl
@@ -61,7 +61,7 @@ The document doc/working_with_emmo.md explains how you can get the EMMO.
    ```
 
 5. It is recommended that you extend the ontology,
-   such that it is easier to use with OSP core.
+   such that it is easier to use with OSP-core.
    For that you have to create a yaml file in
    the following format:
 
@@ -84,7 +84,7 @@ The document doc/working_with_emmo.md explains how you can get the EMMO.
 
    - You can specify a default relationship with the `default_rel` keyword.
      You have to provide the IRI of the relationship.
-     In OSP core, when you add one CUDS objects to another without specifying a relationship, this relationship will be used.
+     In OSP-core, when you add one CUDS objects to another without specifying a relationship, this relationship will be used.
 
    - CUDS objects are containers conceptually.
      Therefore, you need to specify which relationships encode a containment in a CUDS objects.

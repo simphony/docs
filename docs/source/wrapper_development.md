@@ -186,16 +186,16 @@ When the implementation of the wrapper is done, the user should be able to insta
 Apart from a system installation, we highly recommend providing a `Dockerfile` with the engine
 and other minimal requirements, in case the system installation is not possible or desired.
 
-Similar to how OSP core is the structure on top of which the wrappers are made,
-we designed a schema of Docker images where OSP core is used as a base image.
+Similar to how OSP-core is the structure on top of which the wrappers are made,
+we designed a schema of Docker images where OSP-core is used as a base image.
 
-Thus, OSP core has an image (currently using Ubuntu) that should be tagged `simphony/osp-core:<VERSION>`.
+Thus, OSP-core has an image (currently using Ubuntu) that should be tagged `simphony/osp-core:<VERSION>`.
 The Dockerfile of a wrapper will have that image in the `FROM` statement at the top, 
 and take care of installing the engine requirements (and the wrapper itself).
 
 To fix the tagging of the images and the versioning compatibility, 
 the `Dockerfile` should be installed via the provided `docker_install.sh` script.
-It will tag the OSP core image and call the Dockerfile in the root of the wrapper accordingly.
+It will tag the OSP-core image and call the Dockerfile in the root of the wrapper accordingly.
 
 In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
 making sure to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
