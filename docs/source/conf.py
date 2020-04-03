@@ -30,7 +30,8 @@ extensions = [
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
 ]
 
-plantuml = 'java -jar lib/plantuml.jar -tsvg'
+plantuml = 'java -jar lib/plantuml.jar'
+plantuml_output_format = 'svg'
 
 templates_path = ['_templates']
 
