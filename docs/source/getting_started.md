@@ -79,10 +79,10 @@ For that, a 3 layer schema is used:
    ' -----------------------
    ' ------ RELATIONS ------
    ' -----------------------
-   user -> sem
-   sem -> intop
-   intop -> syn
-   syn -> backend
+   user <-> sem
+   sem <-> intop
+   intop <-> syn
+   syn <-> backend
 
    user -[hidden]-> gen
    gen -> spe
