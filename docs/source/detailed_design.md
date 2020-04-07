@@ -159,14 +159,14 @@ This CRUD API is defined by 6 methods:
 
 - Create
 ```python
-from osp.core import NAMESPACE
-# from osp.core import namespace  # lowercase works as well!
+from osp.core import SOME_NAMESPACE
+# from osp.core import some_namespace  # lowercase works as well!
 
-ontology_class = NAMESPACE.ONTOLOGY_CLASS
-# ontology_class = namespace.MyOntologyClass  # CamelCase works as well!
-relationship = NAMESPACE.RELATIONSHIP
+ontology_class = SOME_NAMESPACE.ONTOLOGY_CLASS
+# ontology_class = some_namespace.MyOntologyClass  # CamelCase works as well!
+relationship = SOME_NAMESPACE.RELATIONSHIP
 
-cuds_obj = NAMESPACE.ONTOLOGY_CLASS()
+cuds_obj = SOME_NAMESPACE.ONTOLOGY_CLASS()
 ```
 
 - Add
