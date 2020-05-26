@@ -18,6 +18,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    about.md
+   motivation.md
    getting_started.md
    detailed_design.md
    wrapper_development.md

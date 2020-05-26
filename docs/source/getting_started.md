@@ -1,6 +1,6 @@
 # Getting started
 ## General design
-The purpose of this framework is to provide an easy, standard interoperability between multiple different backends through the exchange of data stored in an ontology-based data-structure.
+The following architecture has the aim to cover and support the goals presented in the [motivation section](./motivation.md).
 
 ```eval_rst
 .. uml::
