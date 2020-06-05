@@ -1,0 +1,176 @@
+# Utilities
+In this section we will compile a list of useful utility functions, tools and examples of their usage.
+This functions are part of OSP-core and are used as an extension of the [main API](./detailed_design#cuds-api).
+
+## Pico Installs Cuds Ontologies
+Our tool for installing ontologies is called `pico`.
+It is a recursive acronym that stands for _Pico Installs Cuds Ontologies_.
+
+There are 3 main things that can be done with pico:
+- Install ontologies.
+- List the install ontologies.
+- Removed installed ontologies.
+
+There are different possible levels of log available, and they can be set via
+`--log-level <ERROR|WARNING|INFO|DEBUG>`. The default value is `INFO`.
+
+### Pico installs
+_Usage:_ `pico install <path/to/ontology.yml>|city|cuba`
+
+_Behaviour:_ 
+- The ontology file is parsed, and the entities mapped to python objects.
+- The python classes can be imported via their namespace
+  `from osp.core import namespace`
+
+_Example:_
+```console
+(venv) user@PC:~$ pico install city
+INFO [osp.core.ontology.installation]: Will install the following namespaces: ['city']
+INFO [osp.core.ontology.parser]: Parsing file city
+INFO [osp.core.ontology.installation]: Installation successful!
+```
+
+### Pico lists
+_Usage:_ `pico list`
+
+_Behaviour:_ 
+- The installed namespaces are printed out
+
+_Example:_
+```console
+(venv) user@PC:~$ pico list
+CUBA
+CITY
+```
+
+### Pico uninstalls
+_Usage:_ `pico uninstall <namespace>|"*"`
+Note that to select all the namespaces, `"*"` must be quoted.
+
+_Behaviour:_ 
+- All installed namespaces are uninstalled.
+- All namespaces except from the uninstalled one are re-installed.
+
+_Example:_
+```console
+(venv) user@PC:~$ pico uninstall city
+INFO [osp.core.ontology.installation]: Uninstalling namespace city.
+INFO [osp.core.ontology.installation]: Will install the following namespaces: ['cuba']
+INFO [osp.core.ontology.parser]: Parsing file /some/path/ontology.cuba.yml
+INFO [osp.core.ontology.installation]: Uninstallation successful!
+```
+
+## Tips and tricks
+The following are some utility functions and shortcuts for working with cuds.
+For those that are present in the util package, the import is `from osp.core import utils`.
+- `utils.get_relationships_between(a, b)` returns a set with the relationships that connect `a` and `b` .
+- `a.get_attributes()` returns a dictionary with the name and the value of the attributes of `a`.
+- `a.is_a(oclass)` is True if the instance `a` is or inherits from `oclass`.
+- `osp.core.get_entity("namespace.entity")` returns the class associated with an `entity` in a
+`namespace`. It can be used to instantiate objects.
+- `[attr.argname for attr in oclass.attributes.keys()]` returns a list with the attributes of an `oclass`.
+- `[attr.namespace for attr in oclass.attributes.keys()]` returns a list with the namespace of the attributes of an `oclass`.
+
+## Visualisation
+There are two ways of visualising information about a Cuds structure, 
+one as a text output to the standard output ([pretty print](#pretty-print)),
+and another one as a [dot](https://www.graphviz.org/pdf/dotguide.pdf) graph ([cuds2dot](#cuds2dot)).
+
+Another useful dot graph visualisation tool called [ontology2dot](#ontology2dot) is available for ontology YML files.
+
+_Note:_ the graphic visualisation tools that generate a dot file require Graphviz to be installed in the system.
+
+### Pretty print
+_Location:_ `from osp.core.utils import pretty_print`.
+
+_Usage:_ `pretty_print(cuds_object)`
+
+_Behaviour:_ 
+
+- The UUID, oclass and attributes of the given object are printed.
+- All the related objects are also printed in a recursive fashion.
+- The relationship to the contained objects is stated.
+
+_Example:_
+```py
+>>> pretty_print(emmo_town)
+Cuds object named <EMMO town>:
+  uuid: 06b01f5a-e8c1-44a5-962d-ea0c726e97d0
+  type: CITY.CITY
+  superclasses: CITY.CITY, CITY.POPULATED_PLACE, CITY.GEOGRAPHICAL_PLACE, CUBA.ENTITY
+  values: coordinates: [42 42]
+  description: 
+    To Be Determined
+
+   |_Relationship CITY.HAS_INHABITANT:
+   | -  CITY.CITIZEN cuds object named <Emanuele Ghedini>:
+   | .  uuid: f1bd9143-6472-4b24-94b5-1c5fc4c6e5b6
+   | .  age: 25
+   | -  CITY.CITIZEN cuds object named <Adham Hashibon>:
+   | .  uuid: 3b774c96-1a0c-403b-b0d0-05d6cd38c52c
+   | .  age: 25
+   | -  CITY.CITIZEN cuds object named <Jesper Friis>:
+   | .  uuid: 40d2335c-a335-4d07-b142-fb2b9b7581a7
+   | .  age: 25
+   | -  CITY.CITIZEN cuds object named <Gerhard Goldbeck>:
+   | .  uuid: a5b9282a-ec10-462d-9aa1-9671d8bbe236
+   | .  age: 25
+   | -  CITY.CITIZEN cuds object named <Georg Schmitz>:
+   | .  uuid: c7c87209-660f-4a54-9c37-7e50c3164bc9
+   | .  age: 25
+   | -  CITY.CITIZEN cuds object named <Anne de Baas>:
+   |    uuid: d74cfbae-9699-4998-a1e2-8f495a874ced
+   |    age: 25
+   |_Relationship CITY.HAS_PART:
+     -  CITY.NEIGHBOURHOOD cuds object named <Ontology>:
+     .  uuid: 26c4767d-c0ea-4abb-b7b7-7e8702de5de3
+     .  coordinates: [0 0]
+     .   |_Relationship CITY.HAS_PART:
+     .     -  CITY.STREET cuds object named <Relationships>:
+     .     .  uuid: 23b0ba0d-1601-4824-b6c7-7eb3fdc05a91
+     .     .  coordinates: [0 0]
+     .     -  CITY.STREET cuds object named <Entities>:
+     .        uuid: b69d40d0-b919-4df8-8334-b898e4beda83
+     .        coordinates: [0 0]
+     -  CITY.NEIGHBOURHOOD cuds object named <User cases>:
+        uuid: 79a214f6-4eb1-4a3b-8908-306129583da1
+        coordinates: [0 0]
+
+```
+### Cuds2Dot
+
+_Location:_ `from osp.core.utils import Cuds2dot`.
+
+_Usage:_ `Cuds2dot(cuds_object).render()`
+
+_Behaviour:_ 
+- Each entity is represented by a node.
+- The relationships are the edges connecting them.
+- The attributes, uuid and oclass are written inside the nodes.
+
+_Example:_
+```py
+>>> Cuds2dot(emmo_town).render()
+```
+![cuds2dot sample image](./_static/img/cuds2dot.png)
+
+### Ontology2Dot
+_Location:_ console entry point `osp.core.tools.ontology2dot`.
+
+_Usage:_ `ontology2dot`
+
+_Behaviour:_ 
+- Each ontology entity is represented by a box.
+- Attributes and their default values are stated.
+- Inheritance of entities is shown via *is_a*.
+- The inverse of each relationship is also represented.
+
+_Example:_
+```sh
+ontology2dot osp/core/ontology/yml/ontology.city.yml
+```
+![ontology2dot sample image](./_static/img/ontology2dot.png)
+
+
+## Search
+- Simple search
