@@ -177,7 +177,7 @@ To make searching (in-depth) for a particular cuds object easier,
  we have implemented some simple search utility functions.
 
 ### Simple search
-_Location:_ `import osp.core.utils.simple_search`
+_Location:_ `import osp.core.utils.simple_search`
 
 _Usage:_ 
 - `find_cuds_object(criterion, root, rel, find_all, max_depth=float("inf"), current_depth=0, visited=None)`
@@ -192,3 +192,40 @@ _Usage:_
 - `find_relationships(find_rel, root, consider_rel, find_sub_rels=False)`
   finds the given relationship in the subtree of the given root.
 
+_Examples:_
+
+- To find all the inhabitants in a city with a given name:
+
+  ```py
+  queried_name = 'Pablo'
+  search.find_cuds_object(criterion = lambda x: queried_name in x.name,
+                          root=city_cuds,
+                          rel=CITY.HAS_INHABITANT,
+                          find_all=True)
+  ```
+
+- To find an object when the uid and relationship are known:
+
+  ```py
+  queried_uid = uuid.uuid4()
+  search.find_cuds_object_by_uid(uid=queried_uid,
+                                 root=city_cuds,
+                                 rel=city.DEFAULT_REL)
+  ```
+
+- To find all the streets that are part of a city:
+
+  ```py
+  search.find_cuds_objects_by_oclass(oclass=city.Street,
+                                     root=city_cuds,
+                                     rel=city.HasPart)
+  ```
+
+- To find all the inhabitants with an attribute `age` with value `26`:
+
+  ```py
+  search.find_cuds_objects_by_attribute(attribute='age',
+                                        value=26,
+                                        root=city_cuds,
+                                        rel=CITY.HAS_INHABITANT)
+  ```
