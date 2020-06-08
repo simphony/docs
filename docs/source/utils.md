@@ -173,4 +173,22 @@ ontology2dot osp/core/ontology/yml/ontology.city.yml
 
 
 ## Search
-- Simple search
+To make searching (in-depth) for a particular cuds object easier,
+ we have implemented some simple search utility functions.
+
+### Simple search
+_Location:_ `import osp.core.utils.simple_search`
+
+_Usage:_ 
+- `find_cuds_object(criterion, root, rel, find_all, max_depth=float("inf"), current_depth=0, visited=None)`
+  finds a cuds object under `root`, related via `rel` that returns `True` for `criterion` (boolean function).
+  If `find_all` is set to `True`, it will return all elements, and not only the first found.
+- `find_cuds_object_by_uid(uid, root, rel)`
+  finds an element with given uid inside a cuds object by considering the given relationship.
+- `find_cuds_objects_by_oclass(oclass, root, rel)`
+  finds an element with given oclass inside a cuds object by considering the given relationship.
+- `find_cuds_objects_by_attribute(attribute, value, root, rel)`
+  finds a cuds object by attribute and value by only considering the given relationship.
+- `find_relationships(find_rel, root, consider_rel, find_sub_rels=False)`
+  finds the given relationship in the subtree of the given root.
+
