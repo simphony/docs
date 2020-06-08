@@ -210,7 +210,7 @@ _Examples:_
   queried_uid = uuid.uuid4()
   search.find_cuds_object_by_uid(uid=queried_uid,
                                  root=city_cuds,
-                                 rel=city.DEFAULT_REL)
+                                 rel=CITY.DEFAULT_REL)
   ```
 
 - To find all the streets that are part of a city:
@@ -218,7 +218,7 @@ _Examples:_
   ```py
   search.find_cuds_objects_by_oclass(oclass=city.Street,
                                      root=city_cuds,
-                                     rel=city.HasPart)
+                                     rel=CITY.HAS_PART)
   ```
 
 - To find all the inhabitants with an attribute `age` with value `26`:
