@@ -44,6 +44,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: Additional
    :maxdepth: 2
 
+   utils.md
    api_ref.md
    links.md
 

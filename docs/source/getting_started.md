@@ -276,7 +276,8 @@ cd osp-core
 python3 setup.py install
 ```
 
-After installing osp-core, you can install an ontology file using **pico** (**p**ico **i**nstalls **c**uds **o**ntologies):
+After installing osp-core, you can install an ontology file using 
+[**pico**](./utils.md#pico-installs-cuds-ontologies):
 
 ```shell
 pico install <path/to/ontology.yml>
