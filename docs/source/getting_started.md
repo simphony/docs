@@ -10,7 +10,7 @@ The following architecture has the aim to cover and support the goals presented 
    skinparam linetype ortho
    actor user
    rectangle SimPhoNy {
-      usecase "osp-core" as osp #FFFFFF
+      usecase "OSP-core" as osp #FFFFFF
       usecase "database\nwrapper" as db_wrapper
       usecase "simulation\nwrapper" as sim_wrapper
       usecase wrapper
@@ -33,7 +33,7 @@ The following architecture has the aim to cover and support the goals presented 
    osp <-down-> wrapper: updates
 ```
 
-As you can see, osp-core provides the standard data format, and the wrappers 
+As you can see, OSP-core provides the standard data format, and the wrappers 
 take care of mapping that format to and from the backend specific syntax.
 
 In order to simplify and generalise the usage as much as possible, the backend 
@@ -178,7 +178,7 @@ To simplify the understanding and development of session classes, we have create
   :caption: Simplified session inheritance scheme
   :align: center
 
-  rectangle "OSP-Core" as OSP {
+  rectangle "OSP-core" as OSP {
     abstract class Session {
     }
 
@@ -276,7 +276,7 @@ cd osp-core
 python3 setup.py install
 ```
 
-After installing osp-core, you can install an ontology file using 
+After installing OSP-core, you can install an ontology file using 
 [**pico**](./utils.md#pico-installs-cuds-ontologies):
 
 ```shell
@@ -313,7 +313,7 @@ python3 setup.py install
 #### Wrapper Docker image
 Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 for an automatic installation in a container.
-Simply run the `docker_install.sh` script. No need to install osp-core either.
+Simply run the `docker_install.sh` script. No need to install OSP-core either.
 
 ```shell
 ./docker_install.sh

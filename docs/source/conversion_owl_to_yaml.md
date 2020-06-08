@@ -34,7 +34,7 @@ The document doc/working_with_emmo.md explains how you can get the EMMO.
      --namespace NAMESPACE, -n NAMESPACE
                            The namespace for the resulting YAML file in UPPERCASE
      --conversion_options_file CONVERSION_OPTIONS_FILE, -c CONVERSION_OPTIONS_FILE
-                           Path to a file explaining how the ontology should be transformed, s.t. it is compatible with osp-core
+                           Path to a file explaining how the ontology should be transformed, s.t. it is compatible with OSP-core
      --version VERSION, -v VERSION
                            The version string for the resulting YAML file
      --output-file OUTPUT_FILE, -o OUTPUT_FILE

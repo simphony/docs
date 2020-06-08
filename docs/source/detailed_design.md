@@ -239,7 +239,7 @@ To simplify and group functionality, we built an inheritance scheme:
   :caption: Session inheritance scheme
   :align: center
 
-  rectangle "OSP-Core" as OSP {
+  rectangle "OSP-core" as OSP {
     abstract class Session {
       Registry : registry
       --
