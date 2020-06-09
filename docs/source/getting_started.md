@@ -1,5 +1,4 @@
-# Getting started
-## General design
+# General architecture
 The following architecture has the aim to cover and support the goals presented in the [motivation section](./motivation.md).
 
 ```eval_rst
@@ -252,7 +251,7 @@ we suggest going through the different available [repositories](https://gitlab.c
 For more technical information regarding wrappers, particularly for wrapper developers, 
 we recommend visiting [wrapper development](./wrapper_development.md).
 
-## Installation
+# Installation
 For the installation and usage of the framework,
 we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
@@ -262,7 +261,7 @@ we *highly* encourage the use of a [virtual environment](https://docs.python.org
 (SimPhoNy) ~/test$ 
 ```
 
-### OSP-core installation
+## OSP-core installation
 First, the repository must be cloned:
 
 ```shell
@@ -283,14 +282,14 @@ After installing OSP-core, you can install an ontology file using
 pico install <path/to/ontology.yml>
 ```
 
-### Wrapper installation
+## Wrapper installation
 The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
 git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
 cd some-wrapper
 ```
-#### Local wrapper installation
+### Local wrapper installation
 With OSP-core installed, if the wrapper has its own ontology, it *must* be installed:
 
 ```shell
@@ -310,7 +309,7 @@ Now the wrapper can be installed:
 python3 setup.py install
 ```
 
-#### Wrapper Docker image
+### Wrapper Docker image
 Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 for an automatic installation in a container.
 Simply run the `docker_install.sh` script. No need to install OSP-core either.

@@ -1,7 +1,7 @@
 # Detailed design
 Here we will give an in-depth view of the design of the 3 layers.
 
-For a more general overview, go to [getting started](./getting_started.md#general-design).
+For a more general overview, go to [getting started](./getting_started.md#general-architecture).
 
 
 ```eval_rst

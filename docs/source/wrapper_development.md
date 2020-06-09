@@ -61,7 +61,7 @@ These are the requirements for a minimal wrapper ontology:
 </details>
 
 ## Coding
-An advantage of the [3-layered-design](./getting_started.md#general-design) that we follow is the modularity and conceptual separation.
+An advantage of the [3-layered-design](./getting_started.md#general-architecture) that we follow is the modularity and conceptual separation.
 The closer to the user, the higher the abstraction.
 
 This allows us to group and clearly define which components should and which ones should not be modified when creating a new wrapper.
