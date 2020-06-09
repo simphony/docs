@@ -31,7 +31,7 @@ extensions = [
 ]
 
 plantuml = 'java -jar lib/plantuml.jar'
-plantuml_output_format = 'svg'
+plantuml_output_format = 'svg_img'
 
 templates_path = ['_templates']
 
