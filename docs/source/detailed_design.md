@@ -88,7 +88,7 @@ For a more general overview, go to [getting started](./getting_started.md#genera
 
   note top of SomeWrapperSession
    Updates the registry with information
-   from the back-end and vice versa.
+   from the backend and vice versa.
   end note
 
   note top of Registry
@@ -506,7 +506,28 @@ All wrappers will share `WrapperSession` as an ancestor.
 This will define which methods have to be implemented and `_engine` as the access point to a backend.
 
 `SimWrapperSession` and `DbWrapperSession` further specify the behaviour of wrappers, defining the methods that 
-trigger an action on the backend (`run` and `commit`, respectively)
+trigger an action on the backend (`run` and `commit`, respectively).
+
+#### Buffers
+Session classes under `WrapperSession` share 3 types of buffers, namely `added`, `updated` and `deleted`.
+The previous buffers are repeated twice, first for the user and then for the engine, 
+so the number of buffers is actually 6.
+
+As we have seen in the previous section, not all API calls trigger a change all the way to the backend.
+In fact, most of them do not. This is done to limit the traffic in the slower sections 
+(networking or communicating with the engine).
+
+On the other hand, the user should be able to access the latest version of the data 
+(meaning the changes they might have just done), and the wrapper should know what changes have taken place
+since the last sync with the backend software (`commit` or `run`).
+In order to achieve these, the changes done by the user directly modify the semantic layer and are
+flagged in the buffers as changes to be propagated
+
+Users or wrapper developers do not have to worry about updating this buffers, OSP-core handles them 
+(both filling them up and emptying them).
+
+However, these structures will be used in the different `_apply_<buffer>` methods when developing a wrapper
+(see [this](./wrapper_development.md#coding) section of wrapper development).
 
 ### Networking
 _Location:_ `osp.core.session.transport`
@@ -545,7 +566,7 @@ This layer is in direct communication with the backend.
 It has no ontological knowledge and must just provide a simple interface for the interoperability layer to interact with the wrapped application. 
 
 This means it may have to be a binding if the application is in a different language. 
-It could also be a file generator/parser for back-ends that only allow file i/o.
+It could also be a file generator/parser for backends that only allow file i/o.
 In other cases, (e.g. LAMMPS with PyLammps) it is provided by the backend itself, and requires no implementation. 
 
 Since the syntactic layer will greatly depend on the specific backend, no standardisation is provided there.

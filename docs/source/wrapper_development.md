@@ -96,7 +96,7 @@ This allows us to group and clearly define which components should and which one
 ## Engine installation
 Most engines will require some sort of compilation or installation before being able to use them through Python.
 
-To facilitate the installation of the back-end to the end users, a shell script with the necessary commands should be made available.
+To facilitate the installation of the backend to the end users, a shell script with the necessary commands should be made available.
 It is also recommended to split the installation of the engine from the installation of the engine requirements.
 
 <details>
