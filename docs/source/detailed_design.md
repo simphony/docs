@@ -157,7 +157,7 @@ The governing idea behind the API design was to simplify as much as possible the
 
 This CRUD API is defined by 6 methods:
 
-- Create
+##### Create
 ```python
 from osp.core import SOME_NAMESPACE
 # from osp.core import some_namespace  # lowercase works as well!
@@ -169,49 +169,205 @@ relationship = SOME_NAMESPACE.RELATIONSHIP
 cuds_obj = SOME_NAMESPACE.ONTOLOGY_CLASS()
 ```
 
-- Add
-```python
-# These will also add the opposed relationship to the new contained cuds object
-cuds_obj.add(*other_cuds, rel=relationship)
-cuds_obj.add(yet_another_cuds)                           # Uses default relationship from ontology
-```
+##### Add
+  ```python
+  # These will also add the opposed relationship to the new contained cuds object
+  cuds_obj.add(*other_cuds, rel=relationship)
+  cuds_obj.add(yet_another_cuds)                           # Uses default relationship from ontology
+  ```
 
-- Get
-```python
-# Returns a list, unless only one uid was given
-cuds_obj.get()                                           # All the contained cuds objects
-cuds_obj.get(rel=relationship)                           # Entities under that relationship
-cuds_obj.get(*uids)                                      # Searches elements for the uids
-cuds_obj.get(*uids, rel=relationship)                    # Faster, filters by relationship
-cuds_obj.get(oclass=ontology_class)                      # Elements of that class
-cuds_obj.get(rel=relationship, oclass=ontology_class)    # Filters by rel and oclass
-```
+  The flow of information for the call of the `add` method would be:
+  ```eval_rst
+     .. uml::
+       :caption: `add` method call
+       :align: center
 
-- Remove
-```python
-# These will trigger the update in the opposed relationship of the erased element
-cuds_obj.remove()                                        # Remove all
-cuds_obj.remove(*uids/cuds_objs)                         # Remove objects with the given uids
-cuds_obj.remove(*uids/cuds_objs, rel=relationship)       # Faster, filters by relationship
-cuds_obj.remove(rel=relationship)                        # Delete all elements under a relationship
-cuds_obj.remove(oclass=ontology_class)                   # Delete all elements of a certain class
-cuds_obj.remove(rel=relationship, oclass=ontology_class) # Delete filtering by rel and oclass
-```
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
 
-- Update
-```python
-# Objects to update must exist already
-cuds_obj.update(*cuds_objs)
-```
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
 
-- Iterate
-```python
-cuds_obj.iter()                                          # Iterates through all
-cuds_obj.iter(oclass=ontology_class)                     # Iterates filtering by the ontology class
-cuds_obj.iter(rel=relationship)                          # Iterates filtering by the relationship
-```
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
 
-_Note:_ There is also an `is_a` method for checking oclass inheritance.
+       database "backend" as back
+
+       user -> cuds: add
+       cuds <- sess: load
+       cuds -> sess: store
+  ```
+  As you can see, the information is sent to the next layer, but not all the way to the backend.
+  This will be propagated when the user calls `session.run()` or `session.commit`.
+  The registry is checked for a pre-existing object, in case something that is already there is being added.
+
+
+##### Get
+  ```python
+  # Returns a list, unless only one uid was given
+  cuds_obj.get()                                           # All the contained cuds objects
+  cuds_obj.get(rel=relationship)                           # Entities under that relationship
+  cuds_obj.get(*uids)                                      # Searches elements for the uids
+  cuds_obj.get(*uids, rel=relationship)                    # Faster, filters by relationship
+  cuds_obj.get(oclass=ontology_class)                      # Elements of that class
+  cuds_obj.get(rel=relationship, oclass=ontology_class)    # Filters by rel and oclass
+  ```
+  In this case, the calls carried out by the  `get` method are as follows:
+  ```eval_rst
+     .. uml::
+       :caption: `get` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+ 
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+ 
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+ 
+       database "backend" as back
+ 
+       user -> cuds: get
+       cuds -> sess: load
+ 
+       == Object not in registry ==
+       sess -> eng: _load_from_backend
+       eng -> back: <get info>
+       back --> eng: <info>
+       eng --> sess: <info>
+       == Object in registry ==
+       sess --> cuds: object
+       cuds --> user: object
+   ```
+   Now the backend is contacted to make sure the user receives the latest 
+   available version of the objects being queried.
+   This is done through `_load_from_backend()`.
+
+##### Update
+  ```python
+  # Objects to update must exist already
+  cuds_obj.update(*cuds_objs)
+  ```
+  
+  A simple `update` call triggers the following behaviour:
+  ```eval_rst
+     .. uml::
+       :caption: `update` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: update
+       cuds <- sess: load()
+       cuds -> sess: store()
+   ```
+   You can see the calls are very much the same as with the `add` method.
+   The difference is that the `update` requires the object to be there previously.
+   And so the object is first loaded from the registry, then updated and stored.
+
+
+##### Remove
+  ```python
+  # These will trigger the update in the opposed relationship of the erased element
+  cuds_obj.remove()                                        # Remove all
+  cuds_obj.remove(*uids/cuds_objs)                         # Remove objects with the given uids
+  cuds_obj.remove(*uids/cuds_objs, rel=relationship)       # Faster, filters by relationship
+  cuds_obj.remove(rel=relationship)                        # Delete all elements under a relationship
+  cuds_obj.remove(oclass=ontology_class)                   # Delete all elements of a certain class
+  cuds_obj.remove(rel=relationship, oclass=ontology_class) # Delete filtering by rel and oclass
+  ```
+
+  The sequence for a simple `remove` is:
+  ```eval_rst
+     .. uml::
+       :caption: `remove` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: remove
+       cuds <- sess: load()
+       cuds -> cuds: remove_rel()
+   ```
+   Here the registry is accessed to fetch the neighbours of the removed object
+   and delete their links (relationships) to it.
+
+
+##### Iterate
+  ```python
+  cuds_obj.iter()                                          # Iterates through all
+  cuds_obj.iter(oclass=ontology_class)                     # Iterates filtering by the ontology class
+  cuds_obj.iter(rel=relationship)                          # Iterates filtering by the relationship
+  ```
+  
+  The general behaviour of the `iter` is:
+  ```eval_rst
+     .. uml::
+       :caption: `iter` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: iterate
+       cuds <- sess: load()
+       cuds -> user: yield(object)
+   ```
+   First the uids of all the objects to be iterated are gathered,
+   and then they are yielded like a generator
+
+_Note (I):_ Be aware that the sequence diagrams shown represent simple use cases,
+and more complex scenarios are also possible (e.g. adding an object with children).
+
+_Note (II):_ There is also an `is_a` method for checking oclass inheritance.
 
 ## Interoperability layer
 The interoperability layer takes care of the connection and translation between the semantic and syntactic parts.
