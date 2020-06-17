@@ -80,6 +80,7 @@ This allows us to group and clearly define which components should and which one
      - `_apply_deleted(self, root_obj, buffer)`: Remove all the elements in `buffer` from the engine.
      - `_load_from_backend(self, uids, expired=None)`: Loads the given uids (and the dependant entities)
        with the latest information from the backend.
+       Only loads the directly related information, not all the children recursively.
      - Specific for a simulation:
        - `_run(self, root_cuds_object)`: Call the run method on the simulation.
      - Specific for a database:
