@@ -529,6 +529,17 @@ Users or wrapper developers do not have to worry about updating this buffers, OS
 However, these structures will be used in the different `_apply_<buffer>` methods when developing a wrapper
 (see [this](./wrapper_development.md#coding) section of wrapper development).
 
+#### Load from Backend
+Similar to how the `_apply_<buffer>` methods are used to send information to the engine, 
+`_load_from_backend` has the purpose of updating the semantic layer with the latest information from the backend.
+
+You can see in the [`get` sequence diagram](#id3) that when the information has potentially
+changed in the backend (i.e the simulation has run, or a database has more data)
+the `get` has to fetch the latest version. 
+To achieve this, OSP-core calls `_load_from_backend` with the list of desired uids, 
+and the wrapper wrapper will update the objects in the registry with the relevant
+information and `yield` them.
+
 ### Networking
 _Location:_ `osp.core.session.transport`
 
