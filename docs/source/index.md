@@ -28,10 +28,10 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: DIY
    :maxdepth: 2
 
-   jupyter/01-cuds-api.ipynb
-   jupyter/02-ontology-interface.ipynb
-   jupyter/03-multiple-wrappers.ipynb
-   jupyter/04-simlammps.ipynb
+   jupyter/cuds-api.ipynb
+   jupyter/ontology-interface.ipynb
+   jupyter/multiple-wrappers.ipynb
+   jupyter/simlammps.ipynb
 
 .. toctree::
    :caption: Ontology
