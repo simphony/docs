@@ -30,6 +30,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
    jupyter/cuds-api.ipynb
    jupyter/ontology-interface.ipynb
+   jupyter/sessions_and_vars.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
 
