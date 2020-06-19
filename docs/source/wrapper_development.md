@@ -81,6 +81,7 @@ This allows us to group and clearly define which components should and which one
      - `_load_from_backend(self, uids, expired=None)`: Loads the given uids (and the dependant entities)
        with the latest information from the backend.
        Only loads the directly related information, not all the children recursively.
+       This method _must_ be implemented for a wrapper to work.
      - Specific for a simulation:
        - `_run(self, root_cuds_object)`: Call the run method on the simulation.
      - Specific for a database:
