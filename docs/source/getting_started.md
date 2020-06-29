@@ -32,8 +32,8 @@ The following architecture has the aim to cover and support the goals presented 
    osp <-down-> wrapper: updates
 ```
 
-As you can see, OSP-core provides the standard data format, and the wrappers 
-take care of mapping that format to and from the backend specific syntax.
+As you can see, OSP-core provides the standard data format and API,
+and the wrappers take care of mapping that format to and from the backend specific syntax and API.
 
 In order to simplify and generalise the usage as much as possible, the backend 
 specific and syntactic knowledge should be abstracted to ontology concepts 
