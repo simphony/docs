@@ -5,9 +5,10 @@ Here you can browse though the general documentation of SimPhoNy.
 
 ```eval_rst
  =============  ==========
- SymPhoNy docs  OSP core  
+ SymPhoNy docs  OSP-core  
  =============  ==========
- 2.1.x          3.3.x-beta
+ 2.2.x          3.3.5-beta
+ 2.1.x          3.3.0-beta
  =============  ==========
 ```
 
@@ -17,17 +18,21 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    about.md
+   motivation.md
    getting_started.md
    detailed_design.md
    wrapper_development.md
+   utils.md
 
 .. toctree::
    :caption: DIY
    :maxdepth: 2
 
-   jupyter/01-cuds-api.ipynb
-   jupyter/02-ontology-interface.ipynb
-   jupyter/03-multiple-wrappers.ipynb
+   jupyter/cuds-api.ipynb
+   jupyter/ontology-interface.ipynb
+   jupyter/sessions_and_vars.ipynb
+   jupyter/multiple-wrappers.ipynb
+   jupyter/simlammps.ipynb
 
 .. toctree::
    :caption: Ontology

@@ -16,7 +16,6 @@ copyright = '2020, Materials Data Science and Informatics team at Fraunhofer IWM
 author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # -- General configuration ---------------------------------------------------
-
 extensions = [
     'recommonmark',  # md
     'sphinx.ext.autodoc',  # API ref
@@ -30,7 +29,10 @@ extensions = [
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
 ]
 
+master_doc = 'index'
+
 plantuml = 'java -jar lib/plantuml.jar'
+plantuml_output_format = 'svg_img'
 
 templates_path = ['_templates']
 
@@ -46,18 +48,6 @@ html_theme = 'sphinx_rtd_theme'
 html_favicon = '_static/img/simphony_favicon.png'
 html_logo = '_static/img/simphony_logo_light.png'
 html_static_path = ['_static']
-html_js_files = [
-    'version_links.js',
-]
-
-html_context = {
-    "gitlab_host": "gitlab.cc-asp.fraunhofer.de",
-    "display_gitlab": True, # Integrate Gitlab
-    "gitlab_user": "simphony", # Username
-    "gitlab_repo": "documentation", # Repo name
-    "gitlab_version": "master", # Version
-    "conf_py_path": "/docs/source/", # Path in the checkout to the docs root
-}
 
 
 # -- Options for LaTeX output -------------------------------------------------

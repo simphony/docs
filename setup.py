@@ -41,9 +41,9 @@ setup(
     setup_requires=[
         'sphinx',
     ],
-    cmdclass={'build_sphinx': CustomBuild},
+    cmdclass={'install': CustomBuild},
     command_options={
-        'build_sphinx': {
+        'install': {
             'version': ('setup.py', VERSION),
             'release': ('setup.py', VERSION),
             'source_dir': ('setup.py', source_dir),

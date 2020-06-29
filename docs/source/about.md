@@ -1,5 +1,8 @@
 # About
-SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool. It’s latest version is soon to become an open-source python project. The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed (See more details [here](https://www.simphony-project.eu/)). 
+SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool.
+Its latest version is soon to become an open-source python project.
+The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed
+(See more details [here](https://www.simphony-project.eu/)). 
 One of SimPhoNy’s main tasks is to convert *opaque* data, meaning data whose semantics are hidden, to *transparent* data, that is data whose semantics is understood and easily accessible.
 
 This project aims to clarify the purpose and usage of the SimPhoNy platform through simple, short examples.
@@ -9,6 +12,20 @@ _Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de),
 [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and 
 [Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
 the Materials Data Science and Informatics team, Fraunhofer IWM.
+
+# License
+BSD 3-Clause 
+Copyright 2020 SimPhoNy OSP-core developers
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 # Terminology
 These are some of the terms used in the following sections:

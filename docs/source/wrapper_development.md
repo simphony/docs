@@ -61,13 +61,13 @@ These are the requirements for a minimal wrapper ontology:
 </details>
 
 ## Coding
-An advantage of the [3-layered-design](./getting_started.md#general-design) that we follow is the modularity and conceptual separation.
+An advantage of the [3-layered-design](./getting_started.md#general-architecture) that we follow is the modularity and conceptual separation.
 The closer to the user, the higher the abstraction.
 
 This allows us to group and clearly define which components should and which ones should not be modified when creating a new wrapper.
 
- - [Syntactic layer](./detailed_design.md#syntactic-layer): 
-   If none is available, one must be developed.
+ - [Semantic layer](./detailed_design.md#semantic-layer): 
+   Requires no work.
 
  - [Interoperability layer](./detailed_design.md#interoperability-layer):
    - [Session class](./detailed_design.md#session): 
@@ -80,6 +80,8 @@ This allows us to group and clearly define which components should and which one
      - `_apply_deleted(self, root_obj, buffer)`: Remove all the elements in `buffer` from the engine.
      - `_load_from_backend(self, uids, expired=None)`: Loads the given uids (and the dependant entities)
        with the latest information from the backend.
+       Only loads the directly related information, not all the children recursively.
+       This method _must_ be implemented for a wrapper to work.
      - Specific for a simulation:
        - `_run(self, root_cuds_object)`: Call the run method on the simulation.
      - Specific for a database:
@@ -89,14 +91,14 @@ This allows us to group and clearly define which components should and which one
        - `_rollback_transaction(self)`: Rollback the transaction.
        - `close(self)`: Close the connection.
 
- - [Semantic layer](./detailed_design.md#semantic-layer): 
-   Requires no work. 
+ - [Syntactic layer](./detailed_design.md#syntactic-layer): 
+   If none is available, one must be developed.
    Only needs an entity representing the wrapper, as presented in the previous section.
 
 ## Engine installation
 Most engines will require some sort of compilation or installation before being able to use them through Python.
 
-To facilitate the installation of the back-end to the end users, a shell script with the necessary commands should be made available.
+To facilitate the installation of the backend to the end users, a shell script with the necessary commands should be made available.
 It is also recommended to split the installation of the engine from the installation of the engine requirements.
 
 <details>
@@ -182,10 +184,24 @@ When the implementation of the wrapper is done, the user should be able to insta
 (env) user@computer:~/some_wrapper$ python setup.py install
 ```
 
-Apart from a system installation, we highly recommend to provide a `Dockerfile` with the engine
+### Dockerfile with the engine
+Apart from a system installation, we highly recommend providing a `Dockerfile` with the engine
 and other minimal requirements, in case the system installation is not possible or desired.
 
-This `Dockerfile` will also be useful for the next section.
+Similar to how OSP-core is the structure on top of which the wrappers are made,
+we designed a schema of Docker images where OSP-core is used as a base image.
+
+Thus, OSP-core has an image (currently using Ubuntu) that should be tagged `simphony/osp-core:<VERSION>`.
+The Dockerfile of a wrapper will have that image in the `FROM` statement at the top, 
+and take care of installing the engine requirements (and the wrapper itself).
+
+To fix the tagging of the images and the versioning compatibility, 
+the `Dockerfile` should be installed via the provided `docker_install.sh` script.
+It will tag the OSP-core image and call the Dockerfile in the root of the wrapper accordingly.
+
+In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
+making sure to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
+`docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration
 GitLab provides Continuous Integration via the `.gitlab-ci.yml` file. 
@@ -197,7 +213,7 @@ and push the image to Gitlab Container Registry so that the CI jobs use that ima
 The `Dockerfile` for the Container Registry image will be very similar to the one used for installing the engine.
 However, here it might be useful to install other libraries like flake8 for style checks.
 
-## Important (utility) functions for wrapper development
+## Utility functions for wrapper development
 We have developed some functions that will probably come in handy when developing a wrapper. You can find them in [osp.core.utils.wrapper_development](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
 
 ## Wrapper Examples

@@ -1,6 +1,5 @@
-# Getting started
-## General design
-The purpose of this framework is to provide an easy, standard interoperability between multiple different backends through the exchange of data stored in an ontology-based data-structure.
+# General architecture
+The following architecture has the aim to cover and support the goals presented in the [motivation section](./motivation.md).
 
 ```eval_rst
 .. uml::
@@ -10,7 +9,7 @@ The purpose of this framework is to provide an easy, standard interoperability b
    skinparam linetype ortho
    actor user
    rectangle SimPhoNy {
-      usecase "osp-core" as osp #FFFFFF
+      usecase "OSP-core" as osp #FFFFFF
       usecase "database\nwrapper" as db_wrapper
       usecase "simulation\nwrapper" as sim_wrapper
       usecase wrapper
@@ -33,8 +32,8 @@ The purpose of this framework is to provide an easy, standard interoperability b
    osp <-down-> wrapper: updates
 ```
 
-As you can see, osp-core provides the standard data format, and the wrappers 
-take care of mapping that format to and from the backend specific syntax.
+As you can see, OSP-core provides the standard data format and API,
+and the wrappers take care of mapping that format to and from the backend specific syntax and API.
 
 In order to simplify and generalise the usage as much as possible, the backend 
 specific and syntactic knowledge should be abstracted to ontology concepts 
@@ -79,10 +78,10 @@ For that, a 3 layer schema is used:
    ' -----------------------
    ' ------ RELATIONS ------
    ' -----------------------
-   user -> sem
-   sem -> intop
-   intop -> syn
-   syn -> backend
+   user <-> sem
+   sem <-> intop
+   intop <-> syn
+   syn <-> backend
 
    user -[hidden]-> gen
    gen -> spe
@@ -169,6 +168,8 @@ other_entity = another_namespace.SomeOtherEntity()
 ### Sessions
 The sessions are the interoperability classes that connect to where the data is stored. In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
+When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
+
 To simplify the understanding and development of session classes, we have created a hierarchy:
 
 ```eval_rst
@@ -176,7 +177,7 @@ To simplify the understanding and development of session classes, we have create
   :caption: Simplified session inheritance scheme
   :align: center
 
-  rectangle "OSP-Core" as OSP {
+  rectangle "OSP-core" as OSP {
     abstract class Session {
     }
 
@@ -240,21 +241,19 @@ To simplify the understanding and development of session classes, we have create
 
 As you can see, CoreSession is the default one used when instantiating a new object in your workspace.
 
-When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
-
 ## Wrappers
 Like we have mentioned in previous sections, wrappers allow the user to interact 
 through the cuds API with different backends.
 
 Since each backend is different, for more detailed documentation of each wrapper
-we suggest going through the different available [repositories]
-(https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
+we suggest going through the different available [repositories](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
 
 For more technical information regarding wrappers, particularly for wrapper developers, 
 we recommend visiting [wrapper development](./wrapper_development.md).
 
-## Installation
-For the installation and usage of the framework, we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
+# Installation
+For the installation and usage of the framework,
+we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
 ```shell
 ~/test$ python3 -m venv SimPhoNy
@@ -262,7 +261,7 @@ For the installation and usage of the framework, we *highly* encourage the use o
 (SimPhoNy) ~/test$ 
 ```
 
-### OSP-core installation
+## OSP-core installation
 First, the repository must be cloned:
 
 ```shell
@@ -276,20 +275,22 @@ cd osp-core
 python3 setup.py install
 ```
 
-After installing osp-core, you can install an ontology file using **pico** (**p**ico **i**nstalls **c**uds **o**ntologies):
+After installing OSP-core, you can install an ontology file using 
+[**pico**](./utils.md#pico-installs-cuds-ontologies):
 
 ```shell
 pico install <path/to/ontology.yml>
 ```
 
-### Wrapper installation
+## Wrapper installation
 The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
 git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
+cd some-wrapper
 ```
-
-If the wrapper has its own ontology, this ontology *must* be installed:
+### Local wrapper installation
+With OSP-core installed, if the wrapper has its own ontology, it *must* be installed:
 
 ```shell
 pico install <path/to/ontology.yml>
@@ -308,4 +309,11 @@ Now the wrapper can be installed:
 python3 setup.py install
 ```
 
-Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/) for an automatic installation in a container.
+### Wrapper Docker image
+Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
+for an automatic installation in a container.
+Simply run the `docker_install.sh` script. No need to install OSP-core either.
+
+```shell
+./docker_install.sh
+```

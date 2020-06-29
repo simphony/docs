@@ -2,7 +2,7 @@
 Here are links to other projects relevant for this documentation.
 SimPhoNy:
 - [SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
-- [osp-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core)
+- [OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core)
 - [wrappers](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
 - [wrapper development](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/)
 
@@ -12,7 +12,7 @@ Technologies used:
 - [PlantUML](https://plantuml.com/), used for the diagrams
 
 # Acknowledgements
-SimPhoNy OSP CORE and wrappers development is supported by the following Grants:
+SimPhoNy OSP-core and wrappers development is supported by the following Grants:
 
 ```eval_rst
 ===========  ============  ===========================  ===============

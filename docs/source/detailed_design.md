@@ -1,7 +1,7 @@
 # Detailed design
 Here we will give an in-depth view of the design of the 3 layers.
 
-For a more general overview, go to [getting started](./getting_started.md#general-design).
+For a more general overview, go to [getting started](./getting_started.md#general-architecture).
 
 
 ```eval_rst
@@ -88,7 +88,7 @@ For a more general overview, go to [getting started](./getting_started.md#genera
 
   note top of SomeWrapperSession
    Updates the registry with information
-   from the back-end and vice versa.
+   from the backend and vice versa.
   end note
 
   note top of Registry
@@ -157,61 +157,217 @@ The governing idea behind the API design was to simplify as much as possible the
 
 This CRUD API is defined by 6 methods:
 
-- Create
+##### Create
 ```python
-from osp.core import NAMESPACE
-# from osp.core import namespace  # lowercase works as well!
+from osp.core import SOME_NAMESPACE
+# from osp.core import some_namespace  # lowercase works as well!
 
-ontology_class = NAMESPACE.ONTOLOGY_CLASS
-# ontology_class = namespace.MyOntologyClass  # CamelCase works as well!
-relationship = NAMESPACE.RELATIONSHIP
+ontology_class = SOME_NAMESPACE.ONTOLOGY_CLASS
+# ontology_class = some_namespace.MyOntologyClass  # CamelCase works as well!
+relationship = SOME_NAMESPACE.RELATIONSHIP
 
-cuds_obj = NAMESPACE.ONTOLOGY_CLASS()
+cuds_obj = SOME_NAMESPACE.ONTOLOGY_CLASS()
 ```
 
-- Add
-```python
-# These will also add the opposed relationship to the new contained cuds object
-cuds_obj.add(*other_cuds, rel=relationship)
-cuds_obj.add(yet_another_cuds)                           # Uses default relationship from ontology
-```
+##### Add
+  ```python
+  # These will also add the opposed relationship to the new contained cuds object
+  cuds_obj.add(*other_cuds, rel=relationship)
+  cuds_obj.add(yet_another_cuds)                           # Uses default relationship from ontology
+  ```
 
-- Get
-```python
-# Returns a list, unless only one uid was given
-cuds_obj.get()                                           # All the contained cuds objects
-cuds_obj.get(rel=relationship)                           # Entities under that relationship
-cuds_obj.get(*uids)                                      # Searches elements for the uids
-cuds_obj.get(*uids, rel=relationship)                    # Faster, filters by relationship
-cuds_obj.get(oclass=ontology_class)                      # Elements of that class
-cuds_obj.get(rel=relationship, oclass=ontology_class)    # Filters by rel and oclass
-```
+  The flow of information for the call of the `add` method would be:
+  ```eval_rst
+     .. uml::
+       :caption: `add` method call
+       :align: center
 
-- Remove
-```python
-# These will trigger the update in the opposed relationship of the erased element
-cuds_obj.remove()                                        # Remove all
-cuds_obj.remove(*uids/cuds_objs)                         # Remove objects with the given uids
-cuds_obj.remove(*uids/cuds_objs, rel=relationship)       # Faster, filters by relationship
-cuds_obj.remove(rel=relationship)                        # Delete all elements under a relationship
-cuds_obj.remove(oclass=ontology_class)                   # Delete all elements of a certain class
-cuds_obj.remove(rel=relationship, oclass=ontology_class) # Delete filtering by rel and oclass
-```
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
 
-- Update
-```python
-# Objects to update must exist already
-cuds_obj.update(*cuds_objs)
-```
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
 
-- Iterate
-```python
-cuds_obj.iter()                                          # Iterates through all
-cuds_obj.iter(oclass=ontology_class)                     # Iterates filtering by the ontology class
-cuds_obj.iter(rel=relationship)                          # Iterates filtering by the relationship
-```
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
 
-_Note:_ There is also an `is_a` method for checking oclass inheritance.
+       database "backend" as back
+
+       user -> cuds: add
+       cuds <- sess: load
+       cuds -> sess: store
+  ```
+  As you can see, the information is sent to the next layer, but not all the way to the backend.
+  This will be propagated when the user calls `session.run()` or `session.commit`.
+  The registry is checked for a pre-existing object, in case something that is already there is being added.
+
+
+##### Get
+  ```python
+  # Returns a list, unless only one uid was given
+  cuds_obj.get()                                           # All the contained cuds objects
+  cuds_obj.get(rel=relationship)                           # Entities under that relationship
+  cuds_obj.get(*uids)                                      # Searches elements for the uids
+  cuds_obj.get(*uids, rel=relationship)                    # Faster, filters by relationship
+  cuds_obj.get(oclass=ontology_class)                      # Elements of that class
+  cuds_obj.get(rel=relationship, oclass=ontology_class)    # Filters by rel and oclass
+  ```
+  In this case, the calls carried out by the  `get` method are as follows:
+  ```eval_rst
+     .. uml::
+       :caption: `get` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+ 
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+ 
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+ 
+       database "backend" as back
+ 
+       user -> cuds: get
+       cuds -> sess: load
+ 
+       == Object not in registry ==
+       sess -> eng: _load_from_backend
+       eng -> back: <get info>
+       back --> eng: <info>
+       eng --> sess: <info>
+       == Object in registry ==
+       sess --> cuds: object
+       cuds --> user: object
+   ```
+   Now the backend is contacted to make sure the user receives the latest 
+   available version of the objects being queried.
+   This is done through `_load_from_backend()`.
+
+##### Update
+  ```python
+  # Objects to update must exist already
+  cuds_obj.update(*cuds_objs)
+  ```
+  
+  A simple `update` call triggers the following behaviour:
+  ```eval_rst
+     .. uml::
+       :caption: `update` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: update
+       cuds <- sess: load()
+       cuds -> sess: store()
+   ```
+   You can see the calls are very much the same as with the `add` method.
+   The difference is that the `update` requires the object to be there previously.
+   And so the object is first loaded from the registry, then updated and stored.
+
+
+##### Remove
+  ```python
+  # These will trigger the update in the opposed relationship of the erased element
+  cuds_obj.remove()                                        # Remove all
+  cuds_obj.remove(*uids/cuds_objs)                         # Remove objects with the given uids
+  cuds_obj.remove(*uids/cuds_objs, rel=relationship)       # Faster, filters by relationship
+  cuds_obj.remove(rel=relationship)                        # Delete all elements under a relationship
+  cuds_obj.remove(oclass=ontology_class)                   # Delete all elements of a certain class
+  cuds_obj.remove(rel=relationship, oclass=ontology_class) # Delete filtering by rel and oclass
+  ```
+
+  The sequence for a simple `remove` is:
+  ```eval_rst
+     .. uml::
+       :caption: `remove` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: remove
+       cuds <- sess: load()
+       cuds -> cuds: remove_rel()
+   ```
+   Here the registry is accessed to fetch the neighbours of the removed object
+   and delete their links (relationships) to it.
+
+
+##### Iterate
+  ```python
+  cuds_obj.iter()                                          # Iterates through all
+  cuds_obj.iter(oclass=ontology_class)                     # Iterates filtering by the ontology class
+  cuds_obj.iter(rel=relationship)                          # Iterates filtering by the relationship
+  ```
+  
+  The general behaviour of the `iter` is:
+  ```eval_rst
+     .. uml::
+       :caption: `iter` method call
+       :align: center
+
+       actor user
+       box "Semantic Layer"
+         participant "cuds" as cuds
+       end box 
+
+       box "Interoperability Layer"
+         participant "session" as sess
+       end box
+
+       box "Syntactic Layer"
+         participant "engine" as eng
+       end box
+
+       database "backend" as back
+
+       user -> cuds: iterate
+       cuds <- sess: load()
+       cuds -> user: yield(object)
+   ```
+   First the uids of all the objects to be iterated are gathered,
+   and then they are yielded like a generator
+
+_Note (I):_ Be aware that the sequence diagrams shown represent simple use cases,
+and more complex scenarios are also possible (e.g. adding an object with children).
+
+_Note (II):_ There is also an `is_a` method for checking oclass inheritance.
 
 ## Interoperability layer
 The interoperability layer takes care of the connection and translation between the semantic and syntactic parts.
@@ -239,7 +395,7 @@ To simplify and group functionality, we built an inheritance scheme:
   :caption: Session inheritance scheme
   :align: center
 
-  rectangle "OSP-Core" as OSP {
+  rectangle "OSP-core" as OSP {
     abstract class Session {
       Registry : registry
       --
@@ -350,10 +506,43 @@ All wrappers will share `WrapperSession` as an ancestor.
 This will define which methods have to be implemented and `_engine` as the access point to a backend.
 
 `SimWrapperSession` and `DbWrapperSession` further specify the behaviour of wrappers, defining the methods that 
-trigger an action on the backend (`run` and `commit`, respectively)
+trigger an action on the backend (`run` and `commit`, respectively).
+
+#### Buffers
+Session classes under `WrapperSession` share 3 types of buffers, namely `added`, `updated` and `deleted`.
+The previous buffers are repeated twice, first for the user and then for the engine, 
+so the number of buffers is actually 6.
+
+As we have seen in the previous section, not all API calls trigger a change all the way to the backend.
+In fact, most of them do not. This is done to limit the traffic in the slower sections 
+(networking or communicating with the engine).
+
+On the other hand, the user should be able to access the latest version of the data 
+(meaning the changes they might have just done), and the wrapper should know what changes have taken place
+since the last sync with the backend software (`commit` or `run`).
+In order to achieve these, the changes done by the user directly modify the semantic layer and are
+flagged in the buffers as changes to be propagated
+
+Users or wrapper developers do not have to worry about updating this buffers, OSP-core handles them 
+(both filling them up and emptying them).
+
+However, these structures will be used in the different `_apply_<buffer>` methods when developing a wrapper
+(see [this](./wrapper_development.md#coding) section of wrapper development).
+
+#### Load from Backend
+Similar to how the `_apply_<buffer>` methods are used to send information to the engine, 
+`_load_from_backend` has the purpose of updating the semantic layer with the latest information from the backend.
+
+You can see in the [`get` sequence diagram](#id3) that when the information has potentially
+changed in the backend (i.e the simulation has run, or a database has more data)
+the `get` has to fetch the latest version. 
+To achieve this, OSP-core calls `_load_from_backend` with the list of desired uids, 
+and the wrapper wrapper will update the objects in the registry with the relevant
+information and `yield` them.
 
 ### Networking
 _Location:_ `osp.core.session.transport`
+
 You may have noticed in the [session inheritance scheme](#id2) that there is `TransportSession` implementing the `WrapperSession`.
 This session class is the way to connect to engines that are located in other machines through web sockets.
 
@@ -370,7 +559,7 @@ The behaviour is as follows:
   - The server deserialises the data and calls the method on the wrapper.
   - The results are serialised and sent back to the user´s local transport session.
 
-The chosen implementation hides most of the implementation from the users and wrapper developers.
+The chosen implementation hides most of the work from the users and wrapper developers.
 The only difference between a local wrapper and a remote one is the line where the wrapper session is instantiated, from:
 ```python
 sess = SomeWrapperSession(parameter_a, parameter_b)
@@ -388,7 +577,7 @@ This layer is in direct communication with the backend.
 It has no ontological knowledge and must just provide a simple interface for the interoperability layer to interact with the wrapped application. 
 
 This means it may have to be a binding if the application is in a different language. 
-It could also be a file generator/parser for back-ends that only allow file i/o.
+It could also be a file generator/parser for backends that only allow file i/o.
 In other cases, (e.g. LAMMPS with PyLammps) it is provided by the backend itself, and requires no implementation. 
 
 Since the syntactic layer will greatly depend on the specific backend, no standardisation is provided there.
