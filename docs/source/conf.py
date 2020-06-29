@@ -16,7 +16,6 @@ copyright = '2020, Materials Data Science and Informatics team at Fraunhofer IWM
 author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # -- General configuration ---------------------------------------------------
-
 extensions = [
     'recommonmark',  # md
     'sphinx.ext.autodoc',  # API ref
@@ -29,6 +28,8 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',  # Jupyter - Syntax highlight workaround
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
 ]
+
+master_doc = 'index'
 
 plantuml = 'java -jar lib/plantuml.jar'
 plantuml_output_format = 'svg_img'
