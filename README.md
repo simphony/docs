@@ -1,13 +1,12 @@
-[![pipeline status](https://gitlab.cc-asp.fraunhofer.de/simphony/documentation/badges/master/pipeline.svg)](https://gitlab.cc-asp.fraunhofer.de/simphony/documentation/commits/master)
 
 # SimPhoNy docs
-To access the documentation, please visit: http://simphony.pages.fraunhofer.de/documentation/latest
+To access the documentation, please visit: https://simphony-docs.readthedocs.io/en/latest/
 
-If you find any error or problem with the documentation, please [create an issue](https://gitlab.cc-asp.fraunhofer.de/simphony/documentation/issues)
+If you find any error or problem with the documentation, please [create an issue](https://github.com/simphony/docs/issues)
 
 ## Local installation
 First, some requirements have to be manually installed:
-- [osp-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core)
+- [osp-core](https://github.com/simphony/osp-core)
 - pandoc
 - LaTeX requirements
   ```shell
@@ -21,7 +20,7 @@ First, some requirements have to be manually installed:
 
 If you want to render the documentation locally, you can run:
 ```
-python3 setup.py build_sphinx
+python3 setup.py install
 ```
 
 This will render the html and generate a LaTeX pdf (in `docs/build/latex/SimPhoNy_docs.pdf`).
