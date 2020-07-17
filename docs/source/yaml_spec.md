@@ -1,11 +1,10 @@
 # Description of YAML format Specification
 
-This file describes the ontology format that is used by OSP-core. 
+This file describes how you can create ontologies using YAML.
 
 ## Info
 
-Contact: [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and  [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de) from the 
-Material Informatics team, Fraunhofer IWM.
+Contact: [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and  [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de) from the Material Informatics team, Fraunhofer IWM.
 
 Version: 3.0 pending approval
 
@@ -28,7 +27,7 @@ and constraints on their logically consistent application. (Source:
 
 ## Naming of the files
 
-Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a user defined name.
+Name any ontolgy `<name>.ontology.yml`, where `<name>` should be replaced by a user defined name.
 
 ## Syntax of the .yml ontology
 
@@ -58,7 +57,12 @@ Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a u
 
 > Contains individual declarations for ontology entities as a mapping.
 > Each key of the mapping is the name of an ontology entity.
-> The key should be ALL_UPPERCASE, with underscore as separation.
+> The key can contain letters, numbers and underscore.
+> By convention, they should be in CamelCase. The name of ontology classes
+> should start with an uppercase latter, while the name of relationships
+> and attributes should start with a lower case letter.
+> This key is later used the reference the entity from within osp-core
+> in a case sensitive manner.
 > The value of the mapping is a mapping whose format is detailed in the
 > [Ontology entities format](#ontology-entities-format).
 
@@ -95,31 +99,30 @@ For attributes, these keys are described in
 The CUBA namespace contains a set of Common Universal Basic entities, that have special meaning in OSP-core.
 The CUBA namespace is always installed in OSP-core.
 
-`CUBA.ENTITY`
-> The entity is the root of the ontology. It is the only entity which does not have a superclass.
-> Every other entity is a subclass of `ENTITY`.
+`cuba.Class`
+> The root for all ontology classes. Does not have a superclass.
 
-`CUBA.NOTHING`
+`cuba.Nothing`
 > An ontology class, that is not allowed to have individuals.
 
-`CUBA.RELATIONSHIP`
-> The root of all relationships. Its direct superclass is `ENTITY`.
+`cuba.relationship`
+> The root of all relationships. Does not have a superclass.
 
-`CUBA.ATTRIBUTE`
-> The root of all attributes. Its direct superclass is `ENTITY`.
+`cuba.attribute`
+> The root of all attributes. Does not have a superclass.
 
-`CUBA.WRAPPER`
+`cuba.Wrapper`
 > The root of all wrappers. These are the bridge to simulation engines and databases. See the examples in examples/.
 
-`CUBA.ACTIVE_RELATIONSHIP`
+`cuba.activeRelationship`
 > The root of all active relationships. Active relationships express that one cuds object is in the container of another.
 
-`CUBA.PASSIVE_RELATIONSHIP`
-> The inverse of `CUBA.ACTIVE_RELATIONSHIP`.
+`cuba.passiveRelationship`
+> The inverse of `cuba.activeRelationship`.
 
 ## Attribute format
 
-Every attribute is a subclass of `ATTRIBUTE`.
+Every attribute is a subclass of `cuba.attribute`.
 The declaration of an attribute is a special case of the declaration of an entity.
 It must have the keys described in [Ontology entities format](#ontology-entities-format).
 It can additionally have the following keys:
@@ -166,9 +169,9 @@ They can be either:
 - Requirements on the individual's relationships. For example:
 
   ```yaml
-  CITY.HAS_INHABITANT:
+  city.hasInhabitant:
     cardinality: 1+
-    range: CITY.CITIZEN
+    range: city.Citizen
     exclusive: false
   ```
 
@@ -196,8 +199,8 @@ They can be either:
 
   ```yaml
   or:
-    - CITY.CITY
-    - CITY.NEIGHBOURHOOD
+    - city.City
+    - city.Neighborhood
   ```
 
   This is the union of all individuals that are a city or a neighbourhood.
@@ -209,10 +212,10 @@ The definition of class expressions is recursive. For example:
 
 ```yaml
 or:
-  - CITY.CITY
-  - CITY.HAS_PART:
+  - city.City
+  - city.hasPart:
       cardinality: 1+
-      range: CITY.NEIGHBOURHOOD
+      range: city.Neighborhood
       exclusive: false
 ```
 
@@ -229,11 +232,11 @@ It can contain further information:
 > Each key must correspond to a subclass of `ATTRIBUTE`. For example:
 >
 > ```yaml
-> ADDRESS:
+> Address:
 >   ...
 >   attributes:
->     CITY.NAME: "Street"
->     CITY.NUMBER:
+>     city.name: "Street"
+>     city.number:
 > ```
 >
 > Here, an address has a name and a number.
@@ -246,12 +249,12 @@ It can contain further information:
 > individuals are allowed that are in the intersection of the class expressions. For example:
 >
 > ```yaml
-> POPULATED_PLACE:
+> PopulatedPlace:
 >    description:
 >    subclass_of:
->    - CITY.GEOGRAPHICAL_PLACE
->    - CITY.HAS_INHABITANT:
->        range: CITY.CITIZEN
+>    - city.GeographicalPlace
+>    - city.hasInhabitant:
+>        range: city.Citizen
 >        cardinality: many
 >        exclusive: true
 > ```
@@ -265,12 +268,12 @@ It can contain further information:
 > A list of class expressions who contain the same individuals as the cuds entity. For example:
 >
 > ```yaml
-> POPULATED_PLACE:
+> PopulatedPlace:
 >    description:
 >    equivalent_to:
->    - CITY.GEOGRAPHICAL_PLACE
->    - CITY.HAS_INHABITANT:
->        range: CITY.CITIZEN
+>    - city.GeographicalPlace
+>    - city.hasInhabitant:
+>        range: city.Citizen
 >        cardinality: many
 >        exclusive: true
 > ```
@@ -279,7 +282,7 @@ It can contain further information:
 
 ## Relationship format
 
-Every relationship is a subclass of `RELATIONSHIP`.
+Every relationship is a subclass of `cuba.relationship`.
 The declaration of a relationship is a special case of the declaration of an entity.
 It must have the keys described in [Ontology entities format](#ontology-entities-format).
 Furthermore, it can contain the following information:

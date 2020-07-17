@@ -38,9 +38,9 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: Ontology
    :maxdepth: 2
 
-   conversion_owl_to_yaml.md
-   working_with_emmo.md
+   included_ontologies.md
    yaml_spec.md
+   owl_ontologies.md
 
 .. toctree::
    :caption: Additional
