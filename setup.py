@@ -37,6 +37,7 @@ setup(
         'nbsphinx',
         'sphinx-copybutton',
         'ipython',
+        'jupyter_client',
     ],
     setup_requires=[
         'sphinx',
