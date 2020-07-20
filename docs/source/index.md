@@ -33,6 +33,7 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/sessions_and_vars.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
+   jupyter/quantum-espresso.ipynb
 
 .. toctree::
    :caption: Ontology
