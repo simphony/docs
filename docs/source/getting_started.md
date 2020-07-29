@@ -105,7 +105,7 @@ It is independent of any backend and provides the basic ontology based data stru
 ### Ontology file
 OSP-core requires an ontology file to create the appropriate CUDS classes.
 
-Said ontology must be in a YAML format as defined by [our specification](yaml_spec.md).
+Said ontology must be in a YAML format as defined by [our specification](yaml.md).
 
 <details>
   <summary>Ontology sample</summary>
