@@ -11,11 +11,11 @@ of a correct ontology can be done, and should not require major changes in the c
 These are the requirements for a minimal wrapper ontology:
 
 - Should contain an entity representing the wrapper.
-  Said entity should inherit from (subclass, is_a) `CUBA.WRAPPER`.
-- All attributes should subclass `CUBA.ATTRIBUTE`.
-- Top level entities should subclass `CUBA.ENTITY`
-- Active relationships should subclass `CUBA.ACTIVE_RELATIONSHIP`
-- Passive relationships should subclass `CUBA.PASSIVE_RELATIONSHIP`
+  Said entity should inherit from (subclass, is_a) `cuba.Wrapper`.
+- All attributes should subclass `cuba.attribute`.
+- Top level entities should subclass `cuba.Entity`
+- Active relationships should subclass `cuba.ActiveRelationship`
+- Passive relationships should subclass `cuba.PassiveRelationship`
 
 <details>
   <summary>Dummy ontology sample</summary>
@@ -26,36 +26,36 @@ These are the requirements for a minimal wrapper ontology:
 
   author: Parmenides <parmenides@ontology.creator>
 
-  namespace: SOME_NEW_WRAPPER_ONTOLOGY
+  namespace: some_new_wrapper_ontology
 
   ontology:
 
-    A_RELATIONSHIP:
+    aRelationship:
       description: "default relationship"
       subclass_of:
-      - CUBA.ACTIVE_RELATIONSHIP
-      inverse: SOME_NEW_WRAPPER_ONTOLOGY.PIHSNOITALER_A
+      - cuba.activeRelationship
+      inverse: some_new_wrapper_ontology.pihsnoitalerA
       default_rel: true
 
-    PIHSNOITALER_A:
+    pihsnoitalerA:
       description: "inverse of the default relationship"
       subclass_of:
-      -  CUBA.PASSIVE_RELATIONSHIP
-      inverse: SOME_NEW_WRAPPER_ONTOLOGY.A_RELATIONSHIP
+      -  cuba.passiveRelationship
+      inverse: some_new_wrapper_ontology.aRelationship
 
   ################
 
-    SOME_NEW_WRAPPER:
+    SomeNewWrapper:
       subclass_of: 
-      -  CUBA.WRAPPER
+      -  cuba.Wrapper
 
-    VALUE:
+    value:
       subclass_of:
-      -  CUBA.ATTRIBUTE
+      -  cuba.attribute
 
-    SOME_ENTITY:
+    SomeEntity:
       subclass_of:
-      -  CUBA.ENTITY
+      -  cuba.Class
 
   ```
 </details>
