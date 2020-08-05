@@ -7,6 +7,7 @@ Here you can browse though the general documentation of SimPhoNy.
  =============  ==========
  SymPhoNy docs  OSP-core  
  =============  ==========
+ 2.3.x          3.4.0-beta
  2.2.x          3.3.5-beta
  2.1.x          3.3.0-beta
  =============  ==========
@@ -20,6 +21,17 @@ Here you can browse though the general documentation of SimPhoNy.
    about.md
    motivation.md
    getting_started.md
+
+.. toctree::
+   :caption: Ontology
+   :maxdepth: 2
+
+   yaml.md
+   owl.md
+
+.. toctree::
+   :caption: Further information
+
    detailed_design.md
    wrapper_development.md
    utils.md
@@ -33,6 +45,7 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/sessions_and_vars.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
+   jupyter/quantum-espresso.ipynb
 
 .. toctree::
    :caption: Ontology
