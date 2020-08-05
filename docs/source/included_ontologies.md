@@ -1,12 +1,56 @@
-emmo, city
---> few words about them
+# Included ontologies
 
-Install them using:
+## The City ontology
 
-`pico install city`
+OSP core currently ships with two ontologies.
+The first one, called `city` is a simple example ontology.
+You can use it to play around and get familiar with osp-core.
+We will also use it a lot in this documentation as an example.
 
-`pico install emmo`
+The city ontology provides the concepts to describe people and
+buildings in a city. In this graph we show the different entities in the
+ontology. We used [Ontology2Dot](#ontology2dot) for that:
 
-otherwise use
+![ontology2dot sample image](./_static/img/ontology2dot.png)
 
-`pico install <path/to/custom_ontology_file.yml>`
+eval_rst
+To use the city ontology you have to install it using the tool [Pico](#pico-installs-cuds-ontologies):
+
+```sh
+pico install city
+```
+
+Take a look at our [examples](jupyter/cuds-api.html) to see how you can build your own city!
+
+## Working with EMMO using OSP-core
+
+The second ontology that is ready to be used out of the box is the European
+Materials Modelling Ontology, or EMMO in short. This ontology is an effort
+to develop an ontology for applied sciences. It is based on physics,
+analytical philosophy and information and communication technologies.
+Its source code is open and [available on Github](https://github.com/emmo-repo/EMMO).
+If you want to develop an emmo compliant ontology, see [the documentation](https://ontology.pages.fraunhofer.de/documentation/latest/).
+
+You can install EMMO using [Pico](#pico-installs-cuds-ontologies).
+
+```sh
+pico install emmo
+```
+
+Start creating cuds objects:
+
+```py
+>>> from osp.core.namespaces import math
+>>> math.Numerical.attributes
+{<OntologyAttribute math.hasNumericalData>: None}
+>>> x = math.Numerical(hasNumericalData=12)
+>>> x
+<math.Numerical: c11cc272-cdcf-421a-8838-5f177b065746,  CoreSession: @0x7f1987173190>
+>>> x.hasNumericalData
+12
+```
+
+## More ontologies
+
+To create you own or use an existing ontology, see the upcoming sections.
+Contact us, if you want your ontology to be shipped with SimPhoNy.

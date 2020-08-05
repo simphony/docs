@@ -26,6 +26,8 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: Ontology
    :maxdepth: 2
 
+   ontology_intro.md
+   included_ontologies.md
    yaml.md
    owl.md
 
@@ -46,14 +48,6 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum-espresso.ipynb
-
-.. toctree::
-   :caption: Ontology
-   :maxdepth: 2
-
-   included_ontologies.md
-   yaml_spec.md
-   owl_ontologies.md
 
 .. toctree::
    :caption: Additional

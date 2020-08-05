@@ -151,7 +151,7 @@ Said ontology must be in a YAML format as defined by [our specification](yaml.md
 </details>
 
 OSP-core can also be used with EMMO (European Materials and Modelling Ontology).
-Tools for converting EMMO from the OWL format to YAML are provided. See more [here](working_with_emmo.md).
+See more [here](included_ontologies.md).
 
 ### Python classes
 Upon installation of OSP-core, each ontology class (except from attributes and relationships) becomes a python class.

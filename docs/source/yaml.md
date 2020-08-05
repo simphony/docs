@@ -2,12 +2,6 @@
 
 This file describes how you can create ontologies using YAML.
 
-## Info
-
-Contact: [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and  [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de) from the Material Informatics team, Fraunhofer IWM.
-
-Version: 3.0 pending approval
-
 ## Introduction
 
 In this file we will give a description of how an Ontology can be
@@ -15,19 +9,16 @@ represented in a yaml file format and how to interpret such files. For
 simplicity reasons in the following we will give examples from the
 **\* example ontology \*** file which can be found in osp/core/ontology/yml/ontology.city.yml.
 
-What is an ontology?
+## Naming of the files and installation
 
-An ontology defines a set of representational primitives with which to
-model a domain of knowledge or discourse. The representational
-primitives are typically classes (or sets), attributes (or properties),
-and relationships (or relations among class members). The definitions of
-the representational primitives include information about their meaning
-and constraints on their logically consistent application. (Source:
-<http://tomgruber.org/writing/ontology-definition-2007.htm>)
+Name any ontology `<name>.ontology.yml`, where `<name>` should be replaced by a user defined name.
 
-## Naming of the files
+Then you can use pico to install the tool [Pico](#pico-installs-cuds-ontologies)
+to install the ontology:
 
-Name any ontolgy `<name>.ontology.yml`, where `<name>` should be replaced by a user defined name.
+```sh
+pico install </path/to/my_ontology.ontology.yml>
+```
 
 ## Syntax of the .yml ontology
 
@@ -315,3 +306,8 @@ Furthermore, it can contain the following information:
 > - inversefunctional
 
 A subclass of a relationship is called a sub-relationship.
+
+## Limitations
+
+`Class expressions`, `domain`, `range`, `characteristics`, `equivalent_to`, `disjoint_with`
+are currently not parsed by OSP core.
