@@ -9,18 +9,18 @@ We will also use it a lot in this documentation as an example.
 
 The city ontology provides the concepts to describe people and
 buildings in a city. In this graph we show the different entities in the
-ontology. We used [Ontology2Dot](#ontology2dot) for that:
+ontology. We used [Ontology2Dot](utils.md#ontology2dot) for that:
 
 ![ontology2dot sample image](./_static/img/ontology2dot.png)
 
 eval_rst
-To use the city ontology you have to install it using the tool [Pico](#pico-installs-cuds-ontologies):
+To use the city ontology you have to install it using the tool [Pico](utils.md#pico-installs-cuds-ontologies):
 
 ```sh
 pico install city
 ```
 
-Take a look at our [examples](jupyter/cuds-api.html) to see how you can build your own city!
+Take a look at our [examples](jupyter/cuds-api.ipynb#Tutorial-01:-CUDS-API) to see how you can build your own city!
 
 ## Working with EMMO using OSP-core
 
@@ -31,7 +31,7 @@ analytical philosophy and information and communication technologies.
 Its source code is open and [available on Github](https://github.com/emmo-repo/EMMO).
 If you want to develop an emmo compliant ontology, see [the documentation](https://ontology.pages.fraunhofer.de/documentation/latest/).
 
-You can install EMMO using [Pico](#pico-installs-cuds-ontologies).
+You can install EMMO using [Pico](utils.md#pico-installs-cuds-ontologies).
 
 ```sh
 pico install emmo
