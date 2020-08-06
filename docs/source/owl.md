@@ -61,7 +61,7 @@ The default relationship.
 
 Name the yaml file as you would any yaml file `<name>.yml`, where `<name>` should be replaced by a user defined name.
 
-Then you can use pico to install the tool [Pico](#pico-installs-cuds-ontologies)
+Then you can use pico to install the tool [Pico](utils.md#pico-installs-cuds-ontologies)
 to install the ontology:
 
 ```sh
