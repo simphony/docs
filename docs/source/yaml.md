@@ -147,7 +147,7 @@ It can additionally have the following keys:
 > In case a datatype is not specified the default datatype is assumed to
 > be STRING
 >
-> For example: The datatype of entity NUMBER_OF_OCCURRENCES is INT.
+> For example: The datatype of entity numberOfOccurrences is INT.
 
 ## Class expressions
 
@@ -220,7 +220,7 @@ It can contain further information:
 
 `attributes`: Dict[**\`\`qualified entity name\`\`**, default_value]
 > Expects a mapping from the **\`\`qualified entity name\`\`** of an attribute to its default.
-> Each key must correspond to a subclass of `ATTRIBUTE`. For example:
+> Each key must correspond to a subclass of `attribute`. For example:
 >
 > ```yaml
 > Address:
@@ -279,10 +279,10 @@ It must have the keys described in [Ontology entities format](#ontology-entities
 Furthermore, it can contain the following information:
 
 `inverse`: **\`\`qualified entity name\`\`** or empty (None)
-> If CUDS object A is related to CUDS object B via relationship REL, then B is related
-> with A via the inverse of REL.
+> If CUDS object A is related to CUDS object B via relationship `rel`, then B is related
+> with A via the inverse of `rel`.
 >
-> For example: The inverse of HAS\_PART is IS\_PART\_OF.
+> For example: The inverse of `hasPart` is `isPartOf`.
 >
 > If no inverse is given, OSP-core will automatically create one.
 
