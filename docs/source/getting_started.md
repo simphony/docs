@@ -105,53 +105,52 @@ It is independent of any backend and provides the basic ontology based data stru
 ### Ontology file
 OSP-core requires an ontology file to create the appropriate CUDS classes.
 
-Said ontology must be in a YAML format as defined by [our specification](yaml.md).
+Said ontology must be either in a YAML format as defined by [our specification](yaml.md)
+or you can also [use existing owl ontologies](owl.md).
 
 <details>
-  <summary>Ontology sample</summary>
+  <summary>YAML Ontology sample</summary>
 
   ```yaml
     version: "0.0.1"
-    namespace: "CUBA"
+    namespace: "cuba"
 
     ontology:
-      ENTITY:
+      Class:
         description: The root of the ontology.
         subclass_of: []
 
-      NOTHING:
+      Nothing:
         description: A class without any individuals.
         subclass_of:
-        - CUBA.ENTITY
+        - cuba.Class
 
     ################
 
-      RELATIONSHIP:
+      relationship:
         description: The root of all relationships.
-        subclass_of:
-        - CUBA.ENTITY
+        subclass_of: []
 
-      ACTIVE_RELATIONSHIP:
+      activeRelationship:
         description: The root of all active relationships. Active relationships express that one cuds object is in the container of another.
         subclass_of:
-        - CUBA.RELATIONSHIP
+        - cuba.relationship
 
       ################
 
-      WRAPPER:
+      Wrapper:
         description: The root of all wrappers. These are the bridge to simulation engines and databases.
         subclass_of:
-        - CUBA.ENTITY
+        - cuba.Class
 
-      ATTRIBUTE:
+      attribute:
         description: The root of all attributes.
-        subclass_of:
-        - CUBA.ENTITY
+        subclass_of: []
   ```
 </details>
 
-OSP-core can also be used with EMMO (European Materials and Modelling Ontology).
-Tools for converting EMMO from the OWL format to YAML are provided. See more [here](working_with_emmo.md).
+OSP-core can be used with EMMO (European Materials and Modelling Ontology) out of the box.
+See more [here](included_ontologies.md).
 
 ### Python classes
 Upon installation of OSP-core, each ontology class (except from attributes and relationships) becomes a python class.
@@ -159,7 +158,7 @@ Upon installation of OSP-core, each ontology class (except from attributes and r
 Since each ontology has a namespace, it can be used to import the classes and create cuds objects:
 
 ```py
-from osp.core import cuba, another_namespace
+from osp.core.namespaces import cuba, another_namespace
 
 entity = cuba.Entity()
 other_entity = another_namespace.SomeOtherEntity()

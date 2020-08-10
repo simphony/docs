@@ -75,3 +75,6 @@ def setup(app):
         # 'enable_auto_doc_ref': True,
     }, True)
     app.add_transform(AutoStructify)
+
+
+nbsphinx_allow_errors = True

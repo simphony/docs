@@ -44,7 +44,7 @@ These are some of the terms used in the following sections:
    1. `individual`: an instance of a class. E.g., an instance of the class 'City' can be used to represent the city of Freiburg in which case it would have the attribute 'name' with the value 'Freiburg'.
    1. `relationship`: a type of a way in which one individual relates to another. E.g., 'Has-A' which could use to form the relationship 'Freiburg (City) Has-A Dreisam (River)'.
    1. `entity`:  a general term that can refer to a class, a relationship, attribute, or an individual. E.g., 'City', 'name', 'Has-A', the Freiburg individual are all entities.
-   1. `namespace`: an ontology identifier. E.g., 'CITY_ONTOLOGY' which could be used as a namespace for the ontology that consists of the entities 'City', 'name' and 'Has-A'.
+   1. `namespace`: an ontology identifier. E.g., 'city_ontology' which could be used as a namespace for the ontology that consists of the entities 'City', 'name' and 'Has-A'.
        - Each entity is uniquely identified by its name and the namespace it is contained in. We call \<namespace name\>.\<entity name\> the `qualified entity name`.
 1. `CUDS`:  Common Universal Data Structure. A data structure that is used to uniformly represent ontology concepts in programming code.
    - CUDS exposes an API that provides CRUD (Create, Read, Update and Delete) functionalities.

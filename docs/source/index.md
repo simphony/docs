@@ -26,6 +26,8 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: Ontology
    :maxdepth: 2
 
+   ontology_intro.md
+   included_ontologies.md
    yaml.md
    owl.md
 
