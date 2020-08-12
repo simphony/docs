@@ -5,3 +5,4 @@ sphinxcontrib-plantuml
 nbsphinx
 sphinx-copybutton
 ipython
+jupyter_client
