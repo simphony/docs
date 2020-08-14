@@ -5,7 +5,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
 ```eval_rst
  =============  ==========
- SymPhoNy docs  OSP-core  
+ SimPhoNy docs  OSP-core  
  =============  ==========
  2.3.x          3.4.0-beta
  2.2.x          3.3.5-beta
@@ -54,6 +54,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    api_ref.md
+   jsonschema.md
    links.md
 
 ```

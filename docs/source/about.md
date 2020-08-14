@@ -1,4 +1,5 @@
 # About
+
 SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool.
 Its latest version is soon to become an open-source python project.
 The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed
