@@ -2,6 +2,13 @@
 
 This file describes how you can create ontologies using YAML.
 
+```eval_rst
+.. tip::
+   If you have an ontology where all entity names are in ALL_UPPERCASE,
+   you can use the commandline tool `yaml2camelcase` that is shipped with
+   osp-core to transform it to an ontology with CamelCase entity names.
+```
+
 ## Introduction
 
 In this file we will give a description of how an Ontology can be
@@ -33,7 +40,7 @@ pico install </path/to/my_ontology.ontology.yml>
 `namespace`: string
 
 > Defines the namespace of the current file. We recommend to use
-  ALL_UPPERCASE for the namespace name, with underscore as separation.
+  all_lowercase for the namespace name, with underscore as separation.
   All entities defined in this file will live in the namespace defined here.
 
 `requirements`: List[string]
@@ -71,7 +78,7 @@ Every declaration of an ontology entity must have the following keys:
 >
 > The subclass keyword expresses an **ontological is-a**
 > relation. MUST be a list of a fully qualified strings referring to another entity.
-> Only the entity `ENTITY` is allowed to have no superclass. See [CUBA namespace](#the-cuba-namespace).
+> Only the entity `cuba.entity` is allowed to have no superclass. See [CUBA namespace](#the-cuba-namespace).
 >
 > If entity A is a subclass of B and B is subclass of C,
 > then A is also subclass of C.
