@@ -101,12 +101,11 @@ For a full explanation on the architecture and design, go to [detailed design](.
 [OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core) is the main component of the SimPhoNy framework.
 It is independent of any backend and provides the basic ontology based data structures for the seamless exchange of data between wrappers.
 
-
 ### Ontology file
 OSP-core requires an ontology file to create the appropriate CUDS classes.
 
 Said ontology must be either in a YAML format as defined by [our specification](yaml.md)
-or you can also [use existing owl ontologies](owl.md).
+or [one of the supported owl ontologies](owl.md).
 
 <details>
   <summary>YAML Ontology sample</summary>
@@ -165,7 +164,8 @@ other_entity = another_namespace.SomeOtherEntity()
 ```
 
 ### Sessions
-The sessions are the interoperability classes that connect to where the data is stored. In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
+The sessions are the interoperability classes that connect to where the data is stored. 
+In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
 When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
 
@@ -264,7 +264,7 @@ we *highly* encourage the use of a [virtual environment](https://docs.python.org
 First, the repository must be cloned:
 
 ```shell
-git clone git@gitlab.cc-asp.fraunhofer.de:simphony/osp-core.git
+git clone git@github.com:simphony/osp-core.git
 ```
 
 Once available locally, the project must be installed. The default installation is:
@@ -285,7 +285,7 @@ pico install <path/to/ontology.yml>
 The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
-git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
+git clone git@github.com:simphony/<some-wrapper>.git
 cd some-wrapper
 ```
 ### Local wrapper installation
@@ -311,7 +311,7 @@ python3 setup.py install
 ### Wrapper Docker image
 Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
 for an automatic installation in a container.
-Simply run the `docker_install.sh` script. No need to install OSP-core either.
+Simply run the `docker_install.sh` script. There is no need to install OSP-core either.
 
 ```shell
 ./docker_install.sh
