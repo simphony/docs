@@ -54,7 +54,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    api_ref.md
-   jsonschema.md
+   json.md
    links.md
 
 ```

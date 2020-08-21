@@ -12,11 +12,11 @@ Therefore, its result is a json array composed of several flat CUDS objects.
 The following explains the schema of the CUDS serialization:
 
 ```eval_rst
-.. jsonschema:: openapi/serialized_cuds.json#/cuds_array
-.. jsonschema:: openapi/serialized_cuds.json#/definitions/cuds
-.. jsonschema:: openapi/serialized_cuds.json#/definitions/entity
-.. jsonschema:: openapi/serialized_cuds.json#/definitions/uuid
-.. jsonschema:: openapi/serialized_cuds.json#/definitions/attributes
-.. jsonschema:: openapi/serialized_cuds.json#/definitions/relationships
+.. jsonschema:: json_schema/serialized_cuds.json#/cuds_array
+.. jsonschema:: json_schema/serialized_cuds.json#/definitions/cuds
+.. jsonschema:: json_schema/serialized_cuds.json#/definitions/entity
+.. jsonschema:: json_schema/serialized_cuds.json#/definitions/uuid
+.. jsonschema:: json_schema/serialized_cuds.json#/definitions/attributes
+.. jsonschema:: json_schema/serialized_cuds.json#/definitions/relationships
 
 ```
