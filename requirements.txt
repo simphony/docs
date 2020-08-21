@@ -1,4 +1,3 @@
-wheel
 git+https://github.com/simphony/osp-core.git#egg=osp-core
 sphinx
 recommonmark
