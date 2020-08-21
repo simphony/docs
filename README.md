@@ -1,6 +1,6 @@
 
 # SimPhoNy docs
-To access the documentation, please visit: https://simphony-docs.readthedocs.io/en/latest/
+To access the documentation, please visit: https://simphony.readthedocs.io/en/latest/
 
 If you find any error or problem with the documentation, please [create an issue](https://github.com/simphony/docs/issues)
 
