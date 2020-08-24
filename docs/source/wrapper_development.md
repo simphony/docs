@@ -1,5 +1,6 @@
 # Wrapper development
-For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/).
+For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://github.com/simphony/wrapper-development).
+For a tutorial on creating a simple wrapper, there is a [jupyter notebook](jupyter/wrapper_development.ipynb) available.
 ## Ontology
 The end goal is to build one, unique and standard ontology with all the relevant entities and relationships.
 This ontology could use modules where the entities regarding a certain domain are present. 
