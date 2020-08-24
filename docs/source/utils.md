@@ -73,6 +73,20 @@ INFO [osp.core.ontology.parser]: Loaded 205 ontology triples in total
 INFO [osp.core.ontology.installation]: Uninstallation successful
 ```
 
+### Conflicts with other "pico" installations
+Some Operating Systems might have a pre-existing tool called _pico_.
+In most cases, the previous commands should work, but if any problem arises,
+you can use the following alternative:
+
+```shell
+python -m osp.core.pico <command>
+```
+
+For example:
+```shell
+python -m osp.core.pico install city
+```
+
 ## Tips and tricks
 The following are some utility functions and shortcuts for working with cuds.
 For those that are present in the util package, the import is `from osp.core import utils`.
