@@ -149,8 +149,12 @@ The actual related objects are kept in the [registry](#registry)
     Relation3: {uid3: oclass, uid5: oclass},
     }
 ```
-_Note:_ This is an abstraction to show the general structure.
-The actual implementation is a bit more complex.
+
+```eval_rst
+.. note::
+   This is an abstraction to show the general structure.
+   The actual implementation is a bit more complex.
+```
 
 #### Cuds API
 The governing idea behind the API design was to simplify as much as possible the usage.
@@ -362,12 +366,17 @@ cuds_obj = some_namespace.OntologyClass()
    ```
    First the uids of all the objects to be iterated are gathered,
    and then they are yielded like a generator
+   
+```eval_rst
+.. hint::
+   There is also an :code:`is_a` method for checking oclass inheritance.
+```
 
-_Note (I):_ Be aware that the sequence diagrams shown represent simple use cases,
-and more complex scenarios are also possible (e.g. adding an object with children).
-
-_Note (II):_ There is also an `is_a` method for checking oclass inheritance.
-
+```eval_rst
+.. note::
+   Be aware that the sequence diagrams shown represent simple use cases,
+   and more complex scenarios are also possible (e.g. adding an object with children).
+```
 ## Interoperability layer
 The interoperability layer takes care of the connection and translation between the semantic and syntactic parts.
 It also contains the storage of all the objects that share a session.
@@ -496,7 +505,11 @@ To simplify and group functionality, we built an inheritance scheme:
   }
   @enduml
 ```
-_Note:_ This is a reduced version and does not represent the entirety of the contained functions.
+
+```eval_rst
+.. note::
+   This is a reduced version and does not represent the entirety of the contained functions.
+```
 
 The simplest session, called `CoreSession`, is the default one for entities created in a python workspace
 and has no backend. It just accesses the registry to manage the operations made by users.
@@ -506,6 +519,14 @@ This will define which methods have to be implemented and `_engine` as the acces
 
 `SimWrapperSession` and `DbWrapperSession` further specify the behaviour of wrappers, defining the methods that 
 trigger an action on the backend (`run` and `commit`, respectively).
+
+```eval_rst
+.. note::
+   You might have noticed that the semantic layer defines :code:`remove` in the API,
+   but in the session and registry we use :code:`delete`. The different between them
+   is conceptual: :code:`remove` is interpreted as detachment i.e. removal of edges,
+   while :code:`delete` implies the erasure of the note itself.
+```
 
 #### Buffers
 Session classes under `WrapperSession` share 3 types of buffers, namely `added`, `updated` and `deleted`.
