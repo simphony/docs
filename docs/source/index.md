@@ -21,6 +21,8 @@ Here you can browse though the general documentation of SimPhoNy.
    about.md
    motivation.md
    getting_started.md
+   jupyter/cuds-api.ipynb
+   jupyter/sessions_and_vars.ipynb
 
 .. toctree::
    :caption: Ontology
@@ -30,24 +32,23 @@ Here you can browse though the general documentation of SimPhoNy.
    included_ontologies.md
    yaml.md
    owl.md
+   jupyter/ontology-interface.ipynb
 
 .. toctree::
    :caption: Further information
 
    detailed_design.md
-   wrapper_development.md
    utils.md
 
 .. toctree::
-   :caption: DIY
-   :maxdepth: 2
+   :caption: Wrappers
 
-   jupyter/cuds-api.ipynb
-   jupyter/ontology-interface.ipynb
-   jupyter/sessions_and_vars.ipynb
+   wrapper_development.md
+   jupyter/wrapper_development.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum-espresso.ipynb
+
 
 .. toctree::
    :caption: Additional
