@@ -57,8 +57,8 @@ Namespaces:
 ```
 
 ### Pico uninstalls
-_Usage:_ `pico uninstall <package>|"*"`
-Note that to select all the packages, `"*"` must be quoted.
+_Usage:_ `pico uninstall <package>|all`
+Note that to select all the packages, `all` must be quoted.
 
 _Behaviour:_ 
 - All installed packages / namespaces are uninstalled.
