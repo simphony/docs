@@ -53,6 +53,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
    api_ref.md
    json.md
+   comparison_other_tools.md
    links.md
 
 ```
