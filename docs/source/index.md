@@ -15,7 +15,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
 ```eval_rst
 .. toctree::
-   :caption: Basics
+   :caption: Introduction
    :maxdepth: 2
 
    about.md
@@ -23,6 +23,8 @@ Here you can browse though the general documentation of SimPhoNy.
    getting_started.md
    jupyter/cuds-api.ipynb
    jupyter/sessions_and_vars.ipynb
+   detailed_design.md
+   utils.md
 
 .. toctree::
    :caption: Ontology
@@ -34,11 +36,6 @@ Here you can browse though the general documentation of SimPhoNy.
    owl.md
    jupyter/ontology-interface.ipynb
 
-.. toctree::
-   :caption: Further information
-
-   detailed_design.md
-   utils.md
 
 .. toctree::
    :caption: Wrappers
