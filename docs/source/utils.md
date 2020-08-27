@@ -8,8 +8,8 @@ It is a recursive acronym that stands for _Pico Installs Cuds Ontologies_.
 
 There are 3 main things that can be done with pico:
 - Install ontologies.
-- List the install ontologies.
-- Removed installed ontologies.
+- List the installed ontologies.
+- Remove installed ontologies.
 
 There are different possible levels of log available, and they can be set via
 `--log-level <ERROR|WARNING|INFO|DEBUG>`. The default value is `INFO`.
@@ -36,7 +36,6 @@ INFO [osp.core.ontology.installation]: Installation successful
 _Usage:_ `pico list`
 
 _Behaviour:_ 
-
 - The installed namespaces and packages are printed out. A package can be
 uninstalled and can contain many namespaces. A namespace can be imported in code.
 
@@ -57,8 +56,8 @@ Namespaces:
 ```
 
 ### Pico uninstalls
-_Usage:_ `pico uninstall <package>|"*"`
-Note that to select all the packages, `"*"` must be quoted.
+_Usage:_ `pico uninstall <package>|all`.
+Note that to select all the packages, `all` must be quoted.
 
 _Behaviour:_ 
 - All installed packages / namespaces are uninstalled.

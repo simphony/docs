@@ -1,8 +1,9 @@
 # Related links
 Here are links to other projects relevant for this documentation.
 SimPhoNy:
-- [SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
-- [OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core)
+- [GitLab's SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
+- [GitHub's SimPhoNy group](https://github.com/simphony)
+- [OSP-core](https://github.com/simphony/osp-core)
 - [wrappers](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
 - [wrapper development](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/)
 

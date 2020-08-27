@@ -4,7 +4,7 @@
 
 OSP core currently ships with two ontologies.
 The first one, called `city` is a simple example ontology.
-You can use it to play around and get familiar with osp-core.
+You can use it to play around and get familiar with OSP-core.
 We will also use it a lot in this documentation as an example.
 
 The city ontology provides the concepts to describe people and

@@ -6,7 +6,7 @@ This file describes how you can create ontologies using YAML.
 .. tip::
    If you have an ontology where all entity names are in ALL_UPPERCASE,
    you can use the commandline tool `yaml2camelcase` that is shipped with
-   osp-core to transform it to an ontology with CamelCase entity names.
+   OSP-core to transform it to an ontology with CamelCase entity names.
 ```
 
 ## Introduction
@@ -59,7 +59,7 @@ pico install </path/to/my_ontology.ontology.yml>
 > By convention, they should be in CamelCase. The name of ontology classes
 > should start with an uppercase latter, while the name of relationships
 > and attributes should start with a lower case letter.
-> This key is later used the reference the entity from within osp-core
+> This key is later used the reference the entity from within OSP-core
 > in a case sensitive manner.
 > The value of the mapping is a mapping whose format is detailed in the
 > [Ontology entities format](#ontology-entities-format).

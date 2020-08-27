@@ -98,7 +98,7 @@ The abstraction is replaced by specificity when you move towards the backend.
 For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
 
 ## OSP-core
-[OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core) is the main component of the SimPhoNy framework.
+[OSP-core](https://github.com/simphony/osp-core) is the main component of the SimPhoNy framework.
 It is independent of any backend and provides the basic ontology based data structures for the seamless exchange of data between wrappers.
 
 ### Ontology file
@@ -251,8 +251,8 @@ For more technical information regarding wrappers, particularly for wrapper deve
 we recommend visiting [wrapper development](./wrapper_development.md).
 
 # Installation
-For the installation and usage of the framework,
-we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
+For the installation and usage of the framework Python 3.6 or higher is needed.
+We *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
 ```shell
 ~/test$ python3 -m venv SimPhoNy
@@ -265,20 +265,38 @@ First, the repository must be cloned:
 
 ```shell
 git clone git@github.com:simphony/osp-core.git
+cd osp-core
 ```
 
-Once available locally, the project must be installed. The default installation is:
+The installation is based on setuptools:
 
-```shell
-cd osp-core
+```sh
+# build and install (recommended)
+pip install .
+
+# alternative
 python3 setup.py install
 ```
 
-After installing OSP-core, you can install an ontology file using 
-[**pico**](./utils.md#pico-installs-cuds-ontologies):
+or:
 
-```shell
+```sh
+# build for in-place development (recommended)
+pip install -e .
+
+# alternative
+python3 setup.py develop
+```
+
+After installing OSP-core, you can install your ontology namespaces.
+We provide the tool [`pico`](./utils.md#pico-installs-cuds-ontologies)
+(**p**ico **i**nstalls **c**uds **o**ntologies) for that purpose.
+
+```sh
 pico install <path/to/ontology.yml>
+
+# If you have issues using pico directly, you can use
+python -m osp.core.pico install <path/to/ontology.yml>
 ```
 
 ## Wrapper installation

@@ -1,6 +1,6 @@
 # How to work with owl ontologies
 
-To install owl ontologies in osp-core, you have to create a configuration yaml file similar
+To install owl ontologies in OSP-core, you have to create a configuration yaml file similar
 to the following one:
 
 ```yaml
@@ -43,7 +43,7 @@ We support all the formats that [RDFLib](https://rdflib.readthedocs.io/) support
 RDF/XML, N3, NTriples, N-Quads, Turtle, TriX, RDFa and Microdata.
 
 **reference_by_label** (default False): Whether the label should be used or the IRI suffix to reference
-entity from within osp-core. In case of EMMO it is true, because IRI suffixes are not
+entity from within OSP-core. In case of EMMO it is true, because IRI suffixes are not
 human friendly. In this case all labels should be unique and not contain whitespaces.
 If False, use dot notation to get by IRI square brackets (`__getitem__`) to get by label.
 The latter will return a list of all entities with the same label.
