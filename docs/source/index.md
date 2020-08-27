@@ -40,11 +40,11 @@ Here you can browse though the general documentation of SimPhoNy.
 .. toctree::
    :caption: Wrappers
 
-   wrapper_development.md
-   jupyter/wrapper_development.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum-espresso.ipynb
+   wrapper_development.md
+   jupyter/wrapper_development.ipynb
 
 
 .. toctree::
