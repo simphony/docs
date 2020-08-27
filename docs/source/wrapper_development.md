@@ -215,12 +215,14 @@ The `Dockerfile` for the Container Registry image will be very similar to the on
 However, here it might be useful to install other libraries like flake8 for style checks.
 
 ## Utility functions for wrapper development
-We have developed some functions that will probably come in handy when developing a wrapper. You can find them in [osp.core.utils.wrapper_development](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
+We have developed some functions that will probably come in handy when developing a wrapper. 
+You can find them in [osp.core.utils.wrapper_development](https://github.com/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
 
 ## Wrapper Examples
 Some wrappers we are developing are:
 - [SQLAlchemy](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/sqlalchemy-wrapper)
-- [SQLite](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/sqlite-wrapper)
+- [SQLite](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)
 - [SimLammps](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simlammps)
 - [SimGromacs](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simgromacs)
 - [SimOpenFoam](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simopenfoam)
+- [Quantum Espresso](https://github.com/simphony/quantum-espresso-wrapper)

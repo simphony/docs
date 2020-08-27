@@ -98,7 +98,7 @@ The abstraction is replaced by specificity when you move towards the backend.
 For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
 
 ## OSP-core
-[OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core) is the main component of the SimPhoNy framework.
+[OSP-core](https://github.com/simphony/osp-core) is the main component of the SimPhoNy framework.
 It is independent of any backend and provides the basic ontology based data structures for the seamless exchange of data between wrappers.
 
 ### Ontology file
@@ -251,7 +251,7 @@ For more technical information regarding wrappers, particularly for wrapper deve
 we recommend visiting [wrapper development](./wrapper_development.md).
 
 # Installation
-For the installation and usage of the framework Python 3.7 or higher is needed.
+For the installation and usage of the framework Python 3.6 or higher is needed.
 We *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
 
 ```shell
