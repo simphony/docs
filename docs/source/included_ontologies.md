@@ -20,7 +20,7 @@ To use the city ontology you have to install it using the tool [Pico](utils.md#p
 pico install city
 ```
 
-Take a look at our [examples](jupyter/cuds-api.ipynb#Tutorial-01:-CUDS-API) to see how you can build your own city!
+Take a look at our [examples](jupyter/cuds-api.md) to see how you can build your own city!
 
 ## Working with EMMO using OSP-core
 

@@ -15,12 +15,16 @@ Here you can browse though the general documentation of SimPhoNy.
 
 ```eval_rst
 .. toctree::
-   :caption: Basics
+   :caption: Introduction
    :maxdepth: 2
 
    about.md
    motivation.md
    getting_started.md
+   jupyter/cuds-api.ipynb
+   jupyter/sessions_and_vars.ipynb
+   detailed_design.md
+   utils.md
 
 .. toctree::
    :caption: Ontology
@@ -30,24 +34,18 @@ Here you can browse though the general documentation of SimPhoNy.
    included_ontologies.md
    yaml.md
    owl.md
-
-.. toctree::
-   :caption: Further information
-
-   detailed_design.md
-   wrapper_development.md
-   utils.md
-
-.. toctree::
-   :caption: DIY
-   :maxdepth: 2
-
-   jupyter/cuds-api.ipynb
    jupyter/ontology-interface.ipynb
-   jupyter/sessions_and_vars.ipynb
+
+
+.. toctree::
+   :caption: Wrappers
+
+   wrapper_development.md
+   jupyter/wrapper_development.ipynb
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum-espresso.ipynb
+
 
 .. toctree::
    :caption: Additional
