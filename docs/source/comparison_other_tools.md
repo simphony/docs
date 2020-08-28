@@ -25,11 +25,28 @@ Especially considering the core goal of SimPhoNy is to offer interoperability be
 something that is not easily achieved with Neo4j on its own.
 
 ## SimPhoNy vs. Owlready2
-https://pythonhosted.org/Owlready2/
+[Owlready2](https://pythonhosted.org/Owlready2/) is a tool for creation and manipulation
+of ontologies in Python.
+It has a built-in reasoner, and can store data in sqlite.
+
+One difference with SimPhoNy is that Owlready2 allows you to edit dynamically ontologies.
+While Owlready2 allows you to edit dynamically ontologies, the ontology installed in OSP-core cannot be modified on the fly.
+
+Another difference is the interoperable design on SimPhoNy.
+It is designed to connect to other tools via wrappers, and make the development of said wrappers as easy as possible.
+This is not something so easily achieved with Owlready2.
 
 ## SimPhoNy vs. AiiDA
-[AiiDA](http://www.aiida.net/)
+[AiiDA](http://www.aiida.net/) stands for _Automated Interactive Infrastructure and Database for Computational Science_.
+It is an infrastructure also developed in Python that focusses on handling and sharing workflows.
 
+In some aspects, AiiDA and SimPhoNy are very similar. 
+AiiDA uses _plugins_, whereas SimPhoNy uses _wrappers_
+They both have access to databases for storage, with AiiDA using PostgreSQL internally.
+
+AiiDA is very useful for managing workflows and following data provenance in an efficient way.
+However, it is not as tightly coupled with an ontology as SimPhoNy 
+(where everything stems from the ontology and its semantics) is.
 
 ## SimPhoNy vs. Wikibase
 [Wikibase](https://wikiba.se/)
