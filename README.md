@@ -1,3 +1,6 @@
+## Build Status
+**latest** - [![Documentation latest](https://readthedocs.org/projects/simphony/badge/?version=latest)](https://simphony.readthedocs.io/en/latest/?badge=latest)  
+**dev** - [![Documentation dev](https://readthedocs.org/projects/simphony/badge/?version=dev)](https://simphony.readthedocs.io/en/latest/?badge=dev)
 
 # SimPhoNy docs
 To access the documentation, please visit: https://simphony.readthedocs.io/en/latest/
