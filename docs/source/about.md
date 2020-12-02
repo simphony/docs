@@ -9,6 +9,9 @@ One of SimPhoNy’s main tasks is to convert *opaque* data, meaning data whose s
 This project aims to clarify the purpose and usage of the SimPhoNy platform through simple, short examples.
 In particular, this guide will try to expose the main concepts and components.
 
+All the tutorials in this documentation are Jupyter notebooks that can be downloaded
+by clicking on the "Edit on Github" button on the top right of the page.
+
 _Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de), 
 [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and 
 [Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
