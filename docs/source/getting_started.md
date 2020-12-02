@@ -184,7 +184,7 @@ or [one of the supported owl ontologies](owl.md).
 </details>
 
 OSP-core can be used with EMMO (European Materials and Modelling Ontology) out of the box.
-See more [here](included_ontologies.md).
+See more [here](ontologies_included.md).
 
 ### Python classes
 Upon installation of OSP-core, each ontology class (except from attributes and relationships) becomes a python class.

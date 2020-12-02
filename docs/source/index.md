@@ -32,7 +32,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    ontology_intro.md
-   included_ontologies.md
+   ontologies_included.md
    yaml.md
    owl.md
    jupyter/ontology-interface.ipynb

@@ -144,6 +144,7 @@ It can additionally have the following keys:
 >   characters).
 > - `VECTOR:datatype:D1:D2:...:Dn`: a vector of the given dimensions
 >   (D1 x D2 x ... x Dn) and the given datatype.
+>   The dimensions are always fixed.
 >
 >   For example, a VECTOR:INT:4:2:1 would be: \
 >   { [(a), (b)],  [(c), (d)], [(e), (f)], [(g), (h)] } \
@@ -155,6 +156,12 @@ It can additionally have the following keys:
 > be STRING
 >
 > For example: The datatype of entity numberOfOccurrences is INT.
+
+> ```eval_rst
+>.. note::
+>   The implementation of the vectors is experimental and will be updated as soon as 
+>   EMMO has established an appropriate wait of representing them
+> ```
 
 ## Class expressions
 
