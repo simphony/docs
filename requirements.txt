@@ -1,7 +1,11 @@
 git+https://github.com/simphony/osp-core.git#egg=osp-core
 sphinx
 recommonmark
+sphinx_rtd_theme
 sphinxcontrib-plantuml
 nbsphinx
 sphinx-copybutton
 ipython
+jupyter
+sphinx-jsonschema
+

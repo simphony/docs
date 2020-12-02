@@ -98,60 +98,93 @@ The abstraction is replaced by specificity when you move towards the backend.
 For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
 
 ## OSP-core
-[OSP-core](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core) is the main component of the SimPhoNy framework.
+[OSP-core](https://github.com/simphony/osp-core) is the main component of the SimPhoNy framework.
 It is independent of any backend and provides the basic ontology based data structures for the seamless exchange of data between wrappers.
-
 
 ### Ontology file
 OSP-core requires an ontology file to create the appropriate CUDS classes.
 
-Said ontology must be in a YAML format as defined by [our specification](yaml.md).
+Said ontology must be either in a YAML format as defined by [our specification](yaml.md)
+or [one of the supported owl ontologies](owl.md).
 
 <details>
-  <summary>Ontology sample</summary>
+  <summary>YAML Ontology sample</summary>
+  The following is an excerpt from the `city.ontology.yml` in osp-core.
 
   ```yaml
-    version: "0.0.1"
-    namespace: "CUBA"
+    ---
+    version: "0.0.3"
+
+    namespace: "city"
 
     ontology:
-      ENTITY:
-        description: The root of the ontology.
-        subclass_of: []
 
-      NOTHING:
-        description: A class without any individuals.
+      encloses:
         subclass_of:
-        - CUBA.ENTITY
+        - cuba.activeRelationship
+        inverse: city.isEnclosedBy
 
-    ################
-
-      RELATIONSHIP:
-        description: The root of all relationships.
+      isEnclosedBy:
         subclass_of:
-        - CUBA.ENTITY
+        - cuba.passiveRelationship
+        inverse: city.encloses
 
-      ACTIVE_RELATIONSHIP:
-        description: The root of all active relationships. Active relationships express that one cuds object is in the container of another.
+      hasInhabitant:
         subclass_of:
-        - CUBA.RELATIONSHIP
+        - city.encloses
 
       ################
 
-      WRAPPER:
-        description: The root of all wrappers. These are the bridge to simulation engines and databases.
+      CityWrapper:
         subclass_of:
-        - CUBA.ENTITY
+        - cuba.Wrapper
+        - city.hasPart:
+            range: city.City
+            cardinality: 1+
+            exclusive: false
 
-      ATTRIBUTE:
-        description: The root of all attributes.
+      ################
+
+      City:
         subclass_of:
-        - CUBA.ENTITY
+        - city.PopulatedPlace
+        - city.hasPart:
+            range: city.Neighborhood
+            cardinality: many
+            exclusive: true
+        - city.isPartOf:
+            range: city.CityWrapper
+            cardinality: 0-1
+            exclusive: true
+        - city.hasMajor:
+            range: city.Citizen
+            cardinality: 0-1
+            exclusive: true
+
+      Building:
+        subclass_of:
+        - city.ArchitecturalStructure
+        - city.hasPart:
+            range: city.Address
+            cardinality: 1
+            exclusive: false
+        - city.hasPart:
+            range: city.Floor
+            cardinality: many
+            exclusive: false
+        - city.isPartOf:
+            range: city.Street
+            cardinality: 1
+            exclusive: true
+
+      Citizen:
+        subclass_of:
+        - city.Person
   ```
 </details>
 
-OSP-core can also be used with EMMO (European Materials and Modelling Ontology).
-Tools for converting EMMO from the OWL format to YAML are provided. See more [here](working_with_emmo.md).
+OSP-core can be used with EMMO (European Materials and Modelling Ontology) out of the box.
+See more [here](ontologies_included.md).
 
 ### Python classes
 Upon installation of OSP-core, each ontology class (except from attributes and relationships) becomes a python class.
@@ -159,14 +192,15 @@ Upon installation of OSP-core, each ontology class (except from attributes and r
 Since each ontology has a namespace, it can be used to import the classes and create cuds objects:
 
 ```py
-from osp.core import cuba, another_namespace
+from osp.core.namespaces import cuba, another_namespace
 
 entity = cuba.Entity()
 other_entity = another_namespace.SomeOtherEntity()
 ```
 
 ### Sessions
-The sessions are the interoperability classes that connect to where the data is stored. In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
+The sessions are the interoperability classes that connect to where the data is stored. 
+In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
 When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
 
@@ -250,70 +284,3 @@ we suggest going through the different available [repositories](https://gitlab.c
 
 For more technical information regarding wrappers, particularly for wrapper developers, 
 we recommend visiting [wrapper development](./wrapper_development.md).
-
-# Installation
-For the installation and usage of the framework,
-we *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
-
-```shell
-~/test$ python3 -m venv SimPhoNy
-~/test$ source SimPhoNy/bin/activate
-(SimPhoNy) ~/test$ 
-```
-
-## OSP-core installation
-First, the repository must be cloned:
-
-```shell
-git clone git@gitlab.cc-asp.fraunhofer.de:simphony/osp-core.git
-```
-
-Once available locally, the project must be installed. The default installation is:
-
-```shell
-cd osp-core
-python3 setup.py install
-```
-
-After installing OSP-core, you can install an ontology file using 
-[**pico**](./utils.md#pico-installs-cuds-ontologies):
-
-```shell
-pico install <path/to/ontology.yml>
-```
-
-## Wrapper installation
-The installation of a wrapper is similar. First, the repository is cloned:
-
-```shell
-git clone git@gitlab.cc-asp.fraunhofer.de:simphony/wrappers/<some-wrapper>.git
-cd some-wrapper
-```
-### Local wrapper installation
-With OSP-core installed, if the wrapper has its own ontology, it *must* be installed:
-
-```shell
-pico install <path/to/ontology.yml>
-```
-
-For the wrappers that require the installation of a backend, a `install_engine.sh` script is provided.
-It will automatically call `install_engine_requirements.sh`, where the engine specific requirements are installed.
-
-```shell
-./install_engine.sh
-```
-
-Now the wrapper can be installed:
-
-```shell
-python3 setup.py install
-```
-
-### Wrapper Docker image
-Some wrappers also provided a [Dockerfile](https://docs.docker.com/engine/reference/builder/)
-for an automatic installation in a container.
-Simply run the `docker_install.sh` script. No need to install OSP-core either.
-
-```shell
-./docker_install.sh
-```

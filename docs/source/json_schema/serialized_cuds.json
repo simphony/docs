@@ -1,0 +1,102 @@
+  {
+    "cuds_array": {
+      "title": "Array of flat CUDS objects",
+      "description": "This schema shows how the method `osp.core.utils.serialize()`\n\nwill serialize a CUDS object to JSON. The result is a flat list,\n\nwhere ich element references its neighbors by UUID.",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/cuds"
+      }
+    },
+    "definitions": {
+      "cuds": {
+        "title": "Flat CUDS object",
+        "description": "A representation of a single non-hierarchical CUDS object",
+        "type": "object",
+        "$$target": "#/definitions/cuds",
+        "properties": {
+          "uid": {
+            "$ref": "#/definitions/uuid"
+          },
+          "oclass": {
+            "$ref": "#/definitions/entity"
+          },
+          "attributes": {
+            "$ref": "#/definitions/attributes"
+          },
+          "relationships": {
+            "$ref": "#/definitions/relationships"
+          }
+        },
+        "required": [
+          "uid",
+          "oclass"
+        ],
+        "example": {
+          "uid": "0ed73819-a095-423f-a444-e7e21e600957",
+          "oclass": "onto.WaterMolecule",
+          "attributes": {
+            "onto.velocity": 7
+          },
+          "relationships": {
+            "onto.hasPart": {
+              "b22fc8f5-2fdf-40f1-955c-96d6e2c278d8": "onto.Oxygen",
+              "ee901cdc-307e-4ca7-837e-074ba14996d6": "onto.Hydrogen",
+              "1e8f75f6-29d5-450f-a991-fc0dc2890075": "onto.Hydrogen"
+            }
+          }
+        }
+      },
+      "entity": {
+        "title": "Name of an ontology entity",
+        "type": "string",
+        "description": "An ontology entity",
+        "format": "oclass",
+        "example": "onto.SimulationCuds",
+        "$$target": "#/definitions/entity",
+        "pattern": "([a-zA-Z])([a-zA-Z]|[0-9]|_)*\\.([a-zA-Z])([a-zA-Z]|[0-9]|_)*"
+      },
+      "uuid": {
+        "title": "Universal unique identifier",
+        "type": "string",
+        "format": "uuid",
+        "description": "The unique identifier of a CUDS",
+        "example": "9053ed01-b301-473d-b59d-c184d4e772a1",
+        "$$target": "#/definitions/uuid"
+      },
+      "attributes": {
+        "title": "Attributes of the CUDS objects",
+        "description": "**The key is a `entity`:** A mapping from the **ontology attribute** to its **values**",
+        "type": "object",
+        "additionalProperties": true,
+        "$$target": "#/definitions/attributes",
+        "example": {
+          "onto.Foo": 42,
+          "onto.Bar": [
+            1,
+            2,
+            3
+          ]
+        }
+      },
+      "relationships": {
+        "title": "Relationships of the CUDS objects",
+        "type": "object",
+        "$$target": "#/definitions/relationships",
+        "description": "**The key is a `entity`:** A mapping from the **ontology relationship** to the related cuds objects' **UUIDs and ontology classes**.",
+        "additionalProperties": {
+          "type": "object",
+          "description": "**The key is a `uuid`:** A mapping from the **uuid** to the **ontology class** of the related cuds objects",
+          "additionalProperties": {
+            "$ref": "#/definitions/entity"
+          }
+        },
+        "example": {
+          "onto.hasPart": {
+            "b22fc8f5-2fdf-40f1-955c-96d6e2c278d8": "onto.Oxygen",
+            "ee901cdc-307e-4ca7-837e-074ba14996d6": "onto.Hydrogen",
+            "1e8f75f6-29d5-450f-a991-fc0dc2890075": "onto.Hydrogen"
+          }
+        }
+      }
+    }
+  }

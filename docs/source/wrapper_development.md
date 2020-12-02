@@ -1,5 +1,6 @@
 # Wrapper development
-For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/).
+For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://github.com/simphony/wrapper-development).
+For a tutorial on creating a simple wrapper, there is a [jupyter notebook](jupyter/wrapper_development.md) available.
 ## Ontology
 The end goal is to build one, unique and standard ontology with all the relevant entities and relationships.
 This ontology could use modules where the entities regarding a certain domain are present. 
@@ -11,11 +12,11 @@ of a correct ontology can be done, and should not require major changes in the c
 These are the requirements for a minimal wrapper ontology:
 
 - Should contain an entity representing the wrapper.
-  Said entity should inherit from (subclass, is_a) `CUBA.WRAPPER`.
-- All attributes should subclass `CUBA.ATTRIBUTE`.
-- Top level entities should subclass `CUBA.ENTITY`
-- Active relationships should subclass `CUBA.ACTIVE_RELATIONSHIP`
-- Passive relationships should subclass `CUBA.PASSIVE_RELATIONSHIP`
+  Said entity should inherit from (subclass, is_a) `cuba.Wrapper`.
+- All attributes should subclass `cuba.attribute`.
+- Top level entities should subclass `cuba.Entity`
+- Active relationships should subclass `cuba.ActiveRelationship`
+- Passive relationships should subclass `cuba.PassiveRelationship`
 
 <details>
   <summary>Dummy ontology sample</summary>
@@ -26,36 +27,36 @@ These are the requirements for a minimal wrapper ontology:
 
   author: Parmenides <parmenides@ontology.creator>
 
-  namespace: SOME_NEW_WRAPPER_ONTOLOGY
+  namespace: some_new_wrapper_ontology
 
   ontology:
 
-    A_RELATIONSHIP:
+    aRelationship:
       description: "default relationship"
       subclass_of:
-      - CUBA.ACTIVE_RELATIONSHIP
-      inverse: SOME_NEW_WRAPPER_ONTOLOGY.PIHSNOITALER_A
+      - cuba.activeRelationship
+      inverse: some_new_wrapper_ontology.pihsnoitalerA
       default_rel: true
 
-    PIHSNOITALER_A:
+    pihsnoitalerA:
       description: "inverse of the default relationship"
       subclass_of:
-      -  CUBA.PASSIVE_RELATIONSHIP
-      inverse: SOME_NEW_WRAPPER_ONTOLOGY.A_RELATIONSHIP
+      -  cuba.passiveRelationship
+      inverse: some_new_wrapper_ontology.aRelationship
 
   ################
 
-    SOME_NEW_WRAPPER:
+    SomeNewWrapper:
       subclass_of: 
-      -  CUBA.WRAPPER
+      -  cuba.Wrapper
 
-    VALUE:
+    value:
       subclass_of:
-      -  CUBA.ATTRIBUTE
+      -  cuba.attribute
 
-    SOME_ENTITY:
+    SomeEntity:
       subclass_of:
-      -  CUBA.ENTITY
+      -  cuba.Entity
 
   ```
 </details>
@@ -68,6 +69,7 @@ This allows us to group and clearly define which components should and which one
 
  - [Semantic layer](./detailed_design.md#semantic-layer): 
    Requires no work.
+   As presented in the previous section, only an entity representing the wrapper has to be present in the ontology.
 
  - [Interoperability layer](./detailed_design.md#interoperability-layer):
    - [Session class](./detailed_design.md#session): 
@@ -93,7 +95,6 @@ This allows us to group and clearly define which components should and which one
 
  - [Syntactic layer](./detailed_design.md#syntactic-layer): 
    If none is available, one must be developed.
-   Only needs an entity representing the wrapper, as presented in the previous section.
 
 ## Engine installation
 Most engines will require some sort of compilation or installation before being able to use them through Python.
@@ -214,12 +215,14 @@ The `Dockerfile` for the Container Registry image will be very similar to the on
 However, here it might be useful to install other libraries like flake8 for style checks.
 
 ## Utility functions for wrapper development
-We have developed some functions that will probably come in handy when developing a wrapper. You can find them in [osp.core.utils.wrapper_development](https://gitlab.cc-asp.fraunhofer.de/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
+We have developed some functions that will probably come in handy when developing a wrapper. 
+You can find them in [osp.core.utils.wrapper_development](https://github.com/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
 
 ## Wrapper Examples
 Some wrappers we are developing are:
 - [SQLAlchemy](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/sqlalchemy-wrapper)
-- [SQLite](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/sqlite-wrapper)
+- [SQLite](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)
 - [SimLammps](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simlammps)
 - [SimGromacs](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simgromacs)
 - [SimOpenFoam](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simopenfoam)
+- [Quantum Espresso](https://github.com/simphony/quantum-espresso-wrapper)

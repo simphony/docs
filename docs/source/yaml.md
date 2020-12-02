@@ -1,13 +1,13 @@
 # Description of YAML format Specification
 
-This file describes the ontology format that is used by OSP-core. 
+This file describes how you can create ontologies using YAML.
 
-## Info
-
-Contact: [Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and  [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de) from the 
-Material Informatics team, Fraunhofer IWM.
-
-Version: 3.0 pending approval
+```eval_rst
+.. tip::
+   If you have an ontology where all entity names are in ALL_UPPERCASE,
+   you can use the commandline tool `yaml2camelcase` that is shipped with
+   OSP-core to transform it to an ontology with CamelCase entity names.
+```
 
 ## Introduction
 
@@ -16,19 +16,16 @@ represented in a yaml file format and how to interpret such files. For
 simplicity reasons in the following we will give examples from the
 **\* example ontology \*** file which can be found in osp/core/ontology/yml/ontology.city.yml.
 
-What is an ontology?
+## Naming of the files and installation
 
-An ontology defines a set of representational primitives with which to
-model a domain of knowledge or discourse. The representational
-primitives are typically classes (or sets), attributes (or properties),
-and relationships (or relations among class members). The definitions of
-the representational primitives include information about their meaning
-and constraints on their logically consistent application. (Source:
-<http://tomgruber.org/writing/ontology-definition-2007.htm>)
+Name any ontology `<name>.ontology.yml`, where `<name>` should be replaced by a user defined name.
 
-## Naming of the files
+Then you can use pico to install the tool [Pico](#pico-installs-cuds-ontologies)
+to install the ontology:
 
-Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a user defined name.
+```sh
+pico install </path/to/my_ontology.ontology.yml>
+```
 
 ## Syntax of the .yml ontology
 
@@ -43,7 +40,7 @@ Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a u
 `namespace`: string
 
 > Defines the namespace of the current file. We recommend to use
-  ALL_UPPERCASE for the namespace name, with underscore as separation.
+  all_lowercase for the namespace name, with underscore as separation.
   All entities defined in this file will live in the namespace defined here.
 
 `requirements`: List[string]
@@ -58,7 +55,12 @@ Name any ontolgy `ontology.<name>.yml`, where `<name>` should be replaced by a u
 
 > Contains individual declarations for ontology entities as a mapping.
 > Each key of the mapping is the name of an ontology entity.
-> The key should be ALL_UPPERCASE, with underscore as separation.
+> The key can contain letters, numbers and underscore.
+> By convention, they should be in CamelCase. The name of ontology classes
+> should start with an uppercase latter, while the name of relationships
+> and attributes should start with a lower case letter.
+> This key is later used the reference the entity from within OSP-core
+> in a case sensitive manner.
 > The value of the mapping is a mapping whose format is detailed in the
 > [Ontology entities format](#ontology-entities-format).
 
@@ -76,7 +78,7 @@ Every declaration of an ontology entity must have the following keys:
 >
 > The subclass keyword expresses an **ontological is-a**
 > relation. MUST be a list of a fully qualified strings referring to another entity.
-> Only the entity `ENTITY` is allowed to have no superclass. See [CUBA namespace](#the-cuba-namespace).
+> Only the entity `cuba.entity` is allowed to have no superclass. See [CUBA namespace](#the-cuba-namespace).
 >
 > If entity A is a subclass of B and B is subclass of C,
 > then A is also subclass of C.
@@ -95,31 +97,30 @@ For attributes, these keys are described in
 The CUBA namespace contains a set of Common Universal Basic entities, that have special meaning in OSP-core.
 The CUBA namespace is always installed in OSP-core.
 
-`CUBA.ENTITY`
-> The entity is the root of the ontology. It is the only entity which does not have a superclass.
-> Every other entity is a subclass of `ENTITY`.
+`cuba.Entity`
+> The root for all ontology classes. Does not have a superclass.
 
-`CUBA.NOTHING`
+`cuba.Nothing`
 > An ontology class, that is not allowed to have individuals.
 
-`CUBA.RELATIONSHIP`
-> The root of all relationships. Its direct superclass is `ENTITY`.
+`cuba.relationship`
+> The root of all relationships. Does not have a superclass.
 
-`CUBA.ATTRIBUTE`
-> The root of all attributes. Its direct superclass is `ENTITY`.
+`cuba.attribute`
+> The root of all attributes. Does not have a superclass.
 
-`CUBA.WRAPPER`
+`cuba.Wrapper`
 > The root of all wrappers. These are the bridge to simulation engines and databases. See the examples in examples/.
 
-`CUBA.ACTIVE_RELATIONSHIP`
+`cuba.activeRelationship`
 > The root of all active relationships. Active relationships express that one cuds object is in the container of another.
 
-`CUBA.PASSIVE_RELATIONSHIP`
-> The inverse of `CUBA.ACTIVE_RELATIONSHIP`.
+`cuba.passiveRelationship`
+> The inverse of `cuba.activeRelationship`.
 
 ## Attribute format
 
-Every attribute is a subclass of `ATTRIBUTE`.
+Every attribute is a subclass of `cuba.attribute`.
 The declaration of an attribute is a special case of the declaration of an entity.
 It must have the keys described in [Ontology entities format](#ontology-entities-format).
 It can additionally have the following keys:
@@ -143,6 +144,7 @@ It can additionally have the following keys:
 >   characters).
 > - `VECTOR:datatype:D1:D2:...:Dn`: a vector of the given dimensions
 >   (D1 x D2 x ... x Dn) and the given datatype.
+>   The dimensions are always fixed.
 >
 >   For example, a VECTOR:INT:4:2:1 would be: \
 >   { [(a), (b)],  [(c), (d)], [(e), (f)], [(g), (h)] } \
@@ -153,7 +155,13 @@ It can additionally have the following keys:
 > In case a datatype is not specified the default datatype is assumed to
 > be STRING
 >
-> For example: The datatype of entity NUMBER_OF_OCCURRENCES is INT.
+> For example: The datatype of entity numberOfOccurrences is INT.
+
+> ```eval_rst
+>.. note::
+>   The implementation of the vectors is experimental and will be updated as soon as 
+>   EMMO has established an appropriate wait of representing them
+> ```
 
 ## Class expressions
 
@@ -166,9 +174,9 @@ They can be either:
 - Requirements on the individual's relationships. For example:
 
   ```yaml
-  CITY.HAS_INHABITANT:
+  city.hasInhabitant:
     cardinality: 1+
-    range: CITY.CITIZEN
+    range: city.Citizen
     exclusive: false
   ```
 
@@ -196,8 +204,8 @@ They can be either:
 
   ```yaml
   or:
-    - CITY.CITY
-    - CITY.NEIGHBOURHOOD
+    - city.City
+    - city.Neighborhood
   ```
 
   This is the union of all individuals that are a city or a neighbourhood.
@@ -209,10 +217,10 @@ The definition of class expressions is recursive. For example:
 
 ```yaml
 or:
-  - CITY.CITY
-  - CITY.HAS_PART:
+  - city.City
+  - city.hasPart:
       cardinality: 1+
-      range: CITY.NEIGHBOURHOOD
+      range: city.Neighborhood
       exclusive: false
 ```
 
@@ -226,14 +234,14 @@ It can contain further information:
 
 `attributes`: Dict[**\`\`qualified entity name\`\`**, default_value]
 > Expects a mapping from the **\`\`qualified entity name\`\`** of an attribute to its default.
-> Each key must correspond to a subclass of `ATTRIBUTE`. For example:
+> Each key must correspond to a subclass of `attribute`. For example:
 >
 > ```yaml
-> ADDRESS:
+> Address:
 >   ...
 >   attributes:
->     CITY.NAME: "Street"
->     CITY.NUMBER:
+>     city.name: "Street"
+>     city.number:
 > ```
 >
 > Here, an address has a name and a number.
@@ -246,12 +254,12 @@ It can contain further information:
 > individuals are allowed that are in the intersection of the class expressions. For example:
 >
 > ```yaml
-> POPULATED_PLACE:
+> PopulatedPlace:
 >    description:
 >    subclass_of:
->    - CITY.GEOGRAPHICAL_PLACE
->    - CITY.HAS_INHABITANT:
->        range: CITY.CITIZEN
+>    - city.GeographicalPlace
+>    - city.hasInhabitant:
+>        range: city.Citizen
 >        cardinality: many
 >        exclusive: true
 > ```
@@ -265,12 +273,12 @@ It can contain further information:
 > A list of class expressions who contain the same individuals as the cuds entity. For example:
 >
 > ```yaml
-> POPULATED_PLACE:
+> PopulatedPlace:
 >    description:
 >    equivalent_to:
->    - CITY.GEOGRAPHICAL_PLACE
->    - CITY.HAS_INHABITANT:
->        range: CITY.CITIZEN
+>    - city.GeographicalPlace
+>    - city.hasInhabitant:
+>        range: city.Citizen
 >        cardinality: many
 >        exclusive: true
 > ```
@@ -279,16 +287,16 @@ It can contain further information:
 
 ## Relationship format
 
-Every relationship is a subclass of `RELATIONSHIP`.
+Every relationship is a subclass of `cuba.relationship`.
 The declaration of a relationship is a special case of the declaration of an entity.
 It must have the keys described in [Ontology entities format](#ontology-entities-format).
 Furthermore, it can contain the following information:
 
 `inverse`: **\`\`qualified entity name\`\`** or empty (None)
-> If CUDS object A is related to CUDS object B via relationship REL, then B is related
-> with A via the inverse of REL.
+> If CUDS object A is related to CUDS object B via relationship `rel`, then B is related
+> with A via the inverse of `rel`.
 >
-> For example: The inverse of HAS\_PART is IS\_PART\_OF.
+> For example: The inverse of `hasPart` is `isPartOf`.
 >
 > If no inverse is given, OSP-core will automatically create one.
 
@@ -312,3 +320,8 @@ Furthermore, it can contain the following information:
 > - inversefunctional
 
 A subclass of a relationship is called a sub-relationship.
+
+## Limitations
+
+`Class expressions`, `domain`, `range`, `characteristics`, `equivalent_to`, `disjoint_with`
+are currently not parsed by OSP core.

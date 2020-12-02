@@ -55,7 +55,7 @@ Based on how tools communicate with other tools, we can define 3 levels of opera
 
   To continue with our language simile, `A` would be a translator that speaks the languages of `B`, `C` and `D`.
   If `B` wants to talk to `C`, they must first relay the message to `A`,
-  and `A` will convert it to a format that `C` understands
+  and `A` will convert it to a format that `C` understands.
 
 #### Interoperability
   ```eval_rst
@@ -86,7 +86,7 @@ Interoperability between software tools is one of the most important objectives 
 
 
 ### Abstraction and generalisation
-Once a certain degree of interoperability has been reached, other interesting concepts and details that arise
+Once a certain degree of interoperability has been reached, other interesting concepts and details that arise:
 #### Semantic vs. syntactic
   In our day to day life we use a series of sounds, symbols and rules to communicate.
   In its simplest level, words have a syntactic side, a role in the sentence they make up, and a explicit meaning.

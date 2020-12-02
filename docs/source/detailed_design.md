@@ -6,125 +6,143 @@ For a more general overview, go to [getting started](./getting_started.md#genera
 
 ```eval_rst
 .. uml::
-  :caption: Standard design
-  :align: center
+    :caption: Standard design
+    :align: center
 
-  allow_mixing
-  actor User
+    allow_mixing
+    actor User
 
-  rectangle SemanticLayer {
+    circle pico
 
-   class Cuds {
-    Session session
-    UUID uuid
-    CUBA cuba_key
-    --
-    add() : Cuds
-    get() : Cuds
-    remove() : void
-    update() : void
-    iter() : Iterator<Cuds>
-   }
-  }
+    rectangle SemanticLayer {
+      class Cuds {
+        Session session
+        UUID uuid
+        OntologyEntity oclass
+        --
+        add() : Cuds
+        get() : Cuds
+        remove() : void
+        update() : void
+        iter() : Iterator<Cuds>
+      }
 
-  rectangle InteroperabilityLayer {
+      abstract class OntologyEntity {
+        String name
+        URIRef iri
+        String tblname
+        OntologyNamespace namespace
+        Set direct_superclasses
+        Set direct_subclasses
+        Set superclasses
+        Set subclasses
+        String description
+        --
+        get_triples() : triple
+        is_superclass_of() : bool
+        is_subclass_of() : bool
+      }
+      class OntologyClass implements OntologyEntity {
+          Dict attributes
+          Dict own_attributes
+      }
 
-   class Registry <dict> {
-   }
+      class OntologyRelationship implements OntologyEntity {
+        OntologyRelationship inverse
+      }
 
-   abstract class Session {
-    Registry : registry
-    --
-    store() : void
-    load() : Cuds
-    sync() : void
-   }
+      class OntologyAttribute implements OntologyEntity {
+        URIRef datatype
+        --
+        convert_to_datatype() : Any
+        convert_to_basic_type() : Any
+      }
 
-   class SomeWrapperSession implements Session {
-    List added
-    List updated
-    List removed
-    SyntacticLayer syntactic
-    --  
-   }
-  }
+      class OntologyNamespace {
+        --
+        get_iri() : URIRef
+        get_default_rel() : OntologyRelationship
+        get() : OntologyEntity
 
-  rectangle SyntacticLayer {
-    class SyntacticLayer {
+      }
+
+      class NamespaceRegistry {
+        --
+        get() : OntologyNamespace
+        update_namespaces() : void
+        from_iri() : OntologyEntity
+        clear() : Graph
+        store() : void
+        load() : void
+      }
     }
-  }
 
-  database backend
+    rectangle InteroperabilityLayer {
+      class Registry <dict> {
+      }
 
+      abstract class Session {
+        Registry : registry
+        --
+        store() : void
+        load() : Cuds
+        sync() : void
+      }
 
-  ' -----------------------
-  ' ------ RELATIONS ------
-  ' -----------------------
-  User -> Cuds : interacts_with
-
-  Cuds -> Session : has_a
-  Session -> Registry : manages
-
-  SomeWrapperSession -> SyntacticLayer : manages
-
-  SyntacticLayer -> backend : acts_on
-
-  ' -----------------------
-  ' -------- NOTES --------
-  ' -----------------------
-  note top of Cuds
-   This will be shallow structure with 
-   the uuids of the contained elements:
-   {
-    Relation1: {uid1: cuba_key, uid2: cuba_key},
-    Relation2: {uid4: cuba_key},
-    Relation3: {uid3: cuba_key, uid5: cuba_key},
+      class SomeWrapperSession implements Session {
+        List added
+        List updated
+        List removed
+        SyntacticLayer syntactic
+        --  
+      }
     }
-  end note
 
-  note top of Session
-   Provides the info requested to Cuds
-  end note
-
-  note top of SomeWrapperSession
-   Updates the registry with information
-   from the backend and vice versa.
-  end note
-
-  note top of Registry
-   Flat structure that contains all the
-   objects accessible through their uid:
-   {
-    uid1: object1,
-    uid2: object2,
-    uid3: object3,
+    rectangle SyntacticLayer {
+      class SyntacticLayer {
+      }
     }
-  end note
 
-  note top of SyntacticLayer
-   Connects to the engine and
-   knows its specific API
-  end note
+    database backend
+
+    ' -----------------------
+    ' ------ RELATIONS ------
+    ' -----------------------
+    User -up-> OntologyClass : interacts_with
+    Cuds -left> OntologyClass : instance_of
+    OntologyEntity -> OntologyNamespace : part_of
+    OntologyNamespace -> NamespaceRegistry : contained_in
+    OntologyClass -left> OntologyAttribute : has
+
+    pico -> NamespaceRegistry : manages
+
+    Cuds -> Session : has_a
+    Session -> Registry : manages
+
+    SomeWrapperSession -> SyntacticLayer : manages
+
+    SyntacticLayer -> backend : acts_on
+
+    OntologyRelationship -[hidden]> OntologyAttribute
 ```
-
 
 ## Semantic layer
 The semantic layer is the representation of the classes of the ontology in a programming language.
 
 When the user installs an ontology through `pico`,
-all ontology classes are saved in a pickle file in the site-packages of the python environment.
+all ontology concepts are saved in a graph in `~/.osp_ontologies`.
 
 The procedure is as follows:
 - The `OntologyInstallationManager` receives a list of yml files with ontologies to install.
 - It instantiates a `Parser`.
 - The parser goes through the ontologies and creates an `OntologyClass` per entity.
 - All the oclasses of the same namespace are grouped in an `OntologyNamespace`.
-- All the registries are collected in the `NamespaceRegistry`. This object will be pickled.
+- All the registries are collected in the `NamespaceRegistry`.
 
-Installing new ontologies loads the pickle and adds new namespaces or modifies the existing ones.
+Installing new ontologies loads the graph and adds new namespaces or modifies the existing ones.
 
 When a class is instantiated, an individual is created.
-The pickled file is read, and an instance of the [Cuds](#cuds) class with the ontology information is created.
+The graph is read, and an instance of the [Cuds](#cuds) class with the ontology information is created.
 
 Through the Cuds they realise the [Cuds API](#cuds-api) which enables the user to work with them in a generic, simple way.
 
@@ -133,7 +151,7 @@ _Location:_ `osp.core.cuds`
 
 It is the base class for all instances. 
 Besides whatever might have been defined in the ontology, they all have 3 basic attributes:
- - uid: instance of `uuid.UUID`, it serves to uniquely identify an instance
+ - uid: instance of `uuid.UUID`, it serves to uniquely identify an instance.
  - session: this is the link to the interoperability layer.
    By default all objects are in the `CoreSession`, unless they are in a wrapper.
  - oclass: indicates the ontology class they originate from.
@@ -141,7 +159,7 @@ Besides whatever might have been defined in the ontology, they all have 3 basic 
 #### Cuds structure
 Each cuds object contains the uids and oclass of the directly related entities,
 as well as the relationship that connects them.
-The actual related objects are kept in the [registry](#registry)
+The actual related objects are kept in the [registry](#registry).
 ```
  a_cuds_object :=  {
     Relation1: {uid1: oclass, uid2: oclass},
@@ -149,8 +167,12 @@ The actual related objects are kept in the [registry](#registry)
     Relation3: {uid3: oclass, uid5: oclass},
     }
 ```
-_Note:_ This is an abstraction to show the general structure.
-The actual implementation is a bit more complex.
+
+```eval_rst
+.. note::
+   This is an abstraction to show the general structure.
+   The actual implementation is a bit more complex.
+```
 
 #### Cuds API
 The governing idea behind the API design was to simplify as much as possible the usage.
@@ -159,14 +181,13 @@ This CRUD API is defined by 6 methods:
 
 ##### Create
 ```python
-from osp.core import SOME_NAMESPACE
-# from osp.core import some_namespace  # lowercase works as well!
+from osp.core.namespaces import some_namespace
 
-ontology_class = SOME_NAMESPACE.ONTOLOGY_CLASS
-# ontology_class = some_namespace.MyOntologyClass  # CamelCase works as well!
-relationship = SOME_NAMESPACE.RELATIONSHIP
+ontology_class = some_namespace.OntologyClass
 
-cuds_obj = SOME_NAMESPACE.ONTOLOGY_CLASS()
+relationship = some_namespace.relationship
+
+cuds_obj = some_namespace.OntologyClass()
 ```
 
 ##### Add
@@ -363,12 +384,17 @@ cuds_obj = SOME_NAMESPACE.ONTOLOGY_CLASS()
    ```
    First the uids of all the objects to be iterated are gathered,
    and then they are yielded like a generator
+   
+```eval_rst
+.. hint::
+   There is also an :code:`is_a` method for checking oclass inheritance.
+```
 
-_Note (I):_ Be aware that the sequence diagrams shown represent simple use cases,
-and more complex scenarios are also possible (e.g. adding an object with children).
-
-_Note (II):_ There is also an `is_a` method for checking oclass inheritance.
-
+```eval_rst
+.. note::
+   Be aware that the sequence diagrams shown represent simple use cases,
+   and more complex scenarios are also possible (e.g. adding an object with children).
+```
 ## Interoperability layer
 The interoperability layer takes care of the connection and translation between the semantic and syntactic parts.
 It also contains the storage of all the objects that share a session.
@@ -497,7 +523,11 @@ To simplify and group functionality, we built an inheritance scheme:
   }
   @enduml
 ```
-_Note:_ This is a reduced version and does not represent the entirety of the contained functions.
+
+```eval_rst
+.. note::
+   This is a reduced version and does not represent the entirety of the contained functions.
+```
 
 The simplest session, called `CoreSession`, is the default one for entities created in a python workspace
 and has no backend. It just accesses the registry to manage the operations made by users.
@@ -507,6 +537,14 @@ This will define which methods have to be implemented and `_engine` as the acces
 
 `SimWrapperSession` and `DbWrapperSession` further specify the behaviour of wrappers, defining the methods that 
 trigger an action on the backend (`run` and `commit`, respectively).
+
+```eval_rst
+.. note::
+   You might have noticed that the semantic layer defines :code:`remove` in the API,
+   but in the session and registry we use :code:`delete`. The different between them
+   is conceptual: :code:`remove` is interpreted as detachment i.e. removal of edges,
+   while :code:`delete` implies the erasure of the note itself.
+```
 
 #### Buffers
 Session classes under `WrapperSession` share 3 types of buffers, namely `added`, `updated` and `deleted`.

@@ -27,6 +27,7 @@ extensions = [
     'nbsphinx',  # Jupyter
     'IPython.sphinxext.ipython_console_highlighting',  # Jupyter - Syntax highlight workaround
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
+    'sphinx-jsonschema'  # Generate JSON schema for serialized CUDS
 ]
 
 master_doc = 'index'
@@ -75,3 +76,6 @@ def setup(app):
         # 'enable_auto_doc_ref': True,
     }, True)
     app.add_transform(AutoStructify)
+
+
+nbsphinx_allow_errors = True
