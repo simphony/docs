@@ -109,42 +109,77 @@ or [one of the supported owl ontologies](owl.md).
 
 <details>
   <summary>YAML Ontology sample</summary>
+  The following is an excerpt from the `city.ontology.yml` in osp-core.
 
   ```yaml
-    version: "0.0.1"
-    namespace: "cuba"
+    ---
+    version: "0.0.3"
+
+    namespace: "city"
 
     ontology:
-      Class:
-        description: The root of the ontology.
-        subclass_of: []
 
-      Nothing:
-        description: A class without any individuals.
+      encloses:
         subclass_of:
-        - cuba.Class
+        - cuba.activeRelationship
+        inverse: city.isEnclosedBy
 
-    ################
-
-      relationship:
-        description: The root of all relationships.
-        subclass_of: []
-
-      activeRelationship:
-        description: The root of all active relationships. Active relationships express that one cuds object is in the container of another.
+      isEnclosedBy:
         subclass_of:
-        - cuba.relationship
+        - cuba.passiveRelationship
+        inverse: city.encloses
+
+      hasInhabitant:
+        subclass_of:
+        - city.encloses
 
       ################
 
-      Wrapper:
-        description: The root of all wrappers. These are the bridge to simulation engines and databases.
+      CityWrapper:
         subclass_of:
-        - cuba.Class
+        - cuba.Wrapper
+        - city.hasPart:
+            range: city.City
+            cardinality: 1+
+            exclusive: false
 
-      attribute:
-        description: The root of all attributes.
-        subclass_of: []
+      ################
+
+      City:
+        subclass_of:
+        - city.PopulatedPlace
+        - city.hasPart:
+            range: city.Neighborhood
+            cardinality: many
+            exclusive: true
+        - city.isPartOf:
+            range: city.CityWrapper
+            cardinality: 0-1
+            exclusive: true
+        - city.hasMajor:
+            range: city.Citizen
+            cardinality: 0-1
+            exclusive: true
+
+      Building:
+        subclass_of:
+        - city.ArchitecturalStructure
+        - city.hasPart:
+            range: city.Address
+            cardinality: 1
+            exclusive: false
+        - city.hasPart:
+            range: city.Floor
+            cardinality: many
+            exclusive: false
+        - city.isPartOf:
+            range: city.Street
+            cardinality: 1
+            exclusive: true
+
+      Citizen:
+        subclass_of:
+        - city.Person
   ```
 </details>
 

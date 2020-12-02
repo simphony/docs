@@ -97,7 +97,7 @@ For attributes, these keys are described in
 The CUBA namespace contains a set of Common Universal Basic entities, that have special meaning in OSP-core.
 The CUBA namespace is always installed in OSP-core.
 
-`cuba.Class`
+`cuba.Entity`
 > The root for all ontology classes. Does not have a superclass.
 
 `cuba.Nothing`

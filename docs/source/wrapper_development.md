@@ -56,7 +56,7 @@ These are the requirements for a minimal wrapper ontology:
 
     SomeEntity:
       subclass_of:
-      -  cuba.Class
+      -  cuba.Entity
 
   ```
 </details>
