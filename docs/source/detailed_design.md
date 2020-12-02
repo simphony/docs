@@ -6,107 +6,125 @@ For a more general overview, go to [getting started](./getting_started.md#genera
 
 ```eval_rst
 .. uml::
-  :caption: Standard design
-  :align: center
+    :caption: Standard design
+    :align: center
 
-  allow_mixing
-  actor User
+    allow_mixing
+    actor User
 
-  rectangle SemanticLayer {
+    circle pico
 
-   class Cuds {
-    Session session
-    UUID uuid
-    CUBA cuba_key
-    --
-    add() : Cuds
-    get() : Cuds
-    remove() : void
-    update() : void
-    iter() : Iterator<Cuds>
-   }
-  }
+    rectangle SemanticLayer {
+      class Cuds {
+        Session session
+        UUID uuid
+        OntologyEntity oclass
+        --
+        add() : Cuds
+        get() : Cuds
+        remove() : void
+        update() : void
+        iter() : Iterator<Cuds>
+      }
 
-  rectangle InteroperabilityLayer {
+      abstract class OntologyEntity {
+        String name
+        URIRef iri
+        String tblname
+        OntologyNamespace namespace
+        Set direct_superclasses
+        Set direct_subclasses
+        Set superclasses
+        Set subclasses
+        String description
+        --
+        get_triples() : triple
+        is_superclass_of() : bool
+        is_subclass_of() : bool
+      }
+      class OntologyClass implements OntologyEntity {
+          Dict attributes
+          Dict own_attributes
+      }
 
-   class Registry <dict> {
-   }
+      class OntologyRelationship implements OntologyEntity {
+        OntologyRelationship inverse
+      }
 
-   abstract class Session {
-    Registry : registry
-    --
-    store() : void
-    load() : Cuds
-    sync() : void
-   }
+      class OntologyAttribute implements OntologyEntity {
+        URIRef datatype
+        --
+        convert_to_datatype() : Any
+        convert_to_basic_type() : Any
+      }
 
-   class SomeWrapperSession implements Session {
-    List added
-    List updated
-    List removed
-    SyntacticLayer syntactic
-    --  
-   }
-  }
+      class OntologyNamespace {
+        --
+        get_iri() : URIRef
+        get_default_rel() : OntologyRelationship
+        get() : OntologyEntity
 
-  rectangle SyntacticLayer {
-    class SyntacticLayer {
+      }
+
+      class NamespaceRegistry {
+        --
+        get() : OntologyNamespace
+        update_namespaces() : void
+        from_iri() : OntologyEntity
+        clear() : Graph
+        store() : void
+        load() : void
+      }
     }
-  }
 
-  database backend
+    rectangle InteroperabilityLayer {
+      class Registry <dict> {
+      }
 
+      abstract class Session {
+        Registry : registry
+        --
+        store() : void
+        load() : Cuds
+        sync() : void
+      }
 
-  ' -----------------------
-  ' ------ RELATIONS ------
-  ' -----------------------
-  User -> Cuds : interacts_with
-
-  Cuds -> Session : has_a
-  Session -> Registry : manages
-
-  SomeWrapperSession -> SyntacticLayer : manages
-
-  SyntacticLayer -> backend : acts_on
-
-  ' -----------------------
-  ' -------- NOTES --------
-  ' -----------------------
-  note top of Cuds
-   This will be shallow structure with 
-   the uuids of the contained elements:
-   {
-    Relation1: {uid1: cuba_key, uid2: cuba_key},
-    Relation2: {uid4: cuba_key},
-    Relation3: {uid3: cuba_key, uid5: cuba_key},
+      class SomeWrapperSession implements Session {
+        List added
+        List updated
+        List removed
+        SyntacticLayer syntactic
+        --  
+      }
     }
-  end note
 
-  note top of Session
-   Provides the info requested to Cuds
-  end note
-
-  note top of SomeWrapperSession
-   Updates the registry with information
-   from the backend and vice versa.
-  end note
-
-  note top of Registry
-   Flat structure that contains all the
-   objects accessible through their uid:
-   {
-    uid1: object1,
-    uid2: object2,
-    uid3: object3,
+    rectangle SyntacticLayer {
+      class SyntacticLayer {
+      }
     }
-  end note
 
-  note top of SyntacticLayer
-   Connects to the engine and
-   knows its specific API
-  end note
+    database backend
+
+    ' -----------------------
+    ' ------ RELATIONS ------
+    ' -----------------------
+    User -up-> OntologyClass : interacts_with
+    Cuds -left> OntologyClass : instance_of
+    OntologyEntity -> OntologyNamespace : part_of
+    OntologyNamespace -> NamespaceRegistry : contained_in
+    OntologyClass -left> OntologyAttribute : has
+
+    pico -> NamespaceRegistry : manages
+
+    Cuds -> Session : has_a
+    Session -> Registry : manages
+
+    SomeWrapperSession -> SyntacticLayer : manages
+
+    SyntacticLayer -> backend : acts_on
+
+    OntologyRelationship -[hidden]> OntologyAttribute
 ```
-
 
 ## Semantic layer
 The semantic layer is the representation of the classes of the ontology in a programming language.
