@@ -1,12 +1,21 @@
 # Installation
 For the installation and usage of the framework Python 3.6 or higher is needed.
-We *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html):
+We *highly* encourage the use of a [virtual environment](https://docs.python.org/3/tutorial/venv.html)
+or a [conda](https://docs.conda.io/en/latest/) environment:
 
 ```shell
+# virtual environment 
 ~/test$ python3 -m venv SimPhoNy
 ~/test$ source SimPhoNy/bin/activate
 (SimPhoNy) ~/test$ 
 ```
+
+```shell
+# conda
+~/test$ conda create -n <env name>
+~/test$ conda activate <env name>
+```
+
 
 ## OSP-core installation
 First, the repository must be cloned:
