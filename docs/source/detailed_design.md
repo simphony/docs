@@ -112,19 +112,19 @@ For a more general overview, go to [getting started](./getting_started.md#genera
 The semantic layer is the representation of the classes of the ontology in a programming language.
 
 When the user installs an ontology through `pico`,
-all ontology classes are saved in a pickle file in the site-packages of the python environment.
+all ontology concepts are saved in a graph in `~/.osp_ontologies`.
 
 The procedure is as follows:
 - The `OntologyInstallationManager` receives a list of yml files with ontologies to install.
 - It instantiates a `Parser`.
 - The parser goes through the ontologies and creates an `OntologyClass` per entity.
 - All the oclasses of the same namespace are grouped in an `OntologyNamespace`.
-- All the registries are collected in the `NamespaceRegistry`. This object will be pickled.
+- All the registries are collected in the `NamespaceRegistry`.
 
-Installing new ontologies loads the pickle and adds new namespaces or modifies the existing ones.
+Installing new ontologies loads the graph and adds new namespaces or modifies the existing ones.
 
 When a class is instantiated, an individual is created.
-The pickled file is read, and an instance of the [Cuds](#cuds) class with the ontology information is created.
+The graph is read, and an instance of the [Cuds](#cuds) class with the ontology information is created.
 
 Through the Cuds they realise the [Cuds API](#cuds-api) which enables the user to work with them in a generic, simple way.
 
