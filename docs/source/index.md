@@ -55,5 +55,6 @@ Here you can browse though the general documentation of SimPhoNy.
    api_ref.md
    json.md
    links.md
+   contact.md
 
 ```

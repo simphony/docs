@@ -9,8 +9,8 @@ The method will traverse the hierarchical datastructure
 using Depth First Traversal.
 Therefore, its result is a json array composed of several flat CUDS objects.
 
-This array can later be deserialized using the antagonist 
-[`deserialize`](api_ref.html#osp.core.utils.general.deserialize)
+This array can later be deserialized using the opposite 
+[`deserialize`](api_ref.html#osp.core.utils.general.deserialize).
 
 The serialization is done via [JSON-LD](https://json-ld.org/),
-with the schema used for the [OSP API in Marketplace](https://gitlab.cc-asp.fraunhofer.de/MarketPlace/osp-api)
+with the schema used for the [OSP API in Marketplace](https://gitlab.cc-asp.fraunhofer.de/MarketPlace/osp-api).

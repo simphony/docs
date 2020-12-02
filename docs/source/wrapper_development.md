@@ -69,6 +69,7 @@ This allows us to group and clearly define which components should and which one
 
  - [Semantic layer](./detailed_design.md#semantic-layer): 
    Requires no work.
+   As presented in the previous section, only an entity representing the wrapper has to be present in the ontology.
 
  - [Interoperability layer](./detailed_design.md#interoperability-layer):
    - [Session class](./detailed_design.md#session): 
@@ -94,7 +95,6 @@ This allows us to group and clearly define which components should and which one
 
  - [Syntactic layer](./detailed_design.md#syntactic-layer): 
    If none is available, one must be developed.
-   Only needs an entity representing the wrapper, as presented in the previous section.
 
 ## Engine installation
 Most engines will require some sort of compilation or installation before being able to use them through Python.

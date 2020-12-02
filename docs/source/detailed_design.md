@@ -151,7 +151,7 @@ _Location:_ `osp.core.cuds`
 
 It is the base class for all instances. 
 Besides whatever might have been defined in the ontology, they all have 3 basic attributes:
- - uid: instance of `uuid.UUID`, it serves to uniquely identify an instance
+ - uid: instance of `uuid.UUID`, it serves to uniquely identify an instance.
  - session: this is the link to the interoperability layer.
    By default all objects are in the `CoreSession`, unless they are in a wrapper.
  - oclass: indicates the ontology class they originate from.
@@ -159,7 +159,7 @@ Besides whatever might have been defined in the ontology, they all have 3 basic 
 #### Cuds structure
 Each cuds object contains the uids and oclass of the directly related entities,
 as well as the relationship that connects them.
-The actual related objects are kept in the [registry](#registry)
+The actual related objects are kept in the [registry](#registry).
 ```
  a_cuds_object :=  {
     Relation1: {uid1: oclass, uid2: oclass},

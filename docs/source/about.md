@@ -12,14 +12,9 @@ In particular, this guide will try to expose the main concepts and components.
 All the tutorials in this documentation are Jupyter notebooks that can be downloaded
 by clicking on the "Edit on Github" button on the top right of the page.
 
-_Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de), 
-[Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and 
-[Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
-the Materials Data Science and Informatics team, Fraunhofer IWM.
-
 # License
-BSD 3-Clause 
-Copyright 2020 SimPhoNy OSP-core developers
+BSD 3-Clause  
+Copyright 2020 SimPhoNy OSP-core developers.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
