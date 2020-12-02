@@ -1,7 +1,7 @@
 # About
 
 SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool.
-Its latest version is soon to become an open-source python project.
+Its [core functionality](https://github.com/simphony/osp-core) is an open-source python project.
 The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed
 (See more details [here](https://www.simphony-project.eu/)). 
 One of SimPhoNy’s main tasks is to convert *opaque* data, meaning data whose semantics are hidden, to *transparent* data, that is data whose semantics is understood and easily accessible.
@@ -9,14 +9,12 @@ One of SimPhoNy’s main tasks is to convert *opaque* data, meaning data whose s
 This project aims to clarify the purpose and usage of the SimPhoNy platform through simple, short examples.
 In particular, this guide will try to expose the main concepts and components.
 
-_Contact:_ [Pablo de Andres](mailto:pablo.de.andres@iwm.fraunhofer.de), 
-[Matthias Urban](mailto:matthias.urban@iwm.fraunhofer.de) and 
-[Yoav Nahshon](mailto:yoav.nahshon@iwm.fraunhofer.de) from 
-the Materials Data Science and Informatics team, Fraunhofer IWM.
+All the tutorials in this documentation are Jupyter notebooks that can be downloaded
+by clicking on the "Edit on Github" button on the top right of the page.
 
 # License
-BSD 3-Clause 
-Copyright 2020 SimPhoNy OSP-core developers
+BSD 3-Clause  
+Copyright 2020 SimPhoNy OSP-core developers.
 
 Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

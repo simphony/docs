@@ -1,5 +1,6 @@
 # Related links
 Here are links to other projects relevant for this documentation.
+
 SimPhoNy:
 - [GitLab's SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
 - [GitHub's SimPhoNy group](https://github.com/simphony)

@@ -36,6 +36,8 @@ setup(
         'sphinxcontrib-plantuml',
         'nbsphinx',
         'sphinx-copybutton',
+        'sphinx-jsonschema',
+        'sphinx_rtd_theme',
         'ipython',
     ],
     setup_requires=[

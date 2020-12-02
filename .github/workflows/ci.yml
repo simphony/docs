@@ -14,16 +14,12 @@ jobs:
       with:
         python-version: 3.7
     - name: Install OS dependencies
-      run: >
-        sudo apt-get install pandoc 
-        latexmk 
-        texlive-fonts-recommended 
-        texlive-latex-recommended
-        texlive-latex-extra
+      run: |
+        sudo apt-get update 
+        sudo apt-get install pandoc latexmk
+        sudo apt-get install texlive-fonts-recommended texlive-latex-recommended texlive-latex-extra
     - name: Install python dependencies
       run: |
-        sudo apt-get install pandoc latexmk texlive-fonts-recommended 
-        sudo apt-get install texlive-latex-recommended texlive-latex-extra
         python -m pip install --upgrade pip
         pip install wheel
         pip install -r requirements.txt

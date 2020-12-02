@@ -21,6 +21,7 @@ Here you can browse though the general documentation of SimPhoNy.
    about.md
    motivation.md
    getting_started.md
+   installation.md
    jupyter/cuds-api.ipynb
    jupyter/sessions_and_vars.ipynb
    detailed_design.md
@@ -31,7 +32,7 @@ Here you can browse though the general documentation of SimPhoNy.
    :maxdepth: 2
 
    ontology_intro.md
-   included_ontologies.md
+   ontologies_included.md
    yaml.md
    owl.md
    jupyter/ontology-interface.ipynb
@@ -54,5 +55,6 @@ Here you can browse though the general documentation of SimPhoNy.
    api_ref.md
    json.md
    links.md
+   contact.md
 
 ```
