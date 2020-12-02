@@ -9,14 +9,8 @@ The method will traverse the hierarchical datastructure
 using Depth First Traversal.
 Therefore, its result is a json array composed of several flat CUDS objects.
 
-The following explains the schema of the CUDS serialization:
+This array can later be deserialized using the antagonist 
+[`deserialize`](api_ref.html#osp.core.utils.general.deserialize)
 
-```eval_rst
-.. jsonschema:: json_schema/serialized_cuds.json#/cuds_array
-.. jsonschema:: json_schema/serialized_cuds.json#/definitions/cuds
-.. jsonschema:: json_schema/serialized_cuds.json#/definitions/entity
-.. jsonschema:: json_schema/serialized_cuds.json#/definitions/uuid
-.. jsonschema:: json_schema/serialized_cuds.json#/definitions/attributes
-.. jsonschema:: json_schema/serialized_cuds.json#/definitions/relationships
-
-```
+The serialization is done via [JSON-LD](https://json-ld.org/),
+with the schema used for the [OSP API in Marketplace](https://gitlab.cc-asp.fraunhofer.de/MarketPlace/osp-api)
