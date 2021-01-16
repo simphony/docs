@@ -324,4 +324,4 @@ A subclass of a relationship is called a sub-relationship.
 ## Limitations
 
 `Class expressions`, `domain`, `range`, `characteristics`, `equivalent_to`, `disjoint_with`
-are currently not parsed by OSP core.
+are currently not parsed by OSP-core.
