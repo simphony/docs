@@ -56,5 +56,7 @@ Here you can browse though the general documentation of SimPhoNy.
    json.md
    links.md
    contact.md
+   Data protection <https://www.simphony-project.eu/en/data_protection.html>
+   Imprint <https://www.simphony-project.eu/en/publishing-notes.html>
 
 ```
