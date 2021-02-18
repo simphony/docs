@@ -52,9 +52,12 @@ Here you can browse though the general documentation of SimPhoNy.
    :caption: Additional
    :maxdepth: 2
 
+   contribute.md
    api_ref.md
    json.md
    links.md
+   Data protection <https://www.simphony-project.eu/en/data_protection.html>
+   Imprint <https://www.simphony-project.eu/en/publishing-notes.html>
    contact.md
 
 ```
