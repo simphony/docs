@@ -136,8 +136,10 @@ Once a certain degree of interoperability has been reached, other interesting co
   If both tools can communicate (i.e. there exists some interoperability between them),
   they could both be run and synced simultaneously to create more complex scenarios.
 
+  Here is an example of what that could look like:
+
+  <iframe src="./_static/videos/coupling_and_linking.mp4" frameborder="0" allowfullscreen="true">
+  </iframe>
+
   Furthermore, a truly interoperable platform would enable users to store and 
   access data in databases or other repositories of information.
-
-
-
