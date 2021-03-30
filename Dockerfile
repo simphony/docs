@@ -16,3 +16,9 @@ RUN pip install -r requirements.txt
 EXPOSE 5500
 
 CMD python setup.py install && sphinx-reload --host 0.0.0.0 docs/
+
+# Build:
+# $ docker build -t simphony-docs .
+
+# Run:
+# $ docker run -v $PWD:/app -p 5500:5500 simphony-docs
