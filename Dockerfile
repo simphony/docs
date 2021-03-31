@@ -1,8 +1,7 @@
 FROM python:3.8-buster
 
 RUN apt-get update
-RUN apt-get install -y default-jre
-RUN apt-get install -y pandoc
+RUN apt-get install -y pandoc default-jre graphviz
 RUN apt-get install -y texlive-latex-recommended \
                        texlive-latex-extra \
                        texlive-fonts-recommended \
@@ -13,12 +12,12 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
-EXPOSE 5500
+EXPOSE 8000
 
-CMD python setup.py install && sphinx-reload --host 0.0.0.0 docs/
+CMD sphinx-autobuild docs/source docs/build/html
 
 # Build:
 # $ docker build -t simphony-docs .
 
 # Run:
-# $ docker run -v $PWD:/app -p 5500:5500 simphony-docs
+# $ docker run -v $PWD:/app -p 8000:8000 simphony-docs
