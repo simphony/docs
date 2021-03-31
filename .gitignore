@@ -1,6 +1,5 @@
 .vscode/
 docs/build
-docs/_build
 *.pyc
 build/
 dist/
