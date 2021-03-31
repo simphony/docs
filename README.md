@@ -7,12 +7,12 @@ To access the documentation, please visit: [https://simphony.readthedocs.io](htt
 
 If you find any error or problem with the documentation, please [create an issue](https://github.com/simphony/docs/issues).
 
-## Local Installation
-Installing the documentation locally will start a server that will generate the docs and
-listen for changes in the source files. This can be done by using docker or installing the development environment directly on the you machine. Next are installation guides for Docker and a Linux OS.
+## Local Rendering
+### HTML
+A server will start, generate the docs and listen for changes in the source files.
+This can be done by using docker or installing the development environment directly on the you machine. Next are installation guides for Docker and Linux OS.
 
-### Docker
-
+#### Docker
 First, build the Docker image by running the following command:
 ```shell
 $ docker build -t simphony-docs .
@@ -23,7 +23,7 @@ Then, start the program by running:
 $ docker run --rm -v $PWD:/app -p 8000:8000 simphony-docs
 ```
 
-### Linux
+#### Linux
 At an OS level (these commands work on Linux Debian):
 ```shell
 $ sudo apt install pandoc graphviz
@@ -43,6 +43,8 @@ $ sphinx-autobuild docs/source docs/build/html
 ```
 The documentation will be available on [`http://127.0.0.1:8000`](http://127.0.0.1:8000).
 
+
+### PDF (LaTeX)
 To generate a PDF of the documentation, simply run (from the root project folder):
 ```sh
 make -C docs latexpdf
