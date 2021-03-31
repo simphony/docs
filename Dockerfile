@@ -12,12 +12,10 @@ ADD . .
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
-
-CMD sphinx-autobuild docs/source docs/build/html
+CMD sphinx-autobuild --host 0.0.0.0 docs/source docs/build/html
 
 # Build:
 # $ docker build -t simphony-docs .
 
 # Run:
-# $ docker run -v $PWD:/app -p 8000:8000 simphony-docs
+# $ docker run --rm -v $PWD:/app -p 8000:8000 simphony-docs
