@@ -43,6 +43,8 @@ $ sphinx-autobuild docs/source docs/build/html
 ```
 The documentation will be available on [`http://127.0.0.1:8000`](http://127.0.0.1:8000).
 
-To generate a PDF of the documentation, simply run:
-
-TODO: Update with latest command
+To generate a PDF of the documentation, simply run (from the root project folder):
+```sh
+make -C docs latexpdf
+```
+The generated PDF can be found under docs/build/latex/SymPhoNy_docs.pdf
