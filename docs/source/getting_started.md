@@ -95,6 +95,9 @@ For that, a 3 layer schema is used:
 The closer to the user, the closer to the ontology concepts.
 The abstraction is replaced by specificity when you move towards the backend.
 
+For example, the City, Street or Neighborhood classes from the demonstrative [City Ontology](./ontologies_included.html#the-city-ontology) included in OSP-core, as well as the individuals that can be instantiated using them, would be part of the semantic layer. Any wrapper (i.e. the included [SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)), would be part of the interoperability layer. Finally, following the SQLite example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html) from python would be part of the syntactic layer.
+
+
 For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
 
 ## OSP-core
