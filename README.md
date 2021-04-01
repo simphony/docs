@@ -26,7 +26,7 @@ $ docker run --rm -v $PWD:/app -p 8000:8000 simphony-docs
 #### Linux
 At an OS level (these commands work on Linux Debian):
 ```shell
-$ sudo apt install pandoc graphviz
+$ sudo apt install pandoc graphviz default-jre
 $ sudo apt-get install texlive-latex-recommended \
                        texlive-latex-extra \
                        texlive-fonts-recommended \
