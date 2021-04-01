@@ -1,7 +1,7 @@
 # API Reference
-This document is for developers of OSP-core, it contains the API functions
+This document is for developers and/or advanced users of OSP-core, it contains all API details.
 
-## Cuds class
+## CUDS
 ```eval_rst
 .. autoclass:: osp.core.cuds.Cuds
     :members:
@@ -40,14 +40,7 @@ This document is for developers of OSP-core, it contains the API functions
     :show-inheritance:
 ```
 
-## Registry class
-```eval_rst
-.. autoclass:: osp.core.session.registry.Registry
-    :members:
-    :show-inheritance:
-```
-
-## Session classes
+## Sessions
 ```eval_rst
 .. autoclass:: osp.core.session.session.Session
     :members:
@@ -74,7 +67,14 @@ This document is for developers of OSP-core, it contains the API functions
     :show-inheritance:
 ```
 
-## utils
+## Registry
+```eval_rst
+.. autoclass:: osp.core.session.registry.Registry
+    :members:
+    :show-inheritance:
+```
+
+## Utilities
 ```eval_rst
 .. autoclass:: osp.core.utils.cuds2dot.Cuds2dot
     :members:
