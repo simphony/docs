@@ -6,6 +6,7 @@ to the following one:
 ```yaml
 identifier: emmo
 ontology_file: https://raw.githubusercontent.com/emmo-repo/EMMO/master/emmo-inferred.owl
+format: turtle
 reference_by_label: True
 namespaces:
     mereotopology: http://emmo.info/emmo/top/mereotopology
@@ -39,8 +40,13 @@ that contains multiple namespaces. Will be used for uninstallation: `pico uninst
 **ontology_file**: Path to the inferred owl ontology. That means you should
 have executed a reasoner on your ontology, e.g. by using the `Export inferred axioms`
 functionality of [Protégé](https://protege.stanford.edu/).
-We support all the formats that [RDFLib](https://rdflib.readthedocs.io/) supports:
-RDF/XML, N3, NTriples, N-Quads, Turtle, TriX, RDFa and Microdata.
+
+**format**: File format of the ontology file to be parsed. We support all the
+formats that
+[RDFLib](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html) supports:
+RDF/XML (`rdf+xml`), N3 (`n3`), NTriples (`nt`), N-Quads (`nquads`),
+Turtle (`turtle`), TriX (`trix`), RDFa (`rdfa`, `rdfa1.0`, `rdfa1.1`)
+and Microdata (`mdata`).
 
 **reference_by_label** (default False): Whether the label should be used or the IRI suffix to reference
 entity from within OSP-core. In case of EMMO it is true, because IRI suffixes are not
