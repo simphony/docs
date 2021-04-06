@@ -52,6 +52,7 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/wrapper_development.ipynb
    detailed_design.md
 
+
 .. toctree::
    :caption: Additional
    :maxdepth: 2
