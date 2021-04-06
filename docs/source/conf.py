@@ -27,7 +27,8 @@ extensions = [
     'nbsphinx',  # Jupyter
     'IPython.sphinxext.ipython_console_highlighting',  # Jupyter - Syntax highlight workaround
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
-    'sphinx-jsonschema'  # Generate JSON schema for serialized CUDS
+    'sphinx-jsonschema',  # Generate JSON schema for serialized CUDS
+    'hoverxref.extension'  # Tooltips with embedded content
 ]
 
 master_doc = 'index'
