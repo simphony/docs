@@ -24,7 +24,6 @@ Here you can browse though the general documentation of SimPhoNy.
    installation.md
    jupyter/cuds-api.ipynb
    jupyter/sessions_and_vars.ipynb
-   detailed_design.md
    utils.md
 
 .. toctree::
@@ -44,9 +43,14 @@ Here you can browse though the general documentation of SimPhoNy.
    jupyter/multiple-wrappers.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum-espresso.ipynb
+
+
+.. toctree::
+   :caption: For developers
+
    wrapper_development.md
    jupyter/wrapper_development.ipynb
-
+   detailed_design.md
 
 .. toctree::
    :caption: Additional
