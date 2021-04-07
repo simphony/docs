@@ -10,7 +10,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    ---
    **Getting Started**
 
-   Overview and main concepts, and installation guide
+   Overview, main concepts, and installation guide
 
    .. link-button:: overview.html
       :text: To the getting started guides
@@ -19,7 +19,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    ---
    **Usage Guide**
 
-   Core functionalities, wrappers and more advanced features
+   Core functionalities, wrappers and advanced utilities
 
    .. link-button:: jupyter/cuds-api.ipynb
       :text: To usage guide
@@ -38,7 +38,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    
    **Wrapper Development**
 
-   A deeper look into OSP-core for the purpose of development of SimPhoNy wrappers
+   A deep dive into the wrapper mechanism for developing new wrappers
 
    .. link-button:: wrapper_development.html
       :text: To wrapper development 
@@ -56,7 +56,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    ---
    **Additional Information**
 
-   License, acknowledgements, data protection, contact info and more.
+   License, acknowledgements, data protection, contact info and more
 
    .. link-button:: contribute.html
       :text: To more information
@@ -122,5 +122,4 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    Data protection <https://www.simphony-project.eu/en/data_protection.html>
    Imprint <https://www.simphony-project.eu/en/publishing-notes.html>
    contact.md
-
 ```
