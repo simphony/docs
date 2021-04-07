@@ -1,5 +1,5 @@
 ## Fundamental concepts
-In this section, we will present some of the main concepts SimPhoNy was created to tackle.
+In this section we will present some of the main concepts behind SimPhoNy.
 ### Operability
 There is a multitude of tools and programs out there, all with their own formats and protocols.
 
