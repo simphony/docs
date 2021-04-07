@@ -22,7 +22,7 @@ Here you can browse though the general documentation of SimPhoNy.
    motivation.md
    getting_started.md
    installation.md
-   jupyter/cuds-api.ipynb
+   jupyter/cuds_api.ipynb
    jupyter/sessions_and_vars.ipynb
    detailed_design.md
    utils.md
@@ -35,15 +35,15 @@ Here you can browse though the general documentation of SimPhoNy.
    ontologies_included.md
    yaml.md
    owl.md
-   jupyter/ontology-interface.ipynb
+   jupyter/ontology_interface.ipynb
 
 
 .. toctree::
    :caption: Wrappers
 
-   jupyter/multiple-wrappers.ipynb
+   jupyter/multiple_wrappers.ipynb
    jupyter/simlammps.ipynb
-   jupyter/quantum-espresso.ipynb
+   jupyter/quantum_espresso.ipynb
    wrapper_development.md
    jupyter/wrapper_development.ipynb
 
