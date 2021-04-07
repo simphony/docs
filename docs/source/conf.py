@@ -64,7 +64,12 @@ latex_logo = '_static/img/simphony_logo_dark.png'
 latex_elements = { 'figure_align': 'H',
                  }
 
-
+# -- Options for hoverxref ----------------------------------------------------
+hoverxref_role_types = { 'hoverxref': 'tooltip' }
+hoverxref_tooltip_side = "top"
+# Needed only for development, otherwise handled by "Read the Docs"
+# hoverxref_project = "simphony"
+# hoverxref_version = "83-Reference_terminology_terms"
 
 def setup(app):
     # Configuration for recommonmark
