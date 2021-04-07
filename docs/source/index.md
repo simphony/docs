@@ -68,7 +68,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    :maxdepth: 2
 
    overview.md
-   motivation.md
+   fundamentals.md
    general_architecture.md
    installation.md
 
