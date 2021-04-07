@@ -1,5 +1,5 @@
 # Welcome to SimPhoNy docs!
-Here you can browse though the general documentation of SimPhoNy.
+Here you can browse through the general documentation of SimPhoNy.
 
 **Compatibility matrix**
 
