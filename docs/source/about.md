@@ -12,6 +12,18 @@ In particular, this guide will try to expose the main concepts and components.
 All the tutorials in this documentation are Jupyter notebooks that can be downloaded
 by clicking on the "Edit on Github" button on the top right of the page.
 
+# Compatibility matrix
+
+```eval_rst
+ =============  ==========
+ SimPhoNy docs  OSP-core  
+ =============  ==========
+ 2.3.x          3.4.0-beta
+ 2.2.x          3.3.5-beta
+ 2.1.x          3.3.0-beta
+ =============  ==========
+```
+
 # Terminology
 These are some of the terms used in the following sections:
 1. `API`: Application Programming Interface. A set of functions that allow the interaction with an application or system.
