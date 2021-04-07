@@ -20,7 +20,7 @@ Here you can browse though the general documentation of SimPhoNy.
 
    about.md
    motivation.md
-   getting_started.md
+   general_architecture.md
    installation.md
    jupyter/cuds-api.ipynb
    jupyter/sessions_and_vars.ipynb
