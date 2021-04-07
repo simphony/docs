@@ -1,4 +1,4 @@
-# About
+# Overview
 
 SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool.
 Its [core functionality](https://github.com/simphony/osp-core) is an open-source python project.
@@ -11,18 +11,6 @@ In particular, this guide will try to expose the main concepts and components.
 
 All the tutorials in this documentation are Jupyter notebooks that can be downloaded
 by clicking on the "Edit on Github" button on the top right of the page.
-
-# Compatibility matrix
-
-```eval_rst
- =============  ==========
- SimPhoNy docs  OSP-core  
- =============  ==========
- 2.3.x          3.4.0-beta
- 2.2.x          3.3.5-beta
- 2.1.x          3.3.0-beta
- =============  ==========
-```
 
 # Terminology
 These are some of the terms used in the following sections:

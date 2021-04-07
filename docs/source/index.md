@@ -10,28 +10,37 @@ Here you can browse through the general documentation of SimPhoNy.
    ---
    **Getting Started**
 
-   Overview, installation, and basic functionalities
+   Overview and main concepts, and installation guide
 
-   .. link-button:: about
+   .. link-button:: overview.html
       :text: To the getting started guides
+      :classes: btn-outline-primary stretched-link
+
+   ---
+   **Usage Guide**
+
+   Core functionalities, wrappers and more advanced features
+
+   .. link-button:: jupyter/cuds-api.ipynb
+      :text: To usage guide
       :classes: btn-outline-primary stretched-link
 
    ---
    
    **Working with Ontologies**
 
-   s
+   Ontology overview, included ontologies, YAML ontologies and ontology querying
 
-   .. link-button:: api_ref
-      :text: To the  development 
+   .. link-button:: ontology_intro.html
+      :text: To the ontology guides 
       :classes: btn-outline-primary stretched-link
    ---
    
    **Wrapper Development**
 
-   A deeper look into OSP-core for developing SimPhoNy wrappers
+   A deeper look into OSP-core for the purpose of development of SimPhoNy wrappers
 
-   .. link-button:: api_ref
+   .. link-button:: wrapper_development.html
       :text: To wrapper development 
       :classes: btn-outline-primary stretched-link
    ---
@@ -40,34 +49,45 @@ Here you can browse through the general documentation of SimPhoNy.
 
    Python API of CUDS, the *Session* classes, and other utilities
 
-   .. link-button:: api_ref
+   .. link-button:: api_ref.html
       :text: To the API reference
       :classes: btn-outline-primary stretched-link
-
+   
    ---
+   **Additional Information**
 
-   **Tutorials**
+   License, acknowledgements, data protection, contact info and more.
 
-   Walk-through tutorials on top of Jupyter Notebook 
-
-   .. link-button:: ./jupyter/ontology-interface.ipynb
-      :text: Ontology Interface
+   .. link-button:: contribute.html
+      :text: To more information
       :classes: btn-outline-primary stretched-link
+
 .. toctree::
-   :caption: Introduction
+   :hidden:
+   :caption: Getting Started
    :maxdepth: 2
 
-   about.md
+   overview.md
    motivation.md
    general_architecture.md
    installation.md
+
+.. toctree::
+   :hidden:
+   :caption: Usage Guide
+   :maxdepth: 2
+
    jupyter/cuds-api.ipynb
    jupyter/sessions_and_vars.ipynb
    detailed_design.md
    utils.md
+   jupyter/multiple-wrappers.ipynb
+   jupyter/simlammps.ipynb
+   jupyter/quantum-espresso.ipynb
 
 .. toctree::
-   :caption: Ontology
+   :hidden:
+   :caption: Working with Ontologies
    :maxdepth: 2
 
    ontology_intro.md
@@ -76,24 +96,27 @@ Here you can browse through the general documentation of SimPhoNy.
    owl.md
    jupyter/ontology-interface.ipynb
 
-
 .. toctree::
-   :caption: Wrappers
+   :hidden:
+   :caption: Wrapper Development
+   :maxdepth: 2
 
-   jupyter/multiple-wrappers.ipynb
-   jupyter/simlammps.ipynb
-   jupyter/quantum-espresso.ipynb
    wrapper_development.md
    jupyter/wrapper_development.ipynb
 
+.. toctree::
+   :hidden:
+   :caption: API Reference
+   :maxdepth: 2
+   
+   api_ref.md
 
 .. toctree::
-   :caption: Additional
+   :hidden:
+   :caption: Additional Info
    :maxdepth: 2
 
    contribute.md
-   api_ref.md
-   json.md
    links.md
    license.md
    Data protection <https://www.simphony-project.eu/en/data_protection.html>
