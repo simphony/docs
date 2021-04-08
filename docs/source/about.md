@@ -79,6 +79,7 @@ Common Universal Data Structure. A data structure that is used to uniformly repr
    - CUDS is the fundamental data type of OSP-core, a framework that establishes interoperability between software systems that are built on top of ontologies.
 
 .. _TERM_CUDS_CLASS:
+
 ``CUDS class``
 --------------
 

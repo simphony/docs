@@ -70,6 +70,12 @@ hoverxref_role_types = {
 }
 hoverxref_tooltip_side = "top"  # Place the tooltip on the top of the mouse
 
+# Needed only for development, otherwise handled by "Read the Docs"
+# To test locally, you would need to enable CORS (Cross origin resource
+# sharing). Please look at: https://tinyurl.com/az4ah78s for more info
+# hoverxref_project = "simphony"
+# hoverxref_version = "83-reference_terminology_terms"
+
 def setup(app):
     # Configuration for recommonmark
     app.add_config_value('recommonmark_config', {
