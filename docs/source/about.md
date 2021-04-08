@@ -18,18 +18,18 @@ These are some of the terms used in the following sections:
 .. _TERM_API:
 1. ``API``: Application Programming Interface. A set of functions that allow the interaction with an application or system.
 
-.. _TERM_OSP
+.. _TERM_OSP:
 2. ``OSP``: Open Simulation Platform. 
    A set of common standards and related tools that form the basic environment on top of which compatible and compliant simulation workflows can be developed and run.
    An OSP does not contain any simulation tools itself, it is the common framework enabling to couple and link them.
 
-.. _TERM_BACKEND
+.. _TERM_BACKEND:
 3.  ``backend``: a third party application or service. Simulation engines and databases are examples of backends.
 
-.. _TERM_WRAPPER
+.. _TERM_WRAPPER:
 4. ``wrapper``: a plugin for OSP-core that adds support to a new backend. It must allow the user to interact with the backend through the same API as OSP-core.
 
-.. _TERM_ONTOLOGY
+.. _TERM_ONTOLOGY:
 5. ``ontology``: an explicit, formal specification of a shared conceptualization. In the context of ontology, other relevant terms are:
 
    1. ``class``: a concept. E.g., 'City', 'Experiment'.
@@ -46,7 +46,7 @@ These are some of the terms used in the following sections:
 
       - Each entity is uniquely identified by its name and the namespace it is contained in. We call \<namespace name\>.\<entity name\> the `qualified entity name`.
 
-.. _TERM_CUDS
+.. _TERM_CUDS:
 6. ``CUDS``:  Common Universal Data Structure. A data structure that is used to uniformly represent ontology concepts in programming code.
 
    - CUDS exposes an API that provides CRUD (Create, Read, Update and Delete) functionalities.
@@ -55,10 +55,10 @@ These are some of the terms used in the following sections:
 
    - CUDS is the fundamental data type of OSP-core, a framework that establishes interoperability between software systems that are built on top of ontologies.
 
-.. _TERM_CUDS_CLASS
+.. _TERM_CUDS_CLASS:
 7. ``CUDS class``: represents an ontology class (a concept) and encodes its ontological information.
 
-.. _TERM_CUDS_OBJECT
+.. _TERM_CUDS_OBJECT:
 8. ``CUDS object``: is an instance of a CUDS class and represents an ontology individual.
 ```
 
