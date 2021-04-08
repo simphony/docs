@@ -12,7 +12,7 @@ from recommonmark.transform import AutoStructify
 # -- Project information -----------------------------------------------------
 project = 'SimPhoNy'
 # Version is given in setuptools
-copyright = '2020, Materials Data Science and Informatics team at Fraunhofer IWM'
+copyright = '2021, Materials Data Science and Informatics Team at Fraunhofer IWM'
 author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # -- General configuration ---------------------------------------------------
