@@ -17,30 +17,35 @@ These are some of the terms used in the following sections:
 
 ```eval_rst
 .. _TERM_API:
+
 ``API``
 -------
 
 Application Programming Interface. A set of functions that allow the interaction with an application or system.
 
 .. _TERM_OSP:
+
 ``OSP``
 -------
 
 Open Simulation Platform. A set of common standards and related tools that form the basic environment on top of which compatible and compliant simulation workflows can be developed and run. An OSP does not contain any simulation tools itself, it is the common framework enabling to couple and link them.
 
 .. _TERM_BACKEND:
+
 ``Backend``
 -----------
 
 A third party application or service. Simulation engines and databases are examples of backends.
 
 .. _TERM_WRAPPER:
+
 ``Wrapper``
 -----------
 
 A plugin for OSP-core that adds support to a new backend. It must allow the user to interact with the backend through the same API as OSP-core.
 
 .. _TERM_ONTOLOGY:
+
 ``Ontology``
 ------------
 
@@ -61,6 +66,7 @@ An explicit, formal specification of a shared conceptualization. In the context 
       - Each entity is uniquely identified by its name and the namespace it is contained in. We call \<namespace name\>.\<entity name\> the `qualified entity name`.
 
 .. _TERM_CUDS:
+
 ``CUDS``
 --------
 
@@ -79,6 +85,7 @@ Common Universal Data Structure. A data structure that is used to uniformly repr
 A CUDS class represents an ontology class (a concept) and encodes its ontological information.
 
 .. _TERM_CUDS_OBJECT:
+
 ``CUDS object``
 ---------------
 
