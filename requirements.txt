@@ -1,6 +1,6 @@
 git+https://github.com/simphony/osp-core.git#egg=osp-core
-sphinx
-recommonmark
+sphinx>=3.5.3
+recommonmark>=0.6.0
 sphinx_rtd_theme
 sphinxcontrib-plantuml
 nbsphinx
