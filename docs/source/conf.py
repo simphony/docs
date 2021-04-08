@@ -65,8 +65,14 @@ latex_elements = { 'figure_align': 'H',
                  }
 
 # -- Options for hoverxref ----------------------------------------------------
-hoverxref_role_types = { 'hoverxref': 'tooltip' }
-hoverxref_tooltip_side = "top"
+hoverxref_roles = [
+    'term',  # Used to reference the SimPhoNy terminology
+]
+hoverxref_role_types = {
+    'hoverxref': 'tooltip',
+    'term': 'tooltip',  # Use `tooltip` for the terminology terms
+}
+hoverxref_tooltip_side = "top"  # Place the tooltip on the top of the mouse
 
 def setup(app):
     # Configuration for recommonmark

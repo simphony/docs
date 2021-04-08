@@ -1,5 +1,8 @@
 # API Reference
-This document is for developers of OSP-core, it contains the API functions
+
+```eval_rst
+This document is for developers of OSP-core, it contains the :term:`API <TERM_API>` functions
+```
 
 ## Cuds class
 ```eval_rst

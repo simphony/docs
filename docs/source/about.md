@@ -91,12 +91,3 @@ A CUDS class represents an ontology class (a concept) and encodes its ontologica
 
 A CUDS object is an instance of a CUDS class and represents an ontology individual.
 ```
-
-```eval_rst
-
-This will test :hoverxref:`API <TERM_API>`.
-
-This will test :hoverxref:`API <TERM_ONTOLOGY>`.
-
-This will test :hoverxref:`API <TERM_CUDS>`.
-```
