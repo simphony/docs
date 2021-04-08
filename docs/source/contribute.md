@@ -74,19 +74,12 @@ from `dev`, you will have to fork the repository and create the Pull Request.
 ## Contribute to wrapper development
 For a sample wrapper, visit the [wrapper_development](https://github.com/simphony/wrapper-development) repo.
 
-```eval_rst
 README files should include:
-
-- Information regarding the purpose of the :term:`wrapper <TERM_WRAPPER>` and the :term:`backend <TERM_BACKEND>` used.
-
+- Information regarding the purpose of the wrapper and the backend used.
 - A compatibility matrix with OSP-core.
-
 - Installation instructions.
-
 - Folder structure.
-
 - Any other necessary information for users and other developers.
-```
 
 ## Contribute to the docs
 If you have any suggestion for this documentation, whether it is something that needs more explanation, is inaccurate or simply a note on anything that could be improved, you can open an issue [here](https://github.com/simphony/docs/issues), and we will look into it!.
