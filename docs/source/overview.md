@@ -11,7 +11,7 @@ SimPhoNy is an ontology-based framework aimed at enabling interoperability betwe
 
 [Linked data](https://en.wikipedia.org/wiki/Linked_data) is a format for structured data that facilitates the interoperability among different data sources. In particular, the data is structured as a directed graph, consistent of nodes and labeled arcs. With SimPhoNy, you can not only manipulate this linked data, **but also transform existing non-linked data into linked data**.
 
-To better understand the idea of linked data, take a quick glance at the toy example below. It shows data about a city from three different data sources: the city's traffic authority, a map from a city guide, and data from the university registry. As some of the concepts are present in multiple datasets, the linked data representation naturally joins all of them into a single one. 
+To better understand the idea of linked data, take a quick glance at the toy example below. It shows data about a city from three different data sources: the city's traffic authority, a map from a city guide, and the university registry. As some of the concepts are present in multiple datasets, the linked data representation naturally joins all of them into a single one. 
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
@@ -19,7 +19,7 @@ To better understand the idea of linked data, take a quick glance at the toy exa
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
-_Linked data about a city from three different sources: the city's traffic authority, a map from a city guide, and data from the university registry. Each data source is represented using a different color and column._
+_Linked data about a city from three different sources: the city's traffic authority, a map from a city guide, and the university registry. Each data source is represented using a different color and column._
 
 </figcaption>
 
