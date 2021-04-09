@@ -30,7 +30,7 @@ Moreover, in SimPhoNy, all linked data is based on [ontologies](https://en.wikip
 
 ### Fetch data from a database, run a simulation and immediately store the results
 
-Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are both an ontology individual, and a software interface between the core of SimPhoNy (ontology based) and external software tools. We have already developed a few wrappers for some software tools, but you can even [develop your own](./wrapper_development.md)!
+Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are both an ontology individual, and a software interface between the core of SimPhoNy (ontology based) and external software tools. We have already developed wrappers for a few database backends and popular simulation engines for materials science. You can have a look at the existing wrappers on our [GitHub organization](https://github.com/simphony). If needed, you may even consider [developing your own](./wrapper_development.md)!
 
 As a SimPhoNy user, you can see the data stored in the external software tools transparently as ontology individuals through the wrappers. In this way, moving data between different software tools becomes as simple as moving or copying it from one wrapper to another.
 
