@@ -1,6 +1,6 @@
 # Overview
 
-One of SimPhoNy’s main tasks is to convert *opaque* data, whose semantics are hidden from an external user to the system, to *transparent* data, whose semantics is understood and easily accessible by means of a common language, specified by an ontology.
+One of SimPhoNy’s main tasks is to convert *opaque* data, whose semantics are hidden from an external user to the system, to *transparent* data, whose semantics are understood and easily accessible by means of a common language, specified by an ontology.
 
 # Terminology
 The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed (see more details [here](https://www.simphony-project.eu/)). 

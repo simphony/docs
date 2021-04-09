@@ -1,6 +1,6 @@
 # Welcome to the SimPhoNy docs!
 
-SimPhoNy is an ontology-based open-source Python-framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
+SimPhoNy is an ontology-based open-source Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
 
 ```eval_rst
 
@@ -22,7 +22,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    Core functionalities, wrappers and advanced utilities
 
    .. link-button:: jupyter/cuds-api.ipynb
-      :text: To usage guide
+      :text: To the usage guides
       :classes: btn-outline-primary stretched-link
 
    ---
@@ -41,7 +41,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    A deep dive into the wrapper mechanism for developing new wrappers
 
    .. link-button:: wrapper_development.html
-      :text: To wrapper development 
+      :text: To the wrapper development guides
       :classes: btn-outline-primary stretched-link
    ---
    
@@ -59,7 +59,7 @@ SimPhoNy is an ontology-based open-source Python-framework that promotes and ena
    License, acknowledgements, data protection, contact info and more
 
    .. link-button:: contribute.html
-      :text: To more information
+      :text: To get more information
       :classes: btn-outline-primary stretched-link
 
 .. toctree::
