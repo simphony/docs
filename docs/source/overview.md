@@ -6,7 +6,7 @@ SimPhoNy is an ontology-based framework aimed at enabling interoperability betwe
 
 ## What can SimPhoNy be used for?
 
-### Manipulate ontology-based linked data, a format well suited for [FAIR data principles](https://en.wikipedia.org/wiki/FAIR_data).
+### Manipulate ontology-based linked data, a format well suited for [FAIR data principles](https://en.wikipedia.org/wiki/FAIR_data)
 
 
 [Linked data](https://en.wikipedia.org/wiki/Linked_data) is a format for structured data that facilitates the interoperability among different data sources. In particular, the data is structured as a directed graph, consistent of nodes and labeled arcs. With SimPhoNy, you can not only manipulate this linked data, **but also transform existing non-linked data into linked data**.
@@ -24,7 +24,7 @@ To better understand the idea of linked data, just have a quick glance at the to
 
 Moreover, in SimPhoNy, all linked data is based on [ontologies](https://en.wikipedia.org/wiki/Ontology_(information_science)), which give **meaning** to the data. Specifically, SimPhoNy works with ontologies based on the [Web Ontology Language](https://en.wikipedia.org/wiki/Web_Ontology_Language), making the data compatible with the [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web).
 
-### Fetch data from a database, run a simulation and immediately store the results.
+### Fetch data from a database, run a simulation and immediately store the results
 
 Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are both an ontology individual, and a software interface between the core of SimPhoNy (ontology based) and external software tools. We have already developed a few wrappers for some software tools, but you can even [develop your own](./wrapper_development.md)!
 
@@ -58,7 +58,7 @@ _These results are just a toy example, they do not come from any real nor factua
 
 </figure>
 
-### Couple simulation engines easily.
+### Couple simulation engines easily
 
 Exactly in the same way that the data can be moved between a database and a simulation engine using their respective wrappers, it can also be moved between simulation engines. 
 
