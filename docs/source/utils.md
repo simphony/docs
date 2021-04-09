@@ -76,11 +76,11 @@ INFO [osp.core.ontology.installation]: Uninstallation successful
 
 The installed ontologies are stored in the directory `~/.osp-ontologies` by 
 default. On Windows, `~` usually refers to the path 
-`C:\Users\username`.
+`C:\Users\<my username>`.
 
 The installation directory can be changed by setting the
 environment variable `OSP_ONTOLOGIES_DIR`. Such action would move it to 
-`OSP_ONTOLOGIES_DIR/.osp-ontologies`.
+`$OSP_ONTOLOGIES_DIR/.osp-ontologies`.
 
 ### Conflicts with other "pico" installations
 Some Operating Systems might have a pre-existing tool called _pico_.
