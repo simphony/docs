@@ -1,21 +1,46 @@
 # API Reference
-This document is for developers of OSP-core, it contains the API functions
+This document is for developers and/or advanced users of OSP-core, it contains all API details.
 
-## Cuds class
+## CUDS
 ```eval_rst
 .. autoclass:: osp.core.cuds.Cuds
     :members:
     :show-inheritance:
 ```
 
-## Registry class
+## Ontology interface
 ```eval_rst
-.. autoclass:: osp.core.session.registry.Registry
+.. autoclass:: osp.core.ontology.namespace.OntologyNamespace
+    :members:
+    :special-members: __getattr__, __getitem__, __contains__, __iter__, __eq__
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.entity.OntologyEntity
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass.OntologyClass
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass_restriction.Restriction
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass_composition.Composition
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.relationship.OntologyRelationship
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.attribute.OntologyAttribute
     :members:
     :show-inheritance:
 ```
 
-## Session classes
+## Sessions
 ```eval_rst
 .. autoclass:: osp.core.session.session.Session
     :members:
@@ -42,7 +67,14 @@ This document is for developers of OSP-core, it contains the API functions
     :show-inheritance:
 ```
 
-## utils
+## Registry
+```eval_rst
+.. autoclass:: osp.core.session.registry.Registry
+    :members:
+    :show-inheritance:
+```
+
+## Utilities
 ```eval_rst
 .. autoclass:: osp.core.utils.cuds2dot.Cuds2dot
     :members:

@@ -9,3 +9,4 @@ ipython
 jupyter
 sphinx-jsonschema
 sphinx-autobuild
+sphinx-panels

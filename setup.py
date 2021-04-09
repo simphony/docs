@@ -18,7 +18,7 @@ with open('README.md', 'r') as readme:
 setup(
     name=NAME,
     version=VERSION,
-    author='Materials Data Science and Informatics team at Fraunhofer IWM',
+    author='Materials Data Science and Informatics Team at Fraunhofer IWM',
     description='The SimPhoNy documentation',
     keywords='simphony, documentation, sphinx, Fraunhofer IWM',
     long_description=README_TEXT,
