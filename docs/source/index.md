@@ -77,7 +77,7 @@ SimPhoNy is an ontology-based open-source Python framework that promotes and ena
    :caption: Usage Guide
    :maxdepth: 2
 
-   jupyter/cuds-api.ipynb
+   jupyter/cuds_api.ipynb
    jupyter/sessions_and_vars.ipynb
    utils.md
    jupyter/multiple-wrappers.ipynb
