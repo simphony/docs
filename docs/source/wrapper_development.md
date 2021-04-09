@@ -201,7 +201,7 @@ the `Dockerfile` should be installed via the provided `docker_install.sh` script
 It will tag the OSP-core image and call the Dockerfile in the root of the wrapper accordingly.
 
 In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
-making sure to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
+making sure to leave the first two lines as they are in the [wrapper development repo](https://github.com/simphony/wrapper-development/blob/master/Dockerfile).
 `docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration

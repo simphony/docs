@@ -181,7 +181,7 @@ _Example:_
 ```py
 >>> Cuds2dot(emmo_town).render()
 ```
-![cuds2dot sample image](./_static/img/cuds2dot.png)
+![](./_static/img/cuds2dot.png "cuds2dot sample image")
 
 ### Ontology2Dot
 _Location:_ console entry point `osp.core.tools.ontology2dot`.
@@ -198,7 +198,7 @@ _Example:_
 ```sh
 ontology2dot osp/core/ontology/yml/ontology.city.yml
 ```
-![ontology2dot sample image](./_static/img/ontology2dot.png)
+![](./_static/img/ontology2dot.png "ontology2dot sample image")
 
 
 ## Search

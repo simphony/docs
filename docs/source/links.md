@@ -6,7 +6,7 @@ SimPhoNy:
 - [GitHub's SimPhoNy group](https://github.com/simphony)
 - [OSP-core](https://github.com/simphony/osp-core)
 - [wrappers](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
-- [wrapper development](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/)
+- [wrapper development](https://github.com/simphony/wrapper-development)
 
 Technologies used:
 - [Docker](https://www.docker.com/), used for the CI and engines
