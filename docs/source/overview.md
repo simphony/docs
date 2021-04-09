@@ -1,33 +1,11 @@
-# About
+# Overview
 
-SimPhoNy is an ontology-based framework that promotes and enables interoperability between any 3rd-party software tool.
-Its [core functionality](https://github.com/simphony/osp-core) is an open-source python project.
-The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed
-(See more details [here](https://www.simphony-project.eu/)). 
-One of SimPhoNy’s main tasks is to convert *opaque* data, meaning data whose semantics are hidden, to *transparent* data, that is data whose semantics is understood and easily accessible.
-
-This project aims to clarify the purpose and usage of the SimPhoNy platform through simple, short examples.
-In particular, this guide will try to expose the main concepts and components.
-
-All the tutorials in this documentation are Jupyter notebooks that can be downloaded
-by clicking on the "Edit on Github" button on the top right of the page.
-
-# License
-BSD 3-Clause  
-Copyright 2020 SimPhoNy OSP-core developers.
-
-Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-
-2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+One of SimPhoNy’s main tasks is to convert *opaque* data, whose semantics are hidden from an external user to the system, to *transparent* data, whose semantics are understood and easily accessible by means of a common language, specified by an ontology.
 
 # Terminology
-These are some of the terms used in the following sections:
+The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was originally developed (see more details [here](https://www.simphony-project.eu/)). 
+
+Here are some additional terms that are used throughout the documentation:
 1. `API`: Application Programming Interface. A set of functions that allow the interaction with an application or system.
 1. `OSP`: Open Simulation Platform. 
    A set of common standards and related tools that form the basic environment on top of which compatible and compliant simulation workflows can be developed and run.
