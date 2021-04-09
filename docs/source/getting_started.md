@@ -199,8 +199,8 @@ other_entity = another_namespace.SomeOtherEntity()
 ```
 
 ### Sessions
-The sessions are the interoperability classes that connect to where the data is stored. 
-In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
+The [sessions](./detailed_design.md#session) are the interoperability classes that connect to where the data is stored. 
+[In the case of wrappers](./wrapper_development.md#coding), they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
 The `CoreSession` is the default one used when instantiating a new object in your workspace. When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
 
