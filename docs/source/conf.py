@@ -12,7 +12,7 @@ from recommonmark.transform import AutoStructify
 # -- Project information -----------------------------------------------------
 project = 'SimPhoNy'
 # Version is given in setuptools
-copyright = '2020, Materials Data Science and Informatics team at Fraunhofer IWM'
+copyright = '2021, Materials Data Science and Informatics Team at Fraunhofer IWM'
 author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # -- General configuration ---------------------------------------------------
@@ -27,7 +27,8 @@ extensions = [
     'nbsphinx',  # Jupyter
     'IPython.sphinxext.ipython_console_highlighting',  # Jupyter - Syntax highlight workaround
     'sphinx.ext.autosectionlabel',  # Auto-generate section labels.
-    'sphinx-jsonschema'  # Generate JSON schema for serialized CUDS
+    'sphinx-jsonschema',  # Generate JSON schema for serialized CUDS
+    'sphinx_panels' # A sphinx extension for creating panels in a grid layout or as drop-downs
 ]
 
 master_doc = 'index'
