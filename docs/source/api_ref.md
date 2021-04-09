@@ -8,6 +8,38 @@ This document is for developers of OSP-core, it contains the API functions
     :show-inheritance:
 ```
 
+## Ontology interface
+```eval_rst
+.. autoclass:: osp.core.ontology.namespace.OntologyNamespace
+    :members:
+    :special-members: __getattr__, __getitem__, __contains__, __iter__, __eq__
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.entity.OntologyEntity
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass.OntologyClass
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass_restriction.Restriction
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.oclass_composition.Composition
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.relationship.OntologyRelationship
+    :members:
+    :show-inheritance:
+    
+.. autoclass:: osp.core.ontology.attribute.OntologyAttribute
+    :members:
+    :show-inheritance:
+```
+
 ## Registry class
 ```eval_rst
 .. autoclass:: osp.core.session.registry.Registry
