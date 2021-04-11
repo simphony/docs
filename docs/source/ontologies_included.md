@@ -22,14 +22,11 @@ pico install city
 
 Take a look at our [examples](jupyter/cuds-api.md) to see how you can build your own city!
 
-## Working with EMMO using OSP-core
+## Working with EMMO
 
 The second ontology that is ready to be used out of the box is the European
-Materials Modelling Ontology, or EMMO in short. This ontology is an effort
-to develop an ontology for applied sciences. It is based on physics,
-analytical philosophy and information and communication technologies.
-Its source code is open and [available on Github](https://github.com/emmo-repo/EMMO).
-If you want to develop an emmo compliant ontology, see [the documentation](https://ontology.pages.fraunhofer.de/documentation/latest/).
+Materials Modelling Ontology, or EMMO in short.
+For a short introduction, see the [fundamentals](./fundamentals.md#emmo).
 
 You can install EMMO using [Pico](utils.md#pico-installs-cuds-ontologies).
 

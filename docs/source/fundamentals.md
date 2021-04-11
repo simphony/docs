@@ -2,14 +2,14 @@
 In this section we will present some of the main concepts behind SimPhoNy.
 
 ## General notions
-### Operability
+### Degrees of interoperability
 There is a multitude of tools and programs out there, all with their own formats and protocols.
 
 Every time a user wants to use one of these tools, they must familiarise themselves with the software.
 Furthermore, if they want to integrate multiple tools in one workflow, the must, in most cases,
 take care of the conversion on their own.
 
-Based on how tools communicate with other tools, we can define 3 levels of operability:
+Based on how tools communicate with other tools, we can define 3 levels:
 
 #### Compatibility
   ```eval_rst
@@ -79,8 +79,8 @@ Based on how tools communicate with other tools, we can define 3 levels of opera
   Here there is no need for all tools to go through the De Facto standard, 
   because there is a format that is known by all of them and enables all components to communicate among themselves.
 
-  This final stage could be compared to all parties learning a language like 
-  [Esperanto](https://en.wikipedia.org/wiki/Esperanto).
+  This final stage could be compared to all parties using an instant translator that can convert
+  text from one language into any other.
 
 
 Interoperability between software tools is one of the most important objectives of the SimPhoNy framework.
@@ -96,8 +96,8 @@ Interoperability between software tools is one of the most important objectives 
   Based on the domain, a person can also list other relevant concepts and relationships
   (e.g. when thinking of a stair, the `material` or the `width`).
 
-  Being able to know the semantic meaning of an instance and hence its connection to other concepts
-  is one of the principles of SimPhoNy. For that, ontologies play a major role.
+  Being able to know the semantic meaning of an instance, and hence its connection to other concepts,
+  is one of the principles of SimPhoNy. For achieving this goal, ontologies play a major role.
 
 ### Ontology
 ```eval_rst
@@ -122,18 +122,28 @@ Ontologies are more elaborated than taxonomies in that they can include multiple
 (not just parent-child) between complex concepts in big domains.
 
 #### EMMO
-TODO
+The European Materials Modelling Ontology ([EMMO](https://github.com/emmo-repo/EMMO)) is an ontology developed by the European Materials Modelling Council ([EMMC](https://emmc.info/)).
+EMMO's goal is to define a representational system universal for scientists in the field of materials modelling to enable interoperability.
+
+It has been designed from the bottom up, starting with the concepts of different domains and application fields 
+and generalising into a middle and top level layers, and it is currently being further 
+developed in multiple projects of the European Union.
+
+SimPhoNy is being developed with the intention of being compatible with EMMO, and an easy installation of the 
+ontology is available (further explained [here](./ontologies_included.md#working-with-emmo)).
+
+There is also [documentation](https://ontology.pages.fraunhofer.de/documentation/latest/) available for developing an emmo compliant ontology
 ### CUDS
-Cuds, or Common Universal Data Structure, is the ontology compliant data format of OSP-core:
-- **Cuds is an ontology individual**: each Cuds object is an instantiation of a class in the ontology.
-  If there is a food ontology, describing classes like pizza or pasta, a Cuds object could represent one specific pizza or pasta dish, that exists in the real world.
-  Like ontology individuals, Cuds objects can be related with other individuals/Cuds by relations defined in the ontology. Like a _pizza_ that 'hasPart' _tomato sauce_
-- **Cuds is API**: To allow users to interact with the ontology individuals and their data, Cuds provide a CRUD API.
-- **Cuds is a container**: Depending on the relationship connecting two Cuds objects, a certain instance can be seen as a container of other instances.
+CUDS, or Common Universal Data Structure, is the ontology compliant data format of OSP-core:
+- **CUDS is an ontology individual**: each CUDS object is an instantiation of a class in the ontology.
+  If we assume a food ontology that describes classes like pizza or pasta, a CUDS object could represent one specific pizza or pasta dish, that exists in the real world.
+  Similar to ontology individuals, CUDS objects can be related with other individuals/CUDS by relations defined in the ontology. Like a _pizza_ that 'hasPart' _tomato sauce_
+- **CUDS is API**: To allow users to interact with the ontology individuals and their data, CUDS provide a CRUD API.
+- **CUDS is a container**: Depending on the relationship connecting two CUDS objects, a certain instance can be seen as a container of other instances.
   We call a relationship that express containment an 'active relationship'.
-  In the pizza example, 'hasPart' would be an 'active relationship'. If one would like to share the pizza Cuds object with others, one would like to share also the tomato sauce.
-- **Cuds is RDF**: Internally a Cuds object is only an interface to an RDF-based triple store that contains the data of all Cuds objects.
-- **Cuds is a node in a graph**: : Cuds being individuals in an RDF graph implies that each Cuds object can also be seen as a node in a graph.
+  In the pizza example, 'hasPart' would be an 'active relationship'. If one would like to share the pizza CUDS object with others, one would like to share also the tomato sauce.
+- **CUDS is RDF**: Internally a CUDS object is only an interface to an RDF-based triple store that contains the data of all CUDS objects.
+- **CUDS is a node in a graph**: : CUDS being individuals in an RDF graph implies that each CUDS object can also be seen as a node in a graph.
   This does not conflict with the container perspective, instead we see it as to different views on the data.
 ## Technologies and frameworks
 ### RDF
