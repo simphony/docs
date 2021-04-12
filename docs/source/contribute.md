@@ -45,7 +45,11 @@ All wrappers and OSP-core are part of a common directory structure:
 
 In the next image it can be seen how the branches usually look during this workflow, and the different commits used to synchronise them:
 
+<figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
+
 ![](./_static/img/branch_workflow.png "Branches and commits")
+
+</figure>
 
 ## Coding
 ### Documenting
