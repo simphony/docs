@@ -43,6 +43,14 @@ All wrappers and OSP-core are part of a common directory structure:
   The changes should be clearly explained in the issue/Pull Request.
 - Once the features for a release have been reached, `dev` will be merged to `master/main`, every commit in the `master/main` branch theoretically being a new release.
 
+In the next image it can be seen how the branches usually look during this workflow, and the different commits used to synchronise them:
+
+<figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
+
+![](./_static/img/branch_workflow.png "Branches and commits")
+
+</figure>
+
 ## Coding
 ### Documenting
 - All code must be  properly documented with meaningful comments.

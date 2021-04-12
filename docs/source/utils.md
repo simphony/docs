@@ -72,6 +72,16 @@ INFO [osp.core.ontology.parser]: Loaded 205 ontology triples in total
 INFO [osp.core.ontology.installation]: Uninstallation successful
 ```
 
+### Ontology installation folder
+
+The installed ontologies are stored in the directory `~/.osp-ontologies` by 
+default. On Windows, `~` usually refers to the path 
+`C:\Users\<my username>`.
+
+The installation directory can be changed by setting the
+environment variable `OSP_ONTOLOGIES_DIR`. Such action would move it to 
+`$OSP_ONTOLOGIES_DIR/.osp-ontologies`.
+
 ### Conflicts with other "pico" installations
 Some Operating Systems might have a pre-existing tool called _pico_.
 In most cases, the previous commands should work, but if any problem arises,
@@ -181,7 +191,7 @@ _Example:_
 ```py
 >>> Cuds2dot(emmo_town).render()
 ```
-![cuds2dot sample image](./_static/img/cuds2dot.png)
+![](./_static/img/cuds2dot.png "cuds2dot sample image")
 
 ### Ontology2Dot
 _Location:_ console entry point `osp.core.tools.ontology2dot`.
@@ -198,7 +208,7 @@ _Example:_
 ```sh
 ontology2dot osp/core/ontology/yml/ontology.city.yml
 ```
-![ontology2dot sample image](./_static/img/ontology2dot.png)
+![](./_static/img/ontology2dot.png "ontology2dot sample image")
 
 
 ## Search
@@ -258,3 +268,17 @@ _Examples:_
                                         root=city_cuds,
                                         rel=city.hasInhabitant)
   ```
+## Serialization JSON schema of CUDS objects
+
+When you serialize a CUDS object using the
+[`serialize()` method in the utils module](api_ref.html#osp.core.utils.general.serialize),
+you will get a json document as a result.
+The method will traverse the hierarchical datastructure
+using Depth First Traversal.
+Therefore, its result is a json array composed of several flat CUDS objects.
+
+This array can later be deserialized using the opposite 
+[`deserialize`](api_ref.html#osp.core.utils.general.deserialize).
+
+The serialization is done via [JSON-LD](https://json-ld.org/),
+with the schema used for the [OSP API in Marketplace](https://gitlab.cc-asp.fraunhofer.de/MarketPlace/osp-api).

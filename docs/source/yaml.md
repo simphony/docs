@@ -1,4 +1,4 @@
-# Description of YAML format Specification
+# Description of YAML format specification
 
 This file describes how you can create ontologies using YAML.
 

@@ -96,6 +96,94 @@ This allows us to group and clearly define which components should and which one
  - [Syntactic layer](./detailed_design.md#syntactic-layer): 
    If none is available, one must be developed.
 
+To facilitate the creation of the session class on the interoperability layer, 
+there are several session abstract base classes that you can make your session
+inherit from, which already include some additional generic functions common to a few 
+typical applications: databases, triplestores and simulation engines.
+
+On the diagram below, you may observe a simplified session inheritance scheme 
+for OSP-core. As a wrapper developer, you will most probably want to inherit 
+from one of following abstract classes: `WrapperSession`, `DbWrapperSession`, 
+`TripleStoreWrapperSession`, `SqlWrapperSession`,  or `SimWrapperSession`. 
+Your new wrapper session would be located of the OSP-core box, 
+together among other wrapper sessions like the Simlammps, Sqlite or SqlAlchemy 
+sessions.
+
+```eval_rst
+.. uml::
+  :caption: Simplified session inheritance scheme
+  :align: center
+
+  rectangle "OSP-core" as OSP {
+    abstract class Session {
+    }
+
+    class CoreSession implements Session {
+    }
+
+    abstract class WrapperSession extends Session {
+    }
+
+    class TransportSession implements WrapperSession {
+    }
+
+    abstract class DbWrapperSession extends WrapperSession {
+      commit()
+    }
+    
+    abstract class TripleStoreWrapperSession extends DbWrapperSession {
+    }
+
+    abstract class SqlWrapperSession extends TripleStoreWrapperSession {
+    }
+    
+    abstract class SimWrapperSession extends WrapperSession {
+      run()
+    }
+  }
+
+  rectangle "Sqlite wrapper" as sqlite {
+    class SqliteWrapperSession implements SqlWrapperSession {
+    }
+  }
+
+  rectangle "SqlAlchemy wrapper" as sqlalchemy {
+    class SqlAlchemyWrapperSession implements SqlWrapperSession {
+    }
+  }
+  
+  rectangle "Your wrapper" as yourwrapper {
+    class YourSession{
+    }
+  }
+
+  rectangle "Simlammps wrapper" as simlammps {
+    class SimlammpsSession implements SimWrapperSession {
+    }
+  }
+
+  ' -----------------------
+  ' -------- NOTES --------
+  ' -----------------------
+    note as OSP.note_core
+      The CoreSession is the default
+      shared session for all Python objects
+    end note
+    OSP.note_core .. CoreSession
+
+    note as note_db
+      The db changes are persisted via
+      cuds_object.session.commit()
+    end note
+    note_db .. DbWrapperSession
+
+    note as OSP.note_sim
+      The simulation is run by calling
+      cuds_object.session.run()
+    end note
+    OSP.note_sim .. SimWrapperSession
+```
+
 ## Engine installation
 Most engines will require some sort of compilation or installation before being able to use them through Python.
 
@@ -201,7 +289,7 @@ the `Dockerfile` should be installed via the provided `docker_install.sh` script
 It will tag the OSP-core image and call the Dockerfile in the root of the wrapper accordingly.
 
 In terms of implementation, a wrapper developer needs to take care of the `Dockerfile`,
-making sure to leave the first two lines as they are in the [wrapper development repo](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/wrapper-development/blob/master/Dockerfile).
+making sure to leave the first two lines as they are in the [wrapper development repo](https://github.com/simphony/wrapper-development/blob/master/Dockerfile).
 `docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration

@@ -95,6 +95,9 @@ For that, a 3 layer schema is used:
 The closer to the user, the closer to the ontology concepts.
 The abstraction is replaced by specificity when you move towards the backend.
 
+For example, the City, Street or Neighborhood classes from the demonstrative [City Ontology](./ontologies_included.md#the-city-ontology) included in OSP-core, as well as the individuals that can be instantiated using them, would be part of the semantic layer. Any wrapper (e.g. the included [SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)), would be part of the interoperability layer. Finally, following the SQLite example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html) from python would be part of the syntactic layer.
+
+
 For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
 
 ## OSP-core
@@ -199,81 +202,10 @@ other_entity = another_namespace.SomeOtherEntity()
 ```
 
 ### Sessions
-The sessions are the interoperability classes that connect to where the data is stored. 
-In the case of wrappers, they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
+The [sessions](./detailed_design.md#session) are the interoperability classes that connect to where the data is stored. 
+[In the case of wrappers](./wrapper_development.md#coding), they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
-When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
-
-To simplify the understanding and development of session classes, we have created a hierarchy:
-
-```eval_rst
-.. uml::
-  :caption: Simplified session inheritance scheme
-  :align: center
-
-  rectangle "OSP-core" as OSP {
-    abstract class Session {
-    }
-
-    class CoreSession implements Session {
-    }
-
-    abstract class WrapperSession extends Session {
-    }
-
-    class TransportSession implements WrapperSession {
-    }
-
-    abstract class DbWrapperSession extends WrapperSession {
-      commit()
-    }
-
-    abstract class SqlWrapperSession extends DbWrapperSession {
-    }
-
-    abstract class SimWrapperSession extends WrapperSession {
-      run()
-    }
-  }
-
-  rectangle "Sqlite wrapper" as sqlite {
-    class SqliteWrapperSession implements SqlWrapperSession {
-    }
-  }
-
-  rectangle "SqlAlchemy wrapper" as sqlalchemy {
-    class SqlAlchemyWrapperSession implements SqlWrapperSession {
-    }
-  }
-
-  rectangle "Simlammps wrapper" as simlammps {
-    class SimlammpsSession implements SimWrapperSession {
-    }
-  }
-
-  ' -----------------------
-  ' -------- NOTES --------
-  ' -----------------------
-    note as OSP.note_core
-      The CoreSession is the default
-      shared session for all Python objects
-    end note
-    OSP.note_core .. CoreSession
-
-    note as note_db
-      The db changes are persisted via
-      cuds_object.session.commit()
-    end note
-    note_db .. DbWrapperSession
-
-    note as OSP.note_sim
-      The simulation is run by calling
-      cuds_object.session.run()
-    end note
-    OSP.note_sim .. SimWrapperSession
-```
-
-As you can see, CoreSession is the default one used when instantiating a new object in your workspace.
+The `CoreSession` is the default one used when instantiating a new object in your workspace. When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
 
 ## Wrappers
 Like we have mentioned in previous sections, wrappers allow the user to interact 
