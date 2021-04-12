@@ -132,7 +132,8 @@ developed in multiple projects of the European Union.
 SimPhoNy is being developed with the intention of being compatible with EMMO, and an easy installation of the 
 ontology is available (further explained [here](./ontologies_included.md#working-with-emmo)).
 
-There is also [documentation](https://ontology.pages.fraunhofer.de/documentation/latest/) available for developing an emmo compliant ontology
+There is also [documentation](https://ontology.pages.fraunhofer.de/documentation/latest/) available for developing an EMMO compliant ontology.
+
 ### CUDS
 CUDS, or Common Universal Data Structure, is the ontology compliant data format of OSP-core:
 - **CUDS is an ontology individual**: each CUDS object is an instantiation of a class in the ontology.
