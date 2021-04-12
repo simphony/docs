@@ -61,7 +61,21 @@ At this point, the results could be fetched again and for example, visualized wi
 
 Exactly in the same way that the data can be moved between a database and a simulation engine using their respective wrappers, it can also be moved between simulation engines. 
 
-In such a way, given that the necessary wrappers exist and their ontologies are compatible, the task of translating the input and output formats of both simulation engines becomes relatively simple! At the end of the coupling process, just add the results to a database wrapper to store them.
+This functionality facilitates the coupling and linking between such simulation engines. For example, in the domain of materials science, a certain engine might be useful for representing structures made up of atomistic particles (molecular dynamics), while another software tool could be focussed on representing bodies of fluids (fluid dynamics). As SimPhoNy can enable communication between the two tools, they could both be run and synced simultaneously to create more complex scenarios.
+
+<figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
+
+<iframe src="./_static/videos/coupling_and_linking.mp4" frameborder="0" allowfullscreen="true"></iframe>
+
+<figcaption style="display: table-caption; caption-side: bottom; text-align:center">
+
+The concept of coupling and linking illustrated in a video.
+
+</figcaption>
+
+</figure>
+
+In order achieve that, it would be necessary to translate the input and output formats of both simulation engines. However, given that the necessary wrappers exist, and their ontologies are compatible, this task becomes relatively simple thanks to SimPhoNy! At the end of the coupling process, just add the results to a database wrapper to store them.
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 

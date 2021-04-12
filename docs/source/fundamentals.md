@@ -110,20 +110,3 @@ Once a certain degree of interoperability has been reached, other interesting co
   This could be translated into a meaningful initial state that might suffice a general situation.
 
   For other, more complex use cases, a higher level of customisation will of course still be available.
-#### Coupling and linking
-  In the domain of physics simulations, another interesting use case is coupling and linking.
-  
-  For example, a certain engine might be useful for representing structures made up of atomistic particles
-  (molecular dynamics).
-
-  Another software tool could be focussed on representing bodies of fluids (fluid dynamics).
-  If both tools can communicate (i.e. there exists some interoperability between them),
-  they could both be run and synced simultaneously to create more complex scenarios.
-
-  Here is an example of what that could look like:
-
-  <iframe src="./_static/videos/coupling_and_linking.mp4" frameborder="0" allowfullscreen="true">
-  </iframe>
-
-  Furthermore, a truly interoperable platform would enable users to store and 
-  access data in databases or other repositories of information.
