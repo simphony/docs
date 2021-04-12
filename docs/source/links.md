@@ -48,7 +48,7 @@ The following table describes the compatibilities between of SimPhoNy docs and O
    =============  ==========
    SimPhoNy docs  OSP-core  
    =============  ==========
-   2.4.x          3.5.0-beta
+   2.4.x          3.5.2-beta
    2.3.x          3.4.0-beta
    2.2.x          3.3.5-beta
    2.1.x          3.3.0-beta
