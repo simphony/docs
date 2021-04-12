@@ -69,7 +69,7 @@ This functionality facilitates the coupling and linking between such simulation 
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
-The concept of coupling and linking illustrated in a video.
+The concepts of coupling and linking illustrated in a video.
 
 </figcaption>
 
