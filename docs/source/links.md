@@ -33,6 +33,8 @@ OntoTRANS      Horizon 2020  H2020-NMBP-TO-IND-2019            862136
 =============  ============  ===============================   ==================
 ```
 
+Some of the explanations and background provided have been adapted from Pablo de Andres' 
+master thesis on "Natural Language Search on an ontology-based data structure".
 
 # Compatibility table
 The following table describes the compatibilities between of SimPhoNy docs and OSP-core.
