@@ -25,12 +25,11 @@ _Linked data about a city from three different sources: the city's traffic autho
 
 </figure>
 
-
-Moreover, in SimPhoNy, all linked data is based on [ontologies](https://en.wikipedia.org/wiki/Ontology_(information_science)), which give **meaning** to the data. Specifically, SimPhoNy works with ontologies based on the [Web Ontology Language](https://en.wikipedia.org/wiki/Web_Ontology_Language), making the data compatible with the [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web).
+Although the example above shows just plain linked data, in SimPhoNy, the linked data is enhanced with [ontologies](https://en.wikipedia.org/wiki/Ontology_(information_science)), which give **meaning** to the data. Specifically, SimPhoNy works with ontologies based on the [Web Ontology Language](https://en.wikipedia.org/wiki/Web_Ontology_Language), making the data compatible with the [Semantic Web](https://en.wikipedia.org/wiki/Semantic_Web).
 
 ### Fetch data from a database, run a simulation and immediately store the results
 
-Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are both an ontology individual, and a software interface between the core of SimPhoNy (ontology based) and external software tools. We have already developed wrappers for a few database backends and popular simulation engines for materials science. You can have a look at the existing wrappers on our [GitHub organization](https://github.com/simphony). If needed, you may even consider [developing your own](./wrapper_development.md)!
+Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are in fact a software interface between the core of SimPhoNy (ontology based) and external software tools, disguised to the user as an ontology class. We have already developed wrappers for a few database backends and popular simulation engines for materials science. You can have a look at the existing wrappers on our [GitHub organization](https://github.com/simphony). If needed, you may even consider [developing your own](./wrapper_development.md)!
 
 As a SimPhoNy user, you can see the data stored in the external software tools transparently as ontology individuals through the wrappers. In this way, moving data between different software tools becomes as simple as moving or copying it from one wrapper to another.
 
@@ -52,21 +51,17 @@ At this point, the results could be fetched again and for example, visualized wi
 
 <img src="./_static/img/overview_slider.png" width="350px">
 
-<figcaption style="display: table-caption; caption-side: bottom; text-align:center">
-
-<br>
-
-_These results are just a toy example, they do not come from any real nor factually correct simulation._
-
-</figcaption>
+<figcaption style="display: table-caption; caption-side: bottom; text-align:center"></figcaption>
 
 </figure>
+
+<p style="margin-bottom:0.8cm;"></p>
 
 ### Couple simulation engines easily
 
 Exactly in the same way that the data can be moved between a database and a simulation engine using their respective wrappers, it can also be moved between simulation engines. 
 
-In such a way, the complex task of translating the input and output formats of both simulation engines becomes very simple! At the end of the coupling process, just add the results to a database wrapper to store them.
+In such a way, given that the necessary wrappers exist and their ontologies are compatible, the task of translating the input and output formats of both simulation engines becomes relatively simple! At the end of the coupling process, just add the results to a database wrapper to store them.
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
