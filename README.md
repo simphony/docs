@@ -15,7 +15,7 @@ This can be done by using docker or installing the development environment direc
 #### Docker
 First, build the Docker image by running the following command:
 ```shell
-$ docker build -t simphony-docs .
+$ docker build -f local_build.Dockerfile -t simphony-docs .
 ```
 
 Then, start the program by running:
