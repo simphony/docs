@@ -1,6 +1,6 @@
 # Welcome to the SimPhoNy docs!
 
-SimPhoNy is an ontology-based Python framework that promotes and enables interoperability between any 3rd-party software tool. It is licensed under the open-source [BSD 3-clause](./license.md) license.
+SimPhoNy is an ontology-based open-source Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
 
 ```eval_rst
 
