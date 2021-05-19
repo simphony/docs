@@ -61,7 +61,7 @@ At this point, the results could be fetched again and for example, visualized wi
 
 Exactly in the same way that the data can be moved between a database and a simulation engine using their respective wrappers, it can also be moved between simulation engines. 
 
-This functionality facilitates the coupling and linking between such simulation engines. For example, in the domain of materials science, a certain engine might be useful for representing structures made up of atomistic particles (molecular dynamics), while another software tool could be focussed on representing bodies of fluids (fluid dynamics). As SimPhoNy can enable communication between the two tools, they could both be run and synced simultaneously to create more complex scenarios.
+This functionality facilitates the coupling and linking between such simulation engines. For example, in the domain of materials science, a certain engine might be useful for representing structures made up of atomistic particles (molecular dynamics), while another software tool could be focussed on representing bodies of fluids (fluid dynamics). As SimPhoNy can enable communication between the two tools, they could both be run and synced simultaneously to create more complex scenarios, such as a multi-scale simulation.
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
@@ -83,7 +83,9 @@ In order achieve that, it would be necessary to translate the input and output f
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
-_Coupling of two simulation engines, one that handles free traffic and another that exclusively handles traffic lights._
+_Coupling of two simulation engines, one that handles fluid dynamics 
+(macroscopic behavior) and another that takes care of molecular dynamics 
+(microscopic behavior)._
 
 </figcaption>
 
