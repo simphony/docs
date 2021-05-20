@@ -44,9 +44,10 @@ functionality of [Protégé](https://protege.stanford.edu/).
 **format**: File format of the ontology file to be parsed. We support all the
 formats that
 [RDFLib](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html) supports:
-XML (`xml`, default), RDF/XML (`rdf+xml`), N3 (`n3`), NTriples (`nt`),
-N-Quads (`nquads`), Turtle (`turtle`), TriX (`trix`),
-RDFa (`rdfa`, `rdfa1.0`, `rdfa1.1`) and Microdata (`mdata`).
+XML (`xml`, `application/rdf+xml`, default), Turtle (`turtle`, `ttl`, 
+`text/turtle`), N3 (`n3`,`text/n3`), NTriples (`nt`, `nt11`, 
+`application/n-triples`), N-Quads (`nquads`, `application/n-quads`), 
+TriX (`trix`, `application/trix`) and TriG (`trig`, `application/trig`).
 
 **reference_by_label** (default False): Whether the label should be used or the IRI suffix to reference
 entity from within OSP-core. In case of EMMO it is true, because IRI suffixes are not
