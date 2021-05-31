@@ -81,18 +81,7 @@ This document is for developers and/or advanced users of OSP-core, it contains a
 
 ## Utilities
 ```eval_rst
-.. autoclass:: osp.core.utils.cuds2dot.Cuds2dot
-    :members:
-
-.. automodule:: osp.core.utils.general
-    :members:
-
-.. automodule:: osp.core.utils.pretty_print
-    :members:
-
-.. automodule:: osp.core.utils.simple_search
-    :members:
-
-.. automodule:: osp.core.utils.wrapper_development
-    :members:
+.. automodule:: osp.core.utils
+   :imported-members:
+   :members:
 ```

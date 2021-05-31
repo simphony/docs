@@ -139,7 +139,7 @@ CUDS, or Common Universal Data Structure, is the ontology compliant data format 
 - **CUDS is an ontology individual**: each CUDS object is an instantiation of a class in the ontology.
   If we assume a food ontology that describes classes like pizza or pasta, a CUDS object could represent one specific pizza or pasta dish, that exists in the real world.
   Similar to ontology individuals, CUDS objects can be related with other individuals/CUDS by relations defined in the ontology. Like a _pizza_ that 'hasPart' _tomato sauce_
-- **CUDS is API**: To allow users to interact with the ontology individuals and their data, CUDS provide a CRUD API.
+- **CUDS is API**: To allow users to interact with the ontology individuals and their data, CUDS provides a CRUD API.
 - **CUDS is a container**: Depending on the relationship connecting two CUDS objects, a certain instance can be seen as a container of other instances.
   We call a relationship that express containment an 'active relationship'.
   In the pizza example, 'hasPart' would be an 'active relationship'. If one would like to share the pizza CUDS object with others, one would like to share also the tomato sauce.

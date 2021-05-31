@@ -13,7 +13,6 @@ ontology. We used [Ontology2Dot](utils.md#ontology2dot) for that:
 
 ![ontology2dot sample image](./_static/img/ontology2dot.png)
 
-eval_rst
 To use the city ontology you have to install it using the tool [Pico](utils.md#pico-installs-cuds-ontologies):
 
 ```sh
