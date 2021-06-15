@@ -84,6 +84,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
    jupyter/import_export.ipynb
    jupyter/simlammps.ipynb
    jupyter/quantum_espresso.ipynb
+   jupyter/simgromacs.ipynb
 
 .. toctree::
    :hidden:
