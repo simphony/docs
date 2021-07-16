@@ -36,6 +36,15 @@ OntoTRANS      Horizon 2020  H2020-NMBP-TO-IND-2019            862136
 Some of the explanations and background provided have been adapted from Pablo de Andres' 
 master thesis on "Natural Language Search on an ontology-based data structure".
 
+The OSP-core Python package originates from the European Project 
+[SimPhoNy](https://www.simphony-project.eu/) (Project Nr. 604005). 
+We would like to acknowledge and thank our project partners, especially 
+[Enthought, Inc](https://www.enthought.com/), 
+[Centre Internacional de Mètodes Numèrics a l'Enginyeria (CIMNE)](https://cimne.com/) 
+and the [University of Jyväskylä](https://www.jyu.fi/en), for their important 
+contributions to some of the core concepts of OSP-core, which were originally 
+demonstrated under the project https://github.com/simphony/simphony-common.
+
 # Compatibility table
 The following table describes the compatibilities between of SimPhoNy docs and OSP-core.
 
@@ -48,6 +57,7 @@ The following table describes the compatibilities between of SimPhoNy docs and O
    =============  ==========
    SimPhoNy docs  OSP-core  
    =============  ==========
+   2.4.2          3.5.4
    2.4.1          3.5.3.1-beta
    2.4.0          3.5.2-beta
    2.3.x          3.4.0-beta
