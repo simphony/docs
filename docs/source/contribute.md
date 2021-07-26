@@ -42,7 +42,6 @@ All wrappers and OSP-core are part of a common directory structure:
   An owner of the project should be tagged for review.
   They will review and merge the PR if the fix is correct, deleting the `issue branch` afterwards.
   The changes should be clearly explained in the issue/Pull Request.
-  
 ```eval_rst
 .. warning::
    If the issue is a critical software bug detected in the stable release, a 
@@ -53,7 +52,6 @@ All wrappers and OSP-core are part of a common directory structure:
    PR to `dev`, additionally merge the `hotfix branch` to `master/main`, and 
    then delete the `hotfix branch`.
 ```
-
 - Once the features for a release have been reached, `dev` will be merged to 
   `master/main`. Every new commit in the `master/main` branch generally corresponds 
   a new release. An exception to this rule may apply, for example when several 
