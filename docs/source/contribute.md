@@ -45,12 +45,14 @@ All wrappers and OSP-core are part of a common directory structure:
 ```eval_rst
 .. warning::
    If the issue is a critical software bug detected in the stable release, a 
-   `hotfix branch` should be created from the `master/main` branch instead. 
+   :code:`hotfix branch` should be created from the :code:`master/main` branch 
+   instead. 
    
-   After committing to such branch, a new Pull/Merge request (targeting `dev`) 
-   should be created. If the fix is correct, the project owner will merge the 
-   PR to `dev`, additionally merge the `hotfix branch` to `master/main`, and 
-   then delete the `hotfix branch`.
+   After committing to such branch, a new Pull/Merge request (targeting 
+   :code:`dev`) should be created. If the fix is correct, the project owner 
+   will merge the PR to :code:`dev`, additionally merge the 
+   :code:`hotfix branch` to :code:`master/main`, and then delete the 
+   :code:`hotfix branch`.
 ```
 - Once the features for a release have been reached, `dev` will be merged to 
   `master/main`. Every new commit in the `master/main` branch generally corresponds 
