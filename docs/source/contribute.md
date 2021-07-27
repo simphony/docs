@@ -41,7 +41,12 @@ All wrappers and OSP-core are part of a common directory structure:
   An owner of the project should be tagged for review.
   They will review and merge the PR if the fix is correct.
   The changes should be clearly explained in the issue/Pull Request.
-- Once the features for a release have been reached, `dev` will be merged to `master/main`, every commit in the `master/main` branch theoretically being a new release.
+- Once the features for a release have been reached, `dev` will be merged to 
+  `master/main`. Every new commit in the `master/main` branch generally corresponds 
+  to a new release, which is labeled with a 
+  [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) matching its 
+  version number. In regard to version numbering, we adhere to the 
+  [_Semantic versioning_](https://semver.org/) rules.
 
 In the next image it can be seen how the branches usually look during this workflow, and the different commits used to synchronise them:
 
