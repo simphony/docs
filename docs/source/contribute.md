@@ -10,7 +10,8 @@ It might be useful to become familiar with them:
  - Python virtual environments/conda
  - Docker
  - Unittesting
- - Continuous Integration
+ - Benchmarks
+ - Continuous integration
 
 ### Code Organisation
 There are 3 main categories of repos:
@@ -19,10 +20,11 @@ There are 3 main categories of repos:
    mimicking [wrapper_development](https://github.com/simphony/wrapper-development).
  - [_docs_](https://github.com/simphony/docs) holds the source for this documentation.
 
-There are also 3 types of branches:
+There are also 4 types of branches:
  - `master/main` contains all the releases, and should always be stable.
  - `dev` holds the code for the newest release that is being developed.
- - `issue branch` is where an specific issues is being solved.
+ - `issue branch` is where an specific issue is being solved.
+ - `hotfix branch` is where a critical software bug detected on the stable release (more on this later) is being solved.
 
 All wrappers and OSP-core are part of a common directory structure:
 - _`osp/`_: contains all the SimPhoNy source code.
@@ -36,18 +38,34 @@ All wrappers and OSP-core are part of a common directory structure:
 - Every new feature or bug is defined in an issue and labelled accordingly.  
  If there is something that is missing or needs improving,
  make an issue in the appropriate project.
-- For each new release a milestone is created and assigned to issues and Pull/Merge Requests.
-- The issues are fixed by creating a new `issue branch` from the `dev` branch, committing to that branch and making a new Pull/Merge Request when done.  
+- Generally, the issues are fixed by creating a new `issue branch` from the `dev` branch, committing to that branch and making a new Pull/Merge Request when done. 
   An owner of the project should be tagged for review.
-  They will review and merge the PR if the fix is correct.
+  They will review and merge the PR if the fix is correct, deleting the `issue branch` afterwards.
   The changes should be clearly explained in the issue/Pull Request.
-- Once the features for a release have been reached, `dev` will be merged to `master/main`, every commit in the `master/main` branch theoretically being a new release.
+```eval_rst
+.. warning::
+   If the issue is a critical software bug detected in the stable release, a 
+   :code:`hotfix branch` should be created from the :code:`master/main` branch 
+   instead. 
+   
+   After committing to such branch, a new Pull/Merge request (targeting 
+   :code:`dev`) should be created. If the fix is correct, the project owner 
+   will merge the PR to :code:`dev`, additionally merge the 
+   :code:`hotfix branch` to :code:`master/main`, and then delete the 
+   :code:`hotfix branch`.
+```
+- Once the features for a release have been reached, `dev` will be merged to 
+  `master/main`. Every new commit in the `master/main` branch generally corresponds 
+  a new release. An exception to this rule may apply, for example when several 
+  critical hotfixes are applied in a row, as it would then be better to just to 
+  publish a single release afterwards.
 
-In the next image it can be seen how the branches usually look during this workflow, and the different commits used to synchronise them:
+In the next image it can be seen how the branches usually look during this 
+workflow, and the different commits used to synchronise them:
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![](./_static/img/branch_workflow.png "Branches and commits")
+![](./_static/img/branch_workflow.svg "Branches and commits")
 
 </figure>
 
@@ -65,7 +83,10 @@ In the next image it can be seen how the branches usually look during this workf
 
 ### Continuous Integration
 - We currently run the CI through Github Actions/GitLab CI.
-- Flake8 and unittests are automatically run for all PR.
+- Flake8 and unittests are automatically run for all PR. 
+- For the OSP-core code, benchmarks are run after every merge to `dev`. Benchmark results are 
+  available [here](https://simphony.github.io/osp-core/dev/bench/index.html). 
+  The CI will report a failure when a benchmark is 50% slower than in the previous run, in addition to automatically commenting on the commit. 
 
 ### Naming conventions
 - Use `cuds_object` as the argument name of your methods (not `entity`, `cuds`, `cuds_instance`...).
