@@ -56,12 +56,14 @@ All wrappers and OSP-core are part of a common directory structure:
 ```
 - Once the features for a release have been reached, `dev` will be merged to 
   `master/main`. Every new commit in the `master/main` branch generally corresponds 
-  a new release. An exception to this rule may apply, for example when several 
-  critical hotfixes are applied in a row, as it would then be better to just to 
-  publish a single release afterwards.
+  to a new release, which is labeled with a 
+  [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) matching its 
+  version number. An exception to this rule may apply, for example when several
+  critical hotfixes are applied in a row, as it would then be better to just to
+  publish a single release afterwards. In regard to version numbering, we adhere to the 
+  [_Semantic versioning_](https://semver.org/) rules.
 
-In the next image it can be seen how the branches usually look during this 
-workflow, and the different commits used to synchronise them:
+In the next image it can be seen how the branches usually look during this workflow, and the different commits used to synchronise them:
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
