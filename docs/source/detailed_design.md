@@ -10,21 +10,19 @@ For a more general overview, go to [getting started](./getting_started.md#genera
     :align: center
 
     skinparam {
-      linetype ortho   
       Shadowing false
       BackgroundColor transparent
-      ClassBackgroundColor transparent
-      ClassBorderColor #55A5D9
+      ClassBackgroundColor #E3E3E3
+      ClassBorderColor black
       ActorBackgroundColor transparent
-      ActorBorderColor #55A5D9
+      ActorBorderColor #179c7d
       InterfaceBackgroundColor transparent
-      InterfaceBorderColor #55A5D9
+      InterfaceBorderColor #179c7d
       DatabaseBackgroundColor transparent
       DatabaseBorderColor #179c7d
-      PackageBorderColor #55A5D9
-      PackageBackgroundColor #E3E3E3
+      PackageBorderColor black
+      PackageBackgroundColor #9FC6DE
       ArrowColor #179c7d
-      ranksep 10
     }
 
     allow_mixing
@@ -222,15 +220,14 @@ cuds_obj = some_namespace.OntologyClass()
        :align: center
 
        skinparam {
-        linetype ortho   
         Shadowing false
         BackgroundColor transparent
-        sequenceBoxBackgroundColor transparent
-        sequenceBoxBorderColor #55A5D9
+        sequenceBoxBackgroundColor #9FC6DE
+        sequenceBoxBorderColor black
         ActorBackgroundColor transparent
-        ActorBorderColor #55A5D9
+        ActorBorderColor #179c7d
         ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor #55A5D9
+        ParticipantBorderColor black
         DatabaseBackgroundColor transparent
         DatabaseBorderColor #179c7d
         SequenceLifeLineBorderColor #179c7d
@@ -278,15 +275,14 @@ cuds_obj = some_namespace.OntologyClass()
        :align: center
 
        skinparam {
-        linetype ortho   
         Shadowing false
         BackgroundColor transparent
-        sequenceBoxBackgroundColor transparent
-        sequenceBoxBorderColor #55A5D9
+        sequenceBoxBackgroundColor #9FC6DE
+        sequenceBoxBorderColor black
         ActorBackgroundColor transparent
-        ActorBorderColor #55A5D9
+        ActorBorderColor #179c7d
         ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor #55A5D9
+        ParticipantBorderColor black
         DatabaseBackgroundColor transparent
         DatabaseBorderColor #179c7d
         SequenceLifeLineBorderColor #179c7d
@@ -337,15 +333,14 @@ cuds_obj = some_namespace.OntologyClass()
        :align: center
 
        skinparam {
-        linetype ortho   
         Shadowing false
         BackgroundColor transparent
-        sequenceBoxBackgroundColor transparent
-        sequenceBoxBorderColor #55A5D9
+        sequenceBoxBackgroundColor #9FC6DE
+        sequenceBoxBorderColor black
         ActorBackgroundColor transparent
-        ActorBorderColor #55A5D9
+        ActorBorderColor #179c7d
         ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor #55A5D9
+        ParticipantBorderColor black
         DatabaseBackgroundColor transparent
         DatabaseBorderColor #179c7d
         SequenceLifeLineBorderColor #179c7d
@@ -394,15 +389,14 @@ cuds_obj = some_namespace.OntologyClass()
        :align: center
 
        skinparam {
-        linetype ortho   
         Shadowing false
         BackgroundColor transparent
-        sequenceBoxBackgroundColor transparent
-        sequenceBoxBorderColor #55A5D9
+        sequenceBoxBackgroundColor #9FC6DE
+        sequenceBoxBorderColor black
         ActorBackgroundColor transparent
-        ActorBorderColor #55A5D9
+        ActorBorderColor #179c7d
         ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor #55A5D9
+        ParticipantBorderColor black
         DatabaseBackgroundColor transparent
         DatabaseBorderColor #179c7d
         SequenceLifeLineBorderColor #179c7d
@@ -446,15 +440,14 @@ cuds_obj = some_namespace.OntologyClass()
        :align: center
 
        skinparam {
-        linetype ortho   
         Shadowing false
         BackgroundColor transparent
-        sequenceBoxBackgroundColor transparent
-        sequenceBoxBorderColor #55A5D9
+        sequenceBoxBackgroundColor #9FC6DE
+        sequenceBoxBorderColor black
         ActorBackgroundColor transparent
-        ActorBorderColor #55A5D9
+        ActorBorderColor #179c7d
         ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor #55A5D9
+        ParticipantBorderColor black
         DatabaseBackgroundColor transparent
         DatabaseBorderColor #179c7d
         SequenceLifeLineBorderColor #179c7d
@@ -520,15 +513,13 @@ To simplify and group functionality, we built an inheritance scheme:
   :align: center
 
   skinparam {
-    linetype ortho   
     Shadowing false
     BackgroundColor transparent
-    ClassBackgroundColor transparent
-    ClassBorderColor #55A5D9
-    PackageBorderColor #55A5D9
-    PackageBackgroundColor #E3E3E3
+    ClassBackgroundColor #E3E3E3
+    ClassBorderColor black
+    PackageBorderColor black
+    PackageBackgroundColor #9FC6DE
     ArrowColor #179c7d
-    ranksep 10
   }
 
   rectangle "OSP-core" as OSP {

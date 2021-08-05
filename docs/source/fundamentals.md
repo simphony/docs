@@ -22,7 +22,7 @@ Based on how tools communicate with other tools, we can define 3 levels:
       Shadowing false
       BackgroundColor transparent
       RectangleBackgroundColor #E3E3E3
-      RectangleBorderColor #55A5D9
+      RectangleBorderColor black
       ArrowColor #179c7d
     }
     
@@ -53,7 +53,7 @@ Based on how tools communicate with other tools, we can define 3 levels:
       Shadowing false
       BackgroundColor transparent
       RectangleBackgroundColor #E3E3E3
-      RectangleBorderColor #55A5D9
+      RectangleBorderColor black
       ArrowColor #179c7d
     }
     
@@ -87,9 +87,9 @@ Based on how tools communicate with other tools, we can define 3 levels:
       Shadowing false
       BackgroundColor transparent
       RectangleBackgroundColor #E3E3E3
-      RectangleBorderColor #55A5D9
+      RectangleBorderColor black
       UsecaseBackgroundColor transparent
-      UsecaseBorderColor #179c7d
+      UsecaseBorderColor #55A5D9
       ArrowColor #179c7d
     }
     
@@ -199,8 +199,8 @@ For the IRIs, `dbpedia`'s namespace was used.
       linetype ortho   
       Shadowing false
       BackgroundColor transparent
-      UsecaseBorderColor #55A5D9
-      UsecaseBackgroundColor transparent
+      UsecaseBorderColor black
+      UsecaseBackgroundColor #E3E3E3
       ArrowColor #179c7d
     }
 

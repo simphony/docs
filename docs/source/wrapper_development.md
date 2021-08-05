@@ -115,17 +115,15 @@ sessions.
   :align: center
 
   skinparam {
-    linetype ortho   
     Shadowing false
     BackgroundColor transparent
-    ClassBackgroundColor transparent
-    ClassBorderColor #55A5D9
-    PackageBorderColor #55A5D9
-    PackageBackgroundColor #E3E3E3
+    ClassBackgroundColor #E3E3E3
+    ClassBorderColor black
+    PackageBorderColor black
+    PackageBackgroundColor #9FC6DE
     ArrowColor #179c7d
     NoteBackgroundColor transparent
-    NoteBorderColor #55A5D9
-    ranksep 10
+    NoteBorderColor black
   }
 
   rectangle "OSP-core" as OSP {

@@ -10,14 +10,14 @@ The following architecture has the aim to cover and support the goals presented 
       linetype ortho   
       Shadowing false
       BackgroundColor transparent
-      UsecaseBackgroundColor transparent
-      UsecaseBorderColor #55A5D9
+      UsecaseBackgroundColor #E3E3E3
+      UsecaseBorderColor black
       ActorBackgroundColor transparent
-      ActorBorderColor #55A5D9
+      ActorBorderColor #179c7d
       DatabaseBackgroundColor transparent
       DatabaseBorderColor #179c7d
-      PackageBorderColor #55A5D9
-      PackageBackgroundColor #E3E3E3
+      PackageBorderColor black
+      PackageBackgroundColor #9FC6DE
       ArrowColor #179c7d
       ranksep 10
    }
@@ -66,10 +66,10 @@ For that, a 3 layer schema is used:
       linetype ortho   
       Shadowing false
       BackgroundColor transparent
-      RectangleBackgroundColor transparent
-      RectangleBorderColor #55A5D9
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
       ActorBackgroundColor transparent
-      ActorBorderColor #55A5D9
+      ActorBorderColor #179c7d
       DatabaseBackgroundColor transparent
       DatabaseBorderColor #179c7d
       PackageBorderColor #55A5D9
@@ -79,7 +79,8 @@ For that, a 3 layer schema is used:
    }
    
    skinparam rectangle<<invisible>> {
-       borderColor Transparent
+       BorderColor Transparent
+       BackgroundColor transparent
        stereotypeFontColor transparent
    }
    Actor user
