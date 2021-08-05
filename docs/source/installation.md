@@ -16,12 +16,19 @@ or a [conda](https://docs.conda.io/en/latest/) environment:
 ~/test$ conda activate <env name>
 ```
 
+```eval_rst
+.. Note::
+   The ``git clone`` commands used in the next subsections assume a proper 
+   `configuration of ssh keys <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh>`_.
+   Please use the commented *https* versions otherwise.
 
+```
 ## OSP-core installation
 First, the repository must be cloned:
 
 ```shell
 git clone git@github.com:simphony/osp-core.git
+# git clone https://github.com/simphony/osp-core.git
 cd osp-core
 ```
 
@@ -61,6 +68,7 @@ The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
 git clone git@github.com:simphony/<some-wrapper>.git
+# git clone https://github.com/simphony/<some-wrapper>.git
 cd some-wrapper
 ```
 ### Local wrapper installation
