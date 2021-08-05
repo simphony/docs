@@ -9,6 +9,24 @@ For a more general overview, go to [getting started](./getting_started.md#genera
     :caption: Standard design
     :align: center
 
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      ClassBackgroundColor transparent
+      ClassBorderColor #55A5D9
+      ActorBackgroundColor transparent
+      ActorBorderColor #55A5D9
+      InterfaceBackgroundColor transparent
+      InterfaceBorderColor #55A5D9
+      DatabaseBackgroundColor transparent
+      DatabaseBorderColor #179c7d
+      PackageBorderColor #55A5D9
+      PackageBackgroundColor #E3E3E3
+      ArrowColor #179c7d
+      ranksep 10
+    }
+
     allow_mixing
     actor User
 
@@ -203,6 +221,22 @@ cuds_obj = some_namespace.OntologyClass()
        :caption: `add` method call
        :align: center
 
+       skinparam {
+        linetype ortho   
+        Shadowing false
+        BackgroundColor transparent
+        sequenceBoxBackgroundColor transparent
+        sequenceBoxBorderColor #55A5D9
+        ActorBackgroundColor transparent
+        ActorBorderColor #55A5D9
+        ParticipantBackgroundColor #E3E3E3
+        ParticipantBorderColor #55A5D9
+        DatabaseBackgroundColor transparent
+        DatabaseBorderColor #179c7d
+        SequenceLifeLineBorderColor #179c7d
+        ArrowColor #179c7d
+       }
+
        actor user
        box "Semantic Layer"
          participant "cuds" as cuds
@@ -242,6 +276,22 @@ cuds_obj = some_namespace.OntologyClass()
      .. uml::
        :caption: `get` method call
        :align: center
+
+       skinparam {
+        linetype ortho   
+        Shadowing false
+        BackgroundColor transparent
+        sequenceBoxBackgroundColor transparent
+        sequenceBoxBorderColor #55A5D9
+        ActorBackgroundColor transparent
+        ActorBorderColor #55A5D9
+        ParticipantBackgroundColor #E3E3E3
+        ParticipantBorderColor #55A5D9
+        DatabaseBackgroundColor transparent
+        DatabaseBorderColor #179c7d
+        SequenceLifeLineBorderColor #179c7d
+        ArrowColor #179c7d
+       }
 
        actor user
        box "Semantic Layer"
@@ -286,6 +336,22 @@ cuds_obj = some_namespace.OntologyClass()
        :caption: `update` method call
        :align: center
 
+       skinparam {
+        linetype ortho   
+        Shadowing false
+        BackgroundColor transparent
+        sequenceBoxBackgroundColor transparent
+        sequenceBoxBorderColor #55A5D9
+        ActorBackgroundColor transparent
+        ActorBorderColor #55A5D9
+        ParticipantBackgroundColor #E3E3E3
+        ParticipantBorderColor #55A5D9
+        DatabaseBackgroundColor transparent
+        DatabaseBorderColor #179c7d
+        SequenceLifeLineBorderColor #179c7d
+        ArrowColor #179c7d
+       }
+
        actor user
        box "Semantic Layer"
          participant "cuds" as cuds
@@ -327,6 +393,22 @@ cuds_obj = some_namespace.OntologyClass()
        :caption: `remove` method call
        :align: center
 
+       skinparam {
+        linetype ortho   
+        Shadowing false
+        BackgroundColor transparent
+        sequenceBoxBackgroundColor transparent
+        sequenceBoxBorderColor #55A5D9
+        ActorBackgroundColor transparent
+        ActorBorderColor #55A5D9
+        ParticipantBackgroundColor #E3E3E3
+        ParticipantBorderColor #55A5D9
+        DatabaseBackgroundColor transparent
+        DatabaseBorderColor #179c7d
+        SequenceLifeLineBorderColor #179c7d
+        ArrowColor #179c7d
+       }
+
        actor user
        box "Semantic Layer"
          participant "cuds" as cuds
@@ -362,6 +444,22 @@ cuds_obj = some_namespace.OntologyClass()
      .. uml::
        :caption: `iter` method call
        :align: center
+
+       skinparam {
+        linetype ortho   
+        Shadowing false
+        BackgroundColor transparent
+        sequenceBoxBackgroundColor transparent
+        sequenceBoxBorderColor #55A5D9
+        ActorBackgroundColor transparent
+        ActorBorderColor #55A5D9
+        ParticipantBackgroundColor #E3E3E3
+        ParticipantBorderColor #55A5D9
+        DatabaseBackgroundColor transparent
+        DatabaseBorderColor #179c7d
+        SequenceLifeLineBorderColor #179c7d
+        ArrowColor #179c7d
+       }
 
        actor user
        box "Semantic Layer"
@@ -420,6 +518,18 @@ To simplify and group functionality, we built an inheritance scheme:
 .. uml::
   :caption: Session inheritance scheme
   :align: center
+
+  skinparam {
+    linetype ortho   
+    Shadowing false
+    BackgroundColor transparent
+    ClassBackgroundColor transparent
+    ClassBorderColor #55A5D9
+    PackageBorderColor #55A5D9
+    PackageBackgroundColor #E3E3E3
+    ArrowColor #179c7d
+    ranksep 10
+  }
 
   rectangle "OSP-core" as OSP {
     abstract class Session {

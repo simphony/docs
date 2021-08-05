@@ -6,10 +6,26 @@ The following architecture has the aim to cover and support the goals presented 
    :align: center
    :caption: Interoperability concept
 
-   skinparam linetype ortho
+   skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      UsecaseBackgroundColor transparent
+      UsecaseBorderColor #55A5D9
+      ActorBackgroundColor transparent
+      ActorBorderColor #55A5D9
+      DatabaseBackgroundColor transparent
+      DatabaseBorderColor #179c7d
+      PackageBorderColor #55A5D9
+      PackageBackgroundColor #E3E3E3
+      ArrowColor #179c7d
+      ranksep 10
+   }
+
+   
    actor user
    rectangle SimPhoNy {
-      usecase "OSP-core" as osp #FFFFFF
+      usecase "OSP-core" as osp
       usecase "database\nwrapper" as db_wrapper
       usecase "simulation\nwrapper" as sim_wrapper
       usecase wrapper
@@ -46,14 +62,25 @@ For that, a 3 layer schema is used:
    :caption: Three layered design
    :align: center
 
-   skinparam linetype ortho
+   skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor transparent
+      RectangleBorderColor #55A5D9
+      ActorBackgroundColor transparent
+      ActorBorderColor #55A5D9
+      DatabaseBackgroundColor transparent
+      DatabaseBorderColor #179c7d
+      PackageBorderColor #55A5D9
+      PackageBackgroundColor transparent
+      ArrowColor #179c7d
+      ranksep 10
+   }
    
    skinparam rectangle<<invisible>> {
-       backgroundColor Transparent
        borderColor Transparent
-       titleFontColor Red
-       stereotypeFontColor Transparent
-       shadowing false
+       stereotypeFontColor transparent
    }
    Actor user
    
