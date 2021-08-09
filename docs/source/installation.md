@@ -16,12 +16,11 @@ or a [conda](https://docs.conda.io/en/latest/) environment:
 ~/test$ conda activate <env name>
 ```
 
-
 ## OSP-core installation
 First, the repository must be cloned:
 
 ```shell
-git clone git@github.com:simphony/osp-core.git
+git clone https://github.com/simphony/osp-core.git
 cd osp-core
 ```
 
@@ -60,7 +59,7 @@ python -m osp.core.pico install <path/to/ontology.yml>
 The installation of a wrapper is similar. First, the repository is cloned:
 
 ```shell
-git clone git@github.com:simphony/<some-wrapper>.git
+git clone https://github.com/simphony/<some-wrapper>.git
 cd some-wrapper
 ```
 ### Local wrapper installation
