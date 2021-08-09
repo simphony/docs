@@ -16,6 +16,15 @@ Based on how tools communicate with other tools, we can define 3 levels:
   .. uml::
     :align: center
     :caption: Compatibility
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      ArrowColor #179c7d
+    }
     
     rectangle A
     rectangle B
@@ -39,6 +48,14 @@ Based on how tools communicate with other tools, we can define 3 levels:
   .. uml::
     :align: center
     :caption: De Facto Standard
+
+    skinparam {
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      ArrowColor #179c7d
+    }
     
     rectangle A
     rectangle B
@@ -64,6 +81,17 @@ Based on how tools communicate with other tools, we can define 3 levels:
   .. uml::
     :align: center
     :caption: Interoperability
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      UsecaseBackgroundColor transparent
+      UsecaseBorderColor #55A5D9
+      ArrowColor #179c7d
+    }
     
     usecase x as "open standard"
     rectangle A
@@ -166,6 +194,15 @@ For the IRIs, `dbpedia`'s namespace was used.
 .. uml::
    :align: center
    :caption: RDF triple sample
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      UsecaseBorderColor black
+      UsecaseBackgroundColor #E3E3E3
+      ArrowColor #179c7d
+    }
 
    (dbr:J._R._R._Tolkien) as tolkien
    (dbr:The_Lord_of_the_Rings) as lotr
