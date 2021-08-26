@@ -41,13 +41,16 @@ that contains multiple namespaces. Will be used for uninstallation: `pico uninst
 have executed a reasoner on your ontology, e.g. by using the `Export inferred axioms`
 functionality of [Protégé](https://protege.stanford.edu/).
 
-**format**: File format of the ontology file to be parsed. We support all the
+**format** (optional): File format of the ontology file to be parsed. We 
+support all the
 formats that
 [RDFLib](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html) supports:
 XML (`xml`, `application/rdf+xml`, default), Turtle (`turtle`, `ttl`, 
 `text/turtle`), N3 (`n3`,`text/n3`), NTriples (`nt`, `nt11`, 
 `application/n-triples`), N-Quads (`nquads`, `application/n-quads`), 
-TriX (`trix`, `application/trix`) and TriG (`trig`, `application/trig`).
+TriX (`trix`, `application/trix`) and TriG (`trig`, `application/trig`). 
+When not provided, it will be guessed from the file extension. However, such 
+guess may not always be correct.
 
 **reference_by_label** (default False): Whether the label should be used or the IRI suffix to reference
 entity from within OSP-core. In case of EMMO it is true, because IRI suffixes are not
