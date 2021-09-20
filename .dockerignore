@@ -1,7 +1,2 @@
 .vscode/
-docs/build
-*.pyc
 build/
-dist/
-*.egg-info/
-.eggs/
