@@ -23,9 +23,8 @@ Take a look at our [examples](jupyter/cuds-api.md) to see how you can build your
 
 ## Working with EMMO
 
-The second ontology that is ready to be used out of the box is the European
-Materials Modelling Ontology, or EMMO in short.
-For a short introduction, see the [fundamentals](./fundamentals.md#emmo).
+The second ontology that is ready to be used out of the box is the Elementary Multiperspective Material Ontology,
+or EMMO in short. For a short introduction, see the [fundamentals](./fundamentals.md#emmo).
 
 You can install EMMO using [Pico](utils.md#pico-installs-cuds-ontologies).
 
