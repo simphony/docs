@@ -150,7 +150,7 @@ Ontologies are more elaborated than taxonomies in that they can include multiple
 (not just parent-child) between complex concepts in big domains.
 
 #### EMMO
-The Elementary Multiperspective Material Ontology ([EMMO](https://github.com/emmo-repo/EMMO)) is an ontology developed by the European Materials Modelling Council ([EMMC](https://emmc.info/)).
+The Elementary Multiperspective Material Ontology ([EMMO](https://github.com/emmo-repo/EMMO), previously the European Materials Modelling Ontology) is an ontology developed by the European Materials Modelling Council ([EMMC](https://emmc.info/)).
 EMMO's goal is to define a representational system universal for scientists in the field of materials modelling to enable interoperability.
 
 It has been designed from the bottom up, starting with the concepts of different domains and application fields 
