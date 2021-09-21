@@ -2,9 +2,7 @@
 
 SimPhoNy is an ontology-based [open-source](./license.md) Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
 
-```eval_rst
-
-.. panels::
+````{panels}
    :body: text-center
 
    ---
@@ -12,7 +10,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    Overview, main concepts, and installation guide
 
-   .. link-button:: overview.html
+   ```{link-button} overview.html
       :text: To the getting started guides
       :classes: btn-outline-primary stretched-link
 
@@ -21,7 +19,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    Core functionalities, wrappers and advanced utilities
 
-   .. link-button:: jupyter/cuds_api.ipynb
+   ```{link-button} jupyter/cuds_api.ipynb
       :text: To the usage guides
       :classes: btn-outline-primary stretched-link
 
@@ -31,7 +29,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    Ontology overview, included ontologies, YAML ontologies and ontology querying
 
-   .. link-button:: ontology_intro.html
+   ```{link-button} ontology_intro.html
       :text: To the ontology guides 
       :classes: btn-outline-primary stretched-link
    ---
@@ -40,7 +38,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    A deep dive into the wrapper mechanism for developing new wrappers
 
-   .. link-button:: wrapper_development.html
+   ```{link-button} wrapper_development.html
       :text: To the wrapper development guides
       :classes: btn-outline-primary stretched-link
    ---
@@ -49,7 +47,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    Python API of CUDS, the *Session* classes, and other utilities
 
-   .. link-button:: api_ref.html
+   ```{link-button} api_ref.html
       :text: To the API reference
       :classes: btn-outline-primary stretched-link
    
@@ -58,69 +56,75 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 
    License, acknowledgements, data protection, contact info and more
 
-   .. link-button:: contribute.html
+   ```{link-button} contribute.html
       :text: To get more information
       :classes: btn-outline-primary stretched-link
+````
 
-.. toctree::
-   :hidden:
-   :caption: Getting Started
-   :maxdepth: 2
+```{toctree}
+:hidden: true
+:caption: Getting Started
+:maxdepth: 2
 
-   overview.md
-   fundamentals.md
-   general_architecture.md
-   installation.md
+overview
+fundamentals
+general_architecture
+installation
+```
 
-.. toctree::
-   :hidden:
-   :caption: Usage Guide
-   :maxdepth: 2
+```{toctree}
+:hidden: true
+:caption: Usage Guide
+:maxdepth: 2
 
-   jupyter/cuds_api.ipynb
-   jupyter/sessions_and_vars.ipynb
-   utils.md
-   jupyter/multiple_wrappers.ipynb
-   jupyter/import_export.ipynb
-   jupyter/simlammps.ipynb
-   jupyter/quantum_espresso.ipynb
+jupyter/cuds_api
+jupyter/sessions_and_vars
+utils
+jupyter/multiple_wrappers
+jupyter/import_export
+jupyter/simlammps
+jupyter/quantum_espresso
+```
 
-.. toctree::
-   :hidden:
-   :caption: Working with Ontologies
-   :maxdepth: 2
+```{toctree}
+:hidden: true
+:caption: Working with Ontologies
+:maxdepth: 2
 
-   ontology_intro.md
-   ontologies_included.md
-   yaml.md
-   owl.md
-   jupyter/ontology_interface.ipynb
+ontology_intro
+ontologies_included
+yaml
+owl
+jupyter/ontology_interface
+```
 
-.. toctree::
-   :hidden:
-   :caption: Wrapper Development
-   :maxdepth: 2
+```{toctree}
+:hidden: true
+:caption: Wrapper Development
+:maxdepth: 2
 
-   wrapper_development.md
-   jupyter/wrapper_development.ipynb
+wrapper_development
+jupyter/wrapper_development
+```
 
-.. toctree::
-   :hidden:
-   :caption: API Reference
-   :maxdepth: 2
-   
-   api_ref.md
+```{toctree}
+:hidden: true
+:caption: API Reference
+:maxdepth: 2
 
-.. toctree::
-   :hidden:
-   :caption: Additional Info
-   :maxdepth: 2
+api_ref
+```
 
-   contribute.md
-   detailed_design.md
-   links.md
-   license.md
-   Data protection <https://www.simphony-project.eu/en/data_protection.html>
-   Imprint <https://www.simphony-project.eu/en/publishing-notes.html>
-   contact.md
+```{toctree}
+:hidden: true
+:caption: Additional Info
+:maxdepth: 2
+
+contribute
+detailed_design
+links
+license
+Data protection <https://www.simphony-project.eu/en/data_protection.html>
+Imprint <https://www.simphony-project.eu/en/publishing-notes.html>
+contact
 ```

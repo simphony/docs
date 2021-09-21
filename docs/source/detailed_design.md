@@ -3,143 +3,141 @@ Here we will give an in-depth view of the design of the 3 layers.
 
 For a more general overview, go to [getting started](./getting_started.md#general-architecture).
 
+```{uml}
+  :caption: Standard design
+  :align: center
 
-```eval_rst
-.. uml::
-    :caption: Standard design
-    :align: center
+  skinparam {
+    Shadowing false
+    BackgroundColor transparent
+    ClassBackgroundColor #E3E3E3
+    ClassBorderColor black
+    ActorBackgroundColor transparent
+    ActorBorderColor #179c7d
+    InterfaceBackgroundColor transparent
+    InterfaceBorderColor #179c7d
+    DatabaseBackgroundColor transparent
+    DatabaseBorderColor #179c7d
+    PackageBorderColor black
+    PackageBackgroundColor #9FC6DE
+    ArrowColor #179c7d
+  }
 
-    skinparam {
-      Shadowing false
-      BackgroundColor transparent
-      ClassBackgroundColor #E3E3E3
-      ClassBorderColor black
-      ActorBackgroundColor transparent
-      ActorBorderColor #179c7d
-      InterfaceBackgroundColor transparent
-      InterfaceBorderColor #179c7d
-      DatabaseBackgroundColor transparent
-      DatabaseBorderColor #179c7d
-      PackageBorderColor black
-      PackageBackgroundColor #9FC6DE
-      ArrowColor #179c7d
+  allow_mixing
+  actor User
+
+  circle pico
+
+  rectangle SemanticLayer {
+    class Cuds {
+      Session session
+      UUID uuid
+      OntologyEntity oclass
+      --
+      add() : Cuds
+      get() : Cuds
+      remove() : void
+      update() : void
+      iter() : Iterator<Cuds>
     }
 
-    allow_mixing
-    actor User
-
-    circle pico
-
-    rectangle SemanticLayer {
-      class Cuds {
-        Session session
-        UUID uuid
-        OntologyEntity oclass
-        --
-        add() : Cuds
-        get() : Cuds
-        remove() : void
-        update() : void
-        iter() : Iterator<Cuds>
-      }
-
-      abstract class OntologyEntity {
-        String name
-        URIRef iri
-        String tblname
-        OntologyNamespace namespace
-        Set direct_superclasses
-        Set direct_subclasses
-        Set superclasses
-        Set subclasses
-        String description
-        --
-        get_triples() : triple
-        is_superclass_of() : bool
-        is_subclass_of() : bool
-      }
-      class OntologyClass implements OntologyEntity {
-          Dict attributes
-          Dict own_attributes
-      }
-
-      class OntologyRelationship implements OntologyEntity {
-        OntologyRelationship inverse
-      }
-
-      class OntologyAttribute implements OntologyEntity {
-        URIRef datatype
-        --
-        convert_to_datatype() : Any
-        convert_to_basic_type() : Any
-      }
-
-      class OntologyNamespace {
-        --
-        get_iri() : URIRef
-        get_default_rel() : OntologyRelationship
-        get() : OntologyEntity
-
-      }
-
-      class NamespaceRegistry {
-        --
-        get() : OntologyNamespace
-        update_namespaces() : void
-        from_iri() : OntologyEntity
-        clear() : Graph
-        store() : void
-        load() : void
-      }
+    abstract class OntologyEntity {
+      String name
+      URIRef iri
+      String tblname
+      OntologyNamespace namespace
+      Set direct_superclasses
+      Set direct_subclasses
+      Set superclasses
+      Set subclasses
+      String description
+      --
+      get_triples() : triple
+      is_superclass_of() : bool
+      is_subclass_of() : bool
+    }
+    class OntologyClass implements OntologyEntity {
+        Dict attributes
+        Dict own_attributes
     }
 
-    rectangle InteroperabilityLayer {
-      class Registry <dict> {
-      }
-
-      abstract class Session {
-        Registry : registry
-        --
-        store() : void
-        load() : Cuds
-        sync() : void
-      }
-
-      class SomeWrapperSession implements Session {
-        List added
-        List updated
-        List removed
-        SyntacticLayer syntactic
-        --  
-      }
+    class OntologyRelationship implements OntologyEntity {
+      OntologyRelationship inverse
     }
 
-    rectangle SyntacticLayer {
-      class SyntacticLayer {
-      }
+    class OntologyAttribute implements OntologyEntity {
+      URIRef datatype
+      --
+      convert_to_datatype() : Any
+      convert_to_basic_type() : Any
     }
 
-    database backend
+    class OntologyNamespace {
+      --
+      get_iri() : URIRef
+      get_default_rel() : OntologyRelationship
+      get() : OntologyEntity
 
-    ' -----------------------
-    ' ------ RELATIONS ------
-    ' -----------------------
-    User -up-> OntologyClass : interacts_with
-    Cuds -left> OntologyClass : instance_of
-    OntologyEntity -> OntologyNamespace : part_of
-    OntologyNamespace -> NamespaceRegistry : contained_in
-    OntologyClass -left> OntologyAttribute : has
+    }
 
-    pico -> NamespaceRegistry : manages
+    class NamespaceRegistry {
+      --
+      get() : OntologyNamespace
+      update_namespaces() : void
+      from_iri() : OntologyEntity
+      clear() : Graph
+      store() : void
+      load() : void
+    }
+  }
 
-    Cuds -> Session : has_a
-    Session -> Registry : manages
+  rectangle InteroperabilityLayer {
+    class Registry <dict> {
+    }
 
-    SomeWrapperSession -> SyntacticLayer : manages
+    abstract class Session {
+      Registry : registry
+      --
+      store() : void
+      load() : Cuds
+      sync() : void
+    }
 
-    SyntacticLayer -> backend : acts_on
+    class SomeWrapperSession implements Session {
+      List added
+      List updated
+      List removed
+      SyntacticLayer syntactic
+      --  
+    }
+  }
 
-    OntologyRelationship -[hidden]> OntologyAttribute
+  rectangle SyntacticLayer {
+    class SyntacticLayer {
+    }
+  }
+
+  database backend
+
+  ' -----------------------
+  ' ------ RELATIONS ------
+  ' -----------------------
+  User -up-> OntologyClass : interacts_with
+  Cuds -left> OntologyClass : instance_of
+  OntologyEntity -> OntologyNamespace : part_of
+  OntologyNamespace -> NamespaceRegistry : contained_in
+  OntologyClass -left> OntologyAttribute : has
+
+  pico -> NamespaceRegistry : manages
+
+  Cuds -> Session : has_a
+  Session -> Registry : manages
+
+  SomeWrapperSession -> SyntacticLayer : manages
+
+  SyntacticLayer -> backend : acts_on
+
+  OntologyRelationship -[hidden]> OntologyAttribute
 ```
 
 ## Semantic layer
@@ -184,8 +182,7 @@ The actual related objects are kept in the [registry](#registry).
     }
 ```
 
-```eval_rst
-.. note::
+```{note}
    This is an abstraction to show the general structure.
    The actual implementation is a bit more complex.
 ```
@@ -200,9 +197,7 @@ This CRUD API is defined by 6 methods:
 from osp.core.namespaces import some_namespace
 
 ontology_class = some_namespace.OntologyClass
-
 relationship = some_namespace.relationship
-
 cuds_obj = some_namespace.OntologyClass()
 ```
 
@@ -210,48 +205,47 @@ cuds_obj = some_namespace.OntologyClass()
   ```python
   # These will also add the opposed relationship to the new contained cuds object
   cuds_obj.add(*other_cuds, rel=relationship)
-  cuds_obj.add(yet_another_cuds)                           # Uses default relationship from ontology
+  cuds_obj.add(yet_another_cuds)  # Uses default relationship from ontology
   ```
 
   The flow of information for the call of the `add` method would be:
-  ```eval_rst
-     .. uml::
-       :caption: `add` method call
-       :align: center
+  ```{uml}
+    :caption: add method call
+    :align: center
 
-       skinparam {
-        Shadowing false
-        BackgroundColor transparent
-        sequenceBoxBackgroundColor #9FC6DE
-        sequenceBoxBorderColor black
-        ActorBackgroundColor transparent
-        ActorBorderColor #179c7d
-        ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor black
-        DatabaseBackgroundColor transparent
-        DatabaseBorderColor #179c7d
-        SequenceLifeLineBorderColor #179c7d
-        ArrowColor #179c7d
-       }
+    skinparam {
+    Shadowing false
+    BackgroundColor transparent
+    sequenceBoxBackgroundColor #9FC6DE
+    sequenceBoxBorderColor black
+    ActorBackgroundColor transparent
+    ActorBorderColor #179c7d
+    ParticipantBackgroundColor #E3E3E3
+    ParticipantBorderColor black
+    DatabaseBackgroundColor transparent
+    DatabaseBorderColor #179c7d
+    SequenceLifeLineBorderColor #179c7d
+    ArrowColor #179c7d
+    }
 
-       actor user
-       box "Semantic Layer"
-         participant "cuds" as cuds
-       end box 
+    actor user
+    box "Semantic Layer"
+      participant "cuds" as cuds
+    end box 
 
-       box "Interoperability Layer"
-         participant "session" as sess
-       end box
+    box "Interoperability Layer"
+      participant "session" as sess
+    end box
 
-       box "Syntactic Layer"
-         participant "engine" as eng
-       end box
+    box "Syntactic Layer"
+      participant "engine" as eng
+    end box
 
-       database "backend" as back
+    database "backend" as back
 
-       user -> cuds: add
-       cuds <- sess: load
-       cuds -> sess: store
+    user -> cuds: add
+    cuds <- sess: load
+    cuds -> sess: store
   ```
   As you can see, the information is sent to the next layer, but not all the way to the backend.
   This will be propagated when the user calls `session.run()` or `session.commit`.
@@ -269,53 +263,53 @@ cuds_obj = some_namespace.OntologyClass()
   cuds_obj.get(rel=relationship, oclass=ontology_class)    # Filters by rel and oclass
   ```
   In this case, the calls carried out by the  `get` method are as follows:
-  ```eval_rst
-     .. uml::
-       :caption: `get` method call
-       :align: center
 
-       skinparam {
-        Shadowing false
-        BackgroundColor transparent
-        sequenceBoxBackgroundColor #9FC6DE
-        sequenceBoxBorderColor black
-        ActorBackgroundColor transparent
-        ActorBorderColor #179c7d
-        ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor black
-        DatabaseBackgroundColor transparent
-        DatabaseBorderColor #179c7d
-        SequenceLifeLineBorderColor #179c7d
-        ArrowColor #179c7d
-       }
+  ```{uml}
+  :caption: get method call
+  :align: center
 
-       actor user
-       box "Semantic Layer"
-         participant "cuds" as cuds
-       end box 
- 
-       box "Interoperability Layer"
-         participant "session" as sess
-       end box
- 
-       box "Syntactic Layer"
-         participant "engine" as eng
-       end box
- 
-       database "backend" as back
- 
-       user -> cuds: get
-       cuds -> sess: load
- 
-       == Object not in registry ==
-       sess -> eng: _load_from_backend
-       eng -> back: <get info>
-       back --> eng: <info>
-       eng --> sess: <info>
-       == Object in registry ==
-       sess --> cuds: object
-       cuds --> user: object
-   ```
+  skinparam {
+  Shadowing false
+  BackgroundColor transparent
+  sequenceBoxBackgroundColor #9FC6DE
+  sequenceBoxBorderColor black
+  ActorBackgroundColor transparent
+  ActorBorderColor #179c7d
+  ParticipantBackgroundColor #E3E3E3
+  ParticipantBorderColor black
+  DatabaseBackgroundColor transparent
+  DatabaseBorderColor #179c7d
+  SequenceLifeLineBorderColor #179c7d
+  ArrowColor #179c7d
+  }
+
+  actor user
+  box "Semantic Layer"
+    participant "cuds" as cuds
+  end box 
+
+  box "Interoperability Layer"
+    participant "session" as sess
+  end box
+
+  box "Syntactic Layer"
+    participant "engine" as eng
+  end box
+
+  database "backend" as back
+
+  user -> cuds: get
+  cuds -> sess: load
+
+  == Object not in registry ==
+  sess -> eng: _load_from_backend
+  eng -> back: <get info>
+  back --> eng: <info>
+  eng --> sess: <info>
+  == Object in registry ==
+  sess --> cuds: object
+  cuds --> user: object
+  ```
    Now the backend is contacted to make sure the user receives the latest 
    available version of the objects being queried.
    This is done through `_load_from_backend()`.
@@ -327,45 +321,44 @@ cuds_obj = some_namespace.OntologyClass()
   ```
   
   A simple `update` call triggers the following behaviour:
-  ```eval_rst
-     .. uml::
-       :caption: `update` method call
-       :align: center
+  ```{uml}
+  :caption: update method call
+  :align: center
 
-       skinparam {
-        Shadowing false
-        BackgroundColor transparent
-        sequenceBoxBackgroundColor #9FC6DE
-        sequenceBoxBorderColor black
-        ActorBackgroundColor transparent
-        ActorBorderColor #179c7d
-        ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor black
-        DatabaseBackgroundColor transparent
-        DatabaseBorderColor #179c7d
-        SequenceLifeLineBorderColor #179c7d
-        ArrowColor #179c7d
-       }
+  skinparam {
+  Shadowing false
+  BackgroundColor transparent
+  sequenceBoxBackgroundColor #9FC6DE
+  sequenceBoxBorderColor black
+  ActorBackgroundColor transparent
+  ActorBorderColor #179c7d
+  ParticipantBackgroundColor #E3E3E3
+  ParticipantBorderColor black
+  DatabaseBackgroundColor transparent
+  DatabaseBorderColor #179c7d
+  SequenceLifeLineBorderColor #179c7d
+  ArrowColor #179c7d
+  }
 
-       actor user
-       box "Semantic Layer"
-         participant "cuds" as cuds
-       end box 
+  actor user
+  box "Semantic Layer"
+    participant "cuds" as cuds
+  end box 
 
-       box "Interoperability Layer"
-         participant "session" as sess
-       end box
+  box "Interoperability Layer"
+    participant "session" as sess
+  end box
 
-       box "Syntactic Layer"
-         participant "engine" as eng
-       end box
+  box "Syntactic Layer"
+    participant "engine" as eng
+  end box
 
-       database "backend" as back
+  database "backend" as back
 
-       user -> cuds: update
-       cuds <- sess: load()
-       cuds -> sess: store()
-   ```
+  user -> cuds: update
+  cuds <- sess: load()
+  cuds -> sess: store()
+  ```
    You can see the calls are very much the same as with the `add` method.
    The difference is that the `update` requires the object to be there previously.
    And so the object is first loaded from the registry, then updated and stored.
@@ -383,45 +376,44 @@ cuds_obj = some_namespace.OntologyClass()
   ```
 
   The sequence for a simple `remove` is:
-  ```eval_rst
-     .. uml::
-       :caption: `remove` method call
-       :align: center
+  ```{uml}
+  :caption: remove method call
+  :align: center
 
-       skinparam {
-        Shadowing false
-        BackgroundColor transparent
-        sequenceBoxBackgroundColor #9FC6DE
-        sequenceBoxBorderColor black
-        ActorBackgroundColor transparent
-        ActorBorderColor #179c7d
-        ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor black
-        DatabaseBackgroundColor transparent
-        DatabaseBorderColor #179c7d
-        SequenceLifeLineBorderColor #179c7d
-        ArrowColor #179c7d
-       }
+  skinparam {
+  Shadowing false
+  BackgroundColor transparent
+  sequenceBoxBackgroundColor #9FC6DE
+  sequenceBoxBorderColor black
+  ActorBackgroundColor transparent
+  ActorBorderColor #179c7d
+  ParticipantBackgroundColor #E3E3E3
+  ParticipantBorderColor black
+  DatabaseBackgroundColor transparent
+  DatabaseBorderColor #179c7d
+  SequenceLifeLineBorderColor #179c7d
+  ArrowColor #179c7d
+  }
 
-       actor user
-       box "Semantic Layer"
-         participant "cuds" as cuds
-       end box 
+  actor user
+  box "Semantic Layer"
+    participant "cuds" as cuds
+  end box 
 
-       box "Interoperability Layer"
-         participant "session" as sess
-       end box
+  box "Interoperability Layer"
+    participant "session" as sess
+  end box
 
-       box "Syntactic Layer"
-         participant "engine" as eng
-       end box
+  box "Syntactic Layer"
+    participant "engine" as eng
+  end box
 
-       database "backend" as back
+  database "backend" as back
 
-       user -> cuds: remove
-       cuds <- sess: load()
-       cuds -> cuds: remove_rel()
-   ```
+  user -> cuds: remove
+  cuds <- sess: load()
+  cuds -> cuds: remove_rel()
+  ```
    Here the registry is accessed to fetch the neighbours of the removed object
    and delete their links (relationships) to it.
 
@@ -434,55 +426,52 @@ cuds_obj = some_namespace.OntologyClass()
   ```
   
   The general behaviour of the `iter` is:
-  ```eval_rst
-     .. uml::
-       :caption: `iter` method call
-       :align: center
+  ```{uml}
+  :caption: iter method call
+  :align: center
 
-       skinparam {
-        Shadowing false
-        BackgroundColor transparent
-        sequenceBoxBackgroundColor #9FC6DE
-        sequenceBoxBorderColor black
-        ActorBackgroundColor transparent
-        ActorBorderColor #179c7d
-        ParticipantBackgroundColor #E3E3E3
-        ParticipantBorderColor black
-        DatabaseBackgroundColor transparent
-        DatabaseBorderColor #179c7d
-        SequenceLifeLineBorderColor #179c7d
-        ArrowColor #179c7d
-       }
+  skinparam {
+  Shadowing false
+  BackgroundColor transparent
+  sequenceBoxBackgroundColor #9FC6DE
+  sequenceBoxBorderColor black
+  ActorBackgroundColor transparent
+  ActorBorderColor #179c7d
+  ParticipantBackgroundColor #E3E3E3
+  ParticipantBorderColor black
+  DatabaseBackgroundColor transparent
+  DatabaseBorderColor #179c7d
+  SequenceLifeLineBorderColor #179c7d
+  ArrowColor #179c7d
+  }
 
-       actor user
-       box "Semantic Layer"
-         participant "cuds" as cuds
-       end box 
+  actor user
+  box "Semantic Layer"
+    participant "cuds" as cuds
+  end box 
 
-       box "Interoperability Layer"
-         participant "session" as sess
-       end box
+  box "Interoperability Layer"
+    participant "session" as sess
+  end box
 
-       box "Syntactic Layer"
-         participant "engine" as eng
-       end box
+  box "Syntactic Layer"
+    participant "engine" as eng
+  end box
 
-       database "backend" as back
+  database "backend" as back
 
-       user -> cuds: iterate
-       cuds <- sess: load()
-       cuds -> user: yield(object)
-   ```
+  user -> cuds: iterate
+  cuds <- sess: load()
+  cuds -> user: yield(object)
+  ```
    First the uids of all the objects to be iterated are gathered,
    and then they are yielded like a generator
    
-```eval_rst
-.. hint::
+```{hint}
    There is also an :code:`is_a` method for checking oclass inheritance.
 ```
 
-```eval_rst
-.. note::
+```{note}
    Be aware that the sequence diagrams shown represent simple use cases,
    and more complex scenarios are also possible (e.g. adding an object with children).
 ```
@@ -507,8 +496,7 @@ The backend is accessed via the Syntactic layer, through the `_engine` property.
 
 To simplify and group functionality, we built an inheritance scheme:
 
-```eval_rst
-.. uml::
+  ```{uml}
   :caption: Session inheritance scheme
   :align: center
 
@@ -622,11 +610,9 @@ To simplify and group functionality, we built an inheritance scheme:
     class SimlammpsSession implements SimWrapperSession {
     }
   }
-  @enduml
-```
+  ```
 
-```eval_rst
-.. note::
+```{note}
    This is a reduced version and does not represent the entirety of the contained functions.
 ```
 
@@ -639,8 +625,7 @@ This will define which methods have to be implemented and `_engine` as the acces
 `SimWrapperSession` and `DbWrapperSession` further specify the behaviour of wrappers, defining the methods that 
 trigger an action on the backend (`run` and `commit`, respectively).
 
-```eval_rst
-.. note::
+```{note}
    You might have noticed that the semantic layer defines :code:`remove` in the API,
    but in the session and registry we use :code:`delete`. The different between them
    is conceptual: :code:`remove` is interpreted as detachment i.e. removal of edges,

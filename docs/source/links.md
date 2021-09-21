@@ -16,7 +16,7 @@ Technologies used:
 # Acknowledgements
 SimPhoNy OSP-core and wrappers development is supported by the following Grants:
 
-```eval_rst
+```{eval-rst}
 =============  ============  ===============================   ==================
 Project        Programme     Call ID                           Grant Agreement ID
 =============  ============  ===============================   ==================
@@ -48,7 +48,7 @@ demonstrated under the project https://github.com/simphony/simphony-common.
 # Compatibility table
 The following table describes the compatibilities between of SimPhoNy docs and OSP-core.
 
-```eval_rst
+```{eval-rst}
 
 .. table::
    :align: center

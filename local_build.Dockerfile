@@ -8,7 +8,7 @@ RUN apt-get install -y texlive-latex-recommended \
                        latexmk
 
 WORKDIR /app
-ADD . .
+ADD requirements.txt .
 
 RUN pip install -r requirements.txt
 

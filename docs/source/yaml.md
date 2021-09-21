@@ -2,8 +2,7 @@
 
 This file describes how you can create ontologies using YAML.
 
-```eval_rst
-.. tip::
+```{tip}
    If you have an ontology where all entity names are in ALL_UPPERCASE,
    you can use the commandline tool `yaml2camelcase` that is shipped with
    OSP-core to transform it to an ontology with CamelCase entity names.
@@ -157,8 +156,7 @@ It can additionally have the following keys:
 >
 > For example: The datatype of entity numberOfOccurrences is INT.
 
-> ```eval_rst
->.. note::
+> ```{note}
 >   The implementation of the vectors is experimental and will be updated as soon as 
 >   EMMO has established an appropriate wait of representing them
 > ```

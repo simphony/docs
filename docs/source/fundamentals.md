@@ -12,8 +12,7 @@ take care of the conversion on their own.
 Based on how tools communicate with other tools, we can define 3 levels:
 
 #### Compatibility
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: Compatibility
 
@@ -44,8 +43,7 @@ Based on how tools communicate with other tools, we can define 3 levels:
   However, `A` has no way to talk with `C` or `D`, for example.
 
 #### De Facto Standard
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: De Facto Standard
 
@@ -77,8 +75,7 @@ Based on how tools communicate with other tools, we can define 3 levels:
   and `A` will convert it to a format that `C` understands.
 
 #### Interoperability
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: Interoperability
 
@@ -128,11 +125,9 @@ Interoperability between software tools is one of the most important objectives 
   is one of the principles of SimPhoNy. For achieving this goal, ontologies play a major role.
 
 ### Ontology
-```eval_rst
-.. important::
-   An ontology is a formal specification of a shared conceptualization.  `[Borst, 1997]
-   <https://research.utwente.nl/en/publications/construction-of-engineering-ontologies-for-knowledge-sharing-and->`_ .
-
+```{important}
+   An ontology is a formal specification of a shared conceptualization.
+   [[Borst, 1997]](https://research.utwente.nl/en/publications/construction-of-engineering-ontologies-for-knowledge-sharing-and-)
 ```
 
 Let's look at the individual components of this definition, starting from the end.
@@ -190,8 +185,7 @@ The graph is serialised in the form of triples of the form "subject-predicate-ob
 
 The following is an example of an RDF triple. This example will also be used to show the different serialisation formats of RDF.
 For the IRIs, `dbpedia`'s namespace was used.
-```eval_rst
-.. uml::
+```{uml}
    :align: center
    :caption: RDF triple sample
 

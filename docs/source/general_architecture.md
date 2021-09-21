@@ -1,8 +1,7 @@
 # General architecture
 The following architecture has the aim to cover and support the goals presented in the [motivation section](./motivation.md).
 
-```eval_rst
-.. uml::
+```{uml}
    :align: center
    :caption: Interoperability concept
 
@@ -57,8 +56,7 @@ that encompass all third party tools.
 
 For that, a 3 layer schema is used:
 
-```eval_rst
-.. uml::
+```{uml}
    :caption: Three layered design
    :align: center
 
