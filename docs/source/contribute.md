@@ -42,8 +42,7 @@ All wrappers and OSP-core are part of a common directory structure:
   An owner of the project should be tagged for review.
   They will review and merge the PR if the fix is correct, deleting the `issue branch` afterwards.
   The changes should be clearly explained in the issue/Pull Request.
-```eval_rst
-.. warning::
+```{warning}
    If the issue is a critical software bug detected in the stable release, a 
    :code:`hotfix branch` should be created from the :code:`master/main` branch 
    instead. 

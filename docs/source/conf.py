@@ -7,7 +7,6 @@
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 project = 'SimPhoNy'
@@ -18,7 +17,7 @@ author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
-    'recommonmark',  # markdown source support
+    'myst_parser',  # markdown source support
     'sphinx.ext.autodoc',  # API ref
     'sphinx.ext.napoleon',  # API ref Google and NumPy style
     'sphinx.ext.viewcode',  # API link to source
@@ -59,19 +58,5 @@ latex_documents = [('index',
                     "false",)]
 latex_logo = '_static/img/simphony_logo_dark.png'
 latex_elements = {'figure_align': 'H'}
-
-
-def setup(app):
-    # Configuration for recommonmark
-    app.add_config_value('recommonmark_config', {
-        # 'auto_toc_tree_section': 'Contents',
-        # 'enable_math': False,
-        # 'enable_inline_math': False,
-        'auto_toc_maxdepth': 2,
-        'enable_eval_rst': True,
-        # 'enable_auto_doc_ref': True,
-    }, True)
-    app.add_transform(AutoStructify)
-
 
 nbsphinx_allow_errors = True
