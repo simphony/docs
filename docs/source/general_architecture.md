@@ -214,7 +214,7 @@ or [one of the supported owl ontologies](owl.md).
   ```
 </details>
 
-OSP-core can be used with EMMO (European Materials and Modelling Ontology) out of the box.
+OSP-core can be used with EMMO (Elementary Multiperspective Material Ontology) out of the box.
 See more [here](ontologies_included.md).
 
 ### Python classes
