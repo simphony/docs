@@ -468,7 +468,7 @@ cuds_obj = some_namespace.OntologyClass()
    and then they are yielded like a generator
    
 ```{hint}
-   There is also an :code:`is_a` method for checking oclass inheritance.
+   There is also an `is_a` method for checking oclass inheritance.
 ```
 
 ```{note}
@@ -626,10 +626,10 @@ This will define which methods have to be implemented and `_engine` as the acces
 trigger an action on the backend (`run` and `commit`, respectively).
 
 ```{note}
-   You might have noticed that the semantic layer defines :code:`remove` in the API,
-   but in the session and registry we use :code:`delete`. The different between them
-   is conceptual: :code:`remove` is interpreted as detachment i.e. removal of edges,
-   while :code:`delete` implies the erasure of the note itself.
+   You might have noticed that the semantic layer defines `remove` in the API,
+   but in the session and registry we use `delete`. The different between them
+   is conceptual: `remove` is interpreted as detachment i.e. removal of edges,
+   while `delete` implies the erasure of the node itself.
 ```
 
 #### Buffers
