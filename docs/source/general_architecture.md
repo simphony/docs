@@ -114,7 +114,7 @@ For that, a 3 layer schema is used:
    backend -[hidden]-> spe
 ```
 
-- The *Semantic layer* are the classes generated from the ontology and follow the CUDS API.
+- The *Semantic layer* are the classes generated from the ontology with the CUDS API.
 - The *Interoperability layer* maps the changes in the semantic layer to calls in the syntactic layer.
 - The *Syntactic layer* provides access to the backend.
 
