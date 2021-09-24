@@ -12,10 +12,18 @@ take care of the conversion on their own.
 Based on how tools communicate with other tools, we can define 3 levels:
 
 #### Compatibility
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: Compatibility
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      ArrowColor #179c7d
+    }
     
     rectangle A
     rectangle B
@@ -35,10 +43,17 @@ Based on how tools communicate with other tools, we can define 3 levels:
   However, `A` has no way to talk with `C` or `D`, for example.
 
 #### De Facto Standard
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: De Facto Standard
+
+    skinparam {
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      ArrowColor #179c7d
+    }
     
     rectangle A
     rectangle B
@@ -60,10 +75,20 @@ Based on how tools communicate with other tools, we can define 3 levels:
   and `A` will convert it to a format that `C` understands.
 
 #### Interoperability
-  ```eval_rst
-  .. uml::
+  ```{uml}
     :align: center
     :caption: Interoperability
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      UsecaseBackgroundColor transparent
+      UsecaseBorderColor #55A5D9
+      ArrowColor #179c7d
+    }
     
     usecase x as "open standard"
     rectangle A
@@ -100,11 +125,9 @@ Interoperability between software tools is one of the most important objectives 
   is one of the principles of SimPhoNy. For achieving this goal, ontologies play a major role.
 
 ### Ontology
-```eval_rst
-.. important::
-   An ontology is a formal specification of a shared conceptualization.  `[Borst, 1997]
-   <https://research.utwente.nl/en/publications/construction-of-engineering-ontologies-for-knowledge-sharing-and->`_ .
-
+```{important}
+   An ontology is a formal specification of a shared conceptualization.
+   [[Borst, 1997]](https://research.utwente.nl/en/publications/construction-of-engineering-ontologies-for-knowledge-sharing-and-)
 ```
 
 Let's look at the individual components of this definition, starting from the end.
@@ -122,7 +145,7 @@ Ontologies are more elaborated than taxonomies in that they can include multiple
 (not just parent-child) between complex concepts in big domains.
 
 #### EMMO
-The European Materials Modelling Ontology ([EMMO](https://github.com/emmo-repo/EMMO)) is an ontology developed by the European Materials Modelling Council ([EMMC](https://emmc.info/)).
+The Elementary Multiperspective Material Ontology ([EMMO](https://github.com/emmo-repo/EMMO), previously the European Materials Modelling Ontology) is an ontology developed by the European Materials Modelling Council ([EMMC](https://emmc.info/)).
 EMMO's goal is to define a representational system universal for scientists in the field of materials modelling to enable interoperability.
 
 It has been designed from the bottom up, starting with the concepts of different domains and application fields 
@@ -162,10 +185,18 @@ The graph is serialised in the form of triples of the form "subject-predicate-ob
 
 The following is an example of an RDF triple. This example will also be used to show the different serialisation formats of RDF.
 For the IRIs, `dbpedia`'s namespace was used.
-```eval_rst
-.. uml::
+```{uml}
    :align: center
    :caption: RDF triple sample
+
+    skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      UsecaseBorderColor black
+      UsecaseBackgroundColor #E3E3E3
+      ArrowColor #179c7d
+    }
 
    (dbr:J._R._R._Tolkien) as tolkien
    (dbr:The_Lord_of_the_Rings) as lotr

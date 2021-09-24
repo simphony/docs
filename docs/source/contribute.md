@@ -42,24 +42,23 @@ All wrappers and OSP-core are part of a common directory structure:
   An owner of the project should be tagged for review.
   They will review and merge the PR if the fix is correct, deleting the `issue branch` afterwards.
   The changes should be clearly explained in the issue/Pull Request.
-```eval_rst
-.. warning::
+```{warning}
    If the issue is a critical software bug detected in the stable release, a 
-   :code:`hotfix branch` should be created from the :code:`master/main` branch 
+   `hotfix branch` should be created from the `master/main` branch 
    instead. 
    
    After committing to such branch, a new Pull/Merge request (targeting 
-   :code:`dev`) should be created. If the fix is correct, the project owner 
-   will merge the PR to :code:`dev`, additionally merge the 
-   :code:`hotfix branch` to :code:`master/main`, and then delete the 
-   :code:`hotfix branch`.
+   `dev`) should be created. If the fix is correct, the project owner 
+   will merge the PR to `dev`, additionally merge the 
+   `hotfix branch` to `master/main`, and then delete the 
+   `hotfix branch`.
 ```
 - Once the features for a release have been reached, `dev` will be merged to 
   `master/main`. Every new commit in the `master/main` branch generally corresponds 
-  to a new release, which is labeled with a 
+  to a new release, which is labelled with a 
   [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) matching its 
-  version number. An exception to this rule may apply, for example when several
-  critical hotfixes are applied in a row, as it would then be better to just to
+  version number. An exception to this rule may apply, for example when several 
+  critical hotfixes are applied in a row, as it would then be better to just to 
   publish a single release afterwards. In regard to version numbering, we adhere to the 
   [_Semantic versioning_](https://semver.org/) rules.
 

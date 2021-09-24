@@ -1,4 +1,4 @@
-```eval_rst
+```{eval-rst}
 .. raw:: html
 
     <h1>API Reference</h1>
@@ -7,14 +7,14 @@
 This document is for developers and/or advanced users of OSP-core, it contains all API details.
 
 ## CUDS
-```eval_rst
+```{eval-rst}
 .. autoclass:: osp.core.cuds.Cuds
     :members:
     :show-inheritance:
 ```
 
 ## Ontology interface
-```eval_rst
+```{eval-rst}
 .. autoclass:: osp.core.ontology.namespace.OntologyNamespace
     :members:
     :special-members: __getattr__, __getitem__, __contains__, __iter__, __eq__
@@ -46,7 +46,7 @@ This document is for developers and/or advanced users of OSP-core, it contains a
 ```
 
 ## Sessions
-```eval_rst
+```{eval-rst}
 .. autoclass:: osp.core.session.session.Session
     :members:
     :show-inheritance:
@@ -73,14 +73,14 @@ This document is for developers and/or advanced users of OSP-core, it contains a
 ```
 
 ## Registry
-```eval_rst
+```{eval-rst}
 .. autoclass:: osp.core.session.registry.Registry
     :members:
     :show-inheritance:
 ```
 
 ## Utilities
-```eval_rst
+```{eval-rst}
 .. automodule:: osp.core.utils
    :imported-members:
    :members:

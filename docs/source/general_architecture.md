@@ -1,15 +1,30 @@
 # General architecture
-The following architecture has the aim to cover and support the goals presented in the [motivation section](./motivation.md).
+The following architecture has the aim to cover and support the goals presented in the [overview section](overview.md).
 
-```eval_rst
-.. uml::
+```{uml}
    :align: center
    :caption: Interoperability concept
 
-   skinparam linetype ortho
+   skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      UsecaseBackgroundColor #E3E3E3
+      UsecaseBorderColor black
+      ActorBackgroundColor transparent
+      ActorBorderColor #179c7d
+      DatabaseBackgroundColor transparent
+      DatabaseBorderColor #179c7d
+      PackageBorderColor black
+      PackageBackgroundColor #9FC6DE
+      ArrowColor #179c7d
+      ranksep 10
+   }
+
+   
    actor user
    rectangle SimPhoNy {
-      usecase "OSP-core" as osp #FFFFFF
+      usecase "OSP-core" as osp
       usecase "database\nwrapper" as db_wrapper
       usecase "simulation\nwrapper" as sim_wrapper
       usecase wrapper
@@ -41,19 +56,30 @@ that encompass all third party tools.
 
 For that, a 3 layer schema is used:
 
-```eval_rst
-.. uml::
+```{uml}
    :caption: Three layered design
    :align: center
 
-   skinparam linetype ortho
+   skinparam {
+      linetype ortho   
+      Shadowing false
+      BackgroundColor transparent
+      RectangleBackgroundColor #E3E3E3
+      RectangleBorderColor black
+      ActorBackgroundColor transparent
+      ActorBorderColor #179c7d
+      DatabaseBackgroundColor transparent
+      DatabaseBorderColor #179c7d
+      PackageBorderColor #55A5D9
+      PackageBackgroundColor transparent
+      ArrowColor #179c7d
+      ranksep 10
+   }
    
    skinparam rectangle<<invisible>> {
-       backgroundColor Transparent
-       borderColor Transparent
-       titleFontColor Red
-       stereotypeFontColor Transparent
-       shadowing false
+       BorderColor Transparent
+       BackgroundColor transparent
+       stereotypeFontColor transparent
    }
    Actor user
    
@@ -88,17 +114,17 @@ For that, a 3 layer schema is used:
    backend -[hidden]-> spe
 ```
 
-- The *Semantic layer* are the classes generated from the ontology and follow the CUDS API.
+- The *Semantic layer* are the classes generated from the ontology with the CUDS API.
 - The *Interoperability layer* maps the changes in the semantic layer to calls in the syntactic layer.
 - The *Syntactic layer* provides access to the backend.
 
 The closer to the user, the closer to the ontology concepts.
 The abstraction is replaced by specificity when you move towards the backend.
 
-For example, the City, Street or Neighborhood classes from the demonstrative [City Ontology](./ontologies_included.md#the-city-ontology) included in OSP-core, as well as the individuals that can be instantiated using them, would be part of the semantic layer. Any wrapper (e.g. the included [SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)), would be part of the interoperability layer. Finally, following the SQLite example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html) from python would be part of the syntactic layer.
+For example, the City, Street or Neighborhood classes from the demonstrative [City Ontology](ontologies_included.md#the-city-ontology) included in OSP-core, as well as the individuals that can be instantiated using them, would be part of the semantic layer. Any wrapper (e.g. the included [SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)), would be part of the interoperability layer. Finally, following the SQLite example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html) from python would be part of the syntactic layer.
 
 
-For a full explanation on the architecture and design, go to [detailed design](./detailed_design.md).
+For a full explanation on the architecture and design, go to [detailed design](detailed_design.md).
 
 ## OSP-core
 [OSP-core](https://github.com/simphony/osp-core) is the main component of the SimPhoNy framework.
@@ -186,7 +212,7 @@ or [one of the supported owl ontologies](owl.md).
   ```
 </details>
 
-OSP-core can be used with EMMO (European Materials and Modelling Ontology) out of the box.
+OSP-core can be used with EMMO (Elementary Multiperspective Material Ontology) out of the box.
 See more [here](ontologies_included.md).
 
 ### Python classes
@@ -215,4 +241,4 @@ Since each backend is different, for more detailed documentation of each wrapper
 we suggest going through the different available [repositories](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
 
 For more technical information regarding wrappers, particularly for wrapper developers, 
-we recommend visiting [wrapper development](./wrapper_development.md).
+we recommend visiting [wrapper development](wrapper_development.md).

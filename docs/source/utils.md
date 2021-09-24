@@ -114,8 +114,7 @@ and another one as a [dot](https://www.graphviz.org/pdf/dotguide.pdf) graph ([cu
 
 Another useful dot graph visualisation tool called [ontology2dot](#ontology2dot) is available for ontology YML files.
 
-```eval_rst
-.. warning::
+```{warning}
    The graphic visualisation tools that generate a dot file require Graphviz to be installed in the system.
 ```
 

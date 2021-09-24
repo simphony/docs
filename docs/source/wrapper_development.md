@@ -109,10 +109,21 @@ Your new wrapper session would be located of the OSP-core box,
 together among other wrapper sessions like the Simlammps, Sqlite or SqlAlchemy 
 sessions.
 
-```eval_rst
-.. uml::
+```{uml}
   :caption: Simplified session inheritance scheme
   :align: center
+
+  skinparam {
+    Shadowing false
+    BackgroundColor transparent
+    ClassBackgroundColor #E3E3E3
+    ClassBorderColor black
+    PackageBorderColor black
+    PackageBackgroundColor #9FC6DE
+    ArrowColor #179c7d
+    NoteBackgroundColor transparent
+    NoteBorderColor black
+  }
 
   rectangle "OSP-core" as OSP {
     abstract class Session {

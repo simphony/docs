@@ -24,4 +24,4 @@ jobs:
         pip install wheel
         pip install -r requirements.txt
     - name: Build docs
-      run: python setup.py install
+      run: sphinx-build docs/source docs/build/html
