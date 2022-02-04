@@ -25,8 +25,7 @@ or a [conda](https://docs.conda.io/en/latest/) environment.
 
 Unfortunately, OSP-core is not available on the Anaconda Repository, so 
 in both cases, after setting up the environment, it must be installed with 
-`pip install 
-osp-core`.
+`pip install osp-core`.
 
 After installing OSP-core, you can install your ontology namespaces.
 We provide the tool [`pico`](./utils.md#pico-installs-cuds-ontologies)
