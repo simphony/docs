@@ -1,8 +1,8 @@
 # Utilities
-In this section we will compile a list of useful utility functions, tools and examples of their usage.
-This functions are part of OSP-core and are used as an extension of the [main API](./detailed_design#cuds-api).
+In this section we compile a list of useful utility functions, tools and examples of their usage.
+These functions are part of OSP-core and are used as an extension of the [main API](./detailed_design#cuds-api).
 
-## Pico Installs Cuds Ontologies
+## pico (Pico Installs Cuds Ontologies)
 Our tool for installing ontologies is called `pico`.
 It is a recursive acronym that stands for _Pico Installs Cuds Ontologies_.
 
@@ -14,13 +14,16 @@ There are 3 main things that can be done with pico:
 There are different possible levels of log available, and they can be set via
 `--log-level <ERROR|WARNING|INFO|DEBUG>`. The default value is `INFO`.
 
-### Pico installs
-_Usage:_ `pico install <path/to/ontology.yml>|city|cuba`
+### pico installs
+_Usage:_ 
+- `pico install <path/to/ontology_yml_file.yml>`
+- `pico install <path/to/ontology_yml_file1.yml> <path/to/ontology_yml_file2.yml> ...`
+- `pico install city foaf emmo dcat2` (the installation of these specific 
+  well-known ontologies is available via this shortcut)
 
 _Behaviour:_ 
-- The ontology file is parsed, and the entities mapped to python objects.
-- The python classes can be imported via their namespace
-  `from osp.core.namespaces import namespace`
+- The ontology file is parsed, and the entities mapped to Python objects.
+- The Python objects can be imported via their namespace `from osp.core.namespaces import namespace`.
 
 _Example:_
 ```console
@@ -32,12 +35,13 @@ INFO [osp.core.ontology.parser]: Loaded 367 ontology triples in total
 INFO [osp.core.ontology.installation]: Installation successful
 ```
 
-### Pico lists
+### pico lists
 _Usage:_ `pico list`
 
 _Behaviour:_ 
 - The installed namespaces and packages are printed out. A package can be
-uninstalled and can contain many namespaces. A namespace can be imported in code.
+uninstalled and can contain many namespaces. A namespace can be imported 
+  within the Python shell.
 
 _Example:_
 ```console
@@ -55,16 +59,18 @@ Namespaces:
         - city
 ```
 
-### Pico uninstalls
-_Usage:_ `pico uninstall <package>|all`.
-Note that to select all the packages, `all` must be quoted.
+### pico uninstalls
+_Usage:_ 
+- `pico uninstall <package>`
+- `pico uninstall all`
 
 _Behaviour:_ 
-- All installed packages / namespaces are uninstalled.
-- All namespaces except the uninstalled ones are re-installed.
+- The specified packages are uninstalled.
+- All packages except the uninstalled ones are re-installed.
 
 _Example:_
 ```console
+(venv) user@PC:~$ pico uninstall city
 INFO [osp.core.ontology.installation]: Will install the following namespaces: ['qe']
 INFO [osp.core.ontology.yml.yml_parser]: Parsing YAML ontology file /home/<username>/.osp_ontologies/qe.yml
 INFO [osp.core.ontology.yml.yml_parser]: You can now use `from osp.core.namespaces import qe`.
@@ -95,6 +101,41 @@ For example:
 ```shell
 python -m osp.core.pico install city
 ```
+
+### Using pico as a Python module
+
+Pico can also be used within the Python shell. In particular, four functions 
+`install`, `uninstall`, `packages` and `namespaces` are 
+available to be imported from the `osp.core.pico` module.
+
+```python
+from osp.core.pico import install, namespaces, packages, uninstall
+```
+
+Each function is used in a similar way to its command-line counterpart.
+
+- `install`: accepts _one or more_ positional arguments of string
+type, which can be either paths to `yml` ontology installation files or 
+names of ontologies that can be installed via this shortcut. It is meant to 
+clone the 
+[behavior of its command-line counterpart](https://simphony.readthedocs.io/en/latest/utils.html#pico-installs).
+
+- `uninstall`: accepts _one or more_ positional arguments of string type, 
+  which must be names of already installed ontology packages. It also 
+  clones the [behavior of its command-line counterpart](https://simphony.readthedocs.io/en/latest/utils.html#pico-uninstalls).
+
+- `packages`: accepts no arguments and returns an [iterator](https://wiki.python.org/moin/Iterator) 
+   over the names of the installed packages.
+
+- `namespaces`: accepts no arguments and returns an iterator yielding one 
+  [`OntologyNamespace` object](https://simphony.readthedocs.io/en/latest/api_ref.html#osp.core.ontology.namespace.OntologyNamespace) for each installed namespace.
+
+Usage examples:
+
+- `install('city', 'path/to/ontology_yml_file.yml')`, `install('foaf', 'dcat2')`
+- `uninstall('city', 'foaf')`
+- `print(list(packages()))`
+- `print(list(namespaces()))`
 
 ## Tips and tricks
 The following are some utility functions and shortcuts for working with cuds.
