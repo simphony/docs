@@ -1,6 +1,7 @@
 # Utilities
 In this section we will compile a list of useful utility functions, tools and examples of their usage.
-This functions are part of OSP-core and are used as an extension of the [main API](./detailed_design#cuds-api).
+These functions are part of OSP-core and are used as an extension of the 
+[main API](./detailed_design.md#cuds-api).
 
 ## Pico Installs Cuds Ontologies
 Our tool for installing ontologies is called `pico`.

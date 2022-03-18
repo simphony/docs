@@ -1,38 +1,28 @@
 # Included ontologies
 
-## The City ontology
+As described on the [working with ontologies](../working_with_ontologies.md),
+section, to use an ontology you first have to install it, and to do so 
+usually you have either to define a `yml` configuration file (for OWL 
+ontologies and RDFS vocabularies) or provide the ontology in the OSP-core 
+YAML ontology format. 
 
-OSP-core currently ships with two ontologies.
-The first one, called `city` is a simple example ontology.
-You can use it to play around and get familiar with OSP-core.
-We will also use it a lot in this documentation as an example.
+However, in order to make using ontologies easier, we bundle a few of these 
+files with OSP-core to enable rapid installation of common, 
+well-known ontologies.
 
-The city ontology provides the concepts to describe people and
-buildings in a city. In this graph we show the different entities in the
-ontology. We used [Ontology2Dot](utils.md#ontology2dot) for that:
+Do not hesitate to contact us if you want your ontology to be shipped with 
+SimPhoNy.
 
-![ontology2dot sample image](_static/img/ontology2dot.png)
+## Elementary Multiperspective Material Ontology (EMMO) 
 
-To use the city ontology you have to install it using the tool [Pico](utils.md#pico-installs-cuds-ontologies):
-
-```sh
-pico install city
-```
-
-Take a look at our [examples](jupyter/cuds_api.md) to see how you can build your own city!
-
-## Working with EMMO
-
-The second ontology that is ready to be used out of the box is the Elementary Multiperspective Material Ontology,
-or EMMO in short. For a short introduction, see the [fundamentals](fundamentals.md#emmo).
-
-You can install EMMO using [Pico](utils.md#pico-installs-cuds-ontologies).
+For a short introduction on this ontology, see the [fundamentals](fundamentals.md#emmo). 
+You can install EMMO using [Pico](utils.md#pico-installs-cuds-ontologies),
 
 ```sh
 pico install emmo
 ```
 
-Start creating cuds objects:
+and then just start creating cuds objects
 
 ```py
 >>> from osp.core.namespaces import math
@@ -45,7 +35,55 @@ Start creating cuds objects:
 12
 ```
 
-## More ontologies
+## Dublin Core Metadata Initiative (DCMI)
 
-To create you own or use an existing ontology, see the upcoming sections.
-Contact us, if you want your ontology to be shipped with SimPhoNy.
+The `dcmitype` and `dcterms` RDFS vocabularies from the [Dublin Core 
+Metadata Initiative (DCMI)](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+can be quickly installed using
+
+```sh
+pico install dcmitype dcterms
+```
+
+Note that due to the fact that OSP-core [does not support RDFS properties](working_with_ontologies.html#limitations), 
+properties in these two vocabularies will be ignored by OSP-core. Only the 
+classes will be detected.
+
+## Data Catalog Vocabulary - Version 2 (DCAT2)
+
+To install the DCAT2 ontology, use
+
+```sh
+pico install dcat2 dcterms foaf prov 
+```
+
+Just installing `dcat2` will fail, as it depends on the `dcterms`, `foaf` 
+and `prov` vocabularies.
+
+## Friend of a Friend (FOAF)
+
+To install the [FOAF ontology](http://xmlns.com/foaf/spec/), use
+
+```sh
+pico install foaf
+```
+
+## The PROV Ontology (PROV-O)
+
+To install the [PROV-O ontology](https://www.w3.org/TR/prov-o/), use
+
+```sh
+pico install prov
+```
+
+## The City Ontology (city)
+
+It is a simple, example ontology included with OSP-core. It can be 
+installed as follows.
+
+```sh
+pico install city
+```
+
+Click [here](ontology_intro.html#an-example-the-city-ontology) 
+for more details on this ontology.
