@@ -1,9 +1,9 @@
 # How to work with ontologies
 
 OSP-core supports ontologies in the following formats:
-- OWL ontologies
-- RDFS vocabularies _(very limited support)_
-- OSP-core YAML ontology format
+- [OWL ontologies](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies)
+- [RDFS vocabularies](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies) (_[limited support](#rdfs-vocabularies)_)
+- [OSP-core YAML ontology format](working_with_ontologies.md#osp-core-yaml-ontology-format)
 
 ## OWL ontologies and RDFS vocabularies
 
@@ -87,7 +87,12 @@ pico install </path/to/name.yml>
 
 ### Limitations
 
-At the moment, not all predicates of OWL ontologies are taken into 
+At the moment, there are a few limitations on the supported features of OWL 
+ontologies and RDFS vocabularies.
+
+#### OWL ontologies
+
+Not all predicates of OWL ontologies are taken into 
 consideration. Among the used ones are:
 
 - `RDF.type` to determine the type of the entities.
@@ -113,6 +118,8 @@ future.
 
 We try to extend this list over time and support more of the
 OWL DL standard.
+
+#### RDFS vocabularies
 
 With respect to RDFS vocabularies, the `RDFS.Class` predicate is supported, 
 but the `RDFS.Property` predicate is not. This means that the main 
