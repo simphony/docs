@@ -77,9 +77,9 @@ installation
 :caption: Usage Guide
 :maxdepth: 2
 
+utils
 jupyter/cuds_api
 jupyter/sessions_and_vars
-utils
 jupyter/multiple_wrappers
 jupyter/import_export
 jupyter/simlammps
@@ -92,9 +92,8 @@ jupyter/quantum_espresso
 :maxdepth: 2
 
 ontology_intro
+working_with_ontologies
 ontologies_included
-yaml
-owl
 jupyter/ontology_interface
 ```
 
