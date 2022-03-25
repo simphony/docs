@@ -6,15 +6,20 @@ These functions are part of OSP-core and are used as an extension of the [main A
 Our tool for installing ontologies is called `pico`.
 It is a recursive acronym that stands for _Pico Installs Cuds Ontologies_.
 
-There are 3 main things that can be done with pico:
+There are 3 main operations that can be done with pico:
 - Install ontologies.
 - List the installed ontologies.
 - Remove installed ontologies.
 
-There are different possible levels of log available, and they can be set via
+`pico` can be used both from the [command-line](utils.md#using-pico-from-the-command-line)
+and [as a Python module within the Python shell](utils.md#using-pico-as-a-python-module).
+
+### Using pico from the command line
+
+There are different possible logging levels available, and they can be set via
 `--log-level <ERROR|WARNING|INFO|DEBUG>`. The default value is `INFO`.
 
-### pico installs
+#### pico installs
 _Usage:_ 
 - `pico install <path/to/ontology_yml_file.yml>`
 - `pico install <path/to/ontology_yml_file1.yml> <path/to/ontology_yml_file2.yml> ...`
@@ -35,7 +40,7 @@ INFO [osp.core.ontology.parser]: Loaded 367 ontology triples in total
 INFO [osp.core.ontology.installation]: Installation successful
 ```
 
-### pico lists
+#### pico lists
 _Usage:_ `pico list`
 
 _Behaviour:_ 
@@ -59,7 +64,7 @@ Namespaces:
         - city
 ```
 
-### pico uninstalls
+#### pico uninstalls
 _Usage:_ 
 - `pico uninstall <package>`
 - `pico uninstall all`
@@ -78,17 +83,7 @@ INFO [osp.core.ontology.parser]: Loaded 205 ontology triples in total
 INFO [osp.core.ontology.installation]: Uninstallation successful
 ```
 
-### Ontology installation folder
-
-The installed ontologies are stored in the directory `~/.osp-ontologies` by 
-default. On Windows, `~` usually refers to the path 
-`C:\Users\<my username>`.
-
-The installation directory can be changed by setting the
-environment variable `OSP_ONTOLOGIES_DIR`. Such action would move it to 
-`$OSP_ONTOLOGIES_DIR/.osp-ontologies`.
-
-### Conflicts with other "pico" installations
+#### Conflicts with other "pico" installations
 Some Operating Systems might have a pre-existing tool called _pico_.
 In most cases, the previous commands should work, but if any problem arises,
 you can use the following alternative:
@@ -104,13 +99,16 @@ python -m osp.core.pico install city
 
 ### Using pico as a Python module
 
-Pico can also be used within the Python shell. In particular, four functions 
-`install`, `uninstall`, `packages` and `namespaces` are 
-available to be imported from the `osp.core.pico` module.
+`pico` can also be used within the Python shell. In particular, four 
+functions are available to be imported from the `osp.core.pico` module,
 
 ```python
 from osp.core.pico import install, namespaces, packages, uninstall
 ```
+
+that cover the three main operations that pico is meant to perform: installing 
+ontologies (`install`), uninstalling ontologies (`uninstall`), and listing the 
+installed ontologies (`packages`, `namespaces`).
 
 Each function is used in a similar way to its command-line counterpart.
 
@@ -136,6 +134,16 @@ Usage examples:
 - `uninstall('city', 'foaf')`
 - `print(list(packages()))`
 - `print(list(namespaces()))`
+
+### Ontology installation folder
+
+The installed ontologies are stored in the directory `~/.osp-ontologies` by 
+default. On Windows, `~` usually refers to the path 
+`C:\Users\<my username>`.
+
+The installation directory can be changed by setting the
+environment variable `OSP_ONTOLOGIES_DIR`. Such action would move it to 
+`$OSP_ONTOLOGIES_DIR/.osp-ontologies`.
 
 ## Tips and tricks
 The following are some utility functions and shortcuts for working with cuds.
