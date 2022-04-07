@@ -85,3 +85,9 @@ This document is for developers and/or advanced users of OSP-core, it contains a
    :imported-members:
    :members:
 ```
+
+### pico
+```{eval-rst}
+.. automodule:: osp.core.pico
+   :members: install, uninstall, packages, namespaces
+```
