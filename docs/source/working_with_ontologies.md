@@ -1,13 +1,14 @@
 # How to work with ontologies
 
 OSP-core supports ontologies in the following formats:
+
 - [OWL ontologies](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies)
 - [RDFS vocabularies](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies) (_[limited support](#rdfs-vocabularies)_)
 - [OSP-core YAML ontology format](working_with_ontologies.md#osp-core-yaml-ontology-format)
 
 ## OWL ontologies and RDFS vocabularies
 
-To install OWL ontologies or RDFS vocabularies in OSP-core, you have to 
+To install OWL ontologies or RDFS vocabularies in OSP-core, you have to
 create a configuration yaml file similar to the following one:
 
 ```yaml
@@ -16,25 +17,25 @@ ontology_file: https://raw.githubusercontent.com/emmo-repo/EMMO/master/emmo-infe
 format: turtle
 reference_by_label: True
 namespaces:
-    mereotopology: http://emmo.info/emmo/top/mereotopology
-    physical: http://emmo.info/emmo/top/physical
-    top: http://emmo.info/emmo/top
-    semiotics: http://emmo.info/emmo/top/semiotics
-    perceptual: http://emmo.info/emmo/middle/perceptual
-    reductionistic: http://emmo.info/emmo/middle/reductionistic
-    holistic: http://emmo.info/emmo/middle/holistic
-    physicalistic: http://emmo.info/emmo/middle/physicalistic
-    math: http://emmo.info/emmo/middle/math
-    properties: http://emmo.info/emmo/middle/properties
-    materials: http://emmo.info/emmo/middle/materials
-    metrology: http://emmo.info/emmo/middle/metrology
-    models: http://emmo.info/emmo/middle/models
-    manufacturing: http://emmo.info/emmo/middle/manufacturing
-    isq: http://emmo.info/emmo/middle/isq
-    siunits: http://emmo.info/emmo/middle/siunits
+  mereotopology: http://emmo.info/emmo/top/mereotopology
+  physical: http://emmo.info/emmo/top/physical
+  top: http://emmo.info/emmo/top
+  semiotics: http://emmo.info/emmo/top/semiotics
+  perceptual: http://emmo.info/emmo/middle/perceptual
+  reductionistic: http://emmo.info/emmo/middle/reductionistic
+  holistic: http://emmo.info/emmo/middle/holistic
+  physicalistic: http://emmo.info/emmo/middle/physicalistic
+  math: http://emmo.info/emmo/middle/math
+  properties: http://emmo.info/emmo/middle/properties
+  materials: http://emmo.info/emmo/middle/materials
+  metrology: http://emmo.info/emmo/middle/metrology
+  models: http://emmo.info/emmo/middle/models
+  manufacturing: http://emmo.info/emmo/middle/manufacturing
+  isq: http://emmo.info/emmo/middle/isq
+  siunits: http://emmo.info/emmo/middle/siunits
 active_relationships:
-    - http://emmo.info/emmo/top/mereotopology#EMMO_8c898653_1118_4682_9bbf_6cc334d16a99
-    - http://emmo.info/emmo/top/semiotics#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
+  - http://emmo.info/emmo/top/mereotopology#EMMO_8c898653_1118_4682_9bbf_6cc334d16a99
+  - http://emmo.info/emmo/top/semiotics#EMMO_60577dea_9019_4537_ac41_80b0fb563d41
 default_relationship: http://emmo.info/emmo/top/mereotopology#EMMO_17e27c22_37e1_468c_9dd7_95e137f73e7f
 ```
 
@@ -48,15 +49,15 @@ that contains multiple namespaces. Will be used for uninstallation: `pico uninst
 have executed a reasoner on your ontology, e.g. by using the `Export inferred axioms`
 functionality of [Protégé](https://protege.stanford.edu/).
 
-**format** (optional): File format of the ontology file to be parsed. We 
+**format** (optional): File format of the ontology file to be parsed. We
 support all the
 formats that
 [RDFLib](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html) supports:
-XML (`xml`, `application/rdf+xml`, default), Turtle (`turtle`, `ttl`, 
-`text/turtle`), N3 (`n3`,`text/n3`), NTriples (`nt`, `nt11`, 
-`application/n-triples`), N-Quads (`nquads`, `application/n-quads`), 
-TriX (`trix`, `application/trix`) and TriG (`trig`, `application/trig`). 
-When not provided, it will be guessed from the file extension. However, such 
+XML (`xml`, `application/rdf+xml`, default), Turtle (`turtle`, `ttl`,
+`text/turtle`), N3 (`n3`,`text/n3`), NTriples (`nt`, `nt11`,
+`application/n-triples`), N-Quads (`nquads`, `application/n-quads`),
+TriX (`trix`, `application/trix`) and TriG (`trig`, `application/trig`).
+When not provided, it will be guessed from the file extension. However, such
 guess may not always be correct.
 
 **reference_by_label** (default False): Whether the label should be used or the IRI suffix to reference
@@ -87,12 +88,12 @@ pico install </path/to/name.yml>
 
 ### Limitations
 
-At the moment, there are a few limitations on the supported features of OWL 
+At the moment, there are a few limitations on the supported features of OWL
 ontologies and RDFS vocabularies.
 
 #### OWL ontologies
 
-Not all predicates of OWL ontologies are taken into 
+Not all predicates of OWL ontologies are taken into
 consideration. Among the used ones are:
 
 - `RDF.type` to determine the type of the entities.
@@ -110,7 +111,7 @@ consideration. Among the used ones are:
   - The `RDFS.domain` of the `DatatypeProperties`, if it is a simple class.
   - Restrictions on the ontology classes.
   - Furthermore, all DataProperties are considered functional, see [this issue](https://github.com/simphony/osp-core/issues/416).
-- Restrictions and compositions are also supported. They can be consulted 
+- Restrictions and compositions are also supported. They can be consulted
   using the [`axioms` attribute of ontology classes](jupyter/ontology_interface.html#Operations-specific-to-ontology-axioms).
 
 No reasoner is included. We plan to include a reasoner in the
@@ -121,9 +122,9 @@ OWL DL standard.
 
 #### RDFS vocabularies
 
-With respect to RDFS vocabularies, the `RDFS.Class` predicate is supported, 
-but the `RDFS.Property` predicate is not. This means that the main 
-limitation when using RDFS vocabularies is that only their classes are 
+With respect to RDFS vocabularies, the `RDFS.Class` predicate is supported,
+but the `RDFS.Property` predicate is not. This means that the main
+limitation when using RDFS vocabularies is that only their classes are
 detected, but their properties are ignored.
 
 ## OSP-core YAML ontology format
@@ -167,8 +168,8 @@ pico install </path/to/my_ontology.ontology.yml>
 `namespace`: string
 
 > Defines the namespace of the current file. We recommend to use
-  all_lowercase for the namespace name, with underscore as separation.
-  All entities defined in this file will live in the namespace defined here.
+> all_lowercase for the namespace name, with underscore as separation.
+> All entities defined in this file will live in the namespace defined here.
 
 `requirements`: List[string]
 
@@ -196,11 +197,12 @@ pico install </path/to/my_ontology.ontology.yml>
 Every declaration of an ontology entity must have the following keys:
 
 `description`: string
+
 > For human consumption. An ontological short description of the carried
-> semantics. Should have the form: entity is a superclass\_entity that
+> semantics. Should have the form: entity is a superclass_entity that
 > has \<differentiating\> terms.
 >
-`subclass_of`: List[**\`\`qualified entity name\`\`**].
+> `subclass_of`: List[**\`\`qualified entity name\`\`**].
 > Its value is fixed on the ontology level.
 >
 > The subclass keyword expresses an **ontological is-a**
@@ -225,24 +227,31 @@ The CUBA namespace contains a set of Common Universal Basic entities, that have 
 The CUBA namespace is always installed in OSP-core.
 
 `cuba.Entity`
+
 > The root for all ontology classes. Does not have a superclass.
 
 `cuba.Nothing`
+
 > An ontology class, that is not allowed to have individuals.
 
 `cuba.relationship`
+
 > The root of all relationships. Does not have a superclass.
 
 `cuba.attribute`
+
 > The root of all attributes. Does not have a superclass.
 
 `cuba.Wrapper`
+
 > The root of all wrappers. These are the bridge to simulation engines and databases. See the examples in examples/.
 
 `cuba.activeRelationship`
+
 > The root of all active relationships. Active relationships express that one cuds object is in the container of another.
 
 `cuba.passiveRelationship`
+
 > The inverse of `cuba.activeRelationship`.
 
 ### Attribute format
@@ -274,7 +283,7 @@ It can additionally have the following keys:
 >   The dimensions are always fixed.
 >
 >   For example, a VECTOR:INT:4:2:1 would be: \
->   { [(a), (b)],  [(c), (d)], [(e), (f)], [(g), (h)] } \
+>   { [(a), (b)], [(c), (d)], [(e), (f)], [(g), (h)] } \
 >   where all elements (a, b, ...) are integers.
 >   (the different delimiters are only used for visual purposes).
 >   If no datatype is specified, it would be a `FLOAT` vector.
@@ -285,7 +294,7 @@ It can additionally have the following keys:
 > For example: The datatype of entity numberOfOccurrences is INT.
 
 > ```{note}
->   The implementation of the vectors is experimental and will be updated as soon as 
+>   The implementation of the vectors is experimental and will be updated as soon as
 >   EMMO has established an appropriate wait of representing them
 > ```
 
@@ -311,13 +320,15 @@ They can be either:
   It is a mapping from the **\`\`qualified entity name\`\`** of a relationship to the following keywords:
 
   `range`
+
   > A class expression describing the individuals which are object of the relationship.
 
   `cardinality`
+
   > The number of times individuals defined in `range` is allowed to be a object of the relationship.
   > To define the `cardinality` we use the following syntax:
   >
-  > - many / * / 0+ (default): Zero to infinity target objects are allowed.
+  > - many / \* / 0+ (default): Zero to infinity target objects are allowed.
   > - some / \+ / 1+: At least one target object is required.
   > - ? / 0-1: At most one target object is allowed.
   > - a+: At least a target objects are required.
@@ -325,7 +336,9 @@ They can be either:
   > - a: Exactly a target objects are required.
 
   `exclusive`
+
   > Whether the given `target` is the only allowed object.
+
 - A composition of several class expressions. For example:
 
   ```yaml
@@ -336,7 +349,7 @@ They can be either:
 
   This is the union of all individuals that are a city or a neighbourhood.
   We use the keyword `or` for union, `and` for intersection and `not` for complement.
-  After `or` and `and`, a list of  class expressions for the union / intersection is expected.
+  After `or` and `and`, a list of class expressions for the union / intersection is expected.
   After `not` a single class expression is expected.
 
 The definition of class expressions is recursive. For example:
@@ -359,6 +372,7 @@ It must have the keys described in [Ontology entities format](#ontology-entities
 It can contain further information:
 
 `attributes`: Dict[**\`\`qualified entity name\`\`**, default_value]
+
 > Expects a mapping from the **\`\`qualified entity name\`\`** of an attribute to its default.
 > Each key must correspond to a subclass of `attribute`. For example:
 >
@@ -375,38 +389,41 @@ It can contain further information:
 > If no default is given, the user is forced to specify a value each time he creates an individual.
 
 `subclass_of`: List[Class expression]
+
 > In addition to qualified entity names of classes, class expressions are also allowed.
 > These class expressions restrict the individuals allowed in the class. Only those
 > individuals are allowed that are in the intersection of the class expressions. For example:
 >
 > ```yaml
 > PopulatedPlace:
->    description:
->    subclass_of:
->    - city.GeographicalPlace
->    - city.hasInhabitant:
->        range: city.Citizen
->        cardinality: many
->        exclusive: true
+>   description:
+>   subclass_of:
+>     - city.GeographicalPlace
+>     - city.hasInhabitant:
+>         range: city.Citizen
+>         cardinality: many
+>         exclusive: true
 > ```
 >
 > Here, a populated place is a geographical place which must have citizens as inhabitants.
 
 `disjoint_with`: List[Class expression]
+
 > A list of class expressions that are not allowed to share any individuals with the cuds entity.
 
 `equivalent_to`: List[Class expression]
+
 > A list of class expressions who contain the same individuals as the cuds entity. For example:
 >
 > ```yaml
 > PopulatedPlace:
->    description:
->    equivalent_to:
->    - city.GeographicalPlace
->    - city.hasInhabitant:
->        range: city.Citizen
->        cardinality: many
->        exclusive: true
+>   description:
+>   equivalent_to:
+>     - city.GeographicalPlace
+>     - city.hasInhabitant:
+>         range: city.Citizen
+>         cardinality: many
+>         exclusive: true
 > ```
 >
 > Here every geographical place that has citizens as inhabitants is automatically a populated place.
@@ -419,6 +436,7 @@ It must have the keys described in [Ontology entities format](#ontology-entities
 Furthermore, it can contain the following information:
 
 `inverse`: **\`\`qualified entity name\`\`** or empty (None)
+
 > If CUDS object A is related to CUDS object B via relationship `rel`, then B is related
 > with A via the inverse of `rel`.
 >
@@ -427,14 +445,17 @@ Furthermore, it can contain the following information:
 > If no inverse is given, OSP-core will automatically create one.
 
 `domain`: Class expression
+
 > A class expression describing the individuals that are allowed to be a subject of the relationship.
 > If multiple class expressions are given, the relationship's domain is the intersection of the class expressions.
 
 `range`: Class expression
+
 > A class expression describing the individuals that are allowed to be object of the relationship.
 > If multiple class expressions are given, the relationship's range is the intersection of the class expression.
 
 `characteristics`: String
+
 > A list of characteristics of the relationship. The following characteristics are supported:
 >
 > - reflexive

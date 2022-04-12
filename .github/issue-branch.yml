@@ -1,11 +1,11 @@
 mode: chatops
 
-branchName: '${issue.number}-${issue.title}'
+branchName: "${issue.number}-${issue.title}"
 
 autoCloseIssue: true
 
 branches:
-  - label: '*'
+  - label: "*"
     name: dev
 
 openDraftPR: true
