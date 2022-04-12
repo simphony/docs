@@ -1,21 +1,12 @@
-# -- Path setup --------------------------------------------------------------
+"""Configuration file for the Sphinx documentation builder."""
 
-# If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. If the directory is relative to the
-# documentation root, use os.path.abspath to make it absolute, like shown here.
-#
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
-# -- Project information -----------------------------------------------------
+# Project information
 project = 'SimPhoNy'
 # Version is given in setuptools
-copyright = ('2021, Materials Data Science and '
-             'Informatics Team at Fraunhofer IWM')
-author = 'Materials Data Science and Informatics team at Fraunhofer IWM'
+copyright = '2022, Materials Informatics team at Fraunhofer IWM'
+author = 'Materials Informatics team at Fraunhofer IWM'
 
-# -- General configuration ---------------------------------------------------
+# General configuration
 extensions = [
     'myst_parser',  # markdown source support
     'sphinx.ext.autodoc',  # API ref
@@ -35,20 +26,28 @@ master_doc = 'index'
 plantuml = 'java -jar lib/plantuml.jar'
 plantuml_output_format = 'svg_img'
 
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['**.ipynb_checkpoints']
 
-# -- Options for HTML output -------------------------------------------------
-
-html_theme = 'sphinx_rtd_theme'
+# HTML output
+html_theme = 'sphinx_book_theme'
 html_favicon = '_static/img/simphony_favicon.png'
-html_logo = '_static/img/simphony_logo_light.png'
+html_logo = '_static/img/simphony_logo_dark.png'
+html_theme_options = {
+    "github_url": "https://github.com/simphony/docs",
+    "repository_url": "https://github.com/simphony/docs",
+    "use_repository_button": True,
+    "repository_branch": "main",
+    "path_to_docs": "docs",
+    "logo_only": True,
+    "show_navbar_depth": 2,
+}
+
+
 html_static_path = ['_static']
+html_css_files = ["custom.css"]
 
 
-# -- Options for LaTeX output -------------------------------------------------
+# LaTeX output
 latex_documents = [('index',
                     'SimPhoNy_docs.tex',
                     'SimPhoNy documentation',
