@@ -14,3 +14,12 @@ h4 {
   background-color: #6580A1 !important;
   color: azure !important;
 }
+
+@media (min-width: 1200px) {
+	.container-xl {
+		max-width: 1550px;
+	}
+	#site-navigation {
+	    max-width: 20%;
+	}
+}
