@@ -1,9 +1,12 @@
 # Wrapper development
+
 For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://github.com/simphony/wrapper-development).
 For a tutorial on creating a simple wrapper, there is a [jupyter notebook](jupyter/wrapper_development.md) available.
+
 ## Ontology
+
 The end goal is to build one, unique and standard ontology with all the relevant entities and relationships.
-This ontology could use modules where the entities regarding a certain domain are present. 
+This ontology could use modules where the entities regarding a certain domain are present.
 
 However, for the development of a wrapper, it is usually more practical to create a minimal temporary ontology
 with the entities required by a wrapper. Once the development is in a more stable stage, the development and merge
@@ -21,92 +24,93 @@ These are the requirements for a minimal wrapper ontology:
 <details>
   <summary>Dummy ontology sample</summary>
 
-  ```yaml
-  ---
-  version: "M.m"
+```yaml
+---
+version: "M.m"
 
-  author: Parmenides <parmenides@ontology.creator>
+author: Parmenides <parmenides@ontology.creator>
 
-  namespace: some_new_wrapper_ontology
+namespace: some_new_wrapper_ontology
 
-  ontology:
-
-    aRelationship:
-      description: "default relationship"
-      subclass_of:
+ontology:
+  aRelationship:
+    description: "default relationship"
+    subclass_of:
       - cuba.activeRelationship
-      inverse: some_new_wrapper_ontology.pihsnoitalerA
-      default_rel: true
+    inverse: some_new_wrapper_ontology.pihsnoitalerA
+    default_rel: true
 
-    pihsnoitalerA:
-      description: "inverse of the default relationship"
-      subclass_of:
-      -  cuba.passiveRelationship
-      inverse: some_new_wrapper_ontology.aRelationship
+  pihsnoitalerA:
+    description: "inverse of the default relationship"
+    subclass_of:
+      - cuba.passiveRelationship
+    inverse: some_new_wrapper_ontology.aRelationship
 
   ################
 
-    SomeNewWrapper:
-      subclass_of: 
-      -  cuba.Wrapper
+  SomeNewWrapper:
+    subclass_of:
+      - cuba.Wrapper
 
-    value:
-      subclass_of:
-      -  cuba.attribute
+  value:
+    subclass_of:
+      - cuba.attribute
 
-    SomeEntity:
-      subclass_of:
-      -  cuba.Entity
+  SomeEntity:
+    subclass_of:
+      - cuba.Entity
+```
 
-  ```
 </details>
 
 ## Coding
+
 An advantage of the [3-layered-design](./getting_started.md#general-architecture) that we follow is the modularity and conceptual separation.
 The closer to the user, the higher the abstraction.
 
 This allows us to group and clearly define which components should and which ones should not be modified when creating a new wrapper.
 
- - [Semantic layer](./detailed_design.md#semantic-layer): 
-   Requires no work.
-   As presented in the previous section, only an entity representing the wrapper has to be present in the ontology.
+- [Semantic layer](./detailed_design.md#semantic-layer):
+  Requires no work.
+  As presented in the previous section, only an entity representing the wrapper has to be present in the ontology.
 
- - [Interoperability layer](./detailed_design.md#interoperability-layer):
-   - [Session class](./detailed_design.md#session): 
-     Represents the bulk of the work that a wrapper developer needs to do.
-     A new class inheriting from the appropriate Session Abstract Base Class must be coded.
-     It should at least implement all the inherited abstract methods.
-     - `__str__(self)`: String representation of the wrapper.
-     - `_apply_added(self, root_obj, buffer)`: Add all the elements in `buffer` to the engine.
-     - `_apply_updated(self, root_obj, buffer)`: Update all the elements in `buffer` in the engine.
-     - `_apply_deleted(self, root_obj, buffer)`: Remove all the elements in `buffer` from the engine.
-     - `_load_from_backend(self, uids, expired=None)`: Loads the given uids (and the dependant entities)
-       with the latest information from the backend.
-       Only loads the directly related information, not all the children recursively.
-       This method _must_ be implemented for a wrapper to work.
-     - Specific for a simulation:
-       - `_run(self, root_cuds_object)`: Call the run method on the simulation.
-     - Specific for a database:
-       - `_initialize(self)`: Initialise the database.
-       - `_load_first_level(self)`: Load the first level of children from the root from the database.
-       - `_init_transaction(self)`: Start the transaction.
-       - `_rollback_transaction(self)`: Rollback the transaction.
-       - `close(self)`: Close the connection.
+- [Interoperability layer](./detailed_design.md#interoperability-layer):
 
- - [Syntactic layer](./detailed_design.md#syntactic-layer): 
-   If none is available, one must be developed.
+  - [Session class](./detailed_design.md#session):
+    Represents the bulk of the work that a wrapper developer needs to do.
+    A new class inheriting from the appropriate Session Abstract Base Class must be coded.
+    It should at least implement all the inherited abstract methods.
+    - `__str__(self)`: String representation of the wrapper.
+    - `_apply_added(self, root_obj, buffer)`: Add all the elements in `buffer` to the engine.
+    - `_apply_updated(self, root_obj, buffer)`: Update all the elements in `buffer` in the engine.
+    - `_apply_deleted(self, root_obj, buffer)`: Remove all the elements in `buffer` from the engine.
+    - `_load_from_backend(self, uids, expired=None)`: Loads the given uids (and the dependant entities)
+      with the latest information from the backend.
+      Only loads the directly related information, not all the children recursively.
+      This method _must_ be implemented for a wrapper to work.
+    - Specific for a simulation:
+      - `_run(self, root_cuds_object)`: Call the run method on the simulation.
+    - Specific for a database:
+      - `_initialize(self)`: Initialise the database.
+      - `_load_first_level(self)`: Load the first level of children from the root from the database.
+      - `_init_transaction(self)`: Start the transaction.
+      - `_rollback_transaction(self)`: Rollback the transaction.
+      - `close(self)`: Close the connection.
 
-To facilitate the creation of the session class on the interoperability layer, 
+- [Syntactic layer](./detailed_design.md#syntactic-layer):
+  If none is available, one must be developed.
+
+To facilitate the creation of the session class on the interoperability layer,
 there are several session abstract base classes that you can make your session
-inherit from, which already include some additional generic functions common to a few 
+inherit from, which already include some additional generic functions common to a few
 typical applications: databases, triplestores and simulation engines.
 
-On the diagram below, you may observe a simplified session inheritance scheme 
-for OSP-core. As a wrapper developer, you will most probably want to inherit 
-from one of following abstract classes: `WrapperSession`, `DbWrapperSession`, 
-`TripleStoreWrapperSession`, `SqlWrapperSession`,  or `SimWrapperSession`. 
-Your new wrapper session would be located of the OSP-core box, 
-together among other wrapper sessions like the Simlammps, Sqlite or SqlAlchemy 
+On the diagram below, you may observe a simplified session inheritance scheme
+for OSP-core. As a wrapper developer, you will most probably want to inherit
+from one of following abstract classes: `WrapperSession`, `DbWrapperSession`,
+`TripleStoreWrapperSession`, `SqlWrapperSession`, or `SimWrapperSession`.
+Your new wrapper session would be located of the OSP-core box,
+together among other wrapper sessions like the Simlammps, Sqlite or SqlAlchemy
 sessions.
 
 ```{uml}
@@ -141,13 +145,13 @@ sessions.
     abstract class DbWrapperSession extends WrapperSession {
       commit()
     }
-    
+
     abstract class TripleStoreWrapperSession extends DbWrapperSession {
     }
 
     abstract class SqlWrapperSession extends TripleStoreWrapperSession {
     }
-    
+
     abstract class SimWrapperSession extends WrapperSession {
       run()
     }
@@ -162,7 +166,7 @@ sessions.
     class SqlAlchemyWrapperSession implements SqlWrapperSession {
     }
   }
-  
+
   rectangle "Your wrapper" as yourwrapper {
     class YourSession{
     }
@@ -196,6 +200,7 @@ sessions.
 ```
 
 ## Engine installation
+
 Most engines will require some sort of compilation or installation before being able to use them through Python.
 
 To facilitate the installation of the backend to the end users, a shell script with the necessary commands should be made available.
@@ -204,77 +209,79 @@ It is also recommended to split the installation of the engine from the installa
 <details>
   <summary>Sample install_engine_requirements.sh</summary>
 
-  ```shell
-    #!/bin/bash
-    #
-    # Author: Ada Lovelace <ada.lovelace@programmer.algorithm>
-    #
-    # Description: This script install the requirements for some engine
-    #              Used as part of the installation for SomeWrapper.
-    #
-    # Run Information: This script is called by install_engine.sh
+```shell
+  #!/bin/bash
+  #
+  # Author: Ada Lovelace <ada.lovelace@programmer.algorithm>
+  #
+  # Description: This script install the requirements for some engine
+  #              Used as part of the installation for SomeWrapper.
+  #
+  # Run Information: This script is called by install_engine.sh
 
-    echo "Installing necessary requirements for the engine"
-    platform=$(python3 -mplatform)
+  echo "Installing necessary requirements for the engine"
+  platform=$(python3 -mplatform)
 
-    case $platform in
-      *"Ubuntu"*)
-        sudo apt-get update
-        sudo apt-get install cmake
-      ;;
-      *"centos"*)
-        sudo yum update
-        sudo yum install make -y
-        sudo yum install cmake -y
-      ;;
-      # Add other platforms here
-    esac
+  case $platform in
+    *"Ubuntu"*)
+      sudo apt-get update
+      sudo apt-get install cmake
+    ;;
+    *"centos"*)
+      sudo yum update
+      sudo yum install make -y
+      sudo yum install cmake -y
+    ;;
+    # Add other platforms here
+  esac
 
-  ```
+```
+
 </details>
 
 <details>
   <summary>Sample install_engine.sh</summary>
 
-  ```shell
-    #!/bin/bash
-    #
-    # Author: Ada Lovelace <ada.lovelace@programmer.algorithm>
-    #
-    # Description: This script installs SomeEngine and its Python binding
-    #              Used as part of the installation for SomeWrapper.
-    #
-    # Run Information: This script is run manually.
+```shell
+  #!/bin/bash
+  #
+  # Author: Ada Lovelace <ada.lovelace@programmer.algorithm>
+  #
+  # Description: This script installs SomeEngine and its Python binding
+  #              Used as part of the installation for SomeWrapper.
+  #
+  # Run Information: This script is run manually.
 
-    ###################################
-    ### Install engine requirements ###
-    ###################################
-    ./install_engine_requirements.sh
+  ###################################
+  ### Install engine requirements ###
+  ###################################
+  ./install_engine_requirements.sh
 
-    ################################
-    ### Download necessary files ###
-    ################################
-    echo "Checking out a recent stable version"
-    git clone some-repo.com/some-engine.git
-    cd some-engine
+  ################################
+  ### Download necessary files ###
+  ################################
+  echo "Checking out a recent stable version"
+  git clone some-repo.com/some-engine.git
+  cd some-engine
 
-    ############################
-    ### Perform installation ###
-    ############################
-    cmake cmake 
-    make install
+  ############################
+  ### Perform installation ###
+  ############################
+  cmake cmake
+  make install
 
-    #########################
-    ### Test installation ###
-    #########################
-    {
-        python3 -c 'from someEngine import engine; engine.test()'
-    } || {
-        echo "There was an error with the installation."
-        echo "Please, try again or contact the developer."
-    }
+  #########################
+  ### Test installation ###
+  #########################
+  {
+      python3 -c 'from someEngine import engine; engine.test()'
+  } || {
+      echo "There was an error with the installation."
+      echo "Please, try again or contact the developer."
+  }
 
-  ```
+```
+
 </details>
 
 When the implementation of the wrapper is done, the user should be able to install all the necessary components via:
@@ -285,6 +292,7 @@ When the implementation of the wrapper is done, the user should be able to insta
 ```
 
 ### Dockerfile with the engine
+
 Apart from a system installation, we highly recommend providing a `Dockerfile` with the engine
 and other minimal requirements, in case the system installation is not possible or desired.
 
@@ -292,10 +300,10 @@ Similar to how OSP-core is the structure on top of which the wrappers are made,
 we designed a schema of Docker images where OSP-core is used as a base image.
 
 Thus, OSP-core has an image (currently using Ubuntu) that should be tagged `simphony/osp-core:<VERSION>`.
-The Dockerfile of a wrapper will have that image in the `FROM` statement at the top, 
+The Dockerfile of a wrapper will have that image in the `FROM` statement at the top,
 and take care of installing the engine requirements (and the wrapper itself).
 
-To fix the tagging of the images and the versioning compatibility, 
+To fix the tagging of the images and the versioning compatibility,
 the `Dockerfile` should be installed via the provided `docker_install.sh` script.
 It will tag the OSP-core image and call the Dockerfile in the root of the wrapper accordingly.
 
@@ -304,21 +312,25 @@ making sure to leave the first two lines as they are in the [wrapper development
 `docker_install.sh` will only have to be modified with the proper tag for the wrapper image.
 
 ## Continuous Integration
-GitLab provides Continuous Integration via the `.gitlab-ci.yml` file. 
+
+GitLab provides Continuous Integration via the `.gitlab-ci.yml` file.
 This should be used for checking both the style and the functionality of the code automatically after each commit.
 
-If the wrapper requires the installation of an engine, it would probably be best to install it in a Docker image 
+If the wrapper requires the installation of an engine, it would probably be best to install it in a Docker image
 and push the image to Gitlab Container Registry so that the CI jobs use that image as the base system in which to run.
 
 The `Dockerfile` for the Container Registry image will be very similar to the one used for installing the engine.
 However, here it might be useful to install other libraries like flake8 for style checks.
 
 ## Utility functions for wrapper development
-We have developed some functions that will probably come in handy when developing a wrapper. 
+
+We have developed some functions that will probably come in handy when developing a wrapper.
 You can find them in [osp.core.utils.wrapper_development](https://github.com/simphony/osp-core/blob/master/osp/core/utils/wrapper_development.py).
 
 ## Wrapper Examples
+
 Some wrappers we are developing are:
+
 - [SQLAlchemy](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/sqlalchemy-wrapper)
 - [SQLite](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)
 - [SimLammps](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/simlammps)

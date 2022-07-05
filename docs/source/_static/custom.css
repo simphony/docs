@@ -3,14 +3,14 @@ h1,
 h2,
 h3,
 h4 {
-  color: #6580A1 !important;
+  color: #6580a1 !important;
 }
 
 .btn-outline-primary {
-  border-color: #6580A1 !important;
+  border-color: #6580a1 !important;
 }
 
 .btn-outline-primary:hover {
-  background-color: #6580A1 !important;
+  background-color: #6580a1 !important;
   color: azure !important;
 }
