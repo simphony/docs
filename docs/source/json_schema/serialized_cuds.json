@@ -27,7 +27,10 @@
           "$ref": "#/definitions/relationships"
         }
       },
-      "required": ["uid", "oclass"],
+      "required": [
+        "uid",
+        "oclass"
+      ],
       "example": {
         "uid": "0ed73819-a095-423f-a444-e7e21e600957",
         "oclass": "onto.WaterMolecule",
@@ -68,7 +71,11 @@
       "$$target": "#/definitions/attributes",
       "example": {
         "onto.Foo": 42,
-        "onto.Bar": [1, 2, 3]
+        "onto.Bar": [
+          1,
+          2,
+          3
+        ]
       }
     },
     "relationships": {
