@@ -3,7 +3,7 @@
 In this section we will compile a list of useful utility functions, tools and examples of their usage.
 These functions are part of OSP-core and are used as an extension of the [main API](./detailed_design.md#cuds-api).
 
-## pico (Pico Installs Cuds Ontologies)
+## pico
 
 Our tool for installing ontologies is called `pico`.
 It is a recursive acronym that stands for _Pico Installs Cuds Ontologies_.

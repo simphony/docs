@@ -15,22 +15,22 @@ your ontology to be shipped with SimPhoNy.
 The included ontologies, together with their domains of application, are
 listed below.
 
-- [Elementary Multiperspective Material Ontology (EMMO)](ontologies_included.html#elementary-multiperspective-material-ontology-emmo)
+- [Elementary Multiperspective Material Ontology (EMMO)](#elementary-multiperspective-material-ontology-emmo)
   \- Applied sciences
-- [Dublin Core Metadata Initiative (DCMI)](ontologies_included.html#dublin-core-metadata-initiative-dcmi)
+- [Dublin Core Metadata Initiative (DCMI)](#dublin-core-metadata-initiative-dcmi)
   \- Metadata description
-- [Data Catalog Vocabulary - Version 2 (DCAT2)](ontologies_included.html#data-catalog-vocabulary-version-2-dcat2)
+- [Data Catalog Vocabulary - Version 2 (DCAT2)](#data-catalog-vocabulary---version-2-dcat2)
   \- Data catalogue information
-- [Friend of a Friend (FOAF)](ontologies_included.html#friend-of-a-friend-foaf)
+- [Friend of a Friend (FOAF)](#friend-of-a-friend-foaf)
   \- People and information on the web
-- [The PROV Ontology (PROV-O)](ontologies_included.html#the-prov-ontology-prov-o)
+- [The PROV Ontology (PROV-O)](#the-prov-ontology-prov-o)
   \- Provenance information
-- [The City Ontology](ontologies_included.html#the-city-ontology)
+- [The City Ontology](#the-city-ontology)
   \- Example ontology aimed at demonstrating the usage of SimPhoNy OSP-core
 
 The ontologies can be installed providing the right
 _[package identifier](working_with_ontologies.md#keywords)_ to
-[pico](utils.md#pico-installs-cuds-ontologies). You can find such
+[pico](utils.md#pico). You can find such
 package identifier and additional information on each ontology by clicking on
 the links from the list above.
 
@@ -111,7 +111,7 @@ pico install dcmitype dcterms
 ```
 
 Note that due to the fact that
-[RDFS properties are not supported by OSP-core](working_with_ontologies.html#rdfs-vocabularies),
+[RDFS properties are not supported by OSP-core](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies),
 the properties in these two vocabularies will be ignored. Only the classes will
 be detected.
 
@@ -196,13 +196,13 @@ pico install prov
 ## The City ontology
 
 The City ontology is a
-[simple, example ontology](ontology_intro.html#an-example-the-city-ontology)
+[simple, example ontology](ontology_intro.md#an-example-the-city-ontology)
 included with OSP-core. It provides a collection of concepts to describe
 people and buildings in a city, and is aimed at demonstrating the usage of
 SimPhoNy OSP-core.
 
 To install the
-[city ontology](ontology_intro.html#an-example-the-city-ontology), use
+[city ontology](ontology_intro.md#an-example-the-city-ontology), use
 
 ```sh
 pico install city
