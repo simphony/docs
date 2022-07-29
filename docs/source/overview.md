@@ -94,10 +94,6 @@ The name ‘SimPhoNy’ stems from the SimPhoNy EU-project in which it was origi
 
 Here are some additional terms that are used throughout the documentation:
 
-1. `API`: Application Programming Interface. A set of functions that allow the interaction with an application or system.
-1. `OSP`: Open Simulation Platform.
-   A set of common standards and related tools that form the basic environment on top of which compatible and compliant simulation workflows can be developed and run.
-   An OSP does not contain any simulation tools itself, it is the common framework enabling to couple and link them.
 1. `backend`: a third party application or service.
    Simulation engines and databases are examples of backends.
 1. `wrapper`: a plugin for OSP-core that adds support to a new backend.
@@ -115,5 +111,3 @@ Here are some additional terms that are used throughout the documentation:
    - CUDS exposes an API that provides CRUD (Create, Read, Update and Delete) functionalities.
    - CUDS is a recursive data structure in that a CUDS object may contain other CUDS objects.
    - CUDS is the fundamental data type of OSP-core, a framework that establishes interoperability between software systems that are built on top of ontologies.
-1. `CUDS class`: represents an ontology class (a concept) and encodes its ontological information.
-1. `CUDS object`: is an instance of a CUDS class and represents an ontology individual.
