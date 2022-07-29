@@ -8,5 +8,5 @@ sphinx >= 4.4.0, < 5
 sphinx-autobuild==2021.3.14
 sphinx_book_theme >= 0.3.2, < 0.4
 sphinxcontrib-plantuml >= 0.24, < 0.25
-sphinx-copybutton >= 0.5.0, < 0.5
+sphinx-copybutton >= 0.5.0, < 0.6
 sphinx-panels >= 0.6.0, < 0.7
