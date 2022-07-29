@@ -23,9 +23,12 @@ extensions = [
 
 master_doc = "index"
 
+myst_heading_anchors = 5
+
 plantuml = "java -jar lib/plantuml.jar"
 plantuml_output_format = "svg_img"
 
+suppress_warnings = ["autosectionlabel.*"]
 exclude_patterns = ["**.ipynb_checkpoints"]
 
 # HTML output

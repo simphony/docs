@@ -2,7 +2,7 @@
 
 Here we will give an in-depth view of the design of the 3 layers.
 
-For a more general overview, go to [getting started](./getting_started.md#general-architecture).
+For a more general overview, go to [general architecture](general_architecture.md).
 
 ```{uml}
   :caption: Standard design
@@ -685,7 +685,7 @@ However, these structures will be used in the different `_apply_<buffer>` method
 Similar to how the `_apply_<buffer>` methods are used to send information to the engine,
 `_load_from_backend` has the purpose of updating the semantic layer with the latest information from the backend.
 
-You can see in the [`get` sequence diagram](#id3) that when the information has potentially
+You can see in the [`get` sequence diagram](#get) that when the information has potentially
 changed in the backend (i.e the simulation has run, or a database has more data)
 the `get` has to fetch the latest version.
 To achieve this, OSP-core calls `_load_from_backend` with the list of desired uids,
@@ -696,7 +696,7 @@ information and `yield` them.
 
 _Location:_ `osp.core.session.transport`
 
-You may have noticed in the [session inheritance scheme](#id2) that there is `TransportSession` implementing the `WrapperSession`.
+You may have noticed in the [session inheritance scheme](#session) that there is `TransportSession` implementing the `WrapperSession`.
 This session class is the way to connect to engines that are located in other machines through web sockets.
 
 The behaviour is as follows:
