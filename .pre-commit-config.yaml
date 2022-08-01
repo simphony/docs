@@ -20,13 +20,17 @@ repos:
         files: \.(js|ts|jsx|tsx|css|less|html|markdown|md|yaml|yml)$
 
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 22.3.0
     hooks:
-      - id: black
-        args: [--line-length, "79"]
+        - id: black
+          args:
+              - --line-length=79
 
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
-      - id: isort
-        args: [--profile, black, --filter-files, --line-length, "79"]
+        - id: isort
+          args:
+              - --profile=black
+              - --filter-files
+              - --line-length=79
