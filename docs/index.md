@@ -1,6 +1,15 @@
-# Welcome to the SimPhoNy docs!
+# Welcome to the SimPhoNy documentation!
 
-SimPhoNy is an ontology-based [open-source](license.md) Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
+The SimPhoNy Open Simulation Platform is a framework that aims to achieve
+interoperability between software such as simulation engines, databases and
+data repositories using a knowledge graph as the common language. It is focused
+on the domain of materials science.
+
+SimPhoNy enables:
+
+- Visualization and exploration of OWL ontologies and RDFS Vocabularies
+- Wrappers: interfaces between ontologies and software products or digital objects
+- Manipulation of ontology-based data: work with ontology individuals, transfer them among different software products using the wrappers, and query the knowledge graph
 
 ````{panels}
    :body: text-center
