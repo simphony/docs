@@ -17,9 +17,9 @@ SimPhoNy enables:
    ---
    **Getting Started**
 
-   Overview, main concepts, and installation guide
+   Overview, installation guide and quickstart
 
-   ```{link-button} overview.html
+   ```{link-button} introduction/overview.html
       :text: To the getting started guides
       :classes: btn-outline-primary stretched-link
 
@@ -76,9 +76,8 @@ SimPhoNy enables:
 :maxdepth: 2
 
 introduction/overview
-introduction/fundamentals
-introduction/general_architecture
 introduction/installation
+introduction/quickstart
 ```
 
 ```{toctree}
