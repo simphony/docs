@@ -1,38 +1,42 @@
 # Included ontologies
 
-As described on the [working with ontologies](working_with_ontologies.md)
-section, to use an ontology you first have to install it, and to do so
-usually you have either to define a `yml`
-[configuration file](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies)
-(for OWL ontologies and RDFS vocabularies) or provide the ontology in the
-[OSP-core YAML ontology format](working_with_ontologies.md#osp-core-yaml-ontology-format).
+To use an ontology, you first have to add it to SimPhoNy by
+[installing](pico.md#pico-install) an [ontology package](packages.md).
+Ontology packages are
+[YAML configuration files](https://en.wikipedia.org/wiki/YAML) that, in
+addition to pointing to the actual ontology file, also define extra metadata.
 
-However, in order to make using ontologies easier, we bundle a few of these
-files with OSP-core to enable rapid installation of common,
-well-known ontologies. Do not hesitate to [contact us](../contact.md) if you
-want your ontology to be shipped with SimPhoNy.
+We bundle a few of these files with SimPhoNy to enable rapid installation of
+common, well-known ontologies. The included ontologies, together with their
+domains of application, are listed below.
 
-The included ontologies, together with their domains of application, are
-listed below.
-
-- [Elementary Multiperspective Material Ontology (EMMO)](#elementary-multiperspective-material-ontology-emmo)
+- [](#elementary-multiperspective-material-ontology-emmo)
   \- Applied sciences
-- [Dublin Core Metadata Initiative (DCMI)](#dublin-core-metadata-initiative-dcmi)
+
+- [](#dublin-core-metadata-initiative-dcmi)
   \- Metadata description
-- [Data Catalog Vocabulary - Version 2 (DCAT2)](#data-catalog-vocabulary---version-2-dcat2)
+
+- [](#data-catalog-vocabulary-dcat)
   \- Data catalogue information
-- [Friend of a Friend (FOAF)](#friend-of-a-friend-foaf)
+
+- [](#friend-of-a-friend-foaf)
   \- People and information on the web
-- [The PROV Ontology (PROV-O)](#the-prov-ontology-prov-o)
+
+- [](#the-prov-ontology-prov-o)
   \- Provenance information
-- [The City Ontology](#the-city-ontology)
-  \- Example ontology aimed at demonstrating the usage of SimPhoNy OSP-core
+
+- [](#the-city-ontology)
+  \- Example ontology aimed at demonstrating the usage of SimPhoNy
 
 The ontologies can be installed providing the right
-_[package identifier](working_with_ontologies.md#keywords)_ to
-[pico](../usage/utils.md#pico). You can find such
-package identifier and additional information on each ontology by clicking on
-the links from the list above.
+_[package identifier](packages.md#keywords)_ to
+[_pico_](pico.md), the SimPhoNy's ontology management tool. You can
+find such package identifier and additional information on each ontology by
+clicking on the links from the list above.
+
+Do not hesitate to
+[contact us](../../contact.md) if you want your ontology to be shipped with
+SimPhoNy.
 
 ## Elementary Multiperspective Material Ontology (EMMO)
 
@@ -53,26 +57,17 @@ the links from the list above.
    `official EMMO GitHub repository <https://github.com/emmo-repo/EMMO#readme>`_
 ```
 
-For a short introduction on this ontology, see the
-[fundamentals](../introduction/fundamentals.md#emmo) section. To install the
-[EMMO ontology](https://emmo-repo.github.io/), use
+To install the [EMMO ontology](https://emmo-repo.github.io/), use
 
 ```sh
 pico install emmo
 ```
 
-and then just start creating cuds objects
+A few _EMMO domain ontologies_ are also included, and
+may be installed passing the adequate package identifier to `pico install`.
 
-```py
->>> from osp.core.namespaces import math
->>> math.Numerical.attributes
-{<OntologyAttribute math.hasNumericalData>: None}
->>> x = math.Numerical(hasNumericalData=12)
->>> x
-<math.Numerical: c11cc272-cdcf-421a-8838-5f177b065746,  CoreSession: @0x7f1987173190>
->>> x.hasNumericalData
-12
-```
+- [Datamodel ontology](https://github.com/emmo-repo/datamodel-ontology)
+  (version 0.0.2) - `emmo-datamodel`
 
 ## Dublin Core Metadata Initiative (DCMI)
 
@@ -104,19 +99,16 @@ cross-domain description of resources on the web.
    -- `DCMI Metadata Terms <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/>`_
 ```
 
-To install the `dcmitype` and `dcterms` RDFS vocabularies from the [Dublin
-Core Metadata Initiative (DCMI)](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), use
+To install the `dcmitype`, `dcelements`, `dcam` and `dcterms` RDFS vocabularies
+from the
+[Dublin Core Metadata Initiative (DCMI)](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/),
+use
 
 ```sh
-pico install dcmitype dcterms
+pico install dcmitype dcelements dcam dcterms
 ```
 
-Note that due to the fact that
-[RDFS properties are not supported by OSP-core](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies),
-the properties in these two vocabularies will be ignored. Only the classes will
-be detected.
-
-## Data Catalog Vocabulary - Version 2 (DCAT2)
+## Data Catalog Vocabulary (DCAT)
 
 ```{eval-rst}
 .. epigraph::
@@ -137,10 +129,11 @@ be detected.
    -- `Data Catalog Vocabulary (DCAT) - Version 2 <https://www.w3.org/TR/vocab-dcat-2/>`_
 ```
 
-To install the [DCAT2 ontology](https://www.w3.org/TR/vocab-dcat-2/), use
+To install the [DCAT ontology](https://www.w3.org/TR/vocab-dcat-2/)
+(version 2), use
 
 ```sh
-pico install dcat2
+pico install dcat
 ```
 
 ## Friend of a Friend (FOAF)
@@ -196,14 +189,13 @@ pico install prov
 
 ## The City ontology
 
-The City ontology is a
-[simple, example ontology](ontology_intro.md#an-example-the-city-ontology)
-included with OSP-core. It provides a collection of concepts to describe
-people and buildings in a city, and is aimed at demonstrating the usage of
-SimPhoNy OSP-core.
+The City ontology is a simple, example ontology included with SimPhoNy. It
+provides a collection of concepts to describe people and buildings in a city,
+and is aimed at demonstrating the usage of SimPhoNy.
 
-To install the
-[city ontology](ontology_intro.md#an-example-the-city-ontology), use
+![ontology2dot sample image](../../_static/ontology2dot.png)
+
+To install the City ontology, use
 
 ```sh
 pico install city
