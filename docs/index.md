@@ -116,7 +116,7 @@ api_reference
 
 ```{toctree}
 :hidden: true
-:caption: Additional Info
+:caption: Additional Information
 :maxdepth: 2
 
 contribute
