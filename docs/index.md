@@ -1,6 +1,6 @@
 # Welcome to the SimPhoNy docs!
 
-SimPhoNy is an ontology-based [open-source](./license.md) Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
+SimPhoNy is an ontology-based [open-source](license.md) Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
 
 ````{panels}
    :body: text-center
@@ -66,10 +66,10 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
 :caption: Getting Started
 :maxdepth: 2
 
-overview
-fundamentals
-general_architecture
-installation
+introduction/overview
+introduction/fundamentals
+introduction/general_architecture
+introduction/installation
 ```
 
 ```{toctree}
@@ -77,13 +77,13 @@ installation
 :caption: Usage Guide
 :maxdepth: 2
 
-utils
-jupyter/cuds_api
-jupyter/sessions_and_vars
-jupyter/multiple_wrappers
-jupyter/import_export
-jupyter/simlammps
-jupyter/quantum_espresso
+usage/utils
+usage/cuds_api
+usage/sessions_and_vars
+usage/multiple_wrappers
+usage/import_export
+usage/simlammps
+usage/quantum_espresso
 ```
 
 ```{toctree}
@@ -91,10 +91,10 @@ jupyter/quantum_espresso
 :caption: Working with Ontologies
 :maxdepth: 2
 
-ontology_intro
-working_with_ontologies
-ontologies_included
-jupyter/ontology_interface
+ontologies/ontology_intro
+ontologies/working_with_ontologies
+ontologies/ontologies_included
+ontologies/ontology_interface
 ```
 
 ```{toctree}
@@ -102,8 +102,8 @@ jupyter/ontology_interface
 :caption: Wrapper Development
 :maxdepth: 2
 
-wrapper_development
-jupyter/wrapper_development
+wrappers/wrapper_development_tutorial
+wrappers/wrapper_development
 ```
 
 ```{toctree}
@@ -111,7 +111,7 @@ jupyter/wrapper_development
 :caption: API Reference
 :maxdepth: 2
 
-api_ref
+api_reference
 ```
 
 ```{toctree}

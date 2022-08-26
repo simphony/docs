@@ -1,7 +1,7 @@
 # Wrapper development
 
 For an skeleton structure of a wrapper, you can visit the [wrapper development repo](https://github.com/simphony/wrapper-development).
-For a tutorial on creating a simple wrapper, there is a [jupyter notebook](jupyter/wrapper_development.md) available.
+For a tutorial on creating a simple wrapper, there is a [jupyter notebook](wrapper_development_tutorial.ipynb) available.
 
 ## Ontology
 
@@ -65,18 +65,19 @@ ontology:
 
 ## Coding
 
-An advantage of the [3-layered-design](./getting_started.md#general-architecture) that we follow is the modularity and conceptual separation.
+An advantage of the
+[3-layered-design](../introduction/general_architecture.md) that we follow is the modularity and conceptual separation.
 The closer to the user, the higher the abstraction.
 
 This allows us to group and clearly define which components should and which ones should not be modified when creating a new wrapper.
 
-- [Semantic layer](./detailed_design.md#semantic-layer):
+- [Semantic layer](../detailed_design.md#semantic-layer):
   Requires no work.
   As presented in the previous section, only an entity representing the wrapper has to be present in the ontology.
 
-- [Interoperability layer](./detailed_design.md#interoperability-layer):
+- [Interoperability layer](../detailed_design.md#interoperability-layer):
 
-  - [Session class](./detailed_design.md#session):
+  - [Session class](../detailed_design.md#session):
     Represents the bulk of the work that a wrapper developer needs to do.
     A new class inheriting from the appropriate Session Abstract Base Class must be coded.
     It should at least implement all the inherited abstract methods.
@@ -97,7 +98,7 @@ This allows us to group and clearly define which components should and which one
       - `_rollback_transaction(self)`: Rollback the transaction.
       - `close(self)`: Close the connection.
 
-- [Syntactic layer](./detailed_design.md#syntactic-layer):
+- [Syntactic layer](../detailed_design.md#syntactic-layer):
   If none is available, one must be developed.
 
 To facilitate the creation of the session class on the interoperability layer,

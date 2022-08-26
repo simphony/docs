@@ -1,7 +1,7 @@
 # Utilities
 
 In this section we will compile a list of useful utility functions, tools and examples of their usage.
-These functions are part of OSP-core and are used as an extension of the [main API](./detailed_design.md#cuds-api).
+These functions are part of OSP-core and are used as an extension of the [main API](../detailed_design.md#cuds-api).
 
 ## pico
 
@@ -264,7 +264,7 @@ _Example:_
 >>> Cuds2dot(emmo_town).render()
 ```
 
-![](./_static/img/cuds2dot.png "cuds2dot sample image")
+![](../_static/cuds2dot.png "cuds2dot sample image")
 
 ### Ontology2Dot
 
@@ -285,7 +285,7 @@ _Example:_
 ontology2dot osp/core/ontology/yml/ontology.city.yml
 ```
 
-![](./_static/img/ontology2dot.png "ontology2dot sample image")
+![](../_static/ontology2dot.png "ontology2dot sample image")
 
 ## Search
 
@@ -351,14 +351,14 @@ _Examples:_
 ## Serialization JSON schema of CUDS objects
 
 When you serialize a CUDS object using the
-[`serialize()` method in the utils module](api_ref.html#osp.core.utils.general.serialize),
+[`serialize()` method in the utils module](../api_reference.md#osp.core.utils.general.serialize),
 you will get a json document as a result.
 The method will traverse the hierarchical datastructure
 using Depth First Traversal.
 Therefore, its result is a json array composed of several flat CUDS objects.
 
 This array can later be deserialized using the opposite
-[`deserialize`](api_ref.html#osp.core.utils.general.deserialize).
+[`deserialize`](../api_reference.md#osp.core.utils.general.deserialize).
 
 The serialization is done via [JSON-LD](https://json-ld.org/),
 with the schema used for the [OSP API in Marketplace](https://gitlab.cc-asp.fraunhofer.de/MarketPlace/osp-api).

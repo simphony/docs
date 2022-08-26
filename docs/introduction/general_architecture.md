@@ -1,6 +1,7 @@
 # General architecture
 
-The following architecture has the aim to cover and support the goals presented in the [overview section](overview.md).
+The following architecture has the aim to cover and support the goals presented
+in the [overview section](overview.md).
 
 ```{uml}
    :align: center
@@ -122,9 +123,17 @@ For that, a 3 layer schema is used:
 The closer to the user, the closer to the ontology concepts.
 The abstraction is replaced by specificity when you move towards the backend.
 
-For example, the City, Street or Neighborhood classes from the demonstrative [City Ontology](ontologies_included.md#the-city-ontology) included in OSP-core, as well as the individuals that can be instantiated using them, would be part of the semantic layer. Any wrapper (e.g. the included [SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)), would be part of the interoperability layer. Finally, following the SQLite example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html) from python would be part of the syntactic layer.
+For example, the City, Street or Neighborhood classes from the demonstrative
+[City Ontology](../ontologies/ontologies_included.md#the-city-ontology)
+included in OSP-core, as well as the individuals that can be instantiated using
+them, would be part of the semantic layer. Any wrapper (e.g. the included
+[SQLite wrapper](https://github.com/simphony/osp-core/tree/master/osp/wrappers/sqlite)),
+would be part of the interoperability layer. Finally, following the SQLite
+example, the [sqlite3 library](https://docs.python.org/3/library/sqlite3.html)
+from python would be part of the syntactic layer.
 
-For a full explanation on the architecture and design, go to [detailed design](detailed_design.md).
+For a full explanation on the architecture and design, go to
+[detailed design](../detailed_design.md).
 
 ## OSP-core
 
@@ -135,8 +144,10 @@ It is independent of any backend and provides the basic ontology based data stru
 
 OSP-core requires an ontology file to create the appropriate CUDS classes.
 
-Said ontology must be either in a YAML format as defined by [our specification](working_with_ontologies.md#osp-core-yaml-ontology-format)
-or [one of the supported owl ontologies](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies).
+Said ontology must be either in a YAML format as defined by
+[our specification](../ontologies/working_with_ontologies.md#osp-core-yaml-ontology-format)
+or
+[one of the supported owl ontologies](../ontologies/working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies).
 
 <details>
   <summary>YAML Ontology sample</summary>
@@ -216,7 +227,7 @@ or [one of the supported owl ontologies](working_with_ontologies.md#owl-ontologi
 </details>
 
 OSP-core can be used with EMMO (Elementary Multiperspective Material Ontology) out of the box.
-See more [here](ontologies_included.md).
+See more [here](../ontologies/ontologies_included.md).
 
 ### Python classes
 
@@ -233,8 +244,8 @@ other_entity = another_namespace.SomeOtherEntity()
 
 ### Sessions
 
-The [sessions](./detailed_design.md#session) are the interoperability classes that connect to where the data is stored.
-[In the case of wrappers](./wrapper_development.md#coding), they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
+The [sessions](../detailed_design.md#session) are the interoperability classes that connect to where the data is stored.
+[In the case of wrappers](../wrappers/wrapper_development.md#coding), they take care of keeping consistency between the backends (e.g. databases) and the internal registry.
 
 The `CoreSession` is the default one used when instantiating a new object in your workspace. When you add an object to a wrapper, a copy of the object is created in the registry belonging to the session of the wrapper.
 
@@ -246,5 +257,6 @@ through the cuds API with different backends.
 Since each backend is different, for more detailed documentation of each wrapper
 we suggest going through the different available [repositories](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers/).
 
-For more technical information regarding wrappers, particularly for wrapper developers,
-we recommend visiting [wrapper development](wrapper_development.md).
+For more technical information regarding wrappers, particularly for wrapper
+developers, we recommend visiting
+[wrapper development](../wrappers/wrapper_development.md).

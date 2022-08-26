@@ -79,7 +79,7 @@ The default relationship.
 
 Name the yaml file as you would any yaml file `<name>.yml`, where `<name>` should be replaced by a user defined name.
 
-Then you can use pico to install the tool [Pico](utils.md#pico-installs-cuds-ontologies)
+Then you can use pico to install the tool [Pico](../usage/utils.md#pico)
 to install the ontology:
 
 ```sh
@@ -112,7 +112,7 @@ consideration. Among the used ones are:
   - Restrictions on the ontology classes.
   - Furthermore, all DataProperties are considered functional, see [this issue](https://github.com/simphony/osp-core/issues/416).
 - Restrictions and compositions are also supported. They can be consulted
-  using the [`axioms` attribute of ontology classes](jupyter/ontology_interface.html#Operations-specific-to-ontology-axioms).
+  using the [`axioms` attribute of ontology classes](./ontology_interface.ipynb#Operations-specific-to-ontology-axioms).
 
 No reasoner is included. We plan to include a reasoner in the
 future.
@@ -148,7 +148,7 @@ simplicity reasons in the following we will give examples from the
 
 Name any ontology `<name>.ontology.yml`, where `<name>` should be replaced by a user defined name.
 
-Then you can use pico to install the tool [Pico](#pico-installs-cuds-ontologies)
+Then you can use pico to install the tool [Pico](../usage/utils.md#pico)
 to install the ontology:
 
 ```sh

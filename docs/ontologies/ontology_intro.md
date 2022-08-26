@@ -20,14 +20,15 @@ We will also use it a lot in this documentation as an example.
 
 The city ontology provides the concepts to describe people and
 buildings in a city. In this graph we show the different entities in the
-ontology. We used [Ontology2Dot](utils.md#ontology2dot) for that:
+ontology. We used [Ontology2Dot](../usage/utils.md#ontology2dot) for that:
 
-![ontology2dot sample image](_static/img/ontology2dot.png)
+![ontology2dot sample image](../_static/ontology2dot.png)
 
-To use the city ontology you have to install it using the tool [Pico](utils.md#pico-installs-cuds-ontologies):
+To use the city ontology you have to install it using the tool
+[Pico](../usage/utils.md#pico):
 
 ```sh
 pico install city
 ```
 
-Take a look at our [examples](jupyter/cuds_api.md) to see how you can build your own city!
+Take a look at our [examples](../usage/cuds_api.ipynb) to see how you can build your own city!

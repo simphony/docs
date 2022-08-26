@@ -25,7 +25,7 @@ pip install osp-core
 For an installation from source, see [here](#installing-osp-core-from-source).
 
 After installing OSP-core, you can install your ontology namespaces.
-We provide the [`pico`](utils.md#pico) tool for that purpose.
+We provide the [`pico`](../usage/utils.md#pico) tool for that purpose.
 
 ```sh
 pico install <path/to/ontology.yml>
