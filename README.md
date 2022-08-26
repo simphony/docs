@@ -27,7 +27,7 @@ $ docker build -f local_build.Dockerfile -t simphony-docs .
 Then, start the program by running:
 
 ```shell
-$ docker run --rm -v $PWD:/app -p 8000:8000 simphony-docs
+$ docker run --rm -v $PWD:/app -p 8000:8000 --name simphony-docs simphony-docs
 ```
 
 #### Linux
@@ -51,10 +51,11 @@ $ pip install -r requirements.txt
 Now you can start the server and render the docs:
 
 ```
-$ sphinx-autobuild docs/source docs/build/html
+$ sphinx-autobuild docs build
 ```
 
-The documentation will be available on [`http://127.0.0.1:8000`](http://127.0.0.1:8000).
+The documentation will be available on
+[`http://127.0.0.1:8000`](http://127.0.0.1:8000).
 
 ### PDF (LaTeX)
 
@@ -64,4 +65,4 @@ To generate a PDF of the documentation, simply run (from the root project folder
 make -C docs latexpdf
 ```
 
-The generated PDF can be found under docs/build/latex/SymPhoNy_docs.pdf
+The generated PDF can be found under build/latex/SymPhoNy_docs.pdf

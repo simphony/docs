@@ -164,7 +164,8 @@ and generalising into a middle and top level layers, and it is currently being f
 developed in multiple projects of the European Union.
 
 SimPhoNy is being developed with the intention of being compatible with EMMO, and an easy installation of the
-ontology is available (further explained [here](ontologies_included.md#elementary-multiperspective-material-ontology-emmo)).
+ontology is available (further explained
+[here](../ontologies/ontologies_included.md#elementary-multiperspective-material-ontology-emmo)).
 
 There is also [documentation](https://ontology.pages.fraunhofer.de/documentation/latest/) available for developing an EMMO compliant ontology (requires login).
 

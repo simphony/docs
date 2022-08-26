@@ -12,7 +12,7 @@ To better understand the idea of linked data, take a quick glance at the toy exa
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![Sample linked data](./_static/img/mergedlinkeddata.svg)
+![Sample linked data](../_static/mergedlinkeddata.svg)
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
@@ -26,7 +26,7 @@ Although the example above shows just plain linked data, in SimPhoNy, the linked
 
 ### Fetch data from a database, run a simulation and immediately store the results
 
-Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are in fact a software interface between the core of SimPhoNy (ontology based) and external software tools, disguised to the user as an ontology class. We have already developed wrappers for a few database backends and popular simulation engines for materials science. You can have a look at the existing wrappers on our [GitHub organization](https://github.com/simphony). If needed, you may even consider [developing your own](./wrapper_development.md)!
+Ontology-based linked data is not only well suited for the interoperability of data, but also of software tools. In SimPhoNy, one can instantiate individuals from special ontology classes called _wrappers_. These wrappers are in fact a software interface between the core of SimPhoNy (ontology based) and external software tools, disguised to the user as an ontology class. We have already developed wrappers for a few database backends and popular simulation engines for materials science. You can have a look at the existing wrappers on our [GitHub organization](https://github.com/simphony). If needed, you may even consider [developing your own](../wrappers/wrapper_development.md)!
 
 As a SimPhoNy user, you can see the data stored in the external software tools transparently as ontology individuals through the wrappers. In this way, moving data between different software tools becomes as simple as moving or copying it from one wrapper to another.
 
@@ -34,7 +34,7 @@ For example, linked data stored in a SQLite database can be used to run a simula
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![How wrappers work](./_static/img/wrappers.svg)
+![How wrappers work](../_static/wrappers.svg)
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center"></figcaption>
 
@@ -44,9 +44,9 @@ At this point, the results could be fetched again and for example, visualized wi
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![Toy example of simulation results](./_static/img/trafficsim.svg)
+![Toy example of simulation results](../_static/trafficsim.svg)
 
-<img src="./_static/img/overview_slider.png" width="350px">
+<img src="../_static/overview_slider.png" width="350px">
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center"></figcaption>
 
@@ -62,7 +62,7 @@ This functionality facilitates the coupling and linking between such simulation 
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-<iframe src="./_static/videos/coupling_and_linking.mp4" frameborder="0" allowfullscreen="true"></iframe>
+<iframe src="../_static/coupling_and_linking.mp4" frameborder="0" allowfullscreen="true"></iframe>
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
@@ -76,7 +76,7 @@ In order achieve that, it would be necessary to translate the input and output f
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![Coupling](./_static/img/wrappers_coupled.svg)
+![Coupling](../_static/wrappers_coupled.svg)
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 

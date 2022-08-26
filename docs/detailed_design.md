@@ -2,7 +2,8 @@
 
 Here we will give an in-depth view of the design of the 3 layers.
 
-For a more general overview, go to [general architecture](general_architecture.md).
+For a more general overview, go to
+[general architecture](introduction/general_architecture.md).
 
 ```{uml}
   :caption: Standard design
@@ -678,7 +679,7 @@ Users or wrapper developers do not have to worry about updating this buffers, OS
 (both filling them up and emptying them).
 
 However, these structures will be used in the different `_apply_<buffer>` methods when developing a wrapper
-(see [this](./wrapper_development.md#coding) section of wrapper development).
+(see [this](wrappers/wrapper_development.md#coding) section of wrapper development).
 
 #### Load from Backend
 

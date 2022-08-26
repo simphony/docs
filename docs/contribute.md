@@ -87,7 +87,7 @@ workflow, and the different commits used to synchronise them:
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![](./_static/img/branch_workflow.svg "Branches and commits")
+![](_static/branch_workflow.svg "Branches and commits")
 
 </figure>
 

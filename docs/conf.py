@@ -25,7 +25,7 @@ master_doc = "index"
 
 myst_heading_anchors = 5
 
-plantuml = "java -jar lib/plantuml.jar"
+plantuml = "java -jar _static/plantuml.jar"
 plantuml_output_format = "svg_img"
 
 suppress_warnings = ["autosectionlabel.*"]
@@ -33,8 +33,8 @@ exclude_patterns = ["**.ipynb_checkpoints"]
 
 # HTML output
 html_theme = "sphinx_book_theme"
-html_favicon = "_static/img/simphony_favicon.png"
-html_logo = "_static/img/simphony_logo_dark.png"
+html_favicon = "_static/simphony_favicon.png"
+html_logo = "_static/simphony_logo_dark.png"
 html_theme_options = {
     "github_url": "https://github.com/simphony/docs",
     "repository_url": "https://github.com/simphony/docs",
@@ -61,7 +61,7 @@ latex_documents = [
         "false",
     )
 ]
-latex_logo = "_static/img/simphony_logo_dark.png"
+latex_logo = "_static/simphony_logo_dark.png"
 latex_elements = {"figure_align": "H"}
 
 nbsphinx_allow_errors = True

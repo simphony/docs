@@ -1,6 +1,6 @@
 # Included ontologies
 
-As described on the [working with ontologies](../working_with_ontologies.md)
+As described on the [working with ontologies](working_with_ontologies.md)
 section, to use an ontology you first have to install it, and to do so
 usually you have either to define a `yml`
 [configuration file](working_with_ontologies.md#owl-ontologies-and-rdfs-vocabularies)
@@ -9,8 +9,8 @@ usually you have either to define a `yml`
 
 However, in order to make using ontologies easier, we bundle a few of these
 files with OSP-core to enable rapid installation of common,
-well-known ontologies. Do not hesitate to [contact us](contact.md) if you want
-your ontology to be shipped with SimPhoNy.
+well-known ontologies. Do not hesitate to [contact us](../contact.md) if you
+want your ontology to be shipped with SimPhoNy.
 
 The included ontologies, together with their domains of application, are
 listed below.
@@ -30,7 +30,7 @@ listed below.
 
 The ontologies can be installed providing the right
 _[package identifier](working_with_ontologies.md#keywords)_ to
-[pico](utils.md#pico). You can find such
+[pico](../usage/utils.md#pico). You can find such
 package identifier and additional information on each ontology by clicking on
 the links from the list above.
 
@@ -53,8 +53,9 @@ the links from the list above.
    `official EMMO GitHub repository <https://github.com/emmo-repo/EMMO#readme>`_
 ```
 
-For a short introduction on this ontology, see the [fundamentals](fundamentals.md#emmo)
-section. To install the [EMMO ontology](https://emmo-repo.github.io/), use
+For a short introduction on this ontology, see the
+[fundamentals](../introduction/fundamentals.md#emmo) section. To install the
+[EMMO ontology](https://emmo-repo.github.io/), use
 
 ```sh
 pico install emmo
