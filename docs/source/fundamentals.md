@@ -164,7 +164,7 @@ and generalising into a middle and top level layers, and it is currently being f
 developed in multiple projects of the European Union.
 
 SimPhoNy is being developed with the intention of being compatible with EMMO, and an easy installation of the
-ontology is available (further explained [here](./ontologies_included.md#working-with-emmo)).
+ontology is available (further explained [here](ontologies_included.md#elementary-multiperspective-material-ontology-emmo)).
 
 There is also [documentation](https://ontology.pages.fraunhofer.de/documentation/latest/) available for developing an EMMO compliant ontology (requires login).
 
@@ -232,14 +232,13 @@ The most used formats for storing RDF data are:
   The example triple in XML is:
 
   ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <?xml version="1.0" encoding="utf-8"?>
-    <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  <?xml version="1.0" encoding="UTF-8"?>
+  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
             xmlns:dbp="http://dbpedia.org/property/">
-        <rdf:Description rdf:about="http://dbpedia.org/resource/The_Lord_of_the_Rings">
-            <dbp:author rdf:resource="http://dbpedia.org/resource/J._R._R._Tolkien"/>
-        </rdf:Description>
-    </rdf:RDF>
+      <rdf:Description rdf:about="http://dbpedia.org/resource/The_Lord_of_the_Rings">
+          <dbp:author rdf:resource="http://dbpedia.org/resource/J._R._R._Tolkien"/>
+      </rdf:Description>
+  </rdf:RDF>
   ```
 
 - [N3](https://www.w3.org/TeamSubmission/n3/): Notation3 is designed with human readability as a motivator.

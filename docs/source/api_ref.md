@@ -1,9 +1,4 @@
-```{eval-rst}
-.. raw:: html
-
-    <h1>API Reference</h1>
-
-```
+# API Reference
 
 This document is for developers and/or advanced users of OSP-core, it contains all API details.
 
