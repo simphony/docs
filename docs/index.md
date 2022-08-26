@@ -77,24 +77,18 @@ introduction/installation
 :caption: Usage Guide
 :maxdepth: 2
 
-usage/utils
+usage/ontologies/index
+
+usage/ontology_interface
 usage/cuds_api
+
 usage/sessions_and_vars
 usage/multiple_wrappers
 usage/import_export
 usage/simlammps
 usage/quantum_espresso
-```
 
-```{toctree}
-:hidden: true
-:caption: Working with Ontologies
-:maxdepth: 2
-
-ontologies/ontology_intro
-ontologies/working_with_ontologies
-ontologies/ontologies_included
-ontologies/ontology_interface
+usage/utils
 ```
 
 ```{toctree}
