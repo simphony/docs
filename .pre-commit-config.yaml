@@ -23,10 +23,14 @@ repos:
     rev: 22.6.0
     hooks:
       - id: black
-        args: [--line-length, "79"]
+        args:
+          - --line-length=79
 
   - repo: https://github.com/pycqa/isort
     rev: 5.10.1
     hooks:
       - id: isort
-        args: [--profile, black, --filter-files, --line-length, "79"]
+        args:
+          - --profile=black
+          - --filter-files
+          - --line-length=79
