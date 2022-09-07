@@ -19,26 +19,16 @@ SimPhoNy is an ontology-based [open-source](license.md) Python framework that pr
 
    Core functionalities, wrappers and advanced utilities
 
-   ```{link-button} jupyter/cuds_api.ipynb
+   ```{link-button} usage/ontologies/index.html
       :text: To the usage guides
       :classes: btn-outline-primary stretched-link
 
    ---
-
-   **Working with Ontologies**
-
-   Ontology overview, included ontologies, YAML ontologies and ontology querying
-
-   ```{link-button} ontology_intro.html
-      :text: To the ontology guides
-      :classes: btn-outline-primary stretched-link
-   ---
-
    **Wrapper Development**
 
    A deep dive into the wrapper mechanism for developing new wrappers
 
-   ```{link-button} wrapper_development.html
+   ```{link-button} wrappers/wrapper_development.html
       :text: To the wrapper development guides
       :classes: btn-outline-primary stretched-link
    ---
