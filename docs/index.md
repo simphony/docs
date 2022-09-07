@@ -47,7 +47,7 @@ SimPhoNy is an ontology-based [open-source](license.md) Python framework that pr
 
    Python API of CUDS, the *Session* classes, and other utilities
 
-   ```{link-button} api_ref.html
+   ```{link-button} api_reference.html
       :text: To the API reference
       :classes: btn-outline-primary stretched-link
 
