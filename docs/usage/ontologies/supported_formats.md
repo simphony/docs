@@ -1,4 +1,4 @@
-# Supported languages
+# Supported formats
 
 SimPhoNy supports ontologies in any of the following
 [ontology languages](https://en.wikipedia.org/wiki/Ontology_language)
