@@ -73,10 +73,8 @@ usage/terminological_knowledge
 usage/assertional_knowledge
 
 usage/sessions/index
-usage/multiple_wrappers
-usage/import_export
-usage/simlammps
-usage/quantum_espresso
+
+usage/wrappers/index
 
 usage/visualization
 ```
