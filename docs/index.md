@@ -114,7 +114,6 @@ api_reference
 :maxdepth: 2
 
 contribute
-detailed_design
 links
 license
 Data protection <https://www.simphony-project.eu/en/data_protection.html>
