@@ -70,7 +70,7 @@ introduction/installation
 usage/ontologies/index
 
 usage/terminological_knowledge
-usage/cuds_api
+usage/assertional_knowledge
 
 usage/sessions_and_vars
 usage/multiple_wrappers
