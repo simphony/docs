@@ -78,7 +78,7 @@ usage/import_export
 usage/simlammps
 usage/quantum_espresso
 
-usage/utils
+usage/visualization
 ```
 
 ```{toctree}
