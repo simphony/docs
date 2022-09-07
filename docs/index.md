@@ -108,17 +108,10 @@ wrappers/wrapper_development
 
 ```{toctree}
 :hidden: true
-:caption: API Reference
-:maxdepth: 2
-
-api_reference
-```
-
-```{toctree}
-:hidden: true
 :caption: Additional Info
 :maxdepth: 2
 
+api_reference
 contribute
 detailed_design
 links
