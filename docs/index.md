@@ -69,7 +69,7 @@ introduction/installation
 
 usage/ontologies/index
 
-usage/ontology_interface
+usage/terminological_knowledge
 usage/cuds_api
 
 usage/sessions_and_vars
