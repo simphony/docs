@@ -1,4 +1,4 @@
-git+https://github.com/simphony/osp-core.git#egg=osp-core
+simphony-osp >= 4.0.0rc0, <= 4.0.0rc3
 jinja2 >= 3.0.3, < 4
 jupyter >= 1.0.0, < 2
 markupsafe >= 2.1.1, < 3
