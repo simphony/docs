@@ -72,7 +72,7 @@ usage/ontologies/index
 usage/terminological_knowledge
 usage/assertional_knowledge
 
-usage/sessions_and_vars
+usage/sessions/index
 usage/multiple_wrappers
 usage/import_export
 usage/simlammps
