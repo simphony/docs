@@ -65,3 +65,21 @@ latex_logo = "_static/simphony_logo_dark.png"
 latex_elements = {"figure_align": "H"}
 
 nbsphinx_allow_errors = True
+
+
+def setup(app):
+    import simphony_osp.ontology
+
+    # Override names and modules of members of "simphony_osp.ontology" in the
+    # API reference.
+    for obj in simphony_osp.ontology.__all__:
+        item = getattr(simphony_osp.ontology, obj)
+        setattr(item, "__name__", obj)
+        setattr(item, "__module__", simphony_osp.ontology.__name__)
+
+    # Override names and modules of members of "simphony_osp.session" in the
+    # API reference.
+    for obj in simphony_osp.session.__all__:
+        item = getattr(simphony_osp.session, obj)
+        setattr(item, "__name__", obj)
+        setattr(item, "__module__", simphony_osp.session.__name__)
