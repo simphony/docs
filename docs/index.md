@@ -54,7 +54,7 @@ SimPhoNy enables:
 
    Python API of CUDS, the *Session* classes, and other utilities
 
-   ```{link-button} api_ref.html
+   ```{link-button} api_reference.html
       :text: To the API reference
       :classes: btn-outline-primary stretched-link
 
@@ -113,17 +113,10 @@ usage/visualization
 
 ```{toctree}
 :hidden: true
-:caption: API Reference
+:caption: Additional Info
 :maxdepth: 2
 
 api_reference
-```
-
-```{toctree}
-:hidden: true
-:caption: Additional Information
-:maxdepth: 2
-
 contribute
 links
 license
