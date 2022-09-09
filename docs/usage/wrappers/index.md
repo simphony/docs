@@ -8,6 +8,4 @@ sqlite
 sqlalchemy
 dataspace
 remote
-simmlammps
-quantum_espresso
 ```
