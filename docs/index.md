@@ -1,5 +1,13 @@
 # Welcome to the SimPhoNy docs!
 
+```{note}
+⚠️ You are reading the documentation of a release candidate version of
+SimPhoNy. This version has not yet been thoroughly tested, and its
+functionality is not yet fully documented. The documentation for the latest
+stable version of SimPhoNy can be found
+[here](https://simphony.readthedocs.io/en/latest/).
+```
+
 SimPhoNy is an ontology-based [open-source](license.md) Python framework that promotes and enables interoperability between any 3rd-party software tool. Here you can learn more about it.
 
 ````{panels}
