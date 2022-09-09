@@ -36,26 +36,16 @@ SimPhoNy enables:
 
    Core functionalities, wrappers and advanced utilities
 
-   ```{link-button} jupyter/cuds_api.ipynb
+   ```{link-button} usage/ontologies/index.html
       :text: To the usage guides
       :classes: btn-outline-primary stretched-link
 
    ---
-
-   **Working with Ontologies**
-
-   Ontology overview, included ontologies, YAML ontologies and ontology querying
-
-   ```{link-button} ontology_intro.html
-      :text: To the ontology guides
-      :classes: btn-outline-primary stretched-link
-   ---
-
    **Wrapper Development**
 
    A deep dive into the wrapper mechanism for developing new wrappers
 
-   ```{link-button} wrapper_development.html
+   ```{link-button} wrappers/wrapper_development.html
       :text: To the wrapper development guides
       :classes: btn-outline-primary stretched-link
    ---
@@ -93,34 +83,33 @@ introduction/quickstart
 :caption: Usage Guide
 :maxdepth: 2
 
-usage/utils
-usage/cuds_api
-usage/sessions_and_vars
-usage/multiple_wrappers
-usage/import_export
-usage/simlammps
-usage/quantum_espresso
+usage/ontologies/index
+
+usage/terminological_knowledge
+usage/assertional_knowledge
+
+usage/sessions/index
+
+usage/wrappers/index
+
+usage/visualization
 ```
 
-```{toctree}
-:hidden: true
-:caption: Working with Ontologies
-:maxdepth: 2
+# ```{toctree}
 
-ontologies/ontology_intro
-ontologies/working_with_ontologies
-ontologies/ontologies_included
-ontologies/ontology_interface
-```
+# :hidden: true
 
-```{toctree}
-:hidden: true
-:caption: Wrapper Development
-:maxdepth: 2
+# :caption: Wrapper Development
 
-wrappers/wrapper_development_tutorial
-wrappers/wrapper_development
-```
+# :maxdepth: 2
+
+#
+
+# wrappers/wrapper_development_tutorial
+
+# wrappers/wrapper_development
+
+# ```
 
 ```{toctree}
 :hidden: true
@@ -136,7 +125,6 @@ api_reference
 :maxdepth: 2
 
 contribute
-detailed_design
 links
 license
 Data protection <https://www.simphony-project.eu/en/data_protection.html>
