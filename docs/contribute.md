@@ -23,12 +23,12 @@ It might be useful to become familiar with them:
 
 There are 3 main categories of repos:
 
-- [_OSP-core_](https://github.com/simphony/osp-core) contains the nucleus of
-  SimPhoNy, the base on which the wrappers build.
+- The [_SimPhoNy_ repository](https://github.com/simphony/osp-core/tree/v4.0.0rc3)
+  contains the nucleus of SimPhoNy, the base on which the wrappers build.
 - Each _wrapper_ will be in its own repository on GitHub or GitLab,
   mimicking
   [wrapper_development](https://github.com/simphony/wrapper-development).
-- [_docs_](https://github.com/simphony/docs)
+- [_docs_](https://github.com/simphony/docs/tree/v4.0.0rc3)
   holds the source for this documentation.
 
 There are also 4 types of branches:
@@ -38,15 +38,6 @@ There are also 4 types of branches:
 - `issue branch` is where an specific issue is being solved.
 - `hotfix branch` is where a critical software bug detected on the stable
   release (more on this later) is being solved.
-
-All wrappers and OSP-core are part of a common directory structure:
-
-- _`osp/`_: contains all the SimPhoNy source code.
-  - _`core/`_: OSP-core source code.
-  - _`wrappers/`_: wrappers source code.
-    - _`wrapper_xyz/`_: one folder per wrapper implementation.
-- _`tests/`_: unittests of the code.
-- _`examples/`_: simple examples of how to use a certain feature.
 
 ## Developing workflow
 
