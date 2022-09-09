@@ -42,7 +42,7 @@ html_theme_options = {
     "repository_branch": "main",
     "path_to_docs": "docs",
     "logo_only": True,
-    "show_navbar_depth": 2,
+    "show_navbar_depth": 1,
 }
 
 
@@ -56,7 +56,7 @@ latex_documents = [
         "index",
         "SimPhoNy_docs.tex",
         "SimPhoNy documentation",
-        ("Materials Data Science and " "Informatics team at Fraunhofer IWM"),
+        "Materials Data Science and Informatics team at Fraunhofer IWM",
         "manual",
         "false",
     )
