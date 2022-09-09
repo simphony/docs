@@ -95,22 +95,6 @@ usage/wrappers/index
 usage/visualization
 ```
 
-# ```{toctree}
-
-# :hidden: true
-
-# :caption: Wrapper Development
-
-# :maxdepth: 2
-
-#
-
-# wrappers/wrapper_development_tutorial
-
-# wrappers/wrapper_development
-
-# ```
-
 ```{toctree}
 :hidden: true
 :caption: Additional Info
