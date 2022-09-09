@@ -41,15 +41,6 @@ SimPhoNy enables:
       :classes: btn-outline-primary stretched-link
 
    ---
-   **Wrapper Development**
-
-   A deep dive into the wrapper mechanism for developing new wrappers
-
-   ```{link-button} wrappers/wrapper_development.html
-      :text: To the wrapper development guides
-      :classes: btn-outline-primary stretched-link
-   ---
-
    **API Reference**
 
    Python API of CUDS, the *Session* classes, and other utilities
@@ -94,22 +85,6 @@ usage/wrappers/index
 
 usage/visualization
 ```
-
-# ```{toctree}
-
-# :hidden: true
-
-# :caption: Wrapper Development
-
-# :maxdepth: 2
-
-#
-
-# wrappers/wrapper_development_tutorial
-
-# wrappers/wrapper_development
-
-# ```
 
 ```{toctree}
 :hidden: true
