@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ONTOLOGY=$(python -c "import pkgutil; from pathlib import Path; print(Path(pkgutil.get_loader('simphony_osp_simlammps').get_filename()).parent / 'simlammps.yml')")
+pico install $ONTOLOGY
