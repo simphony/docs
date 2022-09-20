@@ -1,1 +1,6 @@
 graphviz
+build-essential
+cmake
+libjpeg-dev
+libpng-dev
+ffmpeg
