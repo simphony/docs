@@ -4,3 +4,4 @@ cmake
 libjpeg-dev
 libpng-dev
 ffmpeg
+lammps
