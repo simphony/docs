@@ -1,5 +1,6 @@
 #!/bin/bash
 
-ONTOLOGY=$(python -c "import pkgutil; from pathlib import Path; print(Path(pkgutil.get_loader('simphony_osp_simlammps').get_filename()).parent / 'simlammps.yml')")
-pico install $ONTOLOGY
+wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.ttl
+wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.yml
+pico install simlammps.yml
 pico install city emmo
