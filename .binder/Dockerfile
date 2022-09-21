@@ -58,3 +58,6 @@ RUN pico install simlammps.yml
 
 # Install city and emmo ontologies
 RUN pico install city emmo
+
+# Fix problem with lammps not priting output to Python variables
+ENV PYTHONUNBUFFERED=1
