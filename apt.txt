@@ -1,7 +1,3 @@
 graphviz
-build-essential
-cmake
-libjpeg-dev
-libpng-dev
 ffmpeg
-lammps
+python3-lammps

@@ -7,18 +7,3 @@ pico install simlammps.yml
 
 # Install city and emmo ontologies
 pico install city emmo
-
-# Install LAMMPS
-echo "Checking out a recent LAMMPS stable version"
-git clone -b stable https://github.com/lammps/lammps.git
-cd lammps
-# mkdir build
-# cd  build
-# cmake ../cmake -DPKG_MOLECULE=yes -DLAMMPS_EXCEPTIONS=yes -DBUILD_LIB=yes -DBUILD_SHARED_LIBS=yes
-# echo "Building LAMMPS shared library"
-# make
-# echo "Installing LAMMPS shared library and python package"
-# make install-python
-pip install ./python
-cd ..
-rm -rf lammps
