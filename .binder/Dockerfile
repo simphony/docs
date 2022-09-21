@@ -18,6 +18,8 @@ RUN apt-get -qq update && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Hardlink liblammps
+RUN ln /usr/lib/x86_64-linux-gnu/liblammps.so.0 /usr/lib/python3/dist-packages/lammps/liblammps.so
 
 # create user with a home directory
 ARG NB_USER
@@ -39,6 +41,9 @@ USER ${NB_USER}
 # Add ~/.local/bin to PATH
 ENV PATH="${HOME}/.local/bin:${PATH}"
 
+
+# Update nbconvert
+RUN pip install --no-cache-dir nbconvert==6.4.3
 
 # Install requirements
 RUN pip install --no-cache-dir -r requirements.txt
