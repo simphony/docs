@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# Install simlammps ontology
-wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.ttl
-wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.yml
-pico install simlammps.yml
-
-# Install city and emmo ontologies
-pico install city emmo

@@ -1,3 +1,0 @@
-graphviz
-ffmpeg
-python3-lammps

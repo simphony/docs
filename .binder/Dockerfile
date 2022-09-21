@@ -33,7 +33,7 @@ RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
 # Add ~/.local/bin to PATH
-ENV PATH="${PATH}:~/.local/bin"
+ENV PATH="${HOME}/.local/bin:${PATH}"
 
 
 # Install requirements
