@@ -1,7 +1,16 @@
 FROM python:3.10-bullseye
-# install the notebook package
-RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache notebook jupyterlab
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install required packages: Jupyter and packages required to run notebooks.
+RUN apt-get -qq update && \
+    apt-get install --yes --no-install-recommends \
+    jupyter-notebook jupyterhub python3-jupyterlab-server \
+    graphviz ffmpeg python3-lammps && \
+    apt-get -qq purge && \
+    apt-get -qq clean && \
+    rm -rf /var/lib/apt/lists/*
+
 
 # create user with a home directory
 ARG NB_USER
@@ -14,4 +23,11 @@ RUN adduser --disabled-password \
     --uid ${NB_UID} \
     ${NB_USER}
 WORKDIR ${HOME}
-USER ${USER}
+
+# Make sure the contents of our repo are in ${HOME}
+COPY . ${HOME}
+RUN chown -R ${NB_UID} ${HOME}
+USER ${NB_USER}
+
+# Install requirements
+RUN pip install --no-cache-dir -r requirements.txt
