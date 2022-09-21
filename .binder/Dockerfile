@@ -9,7 +9,8 @@ RUN apt-get -qq update && \
     apt-get install --yes --no-install-recommends \
     wget \
     python3 python3-pip \
-    jupyter jupyter-notebook jupyter-nbconvert python3-ipykernel \
+    ipython3 python3-ipykernel \
+    jupyter jupyter-notebook jupyter-nbconvert  \
     python3-jupyterlab-server \
     python3-lammps \
     graphviz ffmpeg && \
