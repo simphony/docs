@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bullseye-slim
 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -9,8 +9,10 @@ RUN apt-get -qq update && \
     apt-get install --yes --no-install-recommends \
     wget \
     python3 python3-pip \
-    jupyter-notebook python3-jupyterlab-server \
-    python3-lammps graphviz ffmpeg && \
+    jupyter jupyter-notebook jupyter-nbconvert python3-ipykernel \
+    python3-jupyterlab-server \
+    python3-lammps \
+    graphviz ffmpeg && \
     apt-get -qq purge && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/*
