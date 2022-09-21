@@ -1,11 +1,14 @@
 FROM python:3.10-bullseye
 
+
 ENV DEBIAN_FRONTEND=noninteractive
+
 
 # Install required packages: Jupyter and packages required to run notebooks.
 RUN apt-get -qq update && \
     apt-get install --yes --no-install-recommends \
     jupyter-notebook python3-jupyterlab-server \
+    wget \
     graphviz ffmpeg python3-lammps && \
     apt-get -qq purge && \
     apt-get -qq clean && \
@@ -29,5 +32,17 @@ COPY . ${HOME}
 RUN chown -R ${NB_UID} ${HOME}
 USER ${NB_USER}
 
+# Add ~/.local/bin to PATH
+ENV PATH="${PATH}:~/.local/bin"
+
+
 # Install requirements
 RUN pip install --no-cache-dir -r requirements.txt
+
+# Install simlammps ontology
+RUN wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.ttl
+RUN wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.yml
+RUN pico install simlammps.yml
+
+# Install city and emmo ontologies
+RUN pico install city emmo
