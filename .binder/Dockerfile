@@ -48,6 +48,9 @@ RUN pip install --no-cache-dir nbconvert==6.4.3
 # Install requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install multiprocess
+RUN pip install multiprocess
+
 # Install simlammps ontology
 RUN wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.ttl
 RUN wget https://raw.githubusercontent.com/simphony/simlammps/main/simphony_osp_simlammps/simlammps.yml
