@@ -1,4 +1,4 @@
-FROM python:3.10-bullseye
+FROM debian:bullseye
 
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -7,9 +7,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install required packages: Jupyter and packages required to run notebooks.
 RUN apt-get -qq update && \
     apt-get install --yes --no-install-recommends \
-    jupyter-notebook python3-jupyterlab-server \
     wget \
-    graphviz ffmpeg python3-lammps && \
+    python3 python3-pip \
+    jupyter-notebook python3-jupyterlab-server \
+    python3-lammps graphviz ffmpeg && \
     apt-get -qq purge && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/*
