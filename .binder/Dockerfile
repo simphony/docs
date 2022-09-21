@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install required packages: Jupyter and packages required to run notebooks.
 RUN apt-get -qq update && \
     apt-get install --yes --no-install-recommends \
-    jupyter-notebook jupyterhub python3-jupyterlab-server \
+    jupyter-notebook python3-jupyterlab-server \
     graphviz ffmpeg python3-lammps && \
     apt-get -qq purge && \
     apt-get -qq clean && \
