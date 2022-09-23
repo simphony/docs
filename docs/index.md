@@ -50,6 +50,15 @@ SimPhoNy enables:
       :classes: btn-outline-primary stretched-link
 
    ---
+   **Developer's documentation**
+
+   Wrapper development, SimPhoNy operations
+
+   ```{link-button} developers/wrappers.html
+      :text: To the developer's documentation
+      :classes: btn-outline-primary stretched-link
+
+   ---
    **Additional Information**
 
    License, acknowledgements, data protection, contact info and more
@@ -84,6 +93,14 @@ usage/sessions/index
 usage/wrappers/index
 
 usage/visualization
+```
+
+```{toctree}
+:hidden: true
+:caption: Developer's documentation
+:maxdepth: 2
+
+developers/wrappers
 ```
 
 ```{toctree}
