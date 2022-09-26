@@ -23,23 +23,17 @@ Therefore, developing a wrapper involves crafting:
 For the latter, SimPhoNy defines the _Wrapper API_, that must be implemented by
 the developer.
 
-The static view on the SimPhoNy's wrapper API highlights the software
-components that the user and wrapper developer interact with, and how they
-are connected.
+## `Wrapper` abstract class
 
-As shown in the diagram below, the user sees a SimPhoNy session object,
-which abstracts all the complexity, appearing just as a simple "box"
-that can store ontology individuals and where relevant
-operations and queries can be run.
-
-However, the session object is an interface to an
-[RDFLib Graph](https://rdflib.readthedocs.io/en/stable/intro_to_graphs.html).
-As the user interacts with the session, triples from the underlying graph are
-being queried, added or removed.
+The database-like interface used by SimPhoNy to communicate with the software,
+called _Wrapper API_, is defined by the `simphony_osp.development.Wrapper`
+abstract class. Objects belonging to the `Wrapper` class are indirectly
+controlled by the interactions between the user and session objects, as the
+diagram below shows.
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
-![Static perspective](../_static/object_diagram.svg)
+![Connection between sessions and wrappers](../_static/object_diagram.svg)
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
@@ -51,8 +45,13 @@ relevant from a developer's perspective._
 
 </figure>
 
-The [RDFLib](https://github.com/RDFLib/rdflib) library provides a further
-abstraction, the
+SimPhoNy makes use of the [RDFLib](https://github.com/RDFLib/rdflib) library to
+handle [RDF](https://www.w3.org/TR/rdf-concepts/) data. Thus, the session is in
+fact an interface to an
+[RDFLib Graph](https://rdflib.readthedocs.io/en/stable/intro_to_graphs.html).
+As the user interacts with the session, triples from the underlying graph are
+queried, added or removed.
+The library also provides a further abstraction, the
 [store](https://rdflib.readthedocs.io/en/stable/_modules/rdflib/store.html).
 Stores abstract [triplestores](https://en.wikipedia.org/wiki/Triplestore), a
 kind of database that can store collections of RDF graphs in the form of
@@ -72,7 +71,8 @@ Perhaps the most important of all is the **base graph**. The base graph is an
 [RDFLib Graph](https://rdflib.readthedocs.io/en/stable/intro_to_graphs.html)
 that is accessible from the wrapper object, and must be kept in sync with the
 software's data structures at all times, as it constitutes their
-**RDF representation**.
+**RDF representation**. The goal of the SimPhoNy Wrapper API is to facilitate
+this task to the developer.
 
 ```{note}
 If an
