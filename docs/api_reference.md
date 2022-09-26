@@ -163,3 +163,24 @@ to instantiate such class by yourself**, and thus doing so is unsupported.
 
 .. autofunction:: simphony_osp.tools.relationships_between
 ```
+
+## Development
+
+```{eval-rst}
+.. autoclass:: simphony_osp.development.Wrapper
+    :members: open, populate, commit, compute, close, load, save, delete, add, remove, triples
+    :special-members: __init__
+
+.. autoclass:: simphony_osp.development.BufferType
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. autoclass:: simphony_osp.development.Operations
+    :members:
+    :undoc-members:
+    :show-inheritance:
+    :special-members: __init__
+
+.. autofunction:: simphony_osp.development.find_operations
+```
