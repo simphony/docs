@@ -1,19 +1,18 @@
 # Wrapper development
 
 SimPhoNy Wrappers are software components that transform data from the
-assertional-knowledge form that they take in SimPhoNy's
-[sessions](../usage/sessions/introduction.ipynb) to the data structures of
+assertional-knowledge form to the data structures of
 other software and back. Wrappers are abstracted to users as
 [sessions](../usage/sessions/introduction.ipynb), which may be viewed
-as "boxes" where ontology individuals can be placed
+as "boxes" where ontology individuals can be stored.
 
 Sessions work in a way similar to databases. To start using them, one first
-has to “open” or “connect” to them. After that, changes can be performed on the
-data they contain, but such changes are not made permanent until a “commit” is
+has to “open” or “connect” to them. After that, changes can be made on the
+data they contain, but such changes are not permanent until a “commit” is
 performed. When one finishes working with them, the connection should be
 “closed”. Unconfirmed changes are lost when the connection is “closed”.
 
-The development of a wrapper involves implementing:
+Therefore, developing a wrapper involves crafting:
 
 - An abstraction of the concepts handled by the software as terminological
   knowledge, that can then be used to represent the information as assertional
@@ -21,10 +20,8 @@ The development of a wrapper involves implementing:
 - A database-like interface that is used by SimPhoNy to communicate with the
   software.
 
-For the latter, SimPhoNy defines a _Wrapper API_ that can be implemented by the
-developer.
-
-## Static perspective
+For the latter, SimPhoNy defines the _Wrapper API_, that must be implemented by
+the developer.
 
 The static view on the SimPhoNy's wrapper API highlights the software
 components that the user and wrapper developer interact with, and how they
