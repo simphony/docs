@@ -25,6 +25,9 @@ domains of application, are listed below.
 - [](#the-prov-ontology-prov-o)
   \- Provenance information
 
+- [](#simple-knowledge-organization-system-skos)
+  \- Knowledge organization systems
+
 - [](#the-city-ontology)
   \- Example ontology aimed at demonstrating the usage of SimPhoNy
 
@@ -185,6 +188,25 @@ To install the [PROV-O ontology](https://www.w3.org/TR/prov-o/), use
 
 ```sh
 pico install prov
+```
+
+## Simple Knowledge Organization System (SKOS)
+
+```{eval-rst}
+.. epigraph::
+
+   SKOS is an area of work developing specifications and standards to support
+   the use of knowledge organization systems (KOS) such as thesauri,
+   classification schemes, subject heading systems and taxonomies within the
+   framework of the Semantic Web.
+
+   -- `Introduction to SKOS <https://www.w3.org/2004/02/skos/intro>`_
+```
+
+To install [SKOS](https://www.w3.org/TR/2009/REC-skos-reference-20090818/), use
+
+```sh
+pico install skos
 ```
 
 ## The City ontology
