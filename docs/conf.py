@@ -68,7 +68,9 @@ nbsphinx_allow_errors = True
 
 
 def setup(app):
+    import simphony_osp.development
     import simphony_osp.ontology
+    import simphony_osp.session
 
     # Override names and modules of members of "simphony_osp.ontology" in the
     # API reference.
@@ -83,3 +85,10 @@ def setup(app):
         item = getattr(simphony_osp.session, obj)
         setattr(item, "__name__", obj)
         setattr(item, "__module__", simphony_osp.session.__name__)
+
+    # Override names and modules of members of "simphony_osp.development" in
+    # the API reference.
+    for obj in simphony_osp.development.__all__:
+        item = getattr(simphony_osp.development, obj)
+        setattr(item, "__name__", obj)
+        setattr(item, "__module__", simphony_osp.development.__name__)

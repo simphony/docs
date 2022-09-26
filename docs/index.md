@@ -2,8 +2,7 @@
 
 ```{note}
 ⚠️ You are reading the documentation of a release candidate version of
-SimPhoNy. This version has not yet been thoroughly tested, and its
-functionality is not yet fully documented. The documentation for the latest
+SimPhoNy. The documentation for the latest
 stable version of SimPhoNy can be found
 [here](https://simphony.readthedocs.io/en/latest/).
 ```
@@ -50,6 +49,15 @@ SimPhoNy enables:
       :classes: btn-outline-primary stretched-link
 
    ---
+   **Developer's documentation**
+
+   Wrapper development, SimPhoNy operations
+
+   ```{link-button} developers/wrappers.html
+      :text: To the developer's documentation
+      :classes: btn-outline-primary stretched-link
+
+   ---
    **Additional Information**
 
    License, acknowledgements, data protection, contact info and more
@@ -84,6 +92,14 @@ usage/sessions/index
 usage/wrappers/index
 
 usage/visualization
+```
+
+```{toctree}
+:hidden: true
+:caption: Developer's documentation
+:maxdepth: 2
+
+developers/wrappers
 ```
 
 ```{toctree}
