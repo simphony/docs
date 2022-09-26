@@ -120,22 +120,164 @@ results. When the user is done, the session is closed.
 
 ## API Specification
 
-TODO
+This section describes the expected behavior of all methods from the Wrapper
+API.
 
-## Writing your own wrapper
+### Main methods
 
-This page is meant to offer a mid-level view on what is a SimPhoNy wrapper
-and how do they work. If you are interested in developing one, please check the
-[wrapper development repository](https://github.com/simphony/wrapper-development),
-where a template for building and packaging a wrapper can be found.
+#### `open`
+
+Secure access to the resources used by your software. For example:
+
+- spawn simulation engine objects
+- open a connection to a database
+- open files that need to be accessed
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.open
+```
+
+#### `populate`
+
+Populate the base session so that it represents the initial state of the
+software. For example:
+
+- given a path to a simulation settings file,
+  populate the session with entities
+  descibing the contents of the file
+- populate the session with dataset
+  individuals after connecting to a data
+  repository
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.populate
+```
+
+#### `commit`
+
+Reflect user's changes on the session in the software's data structure. For
+example:
+
+- configure a simulation's settings
+- update an SQL table
+- modify a file
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.commit
+```
+
+The difference with respect to the `compute` method is that this method should
+not update the content's of the session itself.
+
+#### `close`
+
+Release the resources used by your software. For example:
+
+- terminate the running process
+- close the connection to a database
+- close files that are not needed
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.close
+```
+
+#### `compute` _(optional)_
+
+Perform a computation using the data currently present on the software's data
+structures and update the base session to reflect the changes afterwards.
+For example:
+
+- run a simulation
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.compute
+```
+
+#### `__init__` _(optional)_
+
+The `__init__` method allows the user to provide extra
+parameters in the form of JSON-serializable keyword arguments.
+
+```{note}
+This method does not appear on the flowchart for simplicity, but is executed
+before the `open` method.
+```
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.__init__
+```
+
+### File manipulation methods
+
+#### `load` _(optional)_
+
+Receive an identifier of a file individual and retrieve the corresponding file.
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.load
+```
+
+#### `save` _(optional)_
+
+Receive an identifier of a file individual and a file handle and save the
+contents somewhere.
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.save
+```
+
+#### `delete` _(optional)_
+
+Receive the identifier of a file individual and delete the stored file.
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.delete
+```
+
+### RDF manipulation methods
+
+These methods operate at the RDF triple level. When a triple (or pattern) is
+added or removed, they can intercept the operation and decide whether the
+triple should go to the base graph or not when a commit operation is executed.
+The intercepted triples get stored in a buffer that is accessible during the
+commit operation.
+
+They are useful when one wants to prevent storing the same information twice
+(in the base graph and in the software's data structure).
+
+#### `add` _(optional)_
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.add
+```
+
+#### `remove` _(optional)_
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.remove
+```
+
+#### `triples` _(optional)_
+
+```{eval-rst}
+.. autofunction:: simphony_osp.development.Wrapper.triples
+```
+
+## Packaging template
+
+This page is meant to offer a mid-level view on what SimPhoNy Wrappers are
+and how do they work. If you are interested in developing one, you may find a
+template for building and packaging a wrapper in the
+[wrapper development repository](https://github.com/simphony/wrapper-development).
 
 ```{warning}
 You are reading the documentation of a release candidate version of
-SimPhoNy. This version has not yet been fully documented.
+SimPhoNy.
 
-In particular, the contents of the
+Some details have not yet been fully documented. In particular, the
+contents of the
 [wrapper development repository](https://github.com/simphony/wrapper-development)
 are still outdated. Consider using the
-[SimLAMMPS wrapper code](https://github.com/simphony/simlammps) as
-a template instead until the repository is updated.
+[SimLAMMPS wrapper code](https://github.com/simphony/simlammps)
+as a template instead until the repository is updated.
 ```
