@@ -2,8 +2,7 @@
 
 ```{note}
 ⚠️ You are reading the documentation of a release candidate version of
-SimPhoNy. This version has not yet been thoroughly tested, and its
-functionality is not yet fully documented. The documentation for the latest
+SimPhoNy. The documentation for the latest
 stable version of SimPhoNy can be found
 [here](https://simphony.readthedocs.io/en/latest/).
 ```
