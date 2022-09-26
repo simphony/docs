@@ -23,12 +23,12 @@ It might be useful to become familiar with them:
 
 There are 3 main categories of repos:
 
-- The [_SimPhoNy_ repository](https://github.com/simphony/osp-core/tree/v4.0.0rc3)
+- The [_SimPhoNy_ repository](https://github.com/simphony/osp-core/tree/v4.0.0rc4)
   contains the nucleus of SimPhoNy, the base on which the wrappers build.
 - Each _wrapper_ will be in its own repository on GitHub or GitLab,
   mimicking
   [wrapper_development](https://github.com/simphony/wrapper-development).
-- [_docs_](https://github.com/simphony/docs/tree/v4.0.0rc3)
+- [_docs_](https://github.com/simphony/docs/tree/v4.0.0rc4)
   holds the source for this documentation.
 
 There are also 4 types of branches:
