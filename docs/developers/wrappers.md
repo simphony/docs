@@ -82,16 +82,17 @@ implement a SimPhoNy wrapper. Just create a graph using the plug-in, and set it
 as the base graph for the SimPhoNy wrapper object.
 ```
 
-The goal of the SimPhoNy wrapper API is to facilitate this task to
-the developer.
+## API Overview
 
-## Dynamic perspective
+The [flowchart](https://en.wikipedia.org/wiki/Flowchart) below illustrates the
+**lifecycle** of a session connected to a wrapper object: from its creation to
+the moment it is closed.
 
-The dynamic view on the SimPhoNy's wrapper API offers an insight on how the
-interactions between the user and the session object translate into calls to
-the methods of the wrapper object. The diagram below illustrates the
-**lifecycle** of a session connected to a wrapper object: from its creation
-to the moment it is closed.
+A sequence of method calls is executed as a
+consequence of each possible action the user can take. Each sequence is
+represented using a different color, and the action that triggers it is written
+next to its accompanying arrow, that points to the first method call in the
+sequence.
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
@@ -99,13 +100,23 @@ to the moment it is closed.
 
 <figcaption style="display: table-caption; caption-side: bottom; text-align:center">
 
-_Flowchart showing the actions a user can perform and how they translate
-to calls to the methods of the wrapper object, that the wrapper developer must
-implement._
+_Flowchart showing the catalogue of possible user actions and how they
+translate to calls to the methods of the wrapper class, that the wrapper
+developer must implement._
 
 </figcaption>
 
 </figure>
+
+The `Wrapper` object is spawned when the user opens the session. The `open` and
+`populate` methods are then subsequently called in order to gain access to the
+resources needed by the software and pre-populate the session with ontology
+individuals if necessary. After that, the session is ready to be used. The user
+may then access or modify the assertional knowledge (triggering the optional,
+low-level RDF manipulation methods), access files associated to ontology
+individuals belonging to the _File_ class (triggering the `load` method),
+add or change files, commit the changes or request the software to compute new
+results. When the user is done, the session is closed.
 
 ## API Specification
 
