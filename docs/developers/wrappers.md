@@ -120,8 +120,8 @@ results. When the user is done, the session is closed.
 
 ## API Specification
 
-This section describes the expected behavior of all methods from the Wrapper
-API.
+This section describes the expected behavior of all methods and features from
+the Wrapper API.
 
 ### Main methods
 
@@ -262,6 +262,52 @@ They are useful when one wants to prevent storing the same information twice
 ```{eval-rst}
 .. autofunction:: simphony_osp.development.Wrapper.triples
 ```
+
+### Options
+
+SimPhoNy includes several configurable features that facilitate wrapper
+development. Some of them are enabled by default, while others are disabled.
+Enabling or disabling them consists of configuring the value of an attribute in
+the implementation of the [`Wrapper` abstract class](#wrapper-abstract-class).
+This subsection describes the attributes that can be configured.
+
+#### `entity_tracking` _(default `True`)_
+
+Entity tracking is actually what makes it possible to use the `added`,
+`updated` and `deleted` attributes of the
+[`Wrapper` abstract class](#wrapper-abstract-class) from within the
+[`commit` method](#commit). When set to `True` (the default), whenever triples
+describing a new subject are added, SimPhoNy will add an
+[ontology individual object](../usage/assertional_knowledge.html#Ontology-individual-objects)
+to the `added` list. If the individual already existed and still exists, but
+just some triples for which it is the subject have been added or
+removed, then it is put in the `updated` list. When all triples describing the
+individual are deleted, an
+[ontology individual object](../usage/assertional_knowledge.html#Ontology-individual-objects)
+based on the session's status before the commit is put in the
+`deleted` list.
+
+Disabling this feature speeds up [commits](#commit).
+
+#### `cache` _(default `False`)_
+
+When set to `True`, the [`InterfaceDriver`](#wrapper-abstract-class)
+tries to retrieve triples from a cache managed by SimPhoNy instead of from the
+implementation of the [`Wrapper` abstract class.](#wrapper-abstract-class) or
+its [base graph](#wrapper-abstract-class). Whenever there is a cache miss,
+SimPhoNy queries the `Wrapper` object for that specific triple pattern. In
+addition, if the pattern contains a subject, SimPhoNy will also query all
+information about such ontology individual as well as all "parent", "children"
+and "neighboring" individuals. For an individual, its _parents_ are those other
+individuals who are connected to it through a relationship in which the parent
+is the subject and the aforementioned individual is the object. Similarly, the
+children are those individuals connected to it through a relationship where the
+aforementioned individual is the subject, and the children are the objects.
+The neighbors are the children of the parent individual.
+
+This feature is useful whenever there is communication with a remote server
+involved, as it replaces large amounts of small exchanges of information with
+the server with small amounts of large exchanges of information.
 
 ## Packaging template
 
