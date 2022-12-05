@@ -100,6 +100,7 @@ usage/visualization
 :maxdepth: 2
 
 developers/wrappers
+developers/operations
 ```
 
 ```{toctree}
