@@ -7,8 +7,8 @@ SimPhoNy:
 - [GitLab's SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
 - [GitHub's SimPhoNy group](https://github.com/simphony)
 - [SimPhoNy repository](https://github.com/simphony/simphony-osp)
-- [wrappers](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
-- [wrapper development](https://github.com/simphony/wrapper-development)
+- [SimPhoNy Wrappers on GitLab](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
+- [Wrapper development repository](https://github.com/simphony/wrapper-development)
 
 Technologies used:
 
