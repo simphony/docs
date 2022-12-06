@@ -1,20 +1,18 @@
-## Build Status
+# SimPhoNy documentation
 
-**latest** - [![Documentation latest](https://readthedocs.org/projects/simphony/badge/?version=latest)](https://simphony.readthedocs.io/en/latest/?badge=latest)
-**dev** - [![Documentation dev](https://readthedocs.org/projects/simphony/badge/?version=dev)](https://simphony.readthedocs.io/en/latest/?badge=dev)
+To access the documentation, please visit:
+[https://simphony.readthedocs.io](https://simphony.readthedocs.io/en/v4.0.0/).
 
-# SimPhoNy docs
+If you find any error or problem with the documentation,
+please [create an issue](https://github.com/simphony/docs/issues).
 
-To access the documentation, please visit: [https://simphony.readthedocs.io](https://simphony.readthedocs.io).
-
-If you find any error or problem with the documentation, please [create an issue](https://github.com/simphony/docs/issues).
-
-## Local Rendering
+## Local rendering
 
 ### HTML
 
-A server will start, generate the docs and listen for changes in the source files.
-This can be done by using docker or installing the development environment directly on the you machine. Next are installation guides for Docker and Linux OS.
+Start a server, generate the docs and listen for changes in the source files.
+This can be done by using docker or installing the development environment
+directly on your machine. Next are installation guides for Docker and Linux.
 
 #### Docker
 
@@ -59,7 +57,8 @@ The documentation will be available on
 
 ### PDF (LaTeX)
 
-To generate a PDF of the documentation, simply run (from the root project folder):
+To generate a PDF of the documentation, simply run (from the root project
+folder):
 
 ```sh
 make -C docs latexpdf
