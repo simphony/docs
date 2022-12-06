@@ -1,11 +1,9 @@
 # Contribute
 
-This section aims to explain how we develop and organise,
-in order to help those that want to contribute to SimPhoNy.
+This section aims to explain how we develop and organize, in order to help
+those that want to contribute to SimPhoNy.
 
-## Background
-
-### Tools
+## Development tools
 
 The following are some of the technologies and concepts we use regularly.
 It might be useful to become familiar with them:
@@ -19,15 +17,16 @@ It might be useful to become familiar with them:
 - [Docker](https://www.docker.com/resources/what-container/)
 - Benchmarks
 
-### Code Organisation
+## Code organization
 
-There are 3 main categories of repos:
+There are 3 main categories of repositories:
 
 - The [_SimPhoNy_ repository](https://github.com/simphony/simphony-osp/tree/v4.0.0)
-  contains the nucleus of SimPhoNy, the base on which the wrappers build.
-- Each _wrapper_ will be in its own repository on GitHub or GitLab,
-  mimicking
-  [wrapper_development](https://github.com/simphony/wrapper-development).
+  contains the core the SimPhoNy Open Simulation Platform, that the wrappers
+  depend on.
+- Each _wrapper_ is in its own repository on GitHub or GitLab, mimicking the
+  [wrapper-development](https://github.com/simphony/wrapper-development/tree/v4.0.0)
+  repository.
 - [_docs_](https://github.com/simphony/docs/tree/v4.0.0)
   holds the source for this documentation.
 
@@ -39,14 +38,16 @@ There are also 4 types of branches:
 - `hotfix branch` is where a critical software bug detected on the stable
   release (more on this later) is being solved.
 
-## Developing workflow
+There may be `master/main` and `dev` branches for several major releases.
+
+## Development workflow
 
 - Every new feature or bug is defined in an issue and labelled accordingly.
   If there is something that is missing or needs improving,
-  make an issue in the appropriate project.
+  make an issue in the appropriate repository.
 - Generally, the issues are fixed by creating a new `issue branch` from the
   `dev` branch, committing to that branch and making a new Pull/Merge
-  Request when done. An owner of the project should be tagged for review.
+  Request when done. A maintainer of the project should be tagged for review.
   They will review and merge the PR if the fix is correct, deleting the
   `issue branch` afterwards. The changes should be clearly explained in the
   issue/Pull Request.
@@ -63,18 +64,18 @@ There are also 4 types of branches:
    `hotfix branch`.
 ```
 
-- Once the features for a release have been reached, `dev` will be merged to
+- Once the features for a release have been developed, `dev` will be merged to
   `master/main`. Every new commit in the `master/main` branch generally
   corresponds to a new release, which is labelled with a
   [git tag](https://git-scm.com/book/en/v2/Git-Basics-Tagging) matching its
   version number. An exception to this rule may apply, for example when
   several critical hotfixes are applied in a row, as it would then be
-  better to just to publish a single release afterwards. In regard to
-  version numbering, we adhere to the
-  [_Semantic versioning_](https://semver.org/) rules.
+  better to just publish a single release afterwards. In regard to version
+  numbering, we adhere to the [_Semantic Versioning_](https://semver.org/)
+  rules.
 
 In the next image it can be seen how the branches usually look during this
-workflow, and the different commits used to synchronise them:
+workflow, and the different commits used to synchronize them:
 
 <figure style="display: table; text-align:center; margin-left: auto; margin-right:auto">
 
@@ -84,10 +85,10 @@ workflow, and the different commits used to synchronise them:
 
 ## Coding
 
-### Documenting
+### Documentation
 
 - All code must be properly documented with meaningful comments.
-- For readability, we now follow the
+- For readability, we follow the
   [Google docstring format](https://google.github.io/styleguide/pyguide.html#s3.8-comments-and-docstrings).
 - If some behaviour is very complex, in-line comments can be used.
   However, proper naming and clear operations are always preferred.
@@ -128,43 +129,34 @@ workflow, and the different commits used to synchronise them:
 
 ### Continuous Integration
 
-- We currently run the CI through Github Actions/GitLab CI.
+- We currently run the CI through GitHub Actions/GitLab CI.
 - Code style conventions are enforced through the use of Flake8, black, isort,
   and various
   [pre-commit](https://pre-commit.com/)
   [hooks](https://github.com/simphony/simphony-osp/blob/v4.0.0/.pre-commit-config.yaml).
 - Tests are automatically run for all pull requests.
-- For the OSP-core code, benchmarks are run after every merge to `dev`.
+- For the `simphony-osp` code, benchmarks are run after every merge to `dev`.
   Benchmark results are available
   [here](https://simphony.github.io/simphony-osp/dev/bench/index.html). The CI
   will report a failure when a benchmark is 50% slower than in the previous
   run, in addition to automatically commenting on the commit.
 
-### Naming conventions
-
-- Use `cuds_object` as the argument name of your methods (not `entity`,
-  `cuds`, `cuds_instance`...).
-- The official spelling is `OSP-core` (as opposed to _osp core_, _OSP-Core_
-  or similar).
-
-## Contribute to OSP-core
+## Contribute to SimPhoNy
 
 If you are not a member of the
 [SimPhoNy organisation](https://github.com/simphony), rather than creating
 a branch from `dev`, you will have to fork the repository and create the
 Pull Request.
 
-## Contribute to wrapper development
+## Contribute to the development of a wrapper
 
 For a sample wrapper, visit the
-[wrapper_development](https://github.com/simphony/wrapper-development) repo.
+[wrapper-development](https://github.com/simphony/wrapper-development) repo.
 
 README files should include:
 
 - Information regarding the purpose of the wrapper and the backend used.
-- A compatibility matrix with OSP-core.
 - Installation instructions.
-- Folder structure.
 - Any other necessary information for users and other developers.
 
 ## Contribute to the docs
@@ -172,4 +164,4 @@ README files should include:
 If you have any suggestion for this documentation, whether it is something
 that needs more explanation, is inaccurate or simply a note on anything
 that could be improved, you can open an issue
-[here](https://github.com/simphony/docs/issues), and we will look into it!.
+[here](https://github.com/simphony/docs/issues), and we will look into it!
