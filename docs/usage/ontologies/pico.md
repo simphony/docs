@@ -55,11 +55,9 @@ _Example:_
 
 ```console
 (venv) user@PC:~$ pico install city
-INFO [osp.core.ontology.installation]: Will install the following namespaces: ['city']
-INFO [osp.core.ontology.yml.yml_parser]: Parsing YAML ontology file /.../osp-core/osp/core/ontology/docs/city.ontology.yml
-INFO [osp.core.ontology.yml.yml_parser]: You can now use `from osp.core.namespaces import city`.
-INFO [osp.core.ontology.parser]: Loaded 367 ontology triples in total
-INFO [osp.core.ontology.installation]: Installation successful
+INFO [simphony_osp.utils.pico]: Will install the following packages: city.
+INFO [simphony_osp.utils.pico]: Will install the following namespaces: city.
+INFO [simphony_osp.utils.pico]: Installation successful
 ```
 
 ### pico list
