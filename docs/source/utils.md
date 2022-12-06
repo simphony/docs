@@ -132,17 +132,17 @@ Each function is used in a similar way to its command-line counterpart.
   type, which can be either paths to `yml` ontology installation files or
   names of ontologies that can be installed via this shortcut. It is meant to
   clone the
-  [behavior of its command-line counterpart](https://simphony.readthedocs.io/en/latest/utils.html#pico-installs).
+  [behavior of its command-line counterpart](https://simphony.readthedocs.io/en/v3.8.1/utils.html#pico-installs).
 
 - `uninstall`: accepts _one or more_ positional arguments of string type,
   which must be names of already installed ontology packages. It also
-  clones the [behavior of its command-line counterpart](https://simphony.readthedocs.io/en/latest/utils.html#pico-uninstalls).
+  clones the [behavior of its command-line counterpart](https://simphony.readthedocs.io/en/v3.8.1/utils.html#pico-uninstalls).
 
 - `packages`: accepts no arguments and returns an [iterator](https://wiki.python.org/moin/Iterator)
   over the names of the installed packages.
 
 - `namespaces`: accepts no arguments and returns an iterator yielding one
-  [`OntologyNamespace` object](https://simphony.readthedocs.io/en/latest/api_ref.html#osp.core.ontology.namespace.OntologyNamespace) for each installed namespace.
+  [`OntologyNamespace` object](https://simphony.readthedocs.io/en/v3.8.1/api_ref.html#osp.core.ontology.namespace.OntologyNamespace) for each installed namespace.
 
 Usage examples:
 
