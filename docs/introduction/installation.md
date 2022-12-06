@@ -7,7 +7,7 @@ required. SimPhoNy is
 installed using the [`pip` package manager](https://pip.pypa.io/en/stable/).
 
 ```shell
-pip install osp-core
+pip install simphony-osp
 ```
 
 ## Wrapper installation
@@ -23,7 +23,7 @@ instructions.
 ## Developers
 
 If you are a developer or an advanced user, you might be interested in
-installing OSP-core from source.
+installing SimPhoNy from source.
 
 ```shell
 git clone https://github.com/simphony/simphony-osp.git

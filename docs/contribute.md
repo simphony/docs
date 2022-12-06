@@ -23,12 +23,12 @@ It might be useful to become familiar with them:
 
 There are 3 main categories of repos:
 
-- The [_SimPhoNy_ repository](https://github.com/simphony/osp-core/tree/v4.0.0rc4)
+- The [_SimPhoNy_ repository](https://github.com/simphony/simphony-osp/tree/v4.0.0)
   contains the nucleus of SimPhoNy, the base on which the wrappers build.
 - Each _wrapper_ will be in its own repository on GitHub or GitLab,
   mimicking
   [wrapper_development](https://github.com/simphony/wrapper-development).
-- [_docs_](https://github.com/simphony/docs/tree/v4.0.0rc4)
+- [_docs_](https://github.com/simphony/docs/tree/v4.0.0)
   holds the source for this documentation.
 
 There are also 4 types of branches:
@@ -100,7 +100,7 @@ workflow, and the different commits used to synchronise them:
   [Flake8](https://github.com/pycqa/flake8) tool. The validation is also
   enforced on the repository by the
   [continuous integration](contribute.md#continuous-integration). Click
-  [here](https://github.com/simphony/osp-core/blob/master/.github/workflows/ci.yml#L12)
+  [here](https://github.com/simphony/simphony-osp/blob/v4.0.0/.github/workflows/ci.yml#L12)
   to see the specific options with which Flake8 is launched.
 - All Python code should be reformatted with
   [black](https://github.com/psf/black) and
@@ -108,13 +108,13 @@ workflow, and the different commits used to synchronise them:
   enforced by the
   [continuous integration](contribute.md#continuous-integration). Therefore,
   we strongly recommend that you use the
-  [configuration file](https://github.com/simphony/osp-core/blob/master/.pre-commit-config.yaml)
+  [configuration file](https://github.com/simphony/simphony-osp/blob/v4.0.0/.pre-commit-config.yaml)
   bundled with the repository to
   [install](https://pre-commit.com/#installation) the
   [pre-commit framework](https://pre-commit.com/), that automates the task
   using git pre-commit hooks.
 - A few
-  [other style conventions](https://github.com/simphony/osp-core/blob/master/.pre-commit-config.yaml)
+  [other style conventions](https://github.com/simphony/simphony-osp/blob/v4.0.0/.pre-commit-config.yaml)
   are also enforced by the continuous integration through
   [pre-commit](https://pre-commit.com/) (such as empty lines at the end of
   text files). If you decide not to use it, the CI will let you know what
@@ -132,11 +132,11 @@ workflow, and the different commits used to synchronise them:
 - Code style conventions are enforced through the use of Flake8, black, isort,
   and various
   [pre-commit](https://pre-commit.com/)
-  [hooks](https://github.com/simphony/osp-core/blob/master/.pre-commit-config.yaml).
+  [hooks](https://github.com/simphony/simphony-osp/blob/v4.0.0/.pre-commit-config.yaml).
 - Tests are automatically run for all pull requests.
 - For the OSP-core code, benchmarks are run after every merge to `dev`.
   Benchmark results are available
-  [here](https://simphony.github.io/osp-core/dev/bench/index.html). The CI
+  [here](https://simphony.github.io/simphony-osp/dev/bench/index.html). The CI
   will report a failure when a benchmark is 50% slower than in the previous
   run, in addition to automatically commenting on the commit.
 

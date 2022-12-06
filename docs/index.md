@@ -1,12 +1,5 @@
 # Welcome to the SimPhoNy documentation!
 
-```{note}
-⚠️ You are reading the documentation of a release candidate version of
-SimPhoNy. The documentation for the latest
-stable version of SimPhoNy can be found
-[here](https://simphony.readthedocs.io/en/latest/).
-```
-
 The SimPhoNy Open Simulation Platform is a framework that aims to achieve
 interoperability between software such as simulation engines, databases and
 data repositories using a knowledge graph as the common language. It is focused

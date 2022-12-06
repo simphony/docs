@@ -6,7 +6,7 @@ SimPhoNy:
 
 - [GitLab's SimPhoNy group](https://gitlab.cc-asp.fraunhofer.de/simphony)
 - [GitHub's SimPhoNy group](https://github.com/simphony)
-- [SimPhoNy repository](https://github.com/simphony/osp-core)
+- [SimPhoNy repository](https://github.com/simphony/simphony-osp)
 - [wrappers](https://gitlab.cc-asp.fraunhofer.de/simphony/wrappers)
 - [wrapper development](https://github.com/simphony/wrapper-development)
 
@@ -18,7 +18,7 @@ Technologies used:
 
 # Acknowledgements
 
-SimPhoNy OSP-core and wrappers development is supported by the following Grants:
+SimPhoNy is supported by the following grants:
 
 ```{eval-rst}
 =============  ============  ===============================   ==================
@@ -44,4 +44,5 @@ We would like to acknowledge and thank our project partners, especially
 [Centre Internacional de Mètodes Numèrics a l'Enginyeria (CIMNE)](https://cimne.com/)
 and the [University of Jyväskylä](https://www.jyu.fi/en), for their important
 contributions to some of the core concepts of SimPhoNy, which were originally
-demonstrated under the project https://github.com/simphony/simphony-common.
+demonstrated under the project
+[simphony-common](https://github.com/simphony/simphony-common).
