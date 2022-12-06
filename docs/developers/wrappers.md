@@ -314,4 +314,4 @@ the server with small amounts of large exchanges of information.
 This page is meant to offer a mid-level view on what SimPhoNy Wrappers are
 and how do they work. If you are interested in developing one, you may find a
 template for building and packaging a wrapper in the
-[wrapper development repository](https://github.com/simphony/wrapper-development/tree/v4.0.0rc5).
+[wrapper development repository](https://github.com/simphony/wrapper-development/tree/v4.0.0).

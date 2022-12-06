@@ -42,7 +42,7 @@ consideration. Among the used ones are:
 - To get the attributes of an owl class, we use
   - The `RDFS.domain` of the `DatatypeProperties`, if it is a simple class.
   - Restrictions on the ontology classes.
-  - Furthermore, all DataProperties are considered functional, see [this issue](https://github.com/simphony/osp-core/issues/416).
+  - Furthermore, all DataProperties are considered functional, see [this issue](https://github.com/simphony/simphony-osp/issues/416).
 - Restrictions and compositions are also supported. They can be consulted
   using the [`axioms` attribute of ontology classes](../ontology_interface.ipynb#Operations-specific-to-ontology-axioms).
 
