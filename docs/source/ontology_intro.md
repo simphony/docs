@@ -10,11 +10,11 @@ the representational primitives include information about their meaning
 and constraints on their logically consistent application. (Source:
 <http://tomgruber.org/writing/ontology-definition-2007.htm>)
 
-[//]: # (TODO Extend)
+[//]: # "TODO Extend"
 
 ## An example: the City ontology
 
-OSP-core ships with one simple example ontology, called `city`. 
+OSP-core ships with one simple example ontology, called `city`.
 You can use it to play around and get familiar with OSP-core.
 We will also use it a lot in this documentation as an example.
 

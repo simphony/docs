@@ -24,16 +24,16 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
       :classes: btn-outline-primary stretched-link
 
    ---
-   
+
    **Working with Ontologies**
 
    Ontology overview, included ontologies, YAML ontologies and ontology querying
 
    ```{link-button} ontology_intro.html
-      :text: To the ontology guides 
+      :text: To the ontology guides
       :classes: btn-outline-primary stretched-link
    ---
-   
+
    **Wrapper Development**
 
    A deep dive into the wrapper mechanism for developing new wrappers
@@ -42,7 +42,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
       :text: To the wrapper development guides
       :classes: btn-outline-primary stretched-link
    ---
-   
+
    **API Reference**
 
    Python API of CUDS, the *Session* classes, and other utilities
@@ -50,7 +50,7 @@ SimPhoNy is an ontology-based [open-source](./license.md) Python framework that 
    ```{link-button} api_ref.html
       :text: To the API reference
       :classes: btn-outline-primary stretched-link
-   
+
    ---
    **Additional Information**
 

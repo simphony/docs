@@ -1,0 +1,25 @@
+.caption-text,
+h1,
+h2,
+h3,
+h4 {
+  color: #6580a1 !important;
+}
+
+.btn-outline-primary {
+  border-color: #6580a1 !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: #6580a1 !important;
+  color: azure !important;
+}
+
+@media (min-width: 1200px) {
+  .container-xl {
+    max-width: 1550px;
+  }
+  #site-navigation {
+    max-width: 20%;
+  }
+}
