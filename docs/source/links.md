@@ -51,7 +51,10 @@ demonstrated under the project https://github.com/simphony/simphony-common.
 
 # Compatibility table
 
-The following table describes the compatibilities between of SimPhoNy docs and OSP-core.
+The following table describes the compatibilities between the SimPhoNy docs and
+OSP-core up to version 2.5.1 of the documentation. For later releases, the
+version number of the documentation matches the version number of the OSP-core
+release to which it applies.
 
 ```{eval-rst}
 
